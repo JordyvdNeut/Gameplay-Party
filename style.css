@@ -1,0 +1,19 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #2c3e50;
+  background-color: #f5f5f5;
+  padding: 0px;
+  margin: 0px;
+}
+
+header {
+  background: center 0px / 960px no-repeat url(view/images/gpp.svg) #f5f5f5;
+  width: 960px;
+  height: 280px;
+  margin: 0 auto;
+}
+
+/* classes */
