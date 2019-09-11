@@ -29,6 +29,14 @@ class GPPLogic
       throw $e;
     }
   }
+  public function readBoiscopen()
+  {
+    try {
+      return array("Hier", "Tekst", null);
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
   public function update()
   {
     try { } catch (exception $e) {

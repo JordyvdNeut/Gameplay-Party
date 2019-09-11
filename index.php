@@ -18,6 +18,27 @@
   require_once('view/header.php');
   require_once('view/home.php');
   ?>
+  <title>GPP</title>
+</head>
+
+<body>
+  <header class="container"></header>
+
+  <?php
+  require "controller/c_users.php";
+  $userController = new UserController;
+  $userController->handleRequest();
+
+  ?>
+
+  <footer>
+    <h2>Login</h2>
+    <?php
+    include_once "controller/c_auth.php";
+    $controller = new AuthController();
+    $controller->invoke();
+    ?>
+  </footer>
 </body>
 
 </html>
