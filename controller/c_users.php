@@ -15,6 +15,9 @@ class UserController
     try {
       $op = isset($_REQUEST['op']) ? $_REQUEST['op'] : NULL;
       switch ($op) {
+        case 'loginForm':
+          $this->collectLogin();
+          break;
         case 'overzicht':
           $this->collectOverzicht();
           break;

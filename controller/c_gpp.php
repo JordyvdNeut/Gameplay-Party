@@ -15,9 +15,6 @@ class GPPController
 		try {
 			$op = isset($_REQUEST['op']) ? $_REQUEST['op'] : NULL;
 			switch ($op) {
-				case 'update':
-					$this->update();
-					break;
 				default:
 					$this->collectHome();
 					break;
@@ -30,8 +27,8 @@ class GPPController
 	{
 		include 'view/beheerder/beheerder.php';
 	}
-	public function update()
-	{
-		include 'view/beheerder/beheerder.php';
-	}
+	// public function collectLogin()
+	// {
+	// 	include 'view/login/loginForm.php';
+	// }
 }

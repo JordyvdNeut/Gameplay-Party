@@ -13,6 +13,8 @@
         <header>
             <img class="logo" src="view/images/gpp.svg" alt="Gameplay Party">
             <h2 class="title">Gameplay Party</h2><br>
+            <nav><button href="index.php?op=loginForm">Login</button></nav>
         </header>
+        
 
     </html>
