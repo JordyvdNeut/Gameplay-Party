@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<h2>Home</h2>
+
 <section>
 
 </section>
