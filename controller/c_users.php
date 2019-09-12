@@ -39,4 +39,8 @@ class UserController
     $boiscopen = $this->GPPLogic->readBoiscopen();
     include 'view/overzicht/overzicht.php';
   }
+  public function collectLogin()
+  {
+    include 'view/login/loginForm.php';
+  }
 }
