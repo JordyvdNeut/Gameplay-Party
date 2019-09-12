@@ -1,8 +1,7 @@
 <?php
 require_once 'model/m_DataHandler.php';
 
-class GPPLogic
-{
+class GPPLogic{
 
   public function __construct() {
     $this->DataHandler = new DataHandler("localhost", "mysql", "gpp", "root", "");
@@ -14,16 +13,6 @@ class GPPLogic
     try { 
 
     } catch (exception $e) {
-      throw $e;
-    }
-  }
-
-  public function addBios(){
-    try {
-      /*$sql = 'INSERT INTO * FROM ';
-      $result = $this->DataHandler->readsData($sql);
-      return $result;*/
-     } catch (exception $e) {
       throw $e;
     }
   }
@@ -40,7 +29,7 @@ class GPPLogic
 
   public function read($id){
     try {
-      /*$sql = 'SELECT * FROM bioscopen WHERE id = ' $id ';';
+      /*$sql = 'SELECT * FROM  WHERE id = ' $id ';';
       $result = $this->DataHandler->readsData($sql);
       return $result;*/
      } catch (exception $e) {
@@ -68,10 +57,9 @@ class GPPLogic
 
   public function delete($id){
     try {
-      /*$sql = 'DELETE * FROM bioscopen WHERE id = ';
+      /*$sql = 'DELETE * FROM  WHERE id = ';
       $result = $this->DataHandler->readsData($sql);
       return $result;*/
-
      } catch (exception $e) {
       throw $e;
     }
