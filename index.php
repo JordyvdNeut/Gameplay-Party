@@ -10,13 +10,14 @@
 </head>
 
 <body>
-  <!--<header class="container">Hallo!
-    
-  </header>-->
+ <?php
+  require "controller/c_users.php";
+  $userController = new UserController;
+  $userController->handleRequest();
 
-  <?php
   require_once('view/header.php');
   require_once('view/home.php');
+  require_once('view/footer.php');
   ?>
 </body>
 
