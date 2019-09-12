@@ -2,13 +2,14 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="style.scss">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <section>
   <div class="redacteur">
+    <h2>Redacteur</h2>
     <?php
-    echo $reslt;
+    // echo $reslt;
     ?>
     <form action="" method="POST">
       <p>
@@ -29,6 +30,7 @@
 
 <section>
   <div class="biosBeheer">
+    <h2>Bioscoop beheerder</h2>
     <form></form>
 
   </div>
