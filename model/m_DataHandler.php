@@ -6,8 +6,7 @@ class DataHandler{
 	private $username;
 	private $password;
 
-	public function __construct($host, $dbdriver, $dbname, $username, $password)
-	{
+	public function __construct($host, $dbdriver, $dbname, $username, $password){
 		$this->host = $host;
 		$this->dbdriver = $dbdriver;
 		$this->dbname = $dbname;
@@ -23,8 +22,7 @@ class DataHandler{
 		}
 	}
 
-	public function __destruct()
-	{
+	public function __destruct(){
 		$this->dbh = null;
 	}
 
@@ -37,13 +35,16 @@ class DataHandler{
 		$this->query($sql);
 		return $this->sth->fetch(PDO::FETCH_ASSOC);
 	}
+
 	public function readsData($sql){
 		return $this->dbh->query($sql,PDO::FETCH_ASSOC);
 	}
+
 	public function updateData($sql){
 		$this->query($sql);
 		return $this->rowCount();
 	}
+
 	public function deleteData($sql){
 			$sth = $this->dbh->query($sql);
 			return $sth->rowCount();

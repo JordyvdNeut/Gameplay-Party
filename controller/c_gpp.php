@@ -18,6 +18,16 @@ class GPPController
 				case 'update':
 					$this->update();
 					break;
+				case 'readBios':
+					$this->readBios();
+					break;
+				case 'delBios':
+					$this->deleteBios();
+					break;
+				case 'addBios':
+					$this->addBios();
+					break;
+				
 				default:
 					$this->collectHome();
 					break;
@@ -26,12 +36,30 @@ class GPPController
 			$errors = $e->getErrors();
 		}
 	}
-	public function collectHome()
-	{
+
+	public function collectHome() {
 		include 'view/beheerder/beheerder.php';
 	}
-	public function update()
-	{
+
+	public function update() {
+		$result = $this->m_GPPLogic->update();
 		include 'view/beheerder/beheerder.php';
 	}
+
+	public function readBios() {
+		$result = $this->m_GPPLogic->reads();
+		include 'view/overzicht/overzicht.php';
+	}
+
+	public function addBios() {
+		$result = $this->GPPLogic->addBios();
+		include 'view/beheerder/addbios.php';
+	} 
+
+	public function deleteBios() {
+		$result = $this->GPPLogic->delete();
+		include 'view/beheerder/deleteBios.php';
+	}
+
+
 }
