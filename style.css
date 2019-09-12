@@ -1,6 +1,6 @@
 /*DO NOT CHANGE*/
-*{
-	box-sizing:border-box;
+* {
+  box-sizing: border-box;
 }
 
 html,
@@ -14,71 +14,78 @@ body {
   margin: 0px;
 }
 
-.accents{
-  background-color: #3498db;
+.accents {
+  background-color: #c4e538;
   border: none;
   margin: 5px;
 }
 
+.redacteur {
+  background-color: #c4e538;
+  border: none;
+  margin: 5px;
+  color: #009432;
+}
+
 /* CLASSES */
-a{
+a {
   color: #f5f5f5;
   text-decoration: none;
   padding: 3px;
 }
 
-.title{
+.title {
   margin-right: 20px;
   margin-top: -120px;
 }
 
-.logo{
+.logo {
   width: 80%;
 }
 
-.con_title{
+.con_title {
   text-align: center;
 }
 
-.con_in{
+.con_in {
   padding: 5px;
 }
 
-.content{
-  border: 1px solid black; 
+.content {
+  border: 1px solid black;
 }
 
 /*MEDIA SCREENS*/
-@media (max-width: 768px){
-  .logo{
+@media (max-width: 768px) {
+  .logo {
     width: 100%;
   }
 
-  .title{
-    margin-top:-40px;
+  .title {
+    margin-top: -40px;
     text-align: right;
   }
 
-  .content{
+  .content {
     margin: 20px;
   }
 
-  .con_title{
+  .con_title {
     font-size: 1.5em;
   }
 }
 
-@media (min-width: 768px){
-  .title{
+@media (min-width: 768px) {
+  .title {
     text-align: right;
     font-size: 60px;
   }
 
-  header{
-    margin-bottom: 50px; 
+  header {
+    margin-bottom: 50px;
   }
 
-  .content{
+  .content {
     margin: 30px;
   }
 }
