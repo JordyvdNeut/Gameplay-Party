@@ -13,16 +13,16 @@
     ?>
     <form action="" method="POST">
       <p>
-        <label>Username</label>
+        <label>Gebruikersnaam</label>
         <input id="username" value="" name="username" type="text" required="required" /><br>
       </p>
       <p>
-        <label>Password</label>
+        <label>Wachtwoord</label>
         <input id="password" name="password" type="password" required="required" />
       </p>
       <br />
       <p>
-        <button type="submit" name="submit"><span>Login</span></button> <button type="reset"><span>Cancle</span></button>
+        <button type="submit" name="submit"><span>Inloggen</span></button> <button type="reset"><span>Annuleren</span></button>
       </p>
     </form>
   </div>
