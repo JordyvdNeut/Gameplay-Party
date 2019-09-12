@@ -18,6 +18,7 @@ body {
   background-color: #c4e538;
   border: none;
   margin: 5px;
+  float:right;
 }
 
 .redacteur {
@@ -51,8 +52,13 @@ a {
   padding: 5px;
 }
 
-.content {
-  border: 1px solid black;
+.content{
+  border: 1px solid black; 
+  content: "";
+  clear: both;
+  display: table;
+  width:95%;
+  margin:0 auto;
 }
 
 /*MEDIA SCREENS*/
@@ -86,6 +92,6 @@ a {
   }
 
   .content {
-    margin: 30px;
+    margin-bottom: 30px;
   }
 }
