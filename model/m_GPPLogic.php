@@ -1,51 +1,66 @@
 <?php
 require_once 'model/m_DataHandler.php';
 
-class GPPLogic
-{
+class GPPLogic{
 
-  public function __construct()
-  {
-    $this->DataHandler = new DataHandler("localhost", "mysql", "contacts", "root", "");
+  public function __construct() {
+    $this->DataHandler = new DataHandler("localhost", "mysql", "gpp", "root", "");
   }
-  public function __destruct()
-  { }
-  public function create($formData)
-  {
 
-    try { } catch (exception $e) {
+  public function __destruct(){}
+
+  public function create($formData){
+    try { 
+
+    } catch (exception $e) {
       throw $e;
     }
   }
-  public function reads()
-  {
-    try { } catch (exception $e) {
+
+  public function reads(){
+    try { 
+      /*$sql = 'SELECT * FROM ';
+      $result = $this->DataHandler->readsData($sql);
+      return $result;*/
+    } catch (exception $e) {
       throw $e;
     }
   }
-  public function read($id)
-  {
-    try { } catch (exception $e) {
+
+  public function read($id){
+    try {
+      /*$sql = 'SELECT * FROM  WHERE id = ' $id ';';
+      $result = $this->DataHandler->readsData($sql);
+      return $result;*/
+     } catch (exception $e) {
       throw $e;
     }
   }
-  public function readBoiscopen()
-  {
+
+  public function readBois(){
     try {
       return array("Hier", "Tekst", null);
     } catch (exception $e) {
       throw $e;
     }
   }
-  public function update()
-  {
-    try { } catch (exception $e) {
+
+  public function update(){
+    try {
+      /*$sql = 'UPDATE * SET WHERE id =  ';
+      $result = $this->DataHandler->readsData($sql);
+      return $result;*/
+     } catch (exception $e) {
       throw $e;
     }
   }
-  public function delete($id)
-  {
-    try { } catch (exception $e) {
+
+  public function delete($id){
+    try {
+      /*$sql = 'DELETE * FROM  WHERE id = ';
+      $result = $this->DataHandler->readsData($sql);
+      return $result;*/
+     } catch (exception $e) {
       throw $e;
     }
   }
