@@ -11,12 +11,12 @@
 
 <body>
  <?php
+  require_once('view/header.php');
+  
   require "controller/c_users.php";
   $userController = new UserController;
   $userController->handleRequest();
 
-  require_once('view/header.php');
-  require_once('view/home.php');
   require_once('view/footer.php');
   ?>
 </body>
