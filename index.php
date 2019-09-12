@@ -10,17 +10,15 @@
 </head>
 
 <body>
-  <header class="container"></header>
+  <?php include "view/header.php"; ?>
 
   <?php
   require "controller/c_users.php";
   $userController = new UserController;
   $userController->handleRequest();
-
   ?>
 
-  <footer>
-  </footer>
+  <?php include "view/footer.php"; ?>
 </body>
 
 </html>
