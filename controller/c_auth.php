@@ -11,9 +11,9 @@ class AuthController
   {
     $reslt = $this->model->getlogin();     // it call the getlogin() function of model class and store the return value of this function into the reslt variable.
     if ($reslt == 'login') {
-      include 'view/login/afterLogin.php';
+      require_once('view/beheerder/beheerder.php');
     } else {
-      include 'view/login/loginForm.php';
+      require_once('view/login/loginForm.php');
     }
   }
 }
