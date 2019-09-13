@@ -1,38 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <link rel="stylesheet" href="style.css">
-</head>
-
 <section>
-  <div class="redacteur">
-    <h2>Redacteur</h2>
-    <?php
-    // echo $reslt;
-    ?>
-    <form action="" method="POST">
+  <div class="login">
+    <h2>Bioscoop beheerder</h2>
+    <form action="index.php" method="post">
       <p>
         <label>Gebruikersnaam</label>
-        <input id="username" value="" name="username" type="text" required="required" /><br>
+        <input class="form-control" value="" name="BBusername" type="text" required="required" /><br>
       </p>
       <p>
         <label>Wachtwoord</label>
-        <input id="password" name="password" type="password" required="required" />
+        <input class="form-control" name="BBpassword" type="password" required="required" />
       </p>
       <br />
       <p>
-        <button type="submit" name="submit"><span>Inloggen</span></button> <button type="reset"><span>Annuleren</span></button>
+        <button type="submit" class="btn" name="submit"><span>Inloggen</span></button> <button type="reset" class="btn"><span>Annuleren</span></button>
       </p>
     </form>
   </div>
 </section>
 
 <section>
-  <div class="biosBeheer">
-    <h2>Bioscoop beheerder</h2>
-    <form></form>
-
+  <div class="login">
+    <h2>Redacteur</h2>
+    <form action="index.php" method="post">
+      <p>
+        <label>Gebruikersnaam</label>
+        <input class="form-control" value="" name="Rusername" type="text" required="required" /><br>
+      </p>
+      <p>
+        <label>Wachtwoord</label>
+        <input class="form-control" name="Rpassword" type="password" required="required" />
+      </p>
+      <br />
+      <p>
+        <button type="submit" class="btn" name="submit"><span>Inloggen</span></button> <button type="reset" class="btn"><span>Annuleren</span></button>
+      </p>
+    </form>
   </div>
 </section>
 
