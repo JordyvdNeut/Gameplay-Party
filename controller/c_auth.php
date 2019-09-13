@@ -9,7 +9,7 @@ class AuthController
   }
   public function invoke()
   {
-    $reslt = $this->model->getlogin();     // it call the getlogin() function of model class and store the return value of this function into the reslt variable.
+    $reslt = $this->model->getloginRedact();     // it call the getlogin() function of model class and store the return value of this function into the reslt variable.
     if ($reslt == 'login') {
       require_once('view/beheerder/beheerder.php');
     } else {
