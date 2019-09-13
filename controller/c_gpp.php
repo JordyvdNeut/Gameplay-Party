@@ -1,7 +1,7 @@
 <?php
 require_once 'model/m_GPPLogic.php';
 
-class GPPController{
+class GPPController {
 	
 	public function __construct(){
 		$this->GPPLogic = new GPPLogic();
@@ -25,8 +25,4 @@ class GPPController{
 	public function collectHome() {
 		include 'view/beheerder/beheerder.php';
 	}
-	// public function collectLogin()
-	// {
-	// 	include 'view/login/loginForm.php';
-	// }
 }
