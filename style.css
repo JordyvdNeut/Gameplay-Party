@@ -52,8 +52,8 @@ a {
   padding: 5px;
 }
 
-.content{
-  border: 1px solid black; 
+.content {
+  border: 1px solid black;
   content: "";
   clear: both;
   display: table;
