@@ -2,15 +2,14 @@
 
 class AuthModel
 {
-  public function getlogin()
+  public function getloginRedact()
   {
     // here goes some hardcoded values to simulate the database
-    if (isset($_REQUEST['username']) && isset($_REQUEST['password'])) {
-      if ($_REQUEST['username'] == 'admin' && $_REQUEST['password'] == 'admin') {
-        include("controller/c_gpp.php");
-         $GPPController = new GPPController();
-         return "login";
-         return $GPPController->handleRequest();
+    if (isset($_REQUEST['Rusername']) && isset($_REQUEST['Rpassword'])) {
+      if ($_REQUEST['Rusername'] == 'admin' && $_REQUEST['Rpassword'] == 'admin') {
+        require_once ("controller/c_gpp.php");
+        $GPPController = new GPPController();
+        return $GPPController->handleRequest();
       } else {
         return 'invalid user';
       }
