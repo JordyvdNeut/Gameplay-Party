@@ -16,8 +16,8 @@
   require "controller/c_users.php";
   $userController = new UserController;
   $userController->handleRequest();
-
-  require_once('view/footer.php');
+require_once('view/overzicht/overzicht.php');
+  /*require_once('view/footer.php');*/
   ?>
 </body>
 

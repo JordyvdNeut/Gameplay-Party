@@ -54,34 +54,17 @@ a {
 
 .content {
   border: 1px solid black;
-  content: "";
-  clear: both;
-  display: table;
-  width:95%;
-  margin:0 auto;
+}
+
+.biosPhoto{
+  float: right;
+  position: static;
+  padding: 5px;
+  width: 220px;
 }
 
 /*MEDIA SCREENS*/
-@media (max-width: 768px) {
-  .logo {
-    width: 100%;
-  }
-
-  .title {
-    margin-top: -40px;
-    text-align: right;
-  }
-
-  .content {
-    margin: 20px;
-  }
-
-  .con_title {
-    font-size: 1.5em;
-  }
-}
-
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .title {
     text-align: right;
     font-size: 60px;
@@ -92,6 +75,33 @@ a {
   }
 
   .content {
-    margin-bottom: 30px;
+    margin: 30px;
   }
 }
+
+@media (max-width: 768px) {
+  .logo {
+    width: 100%;
+  }
+
+  .title {
+    margin-top: -25px;
+    text-align: right;
+  }
+
+  .content {
+    margin: 20px;
+  }
+
+  .con_title {
+    font-size: 1.5em;
+  }
+
+.biosPhoto {
+    width: 150px;
+    position: static;
+    float:right; 
+}
+
+
+   
