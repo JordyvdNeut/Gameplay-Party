@@ -14,7 +14,10 @@
 <header>
     <img class="logo" src="view/images/gpp.svg" alt="Gameplay Party">
     <h2 class="title">Gameplay Party</h2><br>
-    <nav><a href="index.php?op=loginForm"><button>Login</button></a></nav>
+    <nav>
+        <a href="index.php?op=home"><button class="btn">Home</button></a>
+        <a href="index.php?op=loginForm"><button class="btn">Login</button></a>
+    </nav>
 </header>
 
 
