@@ -115,8 +115,9 @@ div.login button {
     font-size: 1.5em;
   }
 
-.biosPhoto {
-    width: 150px;
-    position: static;
-    float:right; 
+    .biosPhoto {
+      width: 150px;
+      position: static;
+      float:right; 
+  }
 }
