@@ -74,10 +74,7 @@ div.login {
   background-color: #c4e538;
   border: none;
   margin: 15px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px;
 }
 
 div.login h2 {
