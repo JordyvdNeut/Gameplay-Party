@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <link rel="stylesheet" href="style.css">
-</head>
+<?php
+$_SESSION['user_role'];
+if (isset($_SESSION['user_role']) == 3) {
+  ?>
+  <?php require_once "view/beheerder/header.php"; ?>
 
-<body>
+  <section>
+    <a style="color: #2c3e50;" href="#">
+      <div class="login">
+        <h2>Content overzicht</h2>
+        Hier vind u een overzicht van alle content in de website. Deze content kunt u bewerken.
+      </div>
+    </a>
+  </section>
 
+<?php
+} else {
+  // Redirect them to the login page
+  header("Location: index.php?op=loginForm");
+}
+?>
 
-
-<h2>Beheerder</h2>
-  <section></section>
-</body>
 </html>

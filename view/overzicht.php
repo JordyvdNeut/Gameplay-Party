@@ -1,8 +1,6 @@
 <html lang="en">
 
-<head>
-  <link rel="stylesheet" href="overzicht.css">
-</head>
+<?php require_once('view/header.php'); ?>
 
 <body>
   <h2 class="header">Overzicht</h2>

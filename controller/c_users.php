@@ -21,18 +21,19 @@ class UserController
         case 'overzicht':
           $this->collectOverzicht();
           break;
-        default:
+        case 'home':
           $this->collectHome();
           break;
       }
-    } catch (ValidationException $e) {
-      $errors = $e->getErrors();
+    } 
+    catch (ValidationException $e) {
+      // $errors = $e->getErrors();
     }
   }
   public function collectHome()
   {
     $template = $this->GPPLogic->reads();
-    include 'view/home/home.php';
+    include 'view/home.php';
   }
   public function collectOverzicht()
   {
@@ -41,6 +42,6 @@ class UserController
   }
   public function collectLogin()
   {
-    include 'view/login/loginForm.php';
+    include 'view/loginForm.php';
   }
 }
