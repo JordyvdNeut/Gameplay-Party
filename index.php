@@ -14,13 +14,18 @@
 
 <body>
   <?php
-  require_once('view/header.php');
+  session_start();
 
-  require "controller/c_users.php";
+  require_once "controller/c_users.php";
   $userController = new UserController;
   $userController->handleRequest();
 
+  require_once "controller/c_auth.php";
+  $controller = new AuthController();
+  $controller->invoke();
+
   require_once('view/footer.php');
+
   ?>
 </body>
 
