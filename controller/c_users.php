@@ -24,6 +24,9 @@ class UserController
         case 'home':
           $this->collectHome();
           break;
+          case 'over_ons':
+          $this->collectOns();
+          break;
       }
     } 
     catch (ValidationException $e) {
@@ -43,5 +46,9 @@ class UserController
   public function collectLogin()
   {
     include 'view/loginForm.php';
+  }
+  public function collectOns(){
+  $template = $this->GPPLogic->reads();
+  include 'view/over_ons.php';
   }
 }
