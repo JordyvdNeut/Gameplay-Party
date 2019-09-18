@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../style.css" type="text/css">
 </head>
         <main>
-            <div class="content">
+            <div class="content overons">
 
                 <h1 class="con_title">Over ons</h1>
 
@@ -22,7 +22,7 @@
                 <button class="accents"><a href='view/.php'>Lees meer</a></button>
             </div>
 
-            <div class="content">
+            <div class="content email">
                 <h1 class="con_title">Email</h1>
                 <p class="con_in">
              zoek contact op via onze email <a href='mailto:testing@testing.com'>hier</a>
