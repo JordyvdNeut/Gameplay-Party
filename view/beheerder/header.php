@@ -12,7 +12,8 @@
 </head>
 
 <header>
-  <img class="logo" src="view/images/gpp.svg" alt="Gameplay Party">
+<a href="index.php?op=home">
+    <img class="logo" src="view/images/gpp.svg" alt="Gameplay Party"></a>
   <h2 class="title">Beheerder</h2><br>
   <!-- <nav>
     <a href="" onclick=""><button>Bioscopen overzicht</button></a>
