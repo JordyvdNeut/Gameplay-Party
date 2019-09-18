@@ -50,8 +50,11 @@ nav{
 .accents {
   background-color: #c4e538;
   border: none;
-  margin: 5px;
+  /*margin: 5px;*/
   float:right;
+  display: inline-block;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.3rem;
 }
 
 .title {
@@ -133,4 +136,5 @@ div.login button {
     margin-top: 30px;
     margin-bottom: 30px;
   }
+
 }
