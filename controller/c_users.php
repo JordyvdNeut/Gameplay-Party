@@ -37,8 +37,8 @@ class UserController
   }
   public function collectOverzicht()
   {
-    $boiscopen = $this->GPPLogic->readBoiscopen();
-    include 'view/overzicht/overzicht.php';
+    /*$boiscopen = $this->GPPLogic->readBoiscopen();*/
+    include 'view/overzicht.php';
   }
   public function collectLogin()
   {

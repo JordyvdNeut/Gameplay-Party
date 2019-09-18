@@ -30,7 +30,22 @@ a:hover {
   padding: 3px;
 }
 
+header{
+  background-color: #c4e538;
+}
+
+nav{
+  background-color: #2c3e50;
+  height: 50px;
+}
+
 /* CLASSES */
+
+.biosPhoto{
+      width: 150px;
+      position: static;
+      float: right; 
+}
 
 .accents {
   background-color: #c4e538;
@@ -62,13 +77,13 @@ a:hover {
   content: "";
   clear: both;
   display: table;
-  width: 92%;
   margin: 15px;
 }
 
 button.btn {
   background-color: #2c3e50;
   color: #c4e538;
+  height: 100%;
 }
 
 div.login {
