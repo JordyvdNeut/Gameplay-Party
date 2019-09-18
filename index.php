@@ -24,7 +24,7 @@
   $controller = new AuthController();
   $controller->invoke();
 
-  require_once('view/footer.php');
+  // require_once('view/footer.php');
 
   ?>
 </body>

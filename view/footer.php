@@ -1,6 +1,6 @@
 <!DOCTYPE html>
     <html>
        
-  <footer>
+  <footer>© Copyright Knakworst <?php echo date('Y') ?>
   </footer>
     </html>

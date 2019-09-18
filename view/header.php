@@ -12,10 +12,12 @@
 </head>
 
 <header>
-    <img class="logo" src="view/images/gpp.svg" alt="Gameplay Party">
+    <a href="index.php?op=home">
+    <img class="logo" src="view/images/gpp.svg" alt="Gameplay Party"></a>
     <h2 class="title">Gameplay Party</h2><br>
     <nav>
         <a href="index.php?op=home"><button class="btn">Home</button></a>
+        <a href="index.php?op=overzicht"><button class="btn">Bioscopen</button></a>
         <a href="index.php?op=overons"><button class="btn">Over ons</button></a>
         <a href="index.php?op=loginForm"><button class="btn">Login</button></a>
        
