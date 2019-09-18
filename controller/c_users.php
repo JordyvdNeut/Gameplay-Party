@@ -24,24 +24,31 @@ class UserController
         case 'home':
           $this->collectHome();
           break;
+      case 'overons':
+        $this->collectOverOns();
+        break;
       }
     } 
     catch (ValidationException $e) {
       // $errors = $e->getErrors();
     }
   }
-  public function collectHome()
-  {
+
+  public function collectHome() {
     $template = $this->GPPLogic->reads();
     include 'view/home.php';
   }
-  public function collectOverzicht()
-  {
+
+  public function collectOverzicht() {
     /*$boiscopen = $this->GPPLogic->readBoiscopen();*/
     include 'view/overzicht.php';
   }
-  public function collectLogin()
-  {
+
+  public function collectLogin() {
     include 'view/loginForm.php';
+  }
+
+  public function collectOverOns() {
+    include 'view/over_ons.php';
   }
 }

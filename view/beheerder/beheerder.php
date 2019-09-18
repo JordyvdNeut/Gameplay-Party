@@ -6,7 +6,7 @@ $_SESSION['user_role'];
 if (isset($_SESSION['user_role']) == 3) {
   ?>
   <?php require_once "view/beheerder/header.php"; ?>
-
+<nav></nav>
   <section>
     <a style="color: #2c3e50;" href="#">
       <div class="login">
