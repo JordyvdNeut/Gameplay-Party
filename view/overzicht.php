@@ -7,16 +7,19 @@
     <section>
     <div class="center">
     <div class="row">
-    <div class="content col-6">
+    <div class="col-6">
+    <div class="content">
                 <h1 class="con_title"><?php ?>Kinepolis Jaarbeurs  Utrecht</h1>
                 <p class="con_in"><img class="biosPhoto" src='view/images/kine_utrecht.jpg'><?php ?>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><br>
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 <button class="accents"><a href='view/.php'>Lees meer</a></button>
             </div>
+</div>
 
-            <div class="content col-6">
+            <div class=" col-6">
+                <div class="content">
                 <h1 class="con_title"><?php ?>Kinepolis Almere</h1>
                 <p class="con_in"><img class="biosPhoto" src='view/images/kine_almere.jpg'><?php ?>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -24,8 +27,10 @@
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 <button class="accents"><a href='view/.php'>Lees meer</a></button>
             </div>
+</div>
 
-            <div class="content col-6">
+            <div class=" col-6">
+                <div class="content">
                 <h1 class="con_title"><?php ?>Kinepolis Den Helder</h1>
                 <p class="con_in"><img class="biosPhoto" src='view/images/kine_denhelder.jpg'><?php ?>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -33,6 +38,7 @@
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 <button class="accents"><a href='view/.php'>Lees meer</a></button>
             </div>
+</div>
             </div>
             </div>
     </section>

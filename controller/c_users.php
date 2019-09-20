@@ -21,11 +21,11 @@ class UserController
         case 'overzicht':
           $this->collectOverzicht();
           break;
-        case 'home':
-          $this->collectHome();
-          break;
       case 'overons':
         $this->collectOverOns();
+        break;
+        default:
+        $this->collectHome();
         break;
       }
     } 

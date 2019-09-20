@@ -125,23 +125,18 @@ footer{
   display: table;
   /* margin: 15px; */
 }
-
-.content.overons {
-  width: 78%;
-  float: left;
-}
-
 .content.email {
-  width: 15%;
-  float: left;
+  width: 100%;
 }
-
 button.btn {
   background-color: #34495E;
   color: #c4e538;
   height: 100%;
   float: right;
   border-left: 1px solid white;
+}
+button.btn:hover {
+  background-color: #c4e538;
 }
 
 div.login {

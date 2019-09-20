@@ -20,7 +20,7 @@
         <a href="index.php?op=home"><button class="btn">Home</button></a>
 </nav>
 <a href="index.php?op=home">
-    <img class="logo" src="view/images/gpp.svg" alt="Gameplay Party" >
+    <img class="logo" src="view/images/gpp.svg" alt="Gameplay Party" ></a>
     <h2 class="title">Gameplay Party</h2><br>
     
 </header>
