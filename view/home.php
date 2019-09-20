@@ -4,7 +4,8 @@
 <main>
 <div class="center">
 <div class="row">
-    <div class="content col-12">
+    <div class=" col-12">
+        <div class="content">
         <h1 class="con_title">Wat is Gameplay Party?</h1>
         <p class="con_in">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -14,8 +15,10 @@
         </p>
         <button class="accents"><a href='?op=overons'>Lees meer</a></button>
     </div>
+</div>
 
-    <div class="content col-12">
+    <div class=" col-12">
+        <div class="content">
         <h1 class="con_title">Bekijk hier het bioscoopoverzicht</h1>
         <p class="con_in">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -25,6 +28,7 @@
         </p>
         <button class="accents"><a href='?op=overzicht'>Lees meer</a></button>
     </div>
+</div>
 </div>
 </div>
 </main>
