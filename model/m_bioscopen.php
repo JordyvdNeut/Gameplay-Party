@@ -20,11 +20,11 @@ class bioscopen{
         }
       }
     
-      public function readsBios(){
+      public function readsBioscopen(){
         try { 
-          /*$sql = 'SELECT * FROM bioscopen ';
+          $sql = 'SELECT * FROM bioscopen';
           $result = $this->DataHandler->readsData($sql);
-          return $result;*/
+          return $result;
         } catch (exception $e) {
           throw $e;
         }
