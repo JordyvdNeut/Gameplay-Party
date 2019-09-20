@@ -36,6 +36,11 @@ nav{
 }
 
 /* CLASSES */
+.center{
+  padding-right:50px;
+  padding-left:50px;
+}
+
 footer{
   text-align: center;
   /* background-color: #2c3e50; */
