@@ -11,7 +11,7 @@
         <main>
         <div class="center">
         <div class="row">
-            <div class="col-12">
+            <div class="col-9">
                 <div class="content overons">
                 <h1 class="con_title">Over ons</h1>
                 <p class="con_in">
@@ -24,13 +24,13 @@
             </div>
             </div>
 
-            <div class="col-12">
+            <div class="col-3">
                 <div class="content email">
                 <h1 class="con_title">Email</h1>
                 <p class="con_in">
              zoek contact op via onze email 
                 </p>
-                <button class="accents"><a href='view/.php'>Lees meer</a></button>
+                <button class=" accents"><a href='view/.php'>Lees meer</a></button>
             </div>
             </div>
             </div>
