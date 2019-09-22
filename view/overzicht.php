@@ -40,5 +40,6 @@ echo $productsTable;?>
             </div>
             </div>
     </section>
+    <?php require_once('view/footer.php'); ?>
 </body>
 </html>

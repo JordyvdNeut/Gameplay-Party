@@ -52,9 +52,13 @@ footer{
   margin: 5px;
   padding: 0px;
 }
-
+.center_footer {
+  padding: 0 50px;
+  text-align: center;
+}
 .contact_foot{
   width: 20%;
+  float:right;
 }
 
 .voorw_foot{
