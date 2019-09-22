@@ -2,16 +2,16 @@
 
 <?php require_once('header.php'); 
 require_once 'controller/c_bioscopen.php';
-            
-$this->biosController = new biosController();
-$productsTable = $this->biosController->createTable($result);
-echo $productsTable;?>
+
+$this->c_bioscopen= new biosController();
+$productsTable = $this->c_bioscopen->createTable($result);
+echo $productsTable;
+?>
 
 <body>
   <h2 class="header">Overzicht</h2>
     <section>
 
-   
     <div class="center">
     <div class="row">
     <div class="col-6">

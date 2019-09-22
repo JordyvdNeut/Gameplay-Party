@@ -20,15 +20,13 @@ class bioscopen{
         }
       }
     
-      public function readsBioscopen(){
-        try { 
-          $sql = 'SELECT * FROM bioscopen';
-          $result = $this->DataHandler->readsData($sql);
-          return $result;
-        } catch (exception $e) {
-          throw $e;
-        }
-      }
+      public function readProducts() {
+        try{
+            $sql = 'SELECT * FROM bioscopen';
+            $results = $this->DataHandler->readsData($sql);
+            return $results;
+        } catch (exception $e){throw $e;} 
+    }
     
       public function readBois($id){
         try {

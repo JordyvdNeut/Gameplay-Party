@@ -18,9 +18,7 @@ class UserController
         case 'loginForm':
           $this->collectLogin();
           break;
-        case 'overzicht':
-          $this->collectOverzicht();
-          break;
+      
       case 'overons':
         $this->collectOverOns();
         break;
@@ -37,11 +35,6 @@ class UserController
   public function collectHome() {
     $template = $this->GPPLogic->reads();
     include 'view/home.php';
-  }
-
-  public function collectOverzicht() {
-    /*$boiscopen = $this->GPPLogic->readBoiscopen();*/
-    include 'view/overzicht.php';
   }
 
   public function collectLogin() {
