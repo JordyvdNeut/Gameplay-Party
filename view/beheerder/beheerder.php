@@ -2,7 +2,7 @@
 <html lang="en">
 
 <?php
-$_SESSION['user_role'];
+//$_SESSION['user_role'];
 if (isset($_SESSION['user_role']) == 3) {
   ?>
   <?php require_once "view/beheerder/header.php"; ?>
@@ -19,7 +19,7 @@ if (isset($_SESSION['user_role']) == 3) {
 <?php
 } else {
   // Redirect them to the login page
-  header("Location: index.php?op=loginForm");
+  //header("Location: index.php?op=loginForm");
 }
 ?>
 

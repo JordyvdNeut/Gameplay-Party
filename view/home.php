@@ -26,11 +26,11 @@
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
-        <button class="accents"><a href='?op=overzicht'>Lees meer</a></button>
+        <button class="accents"><a href='?op=readBios'>Lees meer</a></button>
     </div>
 </div>
 </div>
-</div>
+<?php require_once('view/footer.php'); ?>
 </main>
 
 </html>

@@ -24,6 +24,10 @@
   $controller = new AuthController();
   $controller->invoke();
 
+  require_once 'controller/c_bioscopen.php';
+  $controller = new biosController();
+  $controller->handleRequest();
+
   // require_once('view/footer.php');
 
   ?>
