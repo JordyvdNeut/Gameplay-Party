@@ -24,13 +24,12 @@
                 </div>
             </div>
 
-            <div class="col-3">
+            <div class="col-2">
                 <div class="content email">
                     <h1 class="con_title">Email</h1>
                     <p class="con_in">
                         zoek contact op via onze email
                     </p>
-                    <a href='view/.php'><button class="btn">Lees meer</button></a>
                 </div>
             </div>
         </div>

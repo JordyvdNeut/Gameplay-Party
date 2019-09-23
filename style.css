@@ -124,8 +124,10 @@ footer {
 }
 
 .content {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   content: "";
+  padding: 10px;
+  background-color: #c4e5385c;
   display: table;
   /* margin: 15px; */
   height: 100%;
@@ -219,6 +221,7 @@ margin-top: -11px;
   [class*="col-"] {
     float: left;
     margin: 0 auto;
+    margin-bottom: 15px;
   }
 }
 
