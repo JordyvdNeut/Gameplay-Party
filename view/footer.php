@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <footer>
-  <section>
     <div class="center_footer">
       <div class="row">
         <div class="contact_foot col-5">
@@ -23,7 +22,6 @@
         </div>
       </div>
     </div>
-  </section>
   <h4 class='footer_copy'>© Copyright Knakworst <?php echo date('Y') ?></h4>
 </footer>
 

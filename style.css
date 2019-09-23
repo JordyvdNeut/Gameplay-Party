@@ -14,6 +14,15 @@ body {
   margin: 0px;
 }
 
+section.row {
+  margin: 15px;
+}
+
+nav {
+  background-color: #34495e;
+  height: 50px;
+}
+
 h2 {
   font-weight: bold;
 }
@@ -30,18 +39,17 @@ a:hover {
   padding: 3px;
 }
 
-nav {
-  background-color: #34495e;
-  height: 50px;
+footer {
+  background-color: #2c3e50;
+  color: #c4e538;
+  padding: 10px;
+  margin-top: 10px;
+  height: 100%;
 }
 
 /* CLASSES */
 div.not-mobile a button.btn {
   height: 50px;
-}
-
-footer {
-  height: 100%;
 }
 
 .footer {
@@ -82,26 +90,10 @@ footer {
   text-align: center;
 }
 
-footer {
-  background-color: #2c3e50;
-  color: #c4e538;
-  padding: 10px;
-  margin-top: 10px;
-}
-
 .biosPhoto {
   width: 150px;
   position: static;
   float: right;
-}
-
-.accents {
-  background-color: #c4e538;
-  border: none;
-  /*margin: 5px;*/
-  float: right;
-  padding: 0.5rem 1rem;
-  margin-bottom: 0.3rem;
 }
 
 .title {
@@ -124,15 +116,13 @@ footer {
 }
 
 .content {
-  /*border: 1px solid black;*/
   content: "";
   padding: 10px;
   background-color: #c4e5385c;
   display: table;
-  /* margin: 15px; */
   height: 100%;
-  /* flex-wrap: wrap;
-  display: flex; */
+  width: 100%;
+  padding: 5px;
 }
 
 button.btn {
@@ -213,11 +203,6 @@ margin-top: -11px;
     font-size: 40px;
   }
 
-  /* .content {
-    margin-top: 30px;
-    margin-bottom: 30px;
-  } */
-
   [class*="col-"] {
     float: left;
     margin: 0 auto;
@@ -225,6 +210,7 @@ margin-top: -11px;
   }
 }
 
+/* For mobile phones: */
 @media (min-width: 1024px) {
   .title {
     text-align: right;
