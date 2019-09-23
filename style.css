@@ -36,11 +36,6 @@ nav {
 }
 
 /* CLASSES */
-.center {
-  padding-right: 50px;
-  padding-left: 50px;
-}
-
 footer {
   height: 100%;
 }
@@ -52,10 +47,12 @@ footer {
   margin: 5px;
   padding: 0px;
 }
+
 .center_footer {
   padding: 0 50px;
   text-align: center;
 }
+
 .contact_foot {
   width: 20%;
   float: right;
@@ -85,6 +82,7 @@ footer {
   background-color: #2c3e50;
   color: #c4e538;
   padding: 10px;
+  margin-top: 10px;
 }
 
 .biosPhoto {
@@ -129,12 +127,14 @@ footer {
   display: table;
   /* margin: 15px; */
 }
+
 button.btn {
   background-color: #34495e;
   color: #c4e538;
   height: 100%;
   float: right;
 }
+
 button.btn:hover {
   background-color: #c4e538;
 }
@@ -167,34 +167,52 @@ div.login button {
     text-align: right;
   }
 
-  .content {
+  .content{
     margin: 15px;
   }
 
   .con_title {
     font-size: 1.5em;
   }
+
+  [class*="col-"] {
+    width: 100%;
+    margin: 15px;
+  }
 }
 
-@media (min-width: 768px) {
+[class*="col-"] {
+  width: 100%;
+}
+
+@media (min-width: 769px) {
   .title {
     text-align: right;
-    font-size: 60px;
+    font-size: 40px;
   }
+  
 
   /* .content {
     margin-top: 30px;
     margin-bottom: 30px;
   } */
+
+  [class*="col-"] {
+    float: left;
+    margin: 0 auto;
+  }
 }
-[class*="col-"] {
-  float: left;
-  padding: 1em;
+
+@media (min-width: 1024px){
+  .title {
+    text-align: right;
+    font-size: 60px;
+  }
 }
+
+
+
 /* For mobile phones: */
-[class*="col-"] {
-  width: 100%;
-}
 
 /* Dropdown Button */
 .dropbtn {
@@ -343,15 +361,18 @@ div.login button {
   flex-wrap: wrap;
   display: flex;
 }
+
 .content {
   height: 100%;
   flex-wrap: wrap;
   display: flex;
 }
+
 .con_title,
 .con_in {
   width: 100%;
 }
+
 /* .email-button{
   display:table;
 } */
