@@ -27,6 +27,16 @@ class GPPLogic{
     }
   }
 
+  public function collectOverons(){
+      try {
+        $sql = "SELECT * FROM contact";
+        $results = $this->DataHandler->readsData($sql);
+        return $results;
+      } catch (exception $e) {
+        throw $e;
+      }
+  }
+
   public function read($id){
     try {
       /*$sql = 'SELECT * FROM  WHERE id = ' $id ';';
