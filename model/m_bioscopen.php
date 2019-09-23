@@ -34,11 +34,11 @@ class Bioscopen
     }
   }
 
-  public function readBois($id)
+  public function readBios($id)
   {
     try {
-      $sql = "SELECT * FROM bioscopen WHERE id = $id";
-          $result = $this->DataHandler->readData($sql);
+      $sql = "SELECT * FROM bioscopen WHERE bios_id = $id";
+          $result = $this->DataHandler->readsData($sql);
           return $result;
         } catch (exception $e) {
       throw $e;
