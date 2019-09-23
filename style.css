@@ -40,11 +40,6 @@ div.not-mobile a button.btn {
   height: 50px;
 }
 
-.center {
-  padding-right: 50px;
-  padding-left: 50px;
-}
-
 footer {
   height: 100%;
 }
@@ -135,7 +130,6 @@ footer {
   display: table;
   /* margin: 15px; */
   height: 100%;
-  width: 100%;
   /* flex-wrap: wrap;
   display: flex; */
 }
@@ -186,14 +180,20 @@ div.login button {
     font-size: 1.5em;
   }
 
-  [class*="col-"] {
-    width: 100%;
-    margin: 15px;
+  .row{
+    margin: 0px;
   }
 }
 
 [class*="col-"] {
   width: 100%;
+}
+
+@media (min-width: 768px){
+    [class*="col-"] {
+    margin: 0 auto;
+        margin-bottom: 15px;
+  }
 }
 
 @media (min-width: 769px) {
@@ -406,6 +406,7 @@ div.login button {
   .row {
     flex-wrap: wrap;
     display: flex;
+    margin: 0;
   }
 
   .content {
