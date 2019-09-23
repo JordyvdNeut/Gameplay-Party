@@ -25,10 +25,8 @@
   $controller->invoke();
 
   require_once 'controller/c_bioscopen.php';
-  $controller = new biosController();
+  $controller = new BiosController();
   $controller->handleRequest();
-
-  // require_once('view/footer.php');
 
   ?>
 </body>

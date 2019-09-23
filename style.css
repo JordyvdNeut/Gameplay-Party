@@ -14,6 +14,10 @@ body {
   margin: 0px;
 }
 
+section.row {
+  margin: 15px;
+}
+
 nav {
   background-color: #34495e;
   height: 50px;
@@ -112,7 +116,6 @@ div.not-mobile a button.btn {
 }
 
 .content {
-  /*border: 1px solid black;*/
   content: "";
   padding: 10px;
   background-color: #c4e5385c;
@@ -120,12 +123,6 @@ div.not-mobile a button.btn {
   height: 100%;
   width: 100%;
   padding: 5px;
-}
-
-.detail {
-  padding: 10px;
-  max-width: 90%;
-  margin: 0px;
 }
 
 button.btn {
