@@ -106,7 +106,6 @@ button.btn {
   color: #c4e538;
   height: 100%;
   float: right;
-  border-left: 1px solid white;
 }
 
 div.login {
@@ -166,6 +165,71 @@ div.login button {
   [class*="col-"] {
     width: 100%;
   }
+
+  /* Dropdown Button */
+.dropbtn {
+  background-color: #34495e;
+  color: #c4e538;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+}
+
+.dropdown-content a:active {
+  background-color: #34495e;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0px;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: #34495e;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.show {
+  display: block;
+}
+
+/* Show burger when mobile only */
+.not-mobile {
+  display: none;
+}
+
+.mobile {
+  display: block;
+  position: absolute;
+  right: 0px;
+}
+
+@media only screen and (min-width: 600px) {
+  .not-mobile {
+    display: block;
+  }
+  .mobile {
+    display: none;
+  }
+}
+
   @media only screen and (min-width: 600px) {
     /* For tablets: */
     .col-s-1 {width: 8.33%;}
