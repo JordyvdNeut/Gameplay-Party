@@ -1,40 +1,45 @@
 <html lang="en">
 
-<?php require_once('header.php'); ?>
+<?php require_once('header.php'); 
+require_once 'controller/c_bioscopen.php';
+
+$this->c_bioscopen= new biosController();
+$productsTable = $this->c_bioscopen->createTable($result);
+echo $productsTable;
+?>
 
 <body>
   <h2 class="header">Overzicht</h2>
     <section>
+
     <div class="center">
     <div class="row">
-    <div class="content col-6">
-                <h1 class="con_title"><?php ?>Kinepolis Jaarbeurs  Utrecht</h1>
-                <p class="con_in"><img class="biosPhoto" src='view/images/kine_utrecht.jpg'><?php ?>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><br>
+    <div class="col-6">
+    <div class="content">
+                <h1 class="con_title"><?php ?></h1>
+                <p class="con_in"><img class="biosPhoto" src=''><?php ?></p>
                 <button class="accents"><a href='view/.php'>Lees meer</a></button>
             </div>
+</div>
 
-            <div class="content col-6">
-                <h1 class="con_title"><?php ?>Kinepolis Almere</h1>
-                <p class="con_in"><img class="biosPhoto" src='view/images/kine_almere.jpg'><?php ?>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div class=" col-6">
+                <div class="content">
+                <h1 class="con_title"><?php ?></h1>
+                <p class="con_in"><img class="biosPhoto" src=''><?php ?></p>
                 <button class="accents"><a href='view/.php'>Lees meer</a></button>
             </div>
+</div>
 
-            <div class="content col-6">
-                <h1 class="con_title"><?php ?>Kinepolis Den Helder</h1>
-                <p class="con_in"><img class="biosPhoto" src='view/images/kine_denhelder.jpg'><?php ?>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div class=" col-6">
+                <div class="content">
+                <h1 class="con_title"><?php ?></h1>
+                <p class="con_in"><img class="biosPhoto" src=''><?php ?></p>
                 <button class="accents"><a href='view/.php'>Lees meer</a></button>
             </div>
+</div>
             </div>
             </div>
     </section>
+    <?php require_once('view/footer.php'); ?>
 </body>
 </html>

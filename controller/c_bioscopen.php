@@ -25,7 +25,9 @@ class biosController{
 				case 'addBios':
 					$this->addBios();
 					break;
-				
+				case 'overzicht':
+					$this->collectOverzicht();
+					break;
 				default:
 					$this->collectHome();
 					break;
@@ -45,9 +47,44 @@ class biosController{
 	}
 
 	public function readBios() {
-		$result = $this->bioscopen->reads();
-		include 'view/overzicht/overzicht.php';
+		$result = $this->bioscopen->readsBioscopen();
+		include 'view/overzicht.php';
 	}
+
+	public function collectOverzicht(){
+		$products = $this->bioscopen->readProducts();
+		include 'view/overzicht.php';
+   }
+
+
+   public function createTable($result){
+	$tableheader = false;
+	$html = "";
+	$html .= "<table>";
+
+	while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+		
+		if($tableheader == false) {
+			$html .= "<tr>";
+			
+			foreach($row as $key=>$value) {
+				$html .= "<th>{$key}</th>";
+			}
+			
+			$html .= "</tr>";
+			$tableheader = true;
+		}
+		
+		foreach($row as $value) {
+			$html .= "<td>{$value}</td>";
+		}
+	
+		$html .= "</tr>";
+	}
+	
+	$html .= "</table>";
+	return $html;
+}
 
 	public function addBios() {
 		$result = $this->bioscopen->addBios();
