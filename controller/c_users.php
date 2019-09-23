@@ -18,37 +18,31 @@ class UserController
         case 'loginForm':
           $this->collectLogin();
           break;
-        case 'overzicht':
-          $this->collectOverzicht();
+        case 'overons':
+          $this->collectOverOns();
           break;
-      case 'overons':
-        $this->collectOverOns();
-        break;
-        default:
-        $this->collectHome();
-        break;
+        case 'home':
+          $this->collectHome();
+          break;
       }
-    } 
-    catch (ValidationException $e) {
-      // $errors = $e->getErrors();
+    } catch (ValidationException $e) {
+      $errors = $e->getErrors();
     }
   }
 
-  public function collectHome() {
+  public function collectHome()
+  {
     $template = $this->GPPLogic->reads();
-    include 'view/home.php';
+    include_once 'view/home.php';
   }
 
-  public function collectOverzicht() {
-    /*$boiscopen = $this->GPPLogic->readBoiscopen();*/
-    include 'view/overzicht.php';
-  }
-
-  public function collectLogin() {
+  public function collectLogin()
+  {
     include 'view/loginForm.php';
   }
 
-  public function collectOverOns() {
-    include 'view/over_ons.php';
+  public function collectOverOns()
+  {
+    include_once 'view/over_ons.php';
   }
 }

@@ -25,7 +25,7 @@ class GPPController
 					break;
 			}
 		} catch (ValidationException $e) {
-			// $errors = $e->getErrors();
+			$errors = $e->getErrors();
 		}
 	}
 
