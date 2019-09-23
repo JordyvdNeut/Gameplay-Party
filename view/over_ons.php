@@ -21,7 +21,6 @@
                         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
-                    <button class="accents"><a href='view/.php'>Lees meer</a></button>
                 </div>
             </div>
 
@@ -31,7 +30,7 @@
                     <p class="con_in">
                         zoek contact op via onze email
                     </p>
-                    <button class=" accents"><a href='view/.php'>Lees meer</a></button>
+                    <a href='view/.php'><button class="btn">Lees meer</button></a>
                 </div>
             </div>
         </div>
