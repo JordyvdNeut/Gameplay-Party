@@ -128,6 +128,10 @@ footer{
   /* clear: both; */
   display: table;
   /* margin: 15px; */
+  height:100%;
+  width: 100%;
+  /* flex-wrap: wrap;
+  display: flex; */
 }
 button.btn {
   background-color: #34495E;
@@ -230,14 +234,10 @@ div.login button {
 
 
 .row{
-  flex-wrap: wrap;
-display: flex;
+  /* flex-wrap: wrap;
+display: flex; */
 }
-.content{
-  height:100%;
-  flex-wrap: wrap;
-  display: flex;
-}
+
 .con_title, .con_in{
   width:100%;
 }
