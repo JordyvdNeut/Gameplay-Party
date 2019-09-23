@@ -138,6 +138,8 @@ button.btn {
   background-color: #34495e;
   color: #c4e538;
   float: right;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 button.btn:hover {
@@ -166,6 +168,9 @@ div.login button {
   .logo {
     width: 100%;
   }
+  .center{
+    padding-left:0px;
+  }
 
   .title {
     margin-top: 0px;
@@ -175,6 +180,7 @@ div.login button {
   .content {
     margin: 15px;
   }
+
 
   .con_title {
     font-size: 1.5em;
@@ -411,8 +417,8 @@ div.login button {
 
   .content {
     height: 100%;
-    flex-wrap: wrap;
-    display: flex;
+    /* flex-wrap: wrap;
+    display: flex; */
   }
 
   .con_title,
