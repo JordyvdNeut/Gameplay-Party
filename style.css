@@ -123,7 +123,7 @@ div.not-mobile a button.btn {
   background-color: #c4e5385c;
   display: table;
   height: 100%;
-  width: 100%;
+  max-width: 100%;
 }
 
 button.btn {

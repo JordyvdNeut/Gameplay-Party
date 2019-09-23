@@ -75,8 +75,8 @@ class BiosController
 			$html .= "<div class='col-5'>";
 			$html .= "<div class='content'>";
 			$html .= "<h1 class='con_title'>$row[bios_naam]</h1>";
-			$html .= "<p class='con_in'><img class='biosPhoto' src='$row[bios_foto]'>";
-			$html .= "$row[bios_info]...</p>";
+			$html .= "<p'><img class='biosPhoto' src='$row[bios_foto]'>";
+			$html .= "$row[bios_info]...</p'>";
 			
 			$html .= "<a href='index.php?op=detail&id=$row[bios_id]'><button class='btn'>Lees meer</button></a>";
 			$html .= "</div>";
