@@ -27,6 +27,18 @@ class GPPLogic{
     }
   }
 
+  /*
+  public function readFooter(){
+    try { 
+      $sql = "SELECT * FROM footer";
+      $result = $this->DataHandler->readsData($sql);
+      return $result;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+*/
+
   public function collectOverons(){
       try {
         $sql = "SELECT * FROM contact";

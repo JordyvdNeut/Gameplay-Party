@@ -23,6 +23,7 @@ class UserController
           break;
         case 'home':
           $this->collectHome();
+          //$this->collectFooter();
           break;
       }
     } catch (ValidationException $e) {
@@ -35,6 +36,36 @@ class UserController
     $homePage = $this->createHome($result);
     include_once 'view/home.php';
   }
+
+ /* public function collectFooter() {
+    $result = $this->GPPLogic->readFooter();
+    $footer = $this->createFooter($result);
+    include_once 'view/footer.php';
+  }
+
+  public function createFooter($result) {
+		$html = "";
+		$html .= "<div class='center'><div class='row'>";
+
+		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+			$html .= "<div class='col-8'>";
+			$html .= "<div class='content'>";
+			$html .= "<h1 class='con_title'>Contact</h1>";
+			$html .= "<p>$row[voorwaarden]</p>";
+			$html .= "</div>";
+      $html .= "</div>";
+      
+      $html .= "<div class='col-2'>";
+			$html .= "<div class='content'>";
+      $html .= "<h1 class='con_title'>Email</h1>";
+      //$html .= "<p>$row[]</p>";
+		//	$html .= "<p>$row[]</p>";
+			$html .= "</div>";
+			$html .= "</div>";
+		}
+
+		$html .= "</div></div>";
+}*/
 
   public function collectOverOns() {
     $result = $this->GPPLogic->collectOverOns();
@@ -49,14 +80,14 @@ class UserController
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			$html .= "<div class='col-8'>";
 			$html .= "<div class='content'>";
-			$html .= "<h1 class='con_title'>Over Ons</h1>";
+			$html .= "<h1 class='con_title'>Over ons</h1>";
 			$html .= "<p>$row[overons]</p>";
 			$html .= "</div>";
       $html .= "</div>";
       
       $html .= "<div class='col-2'>";
 			$html .= "<div class='content'>";
-      $html .= "<h1 class='con_title'>Email</h1>";
+      $html .= "<h1 class='con_title'>Contact</h1>";
       $html .= "<p>$row[emailText]</p>";
 			$html .= "<p>$row[email]</p>";
 			$html .= "</div>";

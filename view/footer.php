@@ -23,6 +23,7 @@
         </div>
       </div>
     </div>
+
   <h4 class='footer_copy'>© Copyright Knakworst <?php echo date('Y') ?></h4>
 </footer>
 
