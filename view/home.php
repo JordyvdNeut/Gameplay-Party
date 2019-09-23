@@ -13,7 +13,7 @@
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
-        <button class="accents"><a href='?op=overons'>Lees meer</a></button>
+        <a href='?op=overons'><button class="btn">Lees meer</button></a>
     </div>
 </div>
 
@@ -26,7 +26,7 @@
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
-        <button class="accents"><a href='?op=readBios'>Lees meer</a></button>
+        <a href='?op=overzicht'><button class="btn">Lees meer</button></a>
     </div>
 </div>
 </div>
