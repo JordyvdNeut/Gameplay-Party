@@ -36,6 +36,10 @@ nav {
 }
 
 /* CLASSES */
+div.not-mobile a button.btn {
+  height: 50px;
+}
+
 .center {
   padding-right: 50px;
   padding-left: 50px;
@@ -125,14 +129,11 @@ footer {
 .content {
   border: 1px solid black;
   content: "";
-  /* clear: both; */
   display: table;
-  /* margin: 15px; */
 }
 button.btn {
   background-color: #34495e;
   color: #c4e538;
-  height: 100%;
   float: right;
 }
 button.btn:hover {
