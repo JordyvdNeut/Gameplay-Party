@@ -30,22 +30,22 @@ a:hover {
   padding: 3px;
 }
 
-nav{
-  background-color: #34495E;
+nav {
+  background-color: #34495e;
   height: 50px;
 }
 
 /* CLASSES */
-.center{
-  padding-right:50px;
-  padding-left:50px;
+.center {
+  padding-right: 50px;
+  padding-left: 50px;
 }
 
-footer{
+footer {
   height: 100%;
 }
 
-.footer{
+.footer {
   display: inline;
   color: #c4e538;
   list-style-type: none;
@@ -56,16 +56,16 @@ footer{
   padding: 0 50px;
   text-align: center;
 }
-.contact_foot{
+.contact_foot {
   width: 20%;
-  float:right;
+  float: right;
 }
 
-.voorw_foot{
+.voorw_foot {
   width: 20%;
 }
 
-.footer2{
+.footer2 {
   color: #c4e538;
   list-style-type: none;
   margin: 5px;
@@ -73,24 +73,24 @@ footer{
   text-align: right;
 }
 
-.footer:hover{
+.footer:hover {
   color: #c4e538;
 }
 
-.footer_copy{
+.footer_copy {
   text-align: center;
 }
 
-footer{
-  background-color: #2c3e50; 
+footer {
+  background-color: #2c3e50;
   color: #c4e538;
   padding: 10px;
 }
 
-.biosPhoto{
-      width: 150px;
-      position: static;
-      float: right; 
+.biosPhoto {
+  width: 150px;
+  position: static;
+  float: right;
 }
 
 .accents {
@@ -122,15 +122,15 @@ footer{
   padding: 5px;
 }
 
-.content{
-  border: 1px solid black; 
+.content {
+  border: 1px solid black;
   content: "";
   /* clear: both; */
   display: table;
   /* margin: 15px; */
 }
 button.btn {
-  background-color: #34495E;
+  background-color: #34495e;
   color: #c4e538;
   height: 100%;
   float: right;
@@ -186,18 +186,17 @@ div.login button {
     margin-top: 30px;
     margin-bottom: 30px;
   } */
-
 }
 [class*="col-"] {
   float: left;
   padding: 1em;
 }
-  /* For mobile phones: */
-  [class*="col-"] {
-    width: 100%;
-  }
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
 
-  /* Dropdown Button */
+/* Dropdown Button */
 .dropbtn {
   background-color: #34495e;
   color: #c4e538;
@@ -261,49 +260,97 @@ div.login button {
   }
 }
 
-  @media only screen and (min-width: 600px) {
-    /* For tablets: */
-    .col-s-1 {width: 8.33%;}
-    .col-s-2 {width: 16.66%;}
-    .col-s-3 {width: 25%;}
-    .col-s-4 {width: 33.33%;}
-    .col-s-5 {width: 41.66%;}
-    .col-s-6 {width: 50%;}
-    .col-s-7 {width: 58.33%;}
-    .col-s-8 {width: 66.66%;}
-    .col-s-9 {width: 75%;}
-    .col-s-10 {width: 83.33%;}
-    .col-s-11 {width: 91.66%;}
-    .col-s-12 {width: 100%;}
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {
+    width: 8.33%;
   }
-  @media only screen and (min-width: 768px) {
-    /* For desktop: */
-    .col-1 {width: 8.33%;}
-    .col-2 {width: 16.66%;}
-    .col-3 {width: 25%;}
-    .col-4 {width: 33.33%;}
-    .col-5 {width: 41.66%;}
-    .col-6 {width: 50%;}
-    .col-7 {width: 58.33%;}
-    .col-8 {width: 66.66%;}
-    .col-9 {width: 75%;}
-    .col-10 {width: 83.33%;}
-    .col-11 {width: 91.66%;}
-    .col-12 {width: 100%;}
+  .col-s-2 {
+    width: 16.66%;
   }
-
-
-.row{
-  flex-wrap: wrap;
-display: flex;
+  .col-s-3 {
+    width: 25%;
+  }
+  .col-s-4 {
+    width: 33.33%;
+  }
+  .col-s-5 {
+    width: 41.66%;
+  }
+  .col-s-6 {
+    width: 50%;
+  }
+  .col-s-7 {
+    width: 58.33%;
+  }
+  .col-s-8 {
+    width: 66.66%;
+  }
+  .col-s-9 {
+    width: 75%;
+  }
+  .col-s-10 {
+    width: 83.33%;
+  }
+  .col-s-11 {
+    width: 91.66%;
+  }
+  .col-s-12 {
+    width: 100%;
+  }
 }
-.content{
-  height:100%;
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {
+    width: 8.33%;
+  }
+  .col-2 {
+    width: 16.66%;
+  }
+  .col-3 {
+    width: 25%;
+  }
+  .col-4 {
+    width: 33.33%;
+  }
+  .col-5 {
+    width: 41.66%;
+  }
+  .col-6 {
+    width: 50%;
+  }
+  .col-7 {
+    width: 58.33%;
+  }
+  .col-8 {
+    width: 66.66%;
+  }
+  .col-9 {
+    width: 75%;
+  }
+  .col-10 {
+    width: 83.33%;
+  }
+  .col-11 {
+    width: 91.66%;
+  }
+  .col-12 {
+    width: 100%;
+  }
+}
+
+.row {
   flex-wrap: wrap;
   display: flex;
 }
-.con_title, .con_in{
-  width:100%;
+.content {
+  height: 100%;
+  flex-wrap: wrap;
+  display: flex;
+}
+.con_title,
+.con_in {
+  width: 100%;
 }
 /* .email-button{
   display:table;
