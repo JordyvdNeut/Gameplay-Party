@@ -31,7 +31,8 @@ class UserController
   }
 
   public function collectHome() {
-    $template = $this->GPPLogic->reads();
+    $result = $this->GPPLogic->readHome();
+    $homePage = $this->createHome($result);
     include_once 'view/home.php';
   }
 
@@ -64,6 +65,28 @@ class UserController
 
 		$html .= "</div></div>";
 		return $html;
+  }
+
+  public function createHome($result)
+  {
+    $html = "";
+    $html .= "<div class='center'><div class='row'>";
+
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+      if ($row['homeCon_id'] == 1) {
+        $row['homeCon_id'] = "?op=overons";
+      } else { $row['homeCon_id'] = "?op=overzicht"; }
+      $html .= "<div class='col-5'>";
+      $html .= "<div class='content'>";
+      $html .= "<h1 class='con_title'>$row[titel]</h1>";
+      $html .= "<p>$row[inhoud]</p>";
+      $html .= "<a href='$row[homeCon_id]'><button class='btn'>Lees meer</button></a>";
+      $html .= "</div>";
+      $html .= "</div>";
+    }
+
+    $html .= "</div></div>";
+    return $html;
   }
 
   public function collectLogin() {
