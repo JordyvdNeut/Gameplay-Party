@@ -48,11 +48,6 @@ div.not-mobile a button.btn {
   height: 50px;
 }
 
-.center {
-  padding-right: 50px;
-  padding-left: 50px;
-}
-
 .footer {
   display: inline;
   color: #c4e538;
@@ -106,8 +101,7 @@ div.not-mobile a button.btn {
 .logo {
   width: 80%;
   margin-left: -5px;
-  margin-top: -1px;
-}
+  }
 
 .con_title {
   text-align: center;
@@ -118,8 +112,10 @@ div.not-mobile a button.btn {
 }
 
 .content {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   content: "";
+  padding: 10px;
+  background-color: #c4e5385c;
   display: table;
   height: 100%;
   width: 100%;
@@ -136,6 +132,8 @@ button.btn {
   background-color: #34495e;
   color: #c4e538;
   float: right;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 button.btn:hover {
@@ -164,6 +162,9 @@ div.login button {
   .logo {
     width: 100%;
   }
+  .center{
+    padding-left:0px;
+  }
 
   .title {
     margin-top: 0px;
@@ -174,18 +175,29 @@ div.login button {
     margin: 15px;
   }
 
+
   .con_title {
     font-size: 1.5em;
   }
 
-  [class*="col-"] {
-    width: 100%;
-    margin: 15px;
+  .row{
+    margin: 0px;
   }
 }
 
 [class*="col-"] {
   width: 100%;
+}
+
+@media (min-width: 600px){
+    [class*="col-"] {
+    margin: 0 auto;
+    margin-bottom: 15px;
+  }
+
+.logo{
+margin-top: -11px;
+} 
 }
 
 @media (min-width: 769px) {
@@ -197,6 +209,7 @@ div.login button {
   [class*="col-"] {
     float: left;
     margin: 0 auto;
+    margin-bottom: 15px;
   }
 }
 
@@ -207,6 +220,13 @@ div.login button {
     font-size: 60px;
   }
 }
+
+@media (min-width: 1440px){
+  .logo{
+    margin-top: -1px;
+  }
+}
+
 
 /* Dropdown Button */
 .dropbtn {
@@ -392,12 +412,13 @@ div.login button {
   .row {
     flex-wrap: wrap;
     display: flex;
+    margin: 0;
   }
 
   .content {
     height: 100%;
-    flex-wrap: wrap;
-    display: flex;
+    /* flex-wrap: wrap;
+    display: flex; */
   }
 
   .con_title,
