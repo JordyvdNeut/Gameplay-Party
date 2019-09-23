@@ -7,6 +7,7 @@
           <h3><a class='footer' href="?op=overons">Contact</a></h3>
           <ul class='footer'>
             <li>Wij zijn bereikbaar op het email adres: </li>
+            <li>info@gameplayparty.com</li>
           </ul>
         </div>
 

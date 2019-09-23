@@ -44,7 +44,6 @@ footer {
   color: #c4e538;
   padding: 10px;
   margin-top: 10px;
-  height: 100%;
 }
 
 /* CLASSES */
@@ -94,6 +93,7 @@ div.not-mobile a button.btn {
   width: 150px;
   position: static;
   float: right;
+  margin: 1px;
 }
 
 .title {
@@ -105,10 +105,12 @@ div.not-mobile a button.btn {
 .logo {
   width: 80%;
   margin-left: -5px;
-  }
+}
 
 .con_title {
   text-align: center;
+  display: table-row-group;
+  margin:10px;
 }
 
 .con_in {
@@ -122,7 +124,6 @@ div.not-mobile a button.btn {
   display: table;
   height: 100%;
   width: 100%;
-  padding: 5px;
 }
 
 button.btn {
@@ -218,7 +219,7 @@ margin-top: -11px;
   }
 }
 
-@media (min-width: 1440px){
+@media (min-width: 1405px){
   .logo{
     margin-top: -1px;
   }
