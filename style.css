@@ -113,8 +113,7 @@ footer {
 .logo {
   width: 80%;
   margin-left: -5px;
-  margin-top: -1px;
-}
+  }
 
 .con_title {
   text-align: center;
@@ -195,11 +194,15 @@ div.login button {
   width: 100%;
 }
 
-@media (min-width: 768px){
+@media (min-width: 600px){
     [class*="col-"] {
     margin: 0 auto;
-        margin-bottom: 15px;
+    margin-bottom: 15px;
   }
+
+.logo{
+margin-top: -11px;
+} 
 }
 
 @media (min-width: 769px) {
@@ -226,7 +229,12 @@ div.login button {
   }
 }
 
-/* For mobile phones: */
+@media (min-width: 1440px){
+  .logo{
+    margin-top: -1px;
+  }
+}
+
 
 /* Dropdown Button */
 .dropbtn {
