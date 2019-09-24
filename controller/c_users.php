@@ -85,7 +85,7 @@ class UserController
 			$html .= "</div>";
       $html .= "</div>";
       
-      $html .= "<div class='col-2'>";
+      $html .= "<div class='col-3'>";
 			$html .= "<div class='content'>";
       $html .= "<h1 class='con_title'>Contact</h1>";
       $html .= "<p>$row[emailText]</p>";
