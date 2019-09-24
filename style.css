@@ -121,6 +121,7 @@ div.not-mobile a button.btn {
   padding: 5px;
   background-color: #c4e5385c;
   display: table;
+  margin: 0 auto;
   height: 100%;
   max-width: 100%;
 }
