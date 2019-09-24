@@ -15,10 +15,10 @@
 <header>
   <nav>
     <div class="not-mobile">
-      <!-- <button href="index.php?op=loginForm"><button class="btn">Login</button></a> -->
+      <!-- <a href="index.php?op=loginForm"><button class="btn">Login</button></a> -->
       <a href="index.php?op=overons"><button class="btn">Over ons</button></a>
       <a href="index.php?op=overzicht"><button class="btn">Bioscopen</button></a>
-      <button href="index.php?op=home"><button class="btn">Home</button></button>
+      <a href="index.php?op=home"><button class="btn">Home</button></a>
     </div>
     <div class="dropdown, mobile">
       <i class="fa fa-bars dropbtn" onclick="burgerMenu()"></i>
