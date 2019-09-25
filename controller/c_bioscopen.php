@@ -108,7 +108,8 @@ class BiosController
 			
 			$html .= "<div class='col-2'>";
 			$html .= "<div class='content'>";
-			$html .= "<h3><strong>Contact gegevens:</strong></h3>";
+			$html .= "<h3><strong>Contact gegevens</strong></h3>";
+			$html .= "<h4><strong>Adres: </strong></h4>";
 			$html .= "<p>$row[bios_adres]<br />";
 			$html .= "$row[bios_plaats]</p>";
 			$html .= "<p>Telefoon nummer: $row[bios_tel]</p>";
