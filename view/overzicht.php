@@ -9,7 +9,7 @@
         <?= $biosTable ?>
         
     </section>
-    <?php require_once('view/footer.php'); ?>
+<?php require_once('view/footer.php'); ?>
 </body>
 
 </html>
