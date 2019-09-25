@@ -3,13 +3,10 @@
 <?php require_once('header.php'); ?>
 
 <body>
-    <h2 class="header">Bioscopen overzicht</h2>
-    <section>
+  <h2 class="header">Bioscopen overzicht</h2>
+  <?= $biosTable ?>
 
-        <?= $biosTable ?>
-        
-    </section>
-<?php require_once('view/footer.php'); ?>
+  <?php require_once('view/footer.php'); ?>
 </body>
 
 </html>

@@ -17,14 +17,36 @@ class GPPLogic{
     }
   }
 
-  public function reads(){
+  public function readHome(){
     try { 
-      /*$sql = 'SELECT * FROM ';
+      $sql = "SELECT * FROM homecontent";
       $result = $this->DataHandler->readsData($sql);
-      return $result;*/
+      return $result;
     } catch (exception $e) {
       throw $e;
     }
+  }
+
+  /*
+  public function readFooter(){
+    try { 
+      $sql = "SELECT * FROM footer";
+      $result = $this->DataHandler->readsData($sql);
+      return $result;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+*/
+
+  public function collectOverons(){
+      try {
+        $sql = "SELECT * FROM contact";
+        $results = $this->DataHandler->readsData($sql);
+        return $results;
+      } catch (exception $e) {
+        throw $e;
+      }
   }
 
   public function read($id){
