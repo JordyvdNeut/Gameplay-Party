@@ -25,17 +25,28 @@ class UserController
           $this->collectHome();
           //$this->collectFooter();
           break;
+        case 'createEmail':
+          $this->collectCreateEmail();
+          break;
       }
     } catch (ValidationException $e) {
       $errors = $e->getErrors();
     }
   }
-
+	public function collectCreateEmail() {
+		$creating = $_REQUEST;
+		$email = $this->GPPLogic->sendEmail($creating);
+	}
   public function collectHome() {
     $result = $this->GPPLogic->readHome();
     $homePage = $this->createHome($result);
     include_once 'view/home.php';
   }
+
+public function collectCreateNew() {
+    $creating = $_REQUEST;
+    $email = $this->productLogic->createemail($creating);
+}
 
  /* public function collectFooter() {
     $result = $this->GPPLogic->readFooter();
@@ -89,7 +100,7 @@ class UserController
 			$html .= "<div class='content'>";
       $html .= "<h1 class='con_title'>Contact</h1>";
       $html .= "<p>$row[emailText]</p>";
-			$html .= "<p>$row[email]</p>";
+      $html .= "<p>$row[email]</p>";
 			$html .= "</div>";
 			$html .= "</div>";
 		}
