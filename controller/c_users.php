@@ -92,7 +92,7 @@ public function collectCreateNew() {
 			$html .= "<div class='col-8'>";
 			$html .= "<div class='content'>";
 			$html .= "<h1 class='con_title'>Over ons</h1>";
-			$html .= "<p>$row[overons]</p>";
+			$html .= "<p class='con_inh'>$row[overons]</p>";
 			$html .= "</div>";
       $html .= "</div>";
       
@@ -121,7 +121,7 @@ public function collectCreateNew() {
       $html .= "<div class='col-5'>";
       $html .= "<div class='content'>";
       $html .= "<h1 class='con_title'>$row[titel]</h1>";
-      $html .= "<p>$row[inhoud]</p>";
+      $html .= "<p class='con_inh'>$row[inhoud]</p>";
       $html .= "<a href='$row[homeCon_id]'><button class='btn'>Lees meer</button></a>";
       $html .= "</div>";
       $html .= "</div>";
