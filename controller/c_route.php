@@ -27,6 +27,9 @@ class RouteController
 				case 'overons':
 					$this->userController->collectOverOns();
 					break;
+				case 'createEmail':
+					$this->userController->collectCreateEmail();
+					break;
 				case 'home':
 					$this->userController->collectHome();
 					break;
