@@ -48,8 +48,8 @@ class BiosController
 			$html .= "<div class='col-5'>";
 			$html .= "<div class='content'>";
 			$html .= "<h1 class='con_title'>$row[bios_naam]</h1>";
-			$html .= "<p'><img class='biosPhoto' src='$row[bios_foto]'><br />";
-			$html .= "$row[bios_info]...</p'><br />";
+			$html .= "<p class='con_inh'><img class='biosPhoto' src='$row[bios_foto]'><br />";
+			$html .= "$row[bios_info]...</p><br />";
 			
 			$html .= "<a href='index.php?op=detail&id=$row[bios_id]'><button class='btn'>Lees meer</button></a>";
 			$html .= "</div>";
@@ -81,7 +81,8 @@ class BiosController
 			
 			$html .= "<div class='col-2'>";
 			$html .= "<div class='content'>";
-			$html .= "<h3><strong>Contact gegevens:</strong></h3>";
+			$html .= "<h3><strong>Contact gegevens</strong></h3>";
+			$html .= "<h4><strong>Adres: </strong></h4>";
 			$html .= "<p>$row[bios_adres]<br />";
 			$html .= "$row[bios_plaats]</p>";
 			$html .= "<p>Telefoon nummer: $row[bios_tel]</p>";

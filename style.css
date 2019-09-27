@@ -26,7 +26,9 @@ nav {
 h2 {
   font-weight: bold;
 }
-
+.content a{
+  display: table-row-group;
+}
 a {
   color: #2c3e50;
   text-decoration: none;
@@ -93,7 +95,7 @@ div.not-mobile a button.btn {
   width: 150px;
   position: static;
   float: right;
-  margin: 1px;
+  margin: 3px;
 }
 
 .title {
@@ -112,8 +114,19 @@ div.not-mobile a button.btn {
   margin:10px;
 }
 
-.con_in {
+.con_inh {
   padding: 5px;
+}
+/* email formulier */
+.table.content{
+  display:block;
+  padding:30px;
+}
+.table.content .btn{
+  margin-top: 10px;
+}
+.heading{
+  text-align:center;
 }
 
 .content {

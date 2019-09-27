@@ -26,6 +26,19 @@ class BeheerdersLogic{
       throw $e;
     }
   }
+  public function sendEmail($creating){
+    $name           = $creating["name"];
+    $email     = $creating["email"];
+    $subject         = $creating["subject"];
+    $infomessage          = $creating["infomessage"];
+  try{
+   $sql = "INSERT INTO `email` (name, email, subject, message) VALUES ('$name', '$email', '$subject', '$infomessage')";
+   $result = $this->DataHandler->createData($sql);
+   return $result;
+  } catch (exception $e) {
+    throw $e;
+  }
+  }
 
   /*
   public function readFooter(){
