@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
   <meta charset="UTF-8">
@@ -9,25 +9,24 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="style.css">
-  <title>Gameplay Party</title>
 </head>
 
 <body>
   <?php
   session_start();
 
-  require_once "controller/c_users.php";
-  $userController = new UserController;
-  $userController->handleRequest();
+
+  require_once "controller/c_route.php";
+  $routeController = new RouteController;
+  $routeController->handleRequest();
 
   require_once "controller/c_auth.php";
   $controller = new AuthController();
   $controller->invoke();
 
-  require_once 'controller/c_bioscopen.php';
-  $controller = new BiosController();
-  $controller->handleRequest();
-
+  // require_once 'controller/c_bioscopen.php';
+  // $controller = new BiosController();
+  // $controller->handleRequest();
   ?>
 </body>
 

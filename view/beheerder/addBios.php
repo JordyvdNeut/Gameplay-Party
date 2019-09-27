@@ -1,2 +1,2 @@
-<?php
+<title>Beheerder</title>
 

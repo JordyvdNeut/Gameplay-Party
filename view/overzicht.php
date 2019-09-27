@@ -1,12 +1,12 @@
-<html lang="en">
+<title>Overzicht</title>
 
 <?php require_once('header.php'); ?>
 
-<body>
+<section>
+
   <h2 class="header">Bioscopen overzicht</h2>
   <?= $biosTable ?>
 
-  <?php require_once('view/footer.php'); ?>
-</body>
+</section>
 
-</html>
+<?php require_once('view/footer.php'); ?>

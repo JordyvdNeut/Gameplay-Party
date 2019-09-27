@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html>
-<main>
-  <?php require_once('header.php'); ?>
+<title>Over ons</title>
+
+<?php require_once('header.php'); ?>
+
+<section>
 
   <?= $contact ?>
 
-  <?php require_once('view/footer.php'); ?>
-</main>
+</section>
 
-</html>
+<?php require_once('view/footer.php'); ?>

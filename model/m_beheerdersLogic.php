@@ -1,7 +1,7 @@
 <?php
 require_once 'model/m_DataHandler.php';
 
-class GPPLogic{
+class BeheerdersLogic{
 
   public function __construct() {
     $this->DataHandler = new DataHandler("localhost", "mysql", "gpp", "root", "");

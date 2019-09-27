@@ -1,5 +1,4 @@
 <?php
-
 require_once('model/m_bioscopen.php');
 
 class BiosController
@@ -11,32 +10,6 @@ class BiosController
 
 	public function __destruct()
 	{ }
-
-	public function handleRequest()
-	{
-		try {
-			$op = isset($_REQUEST['op']) ? $_REQUEST['op'] : NULL;
-			switch ($op) {
-					// case 'addBios':
-					// 	$this->addBios();
-					// 	break;
-				case 'overzicht':
-					$this->collectOverzicht();
-					break;
-				case 'detail':
-					$this->readBios($_REQUEST['id']);
-					break;
-					// case 'update':
-					// 	$this->update();
-					// 	break;
-					// case 'delBios':
-					// 	$this->deleteBios();
-					// 	break;
-			}
-		} catch (ValidationException $e) {
-			$errors = $e->getErrors();
-		}
-	}
 
 	// public function addBios()
 	// {

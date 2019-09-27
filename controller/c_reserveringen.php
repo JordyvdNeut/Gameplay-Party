@@ -1,5 +1,4 @@
 <?php
-
 require_once('m_reserveringen.php');
 
 class resController

@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html>
+<title>GamePlayParty</title>
+
 <?php require_once('view/header.php'); ?>
-<main>
+
+<section>
+
     <?= $homePage ?>
 
-<?php require_once('view/footer.php'); ?>
-</main>
+</section>
 
-</html>
+<?php require_once('view/footer.php'); ?>

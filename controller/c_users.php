@@ -1,44 +1,24 @@
 <?php
-require_once 'model/m_GPPLogic.php';
+require_once 'model/m_beheerdersLogic.php';
 
 class UserController
 {
   public function __construct()
   {
-    $this->GPPLogic = new GPPLogic();
+    $this->beheerdersLogic = new BeheerdersLogic();
   }
 
   public function __destruct()
   { }
-  public function handleRequest()
-  {
-    try {
-      $op = isset($_REQUEST['op']) ? $_REQUEST['op'] : NULL;
-      switch ($op) {
-        case 'loginForm':
-          $this->collectLogin();
-          break;
-        case 'overons':
-          $this->collectOverOns();
-          break;
-        case 'home':
-          $this->collectHome();
-          //$this->collectFooter();
-          break;
-      }
-    } catch (ValidationException $e) {
-      $errors = $e->getErrors();
-    }
-  }
 
   public function collectHome() {
-    $result = $this->GPPLogic->readHome();
+    $result = $this->beheerdersLogic->readHome();
     $homePage = $this->createHome($result);
     include_once 'view/home.php';
   }
 
  /* public function collectFooter() {
-    $result = $this->GPPLogic->readFooter();
+    $result = $this->beheerdersLogic->readFooter();
     $footer = $this->createFooter($result);
     include_once 'view/footer.php';
   }
@@ -68,7 +48,7 @@ class UserController
 }*/
 
   public function collectOverOns() {
-    $result = $this->GPPLogic->collectOverOns();
+    $result = $this->beheerdersLogic->collectOverOns();
     $contact = $this->createOverOns($result);
     include_once 'view/over_ons.php';
   }
