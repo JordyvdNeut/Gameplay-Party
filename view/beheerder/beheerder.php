@@ -1,8 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <link rel="stylesheet" href="style.css">
-</head>
-<h2>Beheerder</h2>
-  <section></section>
-</html>
+<title>Beheerder</title>
+<?php
+if (isset($_SESSION['user_role']) == 3) {
+  ?>
+  <?php require_once "view/beheerder/header.php"; ?>
+  <section>
+    <a style="color: #2c3e50;" href="#">
+      <div class="login">
+        <h2>Content overzicht</h2>
+        Hier vind u een overzicht van alle content in de website. Deze content kunt u bewerken.
+      </div>
+    </a>
+  </section>
+
+<?php
+} else {
+  // var_dump('Hiiiier!');
+  // echo "Geen admin";
+  // Redirect them to the login page
+  // include_once "Location: index.php?op=loginForm";
+}
+?>

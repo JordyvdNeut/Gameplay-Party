@@ -1,5 +1,5 @@
 <?php
-include_once('model/m_auth.php');
+require_once('model/m_auth.php');
 class AuthController
 {
   public $model;
@@ -9,11 +9,27 @@ class AuthController
   }
   public function invoke()
   {
-    $reslt = $this->model->getlogin();     // it call the getlogin() function of model class and store the return value of this function into the reslt variable.
+    $reslt = $this->model->getUser();
     if ($reslt == 'login') {
-      include 'view/login/afterLogin.php';
+      include_once('view/beheerder/beheerder.php');
     } else {
-      include 'view/login/loginForm.php';
+      // header('Location: index.php?op=loginForm');
+      // exit;
+      // include_once('view/loginForm.php');
     }
+  }
+}
+?>
+<?php
+class LoginSession
+{
+
+  public function __construct()
+  {
+    $this->model = new AuthModel();
+  }
+  public function getUser()
+  {
+    return $this->model->getUser();
   }
 }

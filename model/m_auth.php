@@ -2,18 +2,28 @@
 
 class AuthModel
 {
-  public function getlogin()
+  public function getUser()
   {
-    // here goes some hardcoded values to simulate the database
-    if (isset($_REQUEST['username']) && isset($_REQUEST['password'])) {
-      if ($_REQUEST['username'] == 'admin' && $_REQUEST['password'] == 'admin') {
-        include("controller/c_gpp.php");
-         $GPPController = new GPPController();
-         return "login";
-         return $GPPController->handleRequest();
-      } else {
-        return 'invalid user';
+    if (!empty($_POST)) {
+      if (isset($_POST['username']) && isset($_POST['password'])) {
+        $hashed_password = hash('ripemd160', $_POST['password']);
+        $con = new mysqli("localhost", "root", "", "gpp");
+        $stmt = $con->prepare("SELECT * FROM users WHERE user_name = ? ");
+        $stmt->bind_param('s', $_POST['username']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $user = $result->fetch_object();
+
+        // Verify user password and set $_SESSION
+        if ($hashed_password == $user->password) {
+          $_SESSION['user_id'] = $user->user_id;
+          $_SESSION['user_role'] = $user->rol_id;
+          return 'login';
+        } else {
+          echo "password False";
+        }
       }
-    }
+    
   }
+}
 }

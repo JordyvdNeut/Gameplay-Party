@@ -1,4 +1,7 @@
 <header>
+  <a href="index.php?op=home">
+    <img class="logo" src="view/images/gpp.svg" alt="Gameplay Party"></a>
+  <h2 class="title">Beheerder</h2><br />
   <nav>
     <div class="not-mobile">
       <a href="index.php?op=loginForm"><button class="btn">Login</button></a>
@@ -16,10 +19,6 @@
       </div>
     </div>
   </nav>
-  <a href="index.php?op=home">
-    <img class="logo" src="view/images/gpp.svg" alt="Gameplay Party">
-    <h2 class="title">Gameplay Party</h2><br>
-  </a>
 </header>
 
 <script>
