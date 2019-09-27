@@ -12,10 +12,6 @@ class AuthController
     $reslt = $this->model->getUser();
     if ($reslt == 'login') {
       include_once('view/beheerder/beheerder.php');
-    } else {
-      // header('Location: index.php?op=loginForm');
-      // exit;
-      // include_once('view/loginForm.php');
     }
   }
 }

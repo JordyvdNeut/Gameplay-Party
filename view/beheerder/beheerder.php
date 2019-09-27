@@ -13,10 +13,8 @@ if (isset($_SESSION['user_role']) == 3) {
   </section>
 
 <?php
-} else {
-  // var_dump('Hiiiier!');
-  // echo "Geen admin";
-  // Redirect them to the login page
-  // include_once "Location: index.php?op=loginForm";
+}
+if (!$_SESSION) {
+  header('Location: index.php?op=loginForm');
 }
 ?>
