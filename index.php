@@ -15,6 +15,7 @@
   <?php
   session_start();
 
+  // var_dump(hash('ripemd160', 'mijn'));
 
   require_once "controller/c_route.php";
   $routeController = new RouteController;
@@ -23,10 +24,6 @@
   require_once "controller/c_auth.php";
   $controller = new AuthController();
   $controller->invoke();
-
-  // require_once 'controller/c_bioscopen.php';
-  // $controller = new BiosController();
-  // $controller->handleRequest();
   ?>
 </body>
 

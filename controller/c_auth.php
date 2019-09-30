@@ -10,9 +10,6 @@ class AuthController
   public function invoke()
   {
     $reslt = $this->model->getUser();
-    if ($reslt == 'login') {
-      include_once('view/beheerder/beheerder.php');
-    }
   }
 }
 ?>
@@ -20,12 +17,12 @@ class AuthController
 class LoginSession
 {
 
-  public function __construct()
-  {
-    $this->model = new AuthModel();
-  }
-  public function getUser()
-  {
-    return $this->model->getUser();
-  }
+  // public function __construct()
+  // {
+  //   $this->model = new AuthModel();
+  // }
+  // public function getUser()
+  // {
+  //   return $this->model->getUser();
+  // }
 }

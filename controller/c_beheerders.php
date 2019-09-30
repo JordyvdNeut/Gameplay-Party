@@ -14,11 +14,27 @@ class BeheerdersController
 
 	public function collectHome()
 	{
-		include_once 'view/beheerder/beheerder.php';
+		if ($_SESSION['user_role'] == 3) {
+			require_once "view/beheerder/header.php";
+			include "view/beheerder/redacteur.php";
+		}
+		if ($_SESSION['user_role'] == 2) {
+			require_once "view/beheerder/header.php";
+			include "view/beheerder/biosBeheerder.php";
+		}
+		if (!$_SESSION | $_SESSION['user_role'] == null) {
+			header('Location: index.php?op=loginForm');
+		}
 	}
 
 	public function collectBioscopen()
 	{
 		include_once 'view/beheerder/overzichtBios.php';
+	}
+
+	public function logout()
+	{
+		$_SESSION['user_id'] = null;
+		$_SESSION['user_role'] = null;
 	}
 }

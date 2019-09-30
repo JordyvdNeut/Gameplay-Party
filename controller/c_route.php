@@ -45,6 +45,9 @@ class RouteController
 				case 'beHome':
 					$this->beheerdersController->collectHome();
 					break;
+				case 'loguit':
+					$this->beheerdersController->logout();
+					break;
 				default:
 					$this->userController->collectHome();
 					break;

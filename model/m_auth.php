@@ -18,7 +18,6 @@ class AuthModel
         if ($hashed_password == $user->password) {
           $_SESSION['user_id'] = $user->user_id;
           $_SESSION['user_role'] = $user->rol_id;
-          return 'login';
         } else {
           echo "password False";
         }

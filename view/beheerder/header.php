@@ -4,18 +4,18 @@
   <h2 class="title">Beheerder</h2><br />
   <nav>
     <div class="not-mobile">
-      <a href="index.php?op=loginForm"><button class="btn">Login</button></a>
-      <a href="index.php?op=overons"><button class="btn">Over ons</button></a>
-      <a href="index.php?op=overzicht"><button class="btn">Bioscopen</button></a>
-      <a href="index.php?op=home"><button class="btn">Home</button></a>
+      <a href="index.php?op=loguit"><button class="btn">loguit</button></a>
+      <!-- <button href="index.php?op=overons"><button class="btn">Over ons</button></a>
+      <a href="index.php?op=overzicht"><button class="btn">Bioscopen</button></a> -->
+      <a href="index.php?op=beHome"><button class="btn">Home</button></a>
     </div>
     <div class="dropdown, mobile">
       <i class="fa fa-bars dropbtn" onclick="burgerMenu()"></i>
       <div id="myDropdown" class="dropdown-content">
-        <a href="index.php?op=home">Home</a>
-        <a href="index.php?op=overzicht">Bioscopen</a>
-        <a href="index.php?op=overons">Over ons</a>
-        <a href="index.php?op=loginForm">Login</a>
+        <a href="index.php?op=beHome">Home</a>
+        <!-- <a href="index.php?op=overzicht">Bioscopen</a>
+        <a href="index.php?op=overons">Over ons</a> -->
+        <a href="index.php?op=loguit">Loguit</a>
       </div>
     </div>
   </nav>
