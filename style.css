@@ -26,8 +26,7 @@ nav {
 h2 {
   font-weight: bold;
 }
-
-.content a {
+.content a{
   display: table-row-group;
 }
 a {
@@ -42,11 +41,6 @@ a:hover {
   padding: 3px;
 }
 
-a button.btn:hover {
-  color: #c4e538;
-  background-color: #34495e;
-}
-
 footer {
   background-color: #2c3e50;
   color: #c4e538;
@@ -55,7 +49,6 @@ footer {
 }
 
 /* CLASSES */
-
 div.not-mobile a button.btn {
   height: 50px;
 }
@@ -118,27 +111,27 @@ div.not-mobile a button.btn {
 
 .con_title {
   text-align: center;
-  margin: 10px;
+  margin:10px;
 }
 
 .con_inh {
   padding: 5px;
 }
 /* email formulier */
-.table.content {
-  display: block;
-  padding: 30px;
+.table.content{
+  display:block;
+  padding:30px;
 }
-.table.content .btn {
+.table.content .btn{
   margin-top: 10px;
 }
-.heading {
-  text-align: center;
+.heading{
+  text-align:center;
 }
 
 .content {
   content: "";
-  padding: 15px;
+  padding: 15px;;
   background-color: #c4e5385c;
   display: table;
   margin: 0 auto;
@@ -196,8 +189,8 @@ div.login button {
   .logo {
     width: 100%;
   }
-  .center {
-    padding-left: 0px;
+  .center{
+    padding-left:0px;
   }
 
   .title {
@@ -209,11 +202,12 @@ div.login button {
     margin: 15px;
   }
 
+
   .con_title {
     font-size: 1.5em;
   }
 
-  .row {
+  .row{
     margin: 0px;
   }
 }
@@ -222,15 +216,15 @@ div.login button {
   width: 100%;
 }
 
-@media (min-width: 600px) {
-  [class*="col-"] {
+@media (min-width: 600px){
+    [class*="col-"] {
     margin: 0 auto;
     margin-bottom: 15px;
   }
 
-  .logo {
-    margin-top: -11px;
-  }
+.logo{
+margin-top: -11px;
+} 
 }
 
 @media (min-width: 769px) {
@@ -254,11 +248,12 @@ div.login button {
   }
 }
 
-@media (min-width: 1405px) {
+@media (min-width: 1405px){
   /* .logo{
     margin-top: -1px;
   } */
 }
+
 
 /* Dropdown Button */
 .dropbtn {
