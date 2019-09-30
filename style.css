@@ -131,7 +131,7 @@ div.not-mobile a button.btn {
 
 .content {
   content: "";
-  padding: 5px;
+  padding: 15px;;
   background-color: #c4e5385c;
   display: table;
   margin: 0 auto;
@@ -160,7 +160,6 @@ button.btn {
   background-color: #34495e;
   color: #c4e538;
   float: right;
-  margin-right: 10px;
   margin-bottom: 10px;
 }
 
@@ -250,9 +249,9 @@ margin-top: -11px;
 }
 
 @media (min-width: 1405px){
-  .logo{
+  /* .logo{
     margin-top: -1px;
-  }
+  } */
 }
 
 

@@ -17,7 +17,7 @@
     <label>Onderwerp:</label><br>
       <input type='name' name='subject' id='inputSubject' class='form-control' required>
     <label>Bericht:</label><br>
-    <textarea class='form-control' id='inputMessage' rows='3'name='bericht' required></textarea>
+    <textarea class='form-control' id='inputMessage' rows='3'name='infomessage' required></textarea>
     <button class='btn' type='submit'>Verstuur</button>
   </form>
 </div>
