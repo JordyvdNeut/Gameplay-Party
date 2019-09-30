@@ -17,13 +17,16 @@ class UserController
   }
 	public function collectCreateEmail() {
 		$creating = $_REQUEST;
-		$email = $this->GPPLogic->sendEmail($creating);
+    $email = $this->beheerdersLogic->sendEmail($creating);
+    $result = $this->beheerdersLogic->collectOverOns();
+    $contact = $this->createOverOns($result);
+    include_once 'view/over_ons.php';
 	}
 
-public function collectCreateNew() {
-    $creating = $_REQUEST;
-    $email = $this->productLogic->createemail($creating);
-}
+// public function collectCreateNew() {
+//     $creating = $_REQUEST;
+//     $email = $this->productLogic->createemail($creating);
+// }
 
  /* public function collectFooter() {
     $result = $this->beheerdersLogic->readFooter();
@@ -73,13 +76,13 @@ public function collectCreateNew() {
 			$html .= "</div>";
       $html .= "</div>";
       
-      $html .= "<div class='col-3'>";
-			$html .= "<div class='content'>";
-      $html .= "<h1 class='con_title'>Contact</h1>";
-      $html .= "<p>$row[emailText]</p>";
-      $html .= "<p>$row[email]</p>";
-			$html .= "</div>";
-			$html .= "</div>";
+      // $html .= "<div class='col-3'>";
+			// $html .= "<div class='content'>";
+      // $html .= "<h1 class='con_title'>Contact</h1>";
+      // $html .= "<p>$row[emailText]</p>";
+      // $html .= "<p>$row[email]</p>";
+			// $html .= "</div>";
+			// $html .= "</div>";
 		}
 
 		$html .= "</div></div>";
