@@ -53,6 +53,11 @@ div.not-mobile a button.btn {
   height: 50px;
 }
 
+header{
+  background: rgb(117,136,214);
+background: linear-gradient(90deg, rgba(117,136,214,1) 0%, rgba(94,226,109,1) 44%, rgba(219,198,83,1) 94%);
+}
+
 .footer {
   display: inline;
   color: #c4e538;
@@ -101,7 +106,7 @@ div.not-mobile a button.btn {
 .title {
   margin-right: 20px;
   margin-top: -120px;
-  margin-bottom: 65px;
+  margin-bottom: 40px;
 }
 
 .logo {
@@ -202,7 +207,6 @@ div.login button {
     margin: 15px;
   }
 
-
   .con_title {
     font-size: 1.5em;
   }
@@ -220,7 +224,7 @@ div.login button {
     [class*="col-"] {
     margin: 0 auto;
     margin-bottom: 15px;
-  }
+ }
 
 .logo{
 margin-top: -11px;
@@ -440,6 +444,7 @@ margin-top: -11px;
     flex-wrap: wrap;
     display: flex;
     margin: 0;
+    margin-top: 20px;
   }
 
   .content {
