@@ -70,7 +70,7 @@ class UserController
 
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			$html .= "<div class='col-8'>";
-			$html .= "<div class='content'>";
+			$html .= "<div class='table content'>";
 			$html .= "<h1 class='con_title'>Over ons</h1>";
 			$html .= "<p class='con_inh'>$row[overons]</p>";
 			$html .= "</div>";
