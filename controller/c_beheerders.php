@@ -12,9 +12,15 @@ class BeheerdersController
 	public function __destruct()
 	{ }
 
+	public function collectUser($id)
+	{
+		return $this->beheerdersLogic->readUser($id);
+	}
+
 	public function collectHome()
 	{
 		if ($_SESSION['user_role'] == 3) {
+			$user =	$this->collectUser($_SESSION['user_id']);
 			require_once "view/beheerder/header.php";
 			include "view/beheerder/redacteur.php";
 		}

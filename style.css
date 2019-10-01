@@ -21,7 +21,6 @@ section.row {
   margin: 15px;
 }
 
-
 /*Navigation*/
 nav {
   background-color: #34495e;
@@ -42,9 +41,14 @@ a:hover {
 }
 
 /*Header*/
-header{
-  background: rgb(117,136,214);
-  background: linear-gradient(90deg, rgba(117,136,214,1) 0%, rgba(94,226,109,1) 44%, rgba(219,198,83,1) 94%);
+header {
+  background: rgb(117, 136, 214);
+  background: linear-gradient(
+    90deg,
+    rgba(117, 136, 214, 1) 0%,
+    rgba(94, 226, 109, 1) 44%,
+    rgba(219, 198, 83, 1) 94%
+  );
 }
 
 .title {
@@ -58,10 +62,22 @@ header{
   margin-left: -5px;
 }
 
+/* Beheerders header */
+.username {
+  color: #c4e538;
+  line-height: 50px;
+  margin-left: 15px;
+  float: left;
+}
+
+.navRight {
+  float: right;
+}
+
 /*Content*/
 .content {
   content: "";
-  padding: 15px;;
+  padding: 15px;
   background-color: #c4e5385c;
   display: table;
   margin: 0 auto;
@@ -69,7 +85,7 @@ header{
   max-width: 100%;
 }
 
-.content a{
+.content a {
   display: table-row-group;
 }
 
@@ -109,7 +125,6 @@ div.not-mobile a button.btn {
   padding: 0px;
 }
 
-
 .center_footer {
   padding: 0 50px;
   text-align: center;
@@ -124,7 +139,7 @@ div.not-mobile a button.btn {
   cursor: pointer;
 }
 
-.contact_foot a.footer:hover h3{
+.contact_foot a.footer:hover h3 {
   text-decoration: underline;
 }
 
@@ -156,10 +171,9 @@ div.not-mobile a button.btn {
   margin: 3px;
 }
 
-
 .con_title {
   text-align: center;
-  margin:10px;
+  margin: 10px;
 }
 
 .con_inh {
@@ -172,22 +186,22 @@ div.not-mobile a button.btn {
 }
 
 /* Email formulier */
-.table.content{
-  display:block;
-  padding:30px;
+.table.content {
+  display: block;
+  padding: 30px;
 }
 
-.table.content .btn{
+.table.content .btn {
   margin-top: 10px;
 }
 
-.heading{
-  text-align:center;
+.heading {
+  text-align: center;
 }
 
 .content {
   content: "";
-  padding: 15px;;
+  padding: 15px;
   background-color: #c4e5385c;
   display: table;
   margin: 0 auto;
@@ -239,8 +253,8 @@ div.login button {
   .logo {
     width: 100%;
   }
-  .center{
-    padding-left:0px;
+  .center {
+    padding-left: 0px;
   }
 
   .title {
@@ -256,7 +270,7 @@ div.login button {
     font-size: 1.5em;
   }
 
-  .row{
+  .row {
     margin: 0px;
   }
 }
@@ -265,15 +279,15 @@ div.login button {
   width: 100%;
 }
 
-@media (min-width: 600px){
-    [class*="col-"] {
+@media (min-width: 600px) {
+  [class*="col-"] {
     margin: 0 auto;
     margin-bottom: 15px;
- }
+  }
 
-.logo{
-margin-top: -11px;
-} 
+  .logo {
+    margin-top: -11px;
+  }
 }
 
 @media (min-width: 769px) {
@@ -298,12 +312,11 @@ margin-top: -11px;
 }
 
 /*Laptop*/
-@media (min-width: 1405px){
+@media (min-width: 1405px) {
   /* .logo{
     margin-top: -1px;
   } */
 }
-
 
 /* Dropdown Button */
 .dropbtn {
@@ -368,4 +381,3 @@ margin-top: -11px;
     display: none;
   }
 }
-

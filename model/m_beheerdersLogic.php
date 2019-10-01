@@ -67,12 +67,13 @@ class BeheerdersLogic
     }
   }
 
-  public function read($id)
+  public function readUser($id)
   {
     try {
-      /*$sql = 'SELECT * FROM  WHERE id = ' $id ';';
+      $sql = "SELECT * FROM users WHERE user_id = $id";
       $result = $this->DataHandler->readsData($sql);
-      return $result;*/ } catch (exception $e) {
+      return $result->fetch(PDO::FETCH_ASSOC);
+    } catch (exception $e) {
       throw $e;
     }
   }
