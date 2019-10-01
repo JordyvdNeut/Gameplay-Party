@@ -84,6 +84,20 @@ h2 {
   margin-top: 20px;
 }
 
+/*Detail Bioscopen*/
+.biosInside{
+  width: 300px;
+  position: static;
+  float: right;
+  margin: 3px;
+}
+
+@media (max-width: 786px){
+  .biosInside{
+    width: 150px;
+  }
+}
+
 /*Footer*/
 footer {
   background-color: #2c3e50;
