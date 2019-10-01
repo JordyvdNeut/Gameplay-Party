@@ -81,11 +81,11 @@ div.not-mobile a button.btn {
   float: right;
 }
 
-a.footer:hover {
+.contact_foot a.footer:hover {
   cursor: pointer;
 }
 
-a.footer:hover h3{
+.contact_foot a.footer:hover h3{
   text-decoration: underline;
 }
 
