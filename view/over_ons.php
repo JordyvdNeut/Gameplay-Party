@@ -7,7 +7,7 @@
   <?= $contact ?>
 <div class='center'><div class='row'>
 <div class='col-8'>
-<div class='table content'>
+<div class='table content' id="email">
   <form class='form-contact' action='index.php?op=createEmail' method='POST'>
     <h1 class='heading'>Zoek contact met ons op</h1>
     <label>Naam:</label><br>
