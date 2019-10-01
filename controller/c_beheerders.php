@@ -25,6 +25,7 @@ class BeheerdersController
 			include "view/beheerder/redacteur.php";
 		}
 		if ($_SESSION['user_role'] == 2) {
+			$user =	$this->collectUser($_SESSION['user_id']);
 			require_once "view/beheerder/header.php";
 			include "view/beheerder/biosBeheerder.php";
 		}
