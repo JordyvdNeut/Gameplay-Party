@@ -2,11 +2,13 @@
   <div class="center_footer">
     <div class="row">
       <div class="contact_foot col-5">
-        <h3><a class='footer' href="?op=overons">Contact</a></h3>
-        <ul class='footer'>
-          <li>Wij zijn bereikbaar op het email adres: </li>
-          <li>info@gameplayparty.com</li>
-        </ul>
+        <a class='footer' href="?op=overons">
+          <h3>Contact</h3>
+          <ul class='footer'>
+            <li>Wij zijn bereikbaar op het email adres: </li>
+            <li>info@gameplayparty.com</li>
+          </ul>
+        </a>
       </div>
 
       <div class="voorw_foot col-5">

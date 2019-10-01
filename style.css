@@ -81,6 +81,14 @@ div.not-mobile a button.btn {
   float: right;
 }
 
+a.footer:hover {
+  cursor: pointer;
+}
+
+a.footer:hover h3{
+  text-decoration: underline;
+}
+
 .voorw_foot {
   width: 20%;
 }
