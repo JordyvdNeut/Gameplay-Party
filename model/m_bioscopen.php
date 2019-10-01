@@ -38,9 +38,9 @@ class Bioscopen
   {
     try {
       $sql = "SELECT * FROM bioscopen WHERE bios_id = $id";
-          $result = $this->DataHandler->readsData($sql);
-          return $result;
-        } catch (exception $e) {
+      $result = $this->DataHandler->readsData($sql);
+      return $result;
+    } catch (exception $e) {
       throw $e;
     }
   }

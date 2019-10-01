@@ -23,7 +23,6 @@ class AuthModel
           echo "password False";
         }
       }
-    
+    }
   }
-}
 }

@@ -10,25 +10,27 @@ class UserController
 
   public function __destruct()
   { }
-  public function collectHome() {
+  public function collectHome()
+  {
     $result = $this->beheerdersLogic->readHome();
     $homePage = $this->createHome($result);
     include_once 'view/home.php';
   }
-	public function collectCreateEmail() {
-		$creating = $_REQUEST;
+  public function collectCreateEmail()
+  {
+    $creating = $_REQUEST;
     $email = $this->beheerdersLogic->sendEmail($creating);
     $result = $this->beheerdersLogic->collectOverOns();
     $contact = $this->createOverOns($result);
     include_once 'view/over_ons.php';
-	}
+  }
 
-// public function collectCreateNew() {
-//     $creating = $_REQUEST;
-//     $email = $this->productLogic->createemail($creating);
-// }
+  // public function collectCreateNew() {
+  //     $creating = $_REQUEST;
+  //     $email = $this->productLogic->createemail($creating);
+  // }
 
- /* public function collectFooter() {
+  /* public function collectFooter() {
     $result = $this->beheerdersLogic->readFooter();
     $footer = $this->createFooter($result);
     include_once 'view/footer.php';
@@ -58,35 +60,37 @@ class UserController
 		$html .= "</div></div>";
 }*/
 
-  public function collectOverOns() {
+  public function collectOverOns()
+  {
     $result = $this->beheerdersLogic->collectOverOns();
     $contact = $this->createOverOns($result);
     include_once 'view/over_ons.php';
   }
 
-  public function createOverOns($result) {
-		$html = "";
-		$html .= "<div class='center'><div class='row'>";
+  public function createOverOns($result)
+  {
+    $html = "";
+    $html .= "<div class='center'><div class='row'>";
 
-		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			$html .= "<div class='col-8'>";
-			$html .= "<div class='content'>";
-			$html .= "<h1 class='con_title'>Over ons</h1>";
-			$html .= "<p class='con_inh'>$row[overons]</p>";
-			$html .= "</div>";
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+      $html .= "<div class='col-8'>";
+      $html .= "<div class='table content'>";
+      $html .= "<h1 class='con_title'>Over ons</h1>";
+      $html .= "<p class='con_inh'>$row[overons]</p>";
       $html .= "</div>";
-      
+      $html .= "</div>";
+
       // $html .= "<div class='col-3'>";
-			// $html .= "<div class='content'>";
+      // $html .= "<div class='content'>";
       // $html .= "<h1 class='con_title'>Contact</h1>";
       // $html .= "<p>$row[emailText]</p>";
       // $html .= "<p>$row[email]</p>";
-			// $html .= "</div>";
-			// $html .= "</div>";
-		}
+      // $html .= "</div>";
+      // $html .= "</div>";
+    }
 
-		$html .= "</div></div>";
-		return $html;
+    $html .= "</div></div>";
+    return $html;
   }
 
   public function createHome($result)
@@ -97,7 +101,9 @@ class UserController
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
       if ($row['homeCon_id'] == 1) {
         $row['homeCon_id'] = "?op=overons";
-      } else { $row['homeCon_id'] = "?op=overzicht"; }
+      } else {
+        $row['homeCon_id'] = "?op=overzicht";
+      }
       $html .= "<div class='col-5'>";
       $html .= "<div class='content'>";
       $html .= "<h1 class='con_title'>$row[titel]</h1>";
@@ -111,8 +117,8 @@ class UserController
     return $html;
   }
 
-  public function collectLogin() {
+  public function collectLogin()
+  {
     include 'view/loginForm.php';
   }
-
 }
