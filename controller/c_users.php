@@ -25,41 +25,6 @@ class UserController
     include_once 'view/over_ons.php';
   }
 
-  // public function collectCreateNew() {
-  //     $creating = $_REQUEST;
-  //     $email = $this->productLogic->createemail($creating);
-  // }
-
-  /* public function collectFooter() {
-    $result = $this->beheerdersLogic->readFooter();
-    $footer = $this->createFooter($result);
-    include_once 'view/footer.php';
-  }
-
-  public function createFooter($result) {
-		$html = "";
-		$html .= "<div class='center'><div class='row'>";
-
-		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			$html .= "<div class='col-8'>";
-			$html .= "<div class='content'>";
-			$html .= "<h1 class='con_title'>Contact</h1>";
-			$html .= "<p>$row[voorwaarden]</p>";
-			$html .= "</div>";
-      $html .= "</div>";
-      
-      $html .= "<div class='col-2'>";
-			$html .= "<div class='content'>";
-      $html .= "<h1 class='con_title'>Email</h1>";
-      //$html .= "<p>$row[]</p>";
-		//	$html .= "<p>$row[]</p>";
-			$html .= "</div>";
-			$html .= "</div>";
-		}
-
-		$html .= "</div></div>";
-}*/
-
   public function collectOverOns()
   {
     $result = $this->beheerdersLogic->collectOverOns();
@@ -79,14 +44,6 @@ class UserController
       $html .= "<p class='con_inh'>$row[overons]</p>";
       $html .= "</div>";
       $html .= "</div>";
-
-      // $html .= "<div class='col-3'>";
-      // $html .= "<div class='content'>";
-      // $html .= "<h1 class='con_title'>Contact</h1>";
-      // $html .= "<p>$row[emailText]</p>";
-      // $html .= "<p>$row[email]</p>";
-      // $html .= "</div>";
-      // $html .= "</div>";
     }
 
     $html .= "</div></div>";
