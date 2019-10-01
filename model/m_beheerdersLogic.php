@@ -1,24 +1,27 @@
 <?php
 require_once 'model/m_DataHandler.php';
 
-class BeheerdersLogic{
+class BeheerdersLogic
+{
 
-  public function __construct() {
+  public function __construct()
+  {
     $this->DataHandler = new DataHandler("localhost", "mysql", "gpp", "root", "");
   }
 
-  public function __destruct(){}
+  public function __destruct()
+  { }
 
-  public function create($formData){
-    try { 
-
-    } catch (exception $e) {
+  public function create($formData)
+  {
+    try { } catch (exception $e) {
       throw $e;
     }
   }
 
-  public function readHome(){
-    try { 
+  public function readHome()
+  {
+    try {
       $sql = "SELECT * FROM homecontent";
       $result = $this->DataHandler->readsData($sql);
       return $result;
@@ -26,18 +29,19 @@ class BeheerdersLogic{
       throw $e;
     }
   }
-  public function sendEmail($creating){
+  public function sendEmail($creating)
+  {
     $name           = $creating["name"];
     $email     = $creating["email"];
     $subject         = $creating["subject"];
     $infomessage          = $creating["infomessage"];
-  try{
-   $sql = "INSERT INTO `email` (name, email, subject, message) VALUES ('$name', '$email', '$subject', '$infomessage')";
-   $result = $this->DataHandler->createData($sql);
-   return $result;
-  } catch (exception $e) {
-    throw $e;
-  }
+    try {
+      $sql = "INSERT INTO `email` (name, email, subject, message) VALUES ('$name', '$email', '$subject', '$infomessage')";
+      $result = $this->DataHandler->createData($sql);
+      return $result;
+    } catch (exception $e) {
+      throw $e;
+    }
   }
 
   /*
@@ -52,27 +56,29 @@ class BeheerdersLogic{
   }
 */
 
-  public function collectOverons(){
-      try {
-        $sql = "SELECT * FROM contact";
-        $results = $this->DataHandler->readsData($sql);
-        return $results;
-      } catch (exception $e) {
-        throw $e;
-      }
-  }
-
-  public function read($id){
+  public function collectOverons()
+  {
     try {
-      /*$sql = 'SELECT * FROM  WHERE id = ' $id ';';
-      $result = $this->DataHandler->readsData($sql);
-      return $result;*/
-     } catch (exception $e) {
+      $sql = "SELECT * FROM contact";
+      $results = $this->DataHandler->readsData($sql);
+      return $results;
+    } catch (exception $e) {
       throw $e;
     }
   }
 
-  public function readBois(){
+  public function read($id)
+  {
+    try {
+      /*$sql = 'SELECT * FROM  WHERE id = ' $id ';';
+      $result = $this->DataHandler->readsData($sql);
+      return $result;*/ } catch (exception $e) {
+      throw $e;
+    }
+  }
+
+  public function readBois()
+  {
     try {
       return array("Hier", "Tekst", null);
     } catch (exception $e) {
@@ -80,22 +86,22 @@ class BeheerdersLogic{
     }
   }
 
-  public function update(){
+  public function update()
+  {
     try {
       /*$sql = 'UPDATE * SET WHERE id =  ';
       $result = $this->DataHandler->readsData($sql);
-      return $result;*/
-     } catch (exception $e) {
+      return $result;*/ } catch (exception $e) {
       throw $e;
     }
   }
 
-  public function delete($id){
+  public function delete($id)
+  {
     try {
       /*$sql = 'DELETE * FROM  WHERE id = ';
       $result = $this->DataHandler->readsData($sql);
-      return $result;*/
-     } catch (exception $e) {
+      return $result;*/ } catch (exception $e) {
       throw $e;
     }
   }
