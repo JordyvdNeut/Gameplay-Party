@@ -17,8 +17,11 @@
     </div>
   </nav>
   <a href="index.php?op=home">
+  <!-- <img src="view/images/slinger.png">-->
     <img class="logo" src="view/images/gpp.svg" alt="Gameplay Party">
+    
     <h2 class="title">Gameplay Party</h2><br>
+    
   </a>
 </header>
 
