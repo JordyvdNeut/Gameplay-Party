@@ -66,10 +66,10 @@ class BiosController
 		$html .= "<section class='row'>";
 
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			$html .= "<div class='col-9'>";
+			$html .= "<div class='col-8'>";
 			$html .= "<div class='content'>";
 			$html .= "<h2>$row[bios_naam]</h2>";
-			$html .= "<p class='con_in'><img class='biosPhoto' src='$row[bios_foto]'></p>";
+			$html .= "<p class='con_in'><img class='biosInside' src='$row[bios_ins]'></p>";
 			$html .= "<p>$row[bios_info]</p>";
 			if ($row['bios_diensten'] !== null) {
 				$html .= "<h2>Extra mogelijkheden: </h2>";
@@ -78,8 +78,8 @@ class BiosController
 			$html .= "</div>";
 			$html .= "</div>";
 
-
-			$html .= "<div class='col-2'>";
+			
+			$html .= "<div class='col-3'>";
 			$html .= "<div class='content'>";
 			$html .= "<h3><strong>Contact gegevens</strong></h3>";
 			$html .= "<h4><strong>Adres: </strong></h4>";
