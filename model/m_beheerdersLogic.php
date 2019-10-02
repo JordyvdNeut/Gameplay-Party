@@ -82,4 +82,15 @@ class BeheerdersLogic
     }
   }
 
+  public function updateHomeContent()
+  { try{
+    /*UPDATE homecontent SET titel = '$' , inhoud = '$'; */
+    $sql = "UPDATE homecontent SET titel = '$' , inhoud = '$' ";
+    $result = $this->DataHandler->updateData($sql);
+    return $result; 
+    } catch (exception $e){
+        throw $e;
+      }
+  }
+
 }

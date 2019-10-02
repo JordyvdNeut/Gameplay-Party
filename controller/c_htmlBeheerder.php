@@ -31,6 +31,7 @@ class HTMLBeheerderController
         $html .= "<td>{$value}</td>";
       }
       $html .= "<td><a href=''><button><span class='glyphicon glyphicon-pencil'></span> Bewerken</button></a></td>";
+      /*?op=updateHome&id=' . $homeCon_id . */
       $html .= "</tr>";
     }
 

@@ -52,10 +52,19 @@ class BeheerdersController
 		include_once 'view/beheerder/overzichtBios.php';
 	}
 
+	public function updateHomeContent()
+	{
+		$result = $this->beheerdersLogic->updateHomeContent();
+		include 'view/beheerder/updatedBios.php';
+
+	}
+
 	public function logout()
 	{
 		$_SESSION['user_id'] = null;
 		$_SESSION['user_role'] = null;
 		header('Location: index.php?op=loginForm');
 	}
+
+	
 }
