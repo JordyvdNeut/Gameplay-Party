@@ -10,12 +10,14 @@ class UserController
 
   public function __destruct()
   { }
+
   public function collectHome()
   {
     $result = $this->beheerdersLogic->readHome();
     $homePage = $this->createHome($result);
     include_once 'view/home.php';
   }
+  
   public function collectCreateEmail()
   {
     $creating = $_REQUEST;
