@@ -37,7 +37,7 @@ class UserController
     $html = "";
     $html .= "<div class='center'><div class='row'>";
 
-    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+    while ($row = $result) {
       $html .= "<div class='col-8'>";
       $html .= "<div class='table content'>";
       $html .= "<h1 class='con_title'>Over ons</h1>";
@@ -55,7 +55,7 @@ class UserController
     $html = "";
     $html .= "<div class='center'><div class='row'>";
 
-    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+    while ($row = $result) {
       if ($row['homeCon_id'] == 1) {
         $row['homeCon_id'] = "?op=overons";
       } else {

@@ -13,22 +13,12 @@ class Bioscopen
   public function __destruct()
   { }
 
-  // public function addBios(){
-  //     try {
-  //       /*$sql = 'INSERT INTO * FROM ';
-  //       $result = $this->DataHandler->createData($sql);
-  //       return $result;*/
-  //      } catch (exception $e) {
-  //       throw $e;
-  //     }
-  //   }
-
   public function readBioscopen()
   {
     try {
       $sql = "SELECT * FROM bioscopen";
       $results = $this->DataHandler->readsData($sql);
-      return $results;
+      return $results->fetch(PDO::FETCH_ASSOC);
     } catch (exception $e) {
       throw $e;
     }
@@ -39,30 +29,9 @@ class Bioscopen
     try {
       $sql = "SELECT * FROM bioscopen WHERE bios_id = $id";
       $result = $this->DataHandler->readsData($sql);
-      return $result;
+      return $result->fetch(PDO::FETCH_ASSOC);
     } catch (exception $e) {
       throw $e;
     }
   }
-
-  // public function update($id){
-  //   try {
-  //     /*$sql = 'UPDATE * SET WHERE id =  ';
-  //     $result = $this->DataHandler->updateData($sql);
-  //     return $result;*/
-  //    } catch (exception $e) {
-  //     throw $e;
-  //   }
-  // }
-
-  // public function delete($id){
-  //   try {
-  //     /*$sql = 'DELETE * FROM bioscopen WHERE id = ';
-  //     $result = $this->DataHandler->deleteData($sql);
-  //     return $result;*/
-
-  //    } catch (exception $e) {
-  //     throw $e;
-  //   }
-  // }
 }

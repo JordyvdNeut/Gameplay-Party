@@ -28,7 +28,7 @@ class BeheerdersLogic
     try {
       $sql = "SELECT * FROM homecontent";
       $result = $this->DataHandler->readsData($sql);
-      return $result;
+      return $result->fetch(PDO::FETCH_ASSOC);
     } catch (exception $e) {
       throw $e;
     }
@@ -38,16 +38,7 @@ class BeheerdersLogic
     try {
       $sql = "SELECT * FROM contact";
       $results = $this->DataHandler->readsData($sql);
-      return $results;
-    } catch (exception $e) {
-      throw $e;
-    }
-  }
-
-  public function readBois()
-  {
-    try {
-      return array("Hier", "Tekst", null);
+      return $results->fetch(PDO::FETCH_ASSOC);
     } catch (exception $e) {
       throw $e;
     }

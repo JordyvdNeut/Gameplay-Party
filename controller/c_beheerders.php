@@ -34,6 +34,12 @@ class BeheerdersController
 		}
 	}
 
+	public function collectContent()
+	{
+		$this->beheerdersLogic->readHome();
+		$this->beheerdersLogic->readOverons();
+	}
+
 	public function collectBioscopen()
 	{
 		include_once 'view/beheerder/overzichtBios.php';

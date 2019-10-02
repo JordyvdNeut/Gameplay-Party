@@ -11,12 +11,6 @@ class BiosController
 	public function __destruct()
 	{ }
 
-	// public function addBios()
-	// {
-	// 	$result = $this->bioscopen->addBios();
-	// 	include 'view/beheerder/addbios.php';
-	// }
-
 	public function collectOverzicht()
 	{
 		$bioscopen = $this->bioscopen->readBioscopen();
@@ -31,19 +25,13 @@ class BiosController
 		include 'view/detail.php';
 	}
 
-	// public function update()
-	// {
-	// 	$result = $this->bioscopen->update();
-	// 	include 'view/beheerder/beheerder.php';
-	// }
-
 
 	public function createDiv($result)
 	{
 		$html = "";
 		$html .= "<div class='center'><div class='row'>";
 
-		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+		while ($row = $result) {
 			$row['bios_info'] = substr($row['bios_info'], 0, 250);
 			$html .= "<div class='col-5'>";
 			$html .= "<div class='content'>";
@@ -65,7 +53,7 @@ class BiosController
 		$html = "";
 		$html .= "<section class='row'>";
 
-		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+		while ($row = $result) {
 			$html .= "<div class='col-8'>";
 			$html .= "<div class='content'>";
 			$html .= "<h2>$row[bios_naam]</h2>";
