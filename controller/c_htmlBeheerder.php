@@ -14,7 +14,7 @@ class HTMLBeheerderController
     $html = "";
 
     $html .= "<h3>Home pagina</h3>";
-    $html .= "<table>";
+    $html .= "<table class='table'>";
 
     foreach ($rows as $row) {
       $row['Inhoud'] = substr($row['Inhoud'], 0, 250) . "...";
@@ -31,7 +31,6 @@ class HTMLBeheerderController
         $html .= "<td>{$value}</td>";
       }
       $html .= "<td><a href=''><button><span class='glyphicon glyphicon-pencil'></span> Bewerken</button></a></td>";
-      /*?op=updateHome&id=' . $homeCon_id . */
       $html .= "</tr>";
     }
 
@@ -45,7 +44,7 @@ class HTMLBeheerderController
     $html = "";
 
     $html .= "<h3>Contact pagina</h3>";
-    $html .= "<table>";
+    $html .= "<table class='table'>";
 
     foreach ($rows as $row) {
       $row['Over ons'] = substr($row['Over ons'], 0, 250) . "...";
@@ -75,7 +74,7 @@ class HTMLBeheerderController
     $html = "";
 
     $html .= "<h3>Beschikbaren zalen</h3>";
-    $html .= "<table>";
+    $html .= "<table class='table'>";
 
     foreach ($rows as $row) {
       $html .= "<tr>";
