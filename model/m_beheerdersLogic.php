@@ -59,7 +59,7 @@ class BeheerdersLogic
   public function readOveronsCon()
   {
     try {
-      $sql = "SELECT * FROM contact";
+      $sql = "SELECT overons 'Over ons', email Email, emailText 'Email text' FROM contact";
       $results = $this->DataHandler->readsData($sql);
       return $results;
     } catch (exception $e) {

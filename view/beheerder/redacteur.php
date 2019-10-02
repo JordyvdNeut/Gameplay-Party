@@ -3,7 +3,7 @@
 <section>
   <div class="row">
     <div class="content">
-      <h2>Content home pagina</h2>
+      <h2>Content bewerken</h2>
       <?= $content ?>
     </div>
   </div>

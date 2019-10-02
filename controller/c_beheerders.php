@@ -1,6 +1,6 @@
 <?php
 require_once 'model/m_beheerdersLogic.php';
-require_once 'controller/c_html.php';
+require_once 'controller/c_htmlBeheerder.php';
 
 class BeheerdersController
 {
@@ -8,7 +8,7 @@ class BeheerdersController
 	public function __construct()
 	{
 		$this->beheerdersLogic = new BeheerdersLogic();
-		$this->HTMLController = new HTMLController();
+		$this->HTMLBeheerderController = new HTMLBeheerderController();
 	}
 
 	public function __destruct()
@@ -41,9 +41,10 @@ class BeheerdersController
 	public function collectContent()
 	{
 		$homeContent = $this->beheerdersLogic->readHomeCon();
-		$homeContTable = $this->HTMLController->createHomeConTable($homeContent);
+		$homeContTable = $this->HTMLBeheerderController->createHomeConTable($homeContent);
 		$overonsContent = $this->beheerdersLogic->readOveronsCon();
-		return $homeContTable;
+		$overonsContTable = $this->HTMLBeheerderController->createOveronsConTable($overonsContent);
+		return "<hr style='border-color: green'>" . $homeContTable . "<hr style='border-color: green'>" . $overonsContTable;
 	}
 
 	public function collectBioscopen()
