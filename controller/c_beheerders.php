@@ -51,8 +51,9 @@ class BeheerdersController
 
 	public function collectAvailabilty()
 	{
-		// $beschikbaarheid = $this->beheerderLogic->readAvailabilty();
-		// $homeContTable = $this->HTMLBeheerderController->createHomeConTable($beschikbaarheid);
+		$beschikbaarheid = $this->beheerdersLogic->readAvailabilty();
+		$homeContTable = $this->HTMLBeheerderController->createAvailabiltyTable($beschikbaarheid);
+		return $homeContTable;
 	}
 
 	public function collectBioscopen()
