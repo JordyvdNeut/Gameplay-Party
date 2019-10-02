@@ -1,6 +1,6 @@
 <header>
-  <a href="index.php?op=home">
-    <img class="logo" src="view/images/gpp.svg" alt="Gameplay Party"></a>
+
+    <img class="logo" src="view/images/gpp.svg" alt="Gameplay Party">
   <h2 class="title">Beheerder</h2><br />
   <nav>
     <div style="display: inline">
@@ -8,7 +8,7 @@
         <strong>Welkom: <?= $user['user_name'] ?></strong>
       </div>
       <div class="not-mobile navRight">
-        <a href="index.php?op=loguit"><button class="btn">loguit</button></a>
+        <a href="index.php?op=loguit"><button class="btn">Log uit</button></a>
         <!-- <button href="index.php?op=overons"><button class="btn">Over ons</button></dii>
       <a href="index.php?op=overzicht"><button class="btn">Bioscopen</button></a> -->
         <a href="index.php?op=beHome"><button class="btn">Home</button></a>
