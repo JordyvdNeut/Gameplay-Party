@@ -12,9 +12,13 @@ class BeheerdersLogic
   public function __destruct()
   { }
 
-  public function create($formData)
+  public function readUser($id)
   {
-    try { } catch (exception $e) {
+    try {
+      $sql = "SELECT * FROM users WHERE user_id = $id";
+      $result = $this->DataHandler->readsData($sql);
+      return $result->fetch(PDO::FETCH_ASSOC);
+    } catch (exception $e) {
       throw $e;
     }
   }
@@ -29,6 +33,26 @@ class BeheerdersLogic
       throw $e;
     }
   }
+  public function readOverons()
+  {
+    try {
+      $sql = "SELECT * FROM contact";
+      $results = $this->DataHandler->readsData($sql);
+      return $results;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
+  public function readBois()
+  {
+    try {
+      return array("Hier", "Tekst", null);
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
   public function sendEmail($creating)
   {
     $name           = $creating["name"];
@@ -44,66 +68,4 @@ class BeheerdersLogic
     }
   }
 
-  /*
-  public function readFooter(){
-    try { 
-      $sql = "SELECT * FROM footer";
-      $result = $this->DataHandler->readsData($sql);
-      return $result;
-    } catch (exception $e) {
-      throw $e;
-    }
-  }
-*/
-
-  public function collectOverons()
-  {
-    try {
-      $sql = "SELECT * FROM contact";
-      $results = $this->DataHandler->readsData($sql);
-      return $results;
-    } catch (exception $e) {
-      throw $e;
-    }
-  }
-
-  public function readUser($id)
-  {
-    try {
-      $sql = "SELECT * FROM users WHERE user_id = $id";
-      $result = $this->DataHandler->readsData($sql);
-      return $result->fetch(PDO::FETCH_ASSOC);
-    } catch (exception $e) {
-      throw $e;
-    }
-  }
-
-  public function readBois()
-  {
-    try {
-      return array("Hier", "Tekst", null);
-    } catch (exception $e) {
-      throw $e;
-    }
-  }
-
-  public function update()
-  {
-    try {
-      /*$sql = 'UPDATE * SET WHERE id =  ';
-      $result = $this->DataHandler->readsData($sql);
-      return $result;*/ } catch (exception $e) {
-      throw $e;
-    }
-  }
-
-  public function delete($id)
-  {
-    try {
-      /*$sql = 'DELETE * FROM  WHERE id = ';
-      $result = $this->DataHandler->readsData($sql);
-      return $result;*/ } catch (exception $e) {
-      throw $e;
-    }
-  }
 }

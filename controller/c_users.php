@@ -27,7 +27,7 @@ class UserController
 
   public function collectOverOns()
   {
-    $result = $this->beheerdersLogic->collectOverOns();
+    $result = $this->beheerdersLogic->readOverOns();
     $contact = $this->createOverOns($result);
     include_once 'view/over_ons.php';
   }
