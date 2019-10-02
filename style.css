@@ -248,6 +248,13 @@ button.btn {
   margin-bottom: 10px;
 }
 
+button.extra{
+  background-color: #c4e538;
+  color: #34495e;
+  float: right;
+  margin-bottom: 10px;
+}
+
 button.btn:hover {
   background-color: #c4e538;
 }

@@ -56,16 +56,20 @@ class UserController
     $html .= "<div class='center'><div class='row'>";
 
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-      if ($row['homeCon_id'] == 1) {
-        $row['homeCon_id'] = "?op=overons";
-      } else {
-        $row['homeCon_id'] = "?op=overzicht";
-      }
+      
       $html .= "<div class='col-5'>";
       $html .= "<div class='content'>";
       $html .= "<h1 class='con_title'>$row[titel]</h1>";
       $html .= "<p class='con_inh'>$row[inhoud]</p>";
-      $html .= "<a href='$row[homeCon_id]'><button class='btn'>Lees meer</button></a>";
+
+      if ($row['homeCon_id'] == 1) {
+        $row['homeCon_id'] = "?op=overons";
+        $html .= "<a href='$row[homeCon_id]'><button class='btn'>Lees meer</button></a>";
+      } else {
+        $row['homeCon_id'] = "?op=overzicht";
+        $html .= "<a href='$row[homeCon_id]'><button class='btn extra'>Lees meer</button></a>";
+      }
+      
       $html .= "</div>";
       $html .= "</div>";
     }
