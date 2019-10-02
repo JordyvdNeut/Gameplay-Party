@@ -67,6 +67,17 @@ class BeheerdersLogic
     }
   }
 
+  public function readAvailabilty()
+  {
+    try {
+      $sql = "SELECT zaal_id,	datum Datum,	beg_tijd 'Begin tijd',	eind_tijd 'Eind tijd' FROM mogelijkheden WHERE beschik = 'flase'";
+      $results = $this->DataHandler->readsData($sql);
+      return $results;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
   public function sendEmail($creating)
   {
     $name           = $creating["name"];
@@ -94,3 +105,6 @@ class BeheerdersLogic
   }
 
 }
+
+}
+

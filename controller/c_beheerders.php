@@ -23,13 +23,15 @@ class BeheerdersController
 	{
 		if ($_SESSION['user_role'] == 3) {
 			$user =	$this->collectUser($_SESSION['user_id']);
-			$content = $this->collectContent();
+			$content = $this->collectContentTables();
 			require_once "view/beheerder/header.php";
 			include "view/beheerder/redacteur.php";
 
 		}
 		if ($_SESSION['user_role'] == 2) {
 			$user =	$this->collectUser($_SESSION['user_id']);
+			$content = $this->collectAvailabilty();
+			// beschikbaarheid tabel, gereserveerde beschikbaarheden
 			require_once "view/beheerder/header.php";
 			include "view/beheerder/biosBeheerder.php";
 		}
@@ -38,13 +40,19 @@ class BeheerdersController
 		}
 	}
 
-	public function collectContent()
+	public function collectContentTables()
 	{
 		$homeContent = $this->beheerdersLogic->readHomeCon();
 		$homeContTable = $this->HTMLBeheerderController->createHomeConTable($homeContent);
 		$overonsContent = $this->beheerdersLogic->readOveronsCon();
 		$overonsContTable = $this->HTMLBeheerderController->createOveronsConTable($overonsContent);
 		return "<hr style='border-color: green'>" . $homeContTable . "<hr style='border-color: green'>" . $overonsContTable;
+	}
+
+	public function collectAvailabilty()
+	{
+		// $beschikbaarheid = $this->beheerderLogic->readAvailabilty();
+		// $homeContTable = $this->HTMLBeheerderController->createHomeConTable($beschikbaarheid);
 	}
 
 	public function collectBioscopen()

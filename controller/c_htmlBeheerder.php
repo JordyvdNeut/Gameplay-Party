@@ -41,31 +41,60 @@ class HTMLBeheerderController
 
   public function createOveronsConTable($rows)
   {
-      $tableheader = false;
-      $html = "";
+    $tableheader = false;
+    $html = "";
 
-      $html .= "<h3>Contact pagina</h3>";
-      $html .= "<table>";
+    $html .= "<h3>Contact pagina</h3>";
+    $html .= "<table>";
 
-      foreach ($rows as $row) {
+    foreach ($rows as $row) {
       $row['Over ons'] = substr($row['Over ons'], 0, 250) . "...";
       $html .= "<tr>";
-        if ($tableheader !== true) {
-          foreach ($row as $key => $value) {
-            $html .= "<th>{$key}</th>";
-          }
-          $html .= "<th>Wijzigen</th>";
-          $html .= "</tr>";
-          $tableheader = true;
+      if ($tableheader !== true) {
+        foreach ($row as $key => $value) {
+          $html .= "<th>{$key}</th>";
         }
-        foreach ($row as $value) {
-          $html .= "<td>{$value}</td>";
-        }
-        $html .= "<td><a href=''><button><span class='glyphicon glyphicon-pencil'></span> Bewerken</button></a></td>";
+        $html .= "<th>Wijzigen</th>";
         $html .= "</tr>";
+        $tableheader = true;
       }
+      foreach ($row as $value) {
+        $html .= "<td>{$value}</td>";
+      }
+      $html .= "<td><a href=''><button><span class='glyphicon glyphicon-pencil'></span> Bewerken</button></a></td>";
+      $html .= "</tr>";
+    }
 
-      $html .= "</table>";
-      return $html;
+    $html .= "</table>";
+    return $html;
+  }
+
+  public function createAvailabiltyTable($rows)
+  {
+    $tableheader = false;
+    $html = "";
+
+    $html .= "<h3>Contact pagina</h3>";
+    $html .= "<table>";
+
+    foreach ($rows as $row) {
+      $html .= "<tr>";
+      if ($tableheader !== true) {
+        foreach ($row as $key => $value) {
+          $html .= "<th>{$key}</th>";
+        }
+        $html .= "<th>Wijzigen</th>";
+        $html .= "</tr>";
+        $tableheader = true;
+      }
+      foreach ($row as $value) {
+        $html .= "<td>{$value}</td>";
+      }
+      $html .= "<td><a href=''><button><span class='glyphicon glyphicon-pencil'></span> Bewerken</button></a></td>";
+      $html .= "</tr>";
+    }
+
+    $html .= "</table>";
+    return $html;
   }
 }
