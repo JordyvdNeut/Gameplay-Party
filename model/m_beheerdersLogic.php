@@ -26,19 +26,42 @@ class BeheerdersLogic
   public function readHome()
   {
     try {
-      $sql = "SELECT homeCon_id ID, titel Titel, inhoud Inhoud FROM homecontent";
+      $sql = "SELECT * FROM homecontent";
       $result = $this->DataHandler->readsData($sql);
       return $result;
     } catch (exception $e) {
       throw $e;
     }
   }
+
+  public function readHomeCon()
+  {
+    try {
+      $sql = "SELECT titel Titel, inhoud Inhoud FROM homecontent";
+      $result = $this->DataHandler->readsData($sql);
+      return $result;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
   public function readOverons()
   {
     try {
       $sql = "SELECT * FROM contact";
       $results = $this->DataHandler->readsData($sql);
-      return $results->fetch(PDO::FETCH_ASSOC);
+      return $results;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
+  public function readOveronsCon()
+  {
+    try {
+      $sql = "SELECT * FROM contact";
+      $results = $this->DataHandler->readsData($sql);
+      return $results;
     } catch (exception $e) {
       throw $e;
     }

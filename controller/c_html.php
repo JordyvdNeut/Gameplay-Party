@@ -8,7 +8,7 @@ class HTMLController
   public function __destruct()
   { }
 
-  public function createHomeContentTable($rows)
+  public function createHomeConTable($rows)
   {
     $tableheader = false;
     $html = "";
@@ -16,6 +16,7 @@ class HTMLController
     $html .= "<table>";
 
     foreach ($rows as $row) {
+      $row['Inhoud'] = substr($row['Inhoud'], 0, 250) . "...";
       $html .= "<tr>";
       if ($tableheader !== true) {
         foreach ($row as $key => $value) {

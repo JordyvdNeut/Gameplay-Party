@@ -18,7 +18,7 @@ class Bioscopen
     try {
       $sql = "SELECT * FROM bioscopen";
       $results = $this->DataHandler->readsData($sql);
-      return $results->fetch(PDO::FETCH_ASSOC);
+      return $results;
     } catch (exception $e) {
       throw $e;
     }
@@ -29,7 +29,7 @@ class Bioscopen
     try {
       $sql = "SELECT * FROM bioscopen WHERE bios_id = $id";
       $result = $this->DataHandler->readsData($sql);
-      return $result->fetch(PDO::FETCH_ASSOC);
+      return $result;
     } catch (exception $e) {
       throw $e;
     }

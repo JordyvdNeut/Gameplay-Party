@@ -31,7 +31,7 @@ class BiosController
 		$html = "";
 		$html .= "<div class='center'><div class='row'>";
 
-		while ($row = $result) {
+		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			$row['bios_info'] = substr($row['bios_info'], 0, 250);
 			$html .= "<div class='col-5'>";
 			$html .= "<div class='content'>";
@@ -53,7 +53,7 @@ class BiosController
 		$html = "";
 		$html .= "<section class='row'>";
 
-		while ($row = $result) {
+		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			$html .= "<div class='col-8'>";
 			$html .= "<div class='content'>";
 			$html .= "<h2>$row[bios_naam]</h2>";

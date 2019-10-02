@@ -40,9 +40,9 @@ class BeheerdersController
 
 	public function collectContent()
 	{
-		$homeContent = $this->beheerdersLogic->readHome();
-		$homeContTable = $this->HTMLController->createHomeContentTable($homeContent);
-		// $overonsContent = $this->beheerdersLogic->readOverons();
+		$homeContent = $this->beheerdersLogic->readHomeCon();
+		$homeContTable = $this->HTMLController->createHomeConTable($homeContent);
+		$overonsContent = $this->beheerdersLogic->readOveronsCon();
 		return $homeContTable;
 	}
 

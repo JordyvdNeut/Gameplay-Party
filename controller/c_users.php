@@ -37,7 +37,7 @@ class UserController
     $html = "";
     $html .= "<div class='center'><div class='row'>";
 
-    while ($row = $result) {
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
       $html .= "<div class='col-8'>";
       $html .= "<div class='table content'>";
       $html .= "<h1 class='con_title'>Over ons</h1>";
@@ -56,16 +56,16 @@ class UserController
     $html .= "<div class='center'><div class='row'>";
 
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-      if ($row['ID'] == 1) {
-        $row['ID'] = "?op=overons";
+      if ($row['homeCon_id'] == 1) {
+        $row['homeCon_id'] = "?op=overons";
       } else {
-        $row['ID'] = "?op=overzicht";
+        $row['homeCon_id'] = "?op=overzicht";
       }
       $html .= "<div class='col-5'>";
       $html .= "<div class='content'>";
-      $html .= "<h1 class='con_title'>$row[Titel]</h1>";
-      $html .= "<p class='con_inh'>$row[Inhoud]</p>";
-      $html .= "<a href='$row[ID]'><button class='btn'>Lees meer</button></a>";
+      $html .= "<h1 class='con_title'>$row[titel]</h1>";
+      $html .= "<p class='con_inh'>$row[inhoud]</p>";
+      $html .= "<a href='$row[homeCon_id]'><button class='btn'>Lees meer</button></a>";
       $html .= "</div>";
       $html .= "</div>";
     }
