@@ -42,6 +42,9 @@ class RouteController
 				case 'updateBios':
 					$this->biosController->updateBios();
 					break;
+				case 'updateHome':
+					$this->beheerdersController->updateHomeContent();
+					break;
 				case 'beOverzicht':
 					$this->beheerdersController->collectBioscopen();
 					break;
