@@ -2,7 +2,7 @@
 
 <section>
   <div class="row">
-    <div class="content">
+    <div class="col-10 content">
       <h2>Bioscoop Content bewerken</h2>
       <?= $content ?>
     </div>

@@ -73,7 +73,7 @@ class HTMLBeheerderController
     $tableheader = false;
     $html = "";
 
-    $html .= "<h3>Contact pagina</h3>";
+    $html .= "<h3>Beschikbaren zalen</h3>";
     $html .= "<table>";
 
     foreach ($rows as $row) {
