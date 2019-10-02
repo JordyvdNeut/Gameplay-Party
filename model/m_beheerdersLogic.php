@@ -26,9 +26,9 @@ class BeheerdersLogic
   public function readHome()
   {
     try {
-      $sql = "SELECT * FROM homecontent";
+      $sql = "SELECT homeCon_id ID, titel Titel, inhoud Inhoud FROM homecontent";
       $result = $this->DataHandler->readsData($sql);
-      return $result->fetch(PDO::FETCH_ASSOC);
+      return $result;
     } catch (exception $e) {
       throw $e;
     }

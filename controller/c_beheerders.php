@@ -1,5 +1,6 @@
 <?php
 require_once 'model/m_beheerdersLogic.php';
+require_once 'controller/c_html.php';
 
 class BeheerdersController
 {
@@ -7,6 +8,7 @@ class BeheerdersController
 	public function __construct()
 	{
 		$this->beheerdersLogic = new BeheerdersLogic();
+		$this->HTMLController = new HTMLController();
 	}
 
 	public function __destruct()
@@ -21,8 +23,10 @@ class BeheerdersController
 	{
 		if ($_SESSION['user_role'] == 3) {
 			$user =	$this->collectUser($_SESSION['user_id']);
+			$content = $this->collectContent();
 			require_once "view/beheerder/header.php";
 			include "view/beheerder/redacteur.php";
+
 		}
 		if ($_SESSION['user_role'] == 2) {
 			$user =	$this->collectUser($_SESSION['user_id']);
@@ -36,8 +40,10 @@ class BeheerdersController
 
 	public function collectContent()
 	{
-		$this->beheerdersLogic->readHome();
-		$this->beheerdersLogic->readOverons();
+		$homeContent = $this->beheerdersLogic->readHome();
+		$homeContTable = $this->HTMLController->createHomeContentTable($homeContent);
+		// $overonsContent = $this->beheerdersLogic->readOverons();
+		return $homeContTable;
 	}
 
 	public function collectBioscopen()
