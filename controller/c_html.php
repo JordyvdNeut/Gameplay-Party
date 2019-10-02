@@ -28,7 +28,7 @@ class HTMLController
       foreach ($row as $value) {
         $html .= "<td>{$value}</td>";
       }
-      $html .= "<td><button><span class='glyphicon glyphicon-pencil'></span> Bewerken</button></a></td>";
+      $html .= "<td><a href=''><button><span class='glyphicon glyphicon-pencil'></span> Bewerken</button></a></td>";
       $html .= "</tr>";
     }
 

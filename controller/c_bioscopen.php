@@ -25,6 +25,12 @@ class BiosController
 		include 'view/detail.php';
 	}
 
+	public function updateBios() 
+	{
+		$result = $this->bioscopen->updateBios();
+		include 'view/beheerder/updatedBios.php';
+	}
+
 
 	public function createDiv($result)
 	{
@@ -82,7 +88,7 @@ class BiosController
 		return $html;
 	}
 
-	public function deleteBios()
+	public function deleteBios() 
 	{
 		$result = $this->bioscopen->delete();
 		include 'view/beheerder/deleteBios.php';
