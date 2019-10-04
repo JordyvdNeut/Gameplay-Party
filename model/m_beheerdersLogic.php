@@ -34,12 +34,23 @@ class BeheerdersLogic
     }
   }
 
-  public function readHomeCon()
+  public function readsHomeCon()
   {
     try {
-      $sql = "SELECT titel Titel, inhoud Inhoud FROM homecontent";
+      $sql = "SELECT homeCon_id id, titel Titel, inhoud Inhoud FROM homecontent";
       $result = $this->DataHandler->readsData($sql);
       return $result;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
+  public function readHomeCon($id)
+  {
+    try {
+      $sql = "SELECT * FROM homecontent WHERE homeCon_id = $id";
+      $result = $this->DataHandler->readsData($sql);
+      return $result->fetch(PDO::FETCH_ASSOC);
     } catch (exception $e) {
       throw $e;
     }
@@ -93,13 +104,15 @@ class BeheerdersLogic
     }
   }
 
-  public function updateHomeContent()
+  public function updateHomeContent($formData)
   {
+    $id = $formData['id'];
+    $titel = $formData['title'];
+    $inhoud = $formData['inhoud'];
     try {
-      /*UPDATE homecontent SET titel = '$' , inhoud = '$'; */
-      $sql = "UPDATE homecontent SET titel = '$' , inhoud = '$' ";
+      $sql = "UPDATE homecontent SET titel = '$titel' , inhoud = '$inhoud' WHERE homeCon_id = $id";
       $result = $this->DataHandler->updateData($sql);
-      return $result;
+      return $result ? "Content is succesvol bewerkt!" : "Het bewerken van de content is niet gelukt";
     } catch (exception $e) {
       throw $e;
     }
