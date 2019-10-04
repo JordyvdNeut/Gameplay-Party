@@ -18,6 +18,7 @@ class AuthModel
         if ($hashed_password == $user->password) {
           $_SESSION['user_id'] = $user->user_id;
           $_SESSION['user_role'] = $user->rol_id;
+          $_SESSION['bios_id'] = $user->bioscoop_id;
           header('Location: index.php?op=beHome');
         } else {
           echo "password False";
