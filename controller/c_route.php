@@ -39,17 +39,23 @@ class RouteController
 				case 'detail':
 					$this->biosController->readBios($_REQUEST['id']);
 					break;
-				case 'updateBios':
-					$this->biosController->updateBios();
-					break;
-				case 'updateHome':
-					$this->beheerdersController->updateHomeContent();
-					break;
 				case 'beOverzicht':
 					$this->beheerdersController->collectBioscopen();
 					break;
 				case 'beHome':
 					$this->beheerdersController->collectHome();
+					break;
+					case 'updateHomeConForm':
+					$this->beheerdersController->collectUpdateHomeconform($_REQUEST['id']);
+					break;
+				case 'updateHomeCon':
+					$this->beheerdersController->collectUpdateHomecon();
+					break;
+				case 'updateBios':
+					$this->biosController->updateBios();
+					break;
+				case 'updateHome':
+					$this->beheerdersController->updateHomeContent();
 					break;
 				case 'loguit':
 					$this->beheerdersController->logout();

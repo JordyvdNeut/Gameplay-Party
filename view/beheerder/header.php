@@ -1,6 +1,12 @@
+<?php
+require_once 'controller/c_beheerders.php';
+$this->beheerdersController = new BeheerdersController();
+$user =  $this->beheerdersController->collectUser($_SESSION['user_id']);
+?>
+
 <header>
 
-    <img class="logo" src="view/images/gpp.svg" alt="Gameplay Party">
+  <img class="logo" src="view/images/gpp.svg" alt="Gameplay Party">
   <h2 class="title">Beheerder</h2><br />
   <nav>
     <div style="display: inline">

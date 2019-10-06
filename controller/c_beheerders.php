@@ -22,14 +22,12 @@ class BeheerdersController
 	public function collectHome()
 	{
 		if ($_SESSION['user_role'] == 3) {
-			$user =	$this->collectUser($_SESSION['user_id']);
 			$content = $this->collectContentTables();
 			require_once "view/beheerder/header.php";
 			include "view/beheerder/redacteur.php";
 
 		}
 		if ($_SESSION['user_role'] == 2) {
-			$user =	$this->collectUser($_SESSION['user_id']);
 			$content = $this->collectAvailabilty();
 			// beschikbaarheid tabel, gereserveerde beschikbaarheden
 			require_once "view/beheerder/header.php";
@@ -42,7 +40,7 @@ class BeheerdersController
 
 	public function collectContentTables()
 	{
-		$homeContent = $this->beheerdersLogic->readHomeCon();
+		$homeContent = $this->beheerdersLogic->readsHomeCon();
 		$homeContTable = $this->HTMLBeheerderController->createHomeConTable($homeContent);
 		$overonsContent = $this->beheerdersLogic->readOveronsCon();
 		$overonsContTable = $this->HTMLBeheerderController->createOveronsConTable($overonsContent);
@@ -61,9 +59,25 @@ class BeheerdersController
 		include_once 'view/beheerder/overzichtBios.php';
 	}
 
+	public function collectUpdateHomeconForm($id)
+	{
+		$homeContent = $this->beheerdersLogic->readHomeCon($id);
+		require_once "view/beheerder/header.php";
+		include 'view/beheerder/updateBios.php';
+	}
+
+	public function collectUpdateHomecon()
+	{
+		$formData = $_REQUEST;
+		$feedback = $this->beheerdersLogic->updateHomeContent($formData);
+		require_once "view/beheerder/header.php";
+		include 'view/feedback.php';
+	}
+
 	public function updateHomeContent()
 	{
 		$result = $this->beheerdersLogic->updateHomeContent();
+		require_once "view/beheerder/header.php";
 		include 'view/beheerder/updatedBios.php';
 
 	}
