@@ -104,4 +104,29 @@ class BeheerdersLogic
       throw $e;
     }
   }
+
+  public function addBeschik($creating){
+    $zaal           = $creating["zaal_id"];
+    $beg_tijd     = $creating["beg_tijd"];
+    $eind_tijd        = $creating["eind_tijd"];
+    $datum          = $creating["datum"];
+    try {
+      $sql = "INSERT INTO mogelijkheden (zaal_id, datum, beg_tijd, eind_tijd) VALUES ('$zaal', '$datum',  '$beg_tijd', '$eind_tijd')";
+      $result = $this->DataHandler->createData($sql);
+      return $result;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
+  public function collectRadio(){
+    try{
+      $sql = "SELECT zaal_nr, zaal_id FROM zalen NATURAL JOIN users NATURAL JOIN bioscopen WHERE bios_id = 'var_dump($_SESSION[bios_id])'";
+      $result = $this->DataHandler->readsData($sql);
+      var_dump($result);
+      return $result;
+    } catch(exception  $e){
+        throw $e;
+    }
+  }
 }

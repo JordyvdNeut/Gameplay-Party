@@ -75,5 +75,37 @@ class BeheerdersController
 		header('Location: index.php?op=loginForm');
 	}
 
+	public function addForm()
+	{
+		include 'view/beheerder/addBeschik.php';
+	}
+
+	public function viewRadio(){
+		$radio = $this->beheerdersLogic->collectRadio();
+		
+
+		include 'view/beheerder/addBeschik.php';
+	}
+
+	public function makeRadio($radio){
+		$radio = $this->beheerdersLogic->addForm();
+		$radioButtons = $this->HTMLBeheerderController->makeRadio($radio); 
+		include 'view/beheerder/addBeschik.php';
+	}
+
+	public function makeRadioButtons($radio){
+		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+		  $html .= "<input type='radio' name='$row[zaal_id]' placeholder='$row[zaal_nr]'>"; 
+		}
+		return $html;
+	  }
+	
+	public function addBeschik()
+	{
+		$creating = $_REQUEST;
+        $result = $this->beheerdersLogic->addBeschik($creating);
+        include 'view/beheerder/redacteur.php';
+	}
+
 	
 }

@@ -54,6 +54,12 @@ class RouteController
 				case 'loguit':
 					$this->beheerdersController->logout();
 					break;
+				case 'addBeschik':
+					$this->beheerdersController->addBeschik();
+					break;
+				case 'addForm':
+					$this->beheerdersController->addForm();
+					break;
 				default:
 					$this->userController->collectHome();
 					break;

@@ -1,6 +1,7 @@
 <?php
 require_once 'model/m_bioscopen.php';
 require_once 'controller/c_html.php';
+require_once 'controller/c_htmlBeheerder.php';
 
 class BiosController
 {
@@ -38,4 +39,5 @@ class BiosController
 		$result = $this->bioscopen->delete();
 		include 'view/beheerder/deleteBios.php';
 	}
+
 }
