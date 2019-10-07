@@ -42,16 +42,19 @@ class RouteController
 				case 'beOverzicht':
 					$this->beheerdersController->collectBioscopen();
 					break;
+				case 'login':
+					$this->beheerdersController->login();
+					break;
 				case 'beHome':
 					$this->beheerdersController->collectHome();
 					break;
-					case 'updateHomeConForm':
+				case 'updateHomeConForm':
 					$this->beheerdersController->collectUpdateHomeconform($_REQUEST['id']);
 					break;
 				case 'updateHomeCon':
 					$this->beheerdersController->collectUpdateHomecon();
 					break;
-					case 'updateContactConForm':
+				case 'updateContactConForm':
 					$this->beheerdersController->collectUpdateContactconForm($_REQUEST['id']);
 					break;
 				case 'updateContactCon':

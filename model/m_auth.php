@@ -15,13 +15,21 @@ class AuthModel
         $user = $result->fetch_object();
 
         // Verify user password and set $_SESSION
+        if ($user) {
         if ($hashed_password == $user->password) {
           $_SESSION['user_id'] = $user->user_id;
           $_SESSION['user_role'] = $user->rol_id;
           $_SESSION['bios_id'] = $user->bioscoop_id;
           header('Location: index.php?op=beHome');
         } else {
-          echo "password False";
+          $feedback = "<p style='color: red;'><strong>Wachtwoord is incorrect</strong></p>";
+          $feedback;
+          include 'view/loginForm.php';
+        }
+      } else {
+          $feedback = "<p style='color: red;'><strong>Inlog gegevens komen niet overeen</strong></p>";
+          $feedback;
+          include 'view/loginForm.php';
         }
       }
     }

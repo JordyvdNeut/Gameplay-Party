@@ -19,13 +19,17 @@ class BeheerdersController
 		return $this->beheerdersLogic->readUser($id);
 	}
 
+	// Don't remove!!
+	public function login()
+	{ }
+
+	// collect home for every admin
 	public function collectHome()
 	{
 		if ($_SESSION['user_role'] == 3) {
 			$content = $this->collectContentTables();
 			require_once "view/beheerder/header.php";
 			include "view/beheerder/redacteur.php";
-
 		}
 		if ($_SESSION['user_role'] == 2) {
 			$content = $this->collectAvailabilty();
@@ -87,7 +91,6 @@ class BeheerdersController
 		$feedback = $this->beheerdersLogic->updateContactContent($formData);
 		require_once "view/beheerder/header.php";
 		include 'view/beheerder/feedback.php';
-
 	}
 
 	public function logout()
@@ -97,23 +100,25 @@ class BeheerdersController
 		header('Location: index.php?op=loginForm');
 	}
 
-	public function viewRadio(){
+	public function viewRadio()
+	{
 		$radio = $this->beheerdersLogic->collectRadio();
-		
+
 
 		include 'view/beheerder/addBeschik.php';
 	}
 
-	public function makeRadio(){
+	public function makeRadio()
+	{
 		$radio = $this->beheerdersLogic->collectRadio();
-		$radioButtons = $this->HTMLBeheerderController->makeRadioButtons($radio); 
+		$radioButtons = $this->HTMLBeheerderController->makeRadioButtons($radio);
 		include 'view/beheerder/addBeschik.php';
 	}
-	
+
 	public function addBeschik()
 	{
 		$creating = $_REQUEST;
-        $result = $this->beheerdersLogic->addBeschik($creating);
-        include 'view/beheerder/redacteur.php';
-	}	
+		$result = $this->beheerdersLogic->addBeschik($creating);
+		include 'view/beheerder/redacteur.php';
+	}
 }

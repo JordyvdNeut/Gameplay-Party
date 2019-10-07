@@ -82,6 +82,7 @@ class UserController
 
   public function collectLogin()
   {
+    $feedback = "";
     include 'view/loginForm.php';
   }
 }
