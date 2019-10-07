@@ -70,9 +70,20 @@ class BeheerdersLogic
   public function readOveronsCon()
   {
     try {
-      $sql = "SELECT overons 'Over ons', email Email, emailText 'Email text' FROM contact";
+      $sql = "SELECT contact_id id, overons 'Over ons', email Email, emailText 'Email text' FROM contact";
       $results = $this->DataHandler->readsData($sql);
       return $results;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
+  public function readContactCon($id)
+  {
+    try {
+      $sql = "SELECT * FROM contact WHERE contact_id = $id";
+      $results = $this->DataHandler->readsData($sql);
+      return $results->fetch(PDO::FETCH_ASSOC);
     } catch (exception $e) {
       throw $e;
     }
@@ -91,10 +102,10 @@ class BeheerdersLogic
 
   public function sendEmail($creating)
   {
-    $name           = $creating["name"];
-    $email     = $creating["email"];
-    $subject         = $creating["subject"];
-    $infomessage          = $creating["infomessage"];
+    $name         = $creating["name"];
+    $email        = $creating["email"];
+    $subject      = $creating["subject"];
+    $infomessage  = $creating["infomessage"];
     try {
       $sql = "INSERT INTO `email` (name, email, subject, message) VALUES ('$name', '$email', '$subject', '$infomessage')";
       $result = $this->DataHandler->createData($sql);
@@ -112,13 +123,28 @@ class BeheerdersLogic
     try {
       $sql = "UPDATE homecontent SET titel = '$titel' , inhoud = '$inhoud' WHERE homeCon_id = $id";
       $result = $this->DataHandler->updateData($sql);
-      return $result ? "Content is succesvol bewerkt!" : "Het bewerken van de content is niet gelukt";
+      return $result ? "<h3><strong>Content is <span style='color: green'>succesvol</span> bewerkt!</strong></h3>" : "<h3 style='color:red;'><strong>Het bewerken van de content is niet gelukt</strong></h3>";
     } catch (exception $e) {
       throw $e;
     }
   }
 
-  public function addBeschik($creating){
+  public function updateContactContent($formData)
+  {
+
+    $email = $formData['email'];
+    $overons = $formData['overons'];
+    try {
+      $sql = "UPDATE contact SET email = '$email' , overons = '$overons' WHERE contact_id = 1";
+      $result = $this->DataHandler->updateData($sql);
+      return $result ? "<h3><strong>Contact pagina is <span style='color: green'>succesvol</span> bewerkt!</strong></h3>" : "<h3 style='color:red;'><strong>Het bewerken van de contact pagina is niet gelukt</strong></h3>";
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
+  public function addBeschik($creating)
+  {
     $zaal           = $creating["zaal_id"];
     $beg_tijd     = $creating["beg_tijd"];
     $eind_tijd        = $creating["eind_tijd"];
@@ -132,14 +158,15 @@ class BeheerdersLogic
     }
   }
 
-  public function collectRadio(){
-    try{
+  public function collectRadio()
+  {
+    try {
       $sql = "SELECT zaal_nr, zaal_id FROM zalen NATURAL JOIN users NATURAL JOIN bioscopen WHERE bios_id = 'var_dump($_SESSION[bios_id])'";
       $result = $this->DataHandler->readsData($sql);
       var_dump($result);
       return $result;
-    } catch(exception  $e){
-        throw $e;
+    } catch (exception  $e) {
+      throw $e;
     }
   }
 }
