@@ -17,7 +17,12 @@ $user =  $this->beheerdersController->collectUser($_SESSION['user_id']);
         <a href="index.php?op=loguit"><button class="btn">Log uit</button></a>
         <!-- <button href="index.php?op=overons"><button class="btn">Over ons</button></dii>
       <a href="index.php?op=overzicht"><button class="btn">Bioscopen</button></a> -->
-      <a href="index.php?op=addForm"><button class="btn">Toevoegen beschikbaarheid</button></a>
+      <?php 
+      if($_SESSION['user_id'] === 2){
+        echo "<a href='index.php?op=addForm'><button class='btn'>Toevoegen beschikbaarheid</button></a>";
+      }
+      ?>
+      
         <a href="index.php?op=beHome"><button class="btn">Home</button></a>
       </div>
       <div class="dropdown, mobile">
