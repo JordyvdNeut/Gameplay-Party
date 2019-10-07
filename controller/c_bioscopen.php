@@ -100,11 +100,13 @@ class BiosController
 		$html .= "</div>";
 		$html .= "</div>";
 		while ($row = $beschikbaar->fetch(PDO::FETCH_ASSOC)) {
-
+			$gooddate= date("d-m-Y", strtotime($row['datum']));
+			$begintime= date("H:i ", strtotime($row['beg_tijd']));
+			$endtime= date("H:i ", strtotime($row['eind_tijd']));
 			$html .= "<div class='col-lg-4'>";
 			$html .= "<div class='infocontent'>";
-			$html .= "<h4><strong>Datum: $row[datum]</h4>";
-			$html .= "<p>Tijd: $row[beg_tijd] - $row[eind_tijd]</p>";
+			$html .= "<h4><strong>Datum: $gooddate </h4>";
+			$html .= "<p>Tijd: $begintime - $endtime</p>";
 			$html .= "<p>Aantal stoelen: $row[plaatsen]</p>";
 			if("$row[invalide]"==1){
 				$html .= "<p>Invalide toegankelijk: Ja </p>";

@@ -128,7 +128,7 @@ footer {
   text-decoration:none;
 }
 footer .contact_foot a.footer:hover{
-  text-decoration:underline;
+  /* text-decoration:underline; */
   padding:0px !important;
 }
 
@@ -163,9 +163,9 @@ div.not-mobile a button.btn {
   cursor: pointer;
 }
 
-.contact_foot a.footer:hover h3{
+/* .contact_foot a.footer:hover h3{
   text-decoration: underline;
-}
+} */
 
 .voorw_foot {
   width: 20%;
