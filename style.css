@@ -26,6 +26,15 @@ nav {
   background-color: #34495e;
   height: 50px;
 }
+#home button.btn.home,
+#bios button.btn.bios,
+#overons button.btn.overons,
+#login button.btn.login
+{
+  background-color: #2c3e50;
+  color: #c4e538;
+  border-bottom: 5px solid #c4e538;
+}
 
 /*Links*/
 a {
@@ -38,6 +47,10 @@ a:hover {
   color: #2c3e50;
   text-decoration: none;
   padding: 3px;
+}
+.btn.h_overzicht{
+  background-color: #c4e538;
+  color: #2c3e50;
 }
 
 /*Header*/
@@ -60,6 +73,7 @@ header {
 .logo {
   width: 80%;
   margin-left: -5px;
+  margin-top: -11px;
 }
 
 .quote{
@@ -107,6 +121,15 @@ h2 {
   margin: 0;
   margin-top: 20px;
 }
+/*beschikbaar content*/
+.beschikcontent {
+  content: "";
+  padding: 15px;;
+  display: table;
+  margin: 0 auto;
+  height: 100%;
+  max-width: 100%;
+}
 
 /*Detail Bioscopen*/
 .biosInside{
@@ -129,6 +152,14 @@ footer {
   padding: 10px;
   margin-top: 10px;
 }
+.footer a{
+  color:#c4e538;
+  text-decoration:none;
+}
+footer .contact_foot a.footer:hover{
+  /* text-decoration:underline; */
+  padding:0px !important;
+}
 
 .footer_a{
   color: #c4e538;
@@ -150,7 +181,7 @@ div.not-mobile a button.btn {
 }
 
 .footer {
-  display: inline;
+  display: block;
   color: #c4e538;
   list-style-type: none;
   margin: 5px;
@@ -173,7 +204,7 @@ div.not-mobile a button.btn {
 
 .contact_foot a.footer:hover h3 {
   text-decoration: underline;
-}
+} */
 
 .voorw_foot {
   width: 20%;
@@ -321,7 +352,7 @@ div.login button {
   }
 }
 
-[class*="col-"] {
+/* [class*="col-"] {
   width: 100%;
   margin-bottom: 10px;
 }

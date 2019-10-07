@@ -34,6 +34,16 @@ class Bioscopen
       throw $e;
     }
   }
+  public function readBiosBeschik($id)
+  {
+    try {
+      $sql = "SELECT datum, beg_tijd,eind_tijd,plaatsen,invalide FROM mogelijkheden NATURAL JOIN zalen WHERE bios_id = $id AND beschikbaar=1 ";   
+      $result = $this->DataHandler->readsData($sql);
+          return $result;
+        } catch (exception $e) {
+      throw $e;
+    }
+  }
 
   public function updateBios($id){
     try {

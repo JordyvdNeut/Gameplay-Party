@@ -1,7 +1,7 @@
 <title>Bioscoop</title>
-
+<div id="bios">
 <?php require_once('header.php'); ?>
-
+</div>
 <section>
 
   <section>

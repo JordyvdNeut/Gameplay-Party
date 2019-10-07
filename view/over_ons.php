@@ -1,14 +1,14 @@
 <title>Over ons</title>
-
+<div id="overons">
 <?php require_once('header.php'); ?>
-
+</div>
 <section>
 
   <?= $contact ?>
 
   <div class='center'>
     <div class='row'>
-      <div class='col-8'>
+      <div class='col-12'>
         <div class='table content' id="email">
           <form class='form-contact' action='index.php?op=createEmail' method='POST'>
             <h1 class='heading'>Zoek contact met ons op</h1>
