@@ -51,6 +51,12 @@ class RouteController
 				case 'updateHomeCon':
 					$this->beheerdersController->collectUpdateHomecon();
 					break;
+					case 'updateContactConForm':
+					$this->beheerdersController->collectUpdateContactconForm($_REQUEST['id']);
+					break;
+				case 'updateContactCon':
+					$this->beheerdersController->collectUpdateContactcon();
+					break;
 				case 'updateBios':
 					$this->biosController->updateBios();
 					break;
