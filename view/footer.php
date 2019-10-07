@@ -1,7 +1,7 @@
 <footer>
   <div class="center_footer">
     <div class="row">
-      <div class="contact_foot col-5">
+      <div class="contact_foot col-6">
         <h3><a class='footer' href="?op=overons">
           Contact
         </a></h3>
@@ -15,7 +15,7 @@
       </div>
 
 
-      <div class="voorw_foot col-5">
+      <div class="voorw_foot col-6">
         <h3>Voorwaarden</h3>
         <ul class='footer'>
           <li><a class='footer_a' href='view/voorwaardes/privacy-policy-english.php'>Privacy Voorwaarden</a></li>
