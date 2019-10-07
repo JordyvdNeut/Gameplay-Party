@@ -76,12 +76,15 @@ class HTMLBeheerderController
     return $html;
   }
 
-  public function makeRadio($result)
-  {
+  public function makeRadioButtons($radio){
     $html = "";
-    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-      $html .= "<input type='radio' name='$row[zaal_id]' placeholder='$row[zaal_nr]'>";
+    $html .= "<div>";
+
+		while ($row = $radio->fetch(PDO::FETCH_ASSOC)) {
+		  $html .= "<input type='radio' name='$row[zaal_id]' placeholder='$row[zaal_nr]'>";  
     }
-    return $html;
-  }
+    
+    $html .= "</div>";
+		return $html;
+	  }
 }

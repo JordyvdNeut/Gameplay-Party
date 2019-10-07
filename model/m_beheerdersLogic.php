@@ -158,12 +158,15 @@ class BeheerdersLogic
     }
   }
 
-  public function collectRadio()
-  {
-    try {
-      $sql = "SELECT zaal_nr, zaal_id FROM zalen NATURAL JOIN users NATURAL JOIN bioscopen WHERE bios_id = 'var_dump($_SESSION[bios_id])'";
+  public function collectRadio(){
+
+    $bios_id = $_SESSION['bios_id'];
+    $sql = 'SELECT bios_id FROM bioscopen NATURAL JOIN users WHERE bios_id ="$bios_id"';
+    $id = $this->DataHandler->readsData($sql);
+    
+    try{ 
+      $sql = ' SELECT zaal_nr, zaal_id FROM zalen NATURAL JOIN bioscopen WHERE bios_id =  " $id" '  ;
       $result = $this->DataHandler->readsData($sql);
-      var_dump($result);
       return $result;
     } catch (exception  $e) {
       throw $e;
