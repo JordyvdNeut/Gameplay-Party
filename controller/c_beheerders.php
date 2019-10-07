@@ -45,17 +45,25 @@ class BeheerdersController
 	public function collectContentTables()
 	{
 		$homeContent = $this->beheerdersLogic->readsHomeCon();
-		$homeContTable = $this->HTMLBeheerderController->createConTable($homeContent, 'Home pagina', 'updateHomeConForm');
+		$homeConTable = $this->HTMLBeheerderController->createConTable($homeContent, 'Home pagina', 'updateHomeConForm');
 		$overonsContent = $this->beheerdersLogic->readOveronsCon();
-		$overonsContTable = $this->HTMLBeheerderController->createConTable($overonsContent, 'Contact pagina', 'updateContactConForm');
-		return "<hr style='border-color: green'>" . $homeContTable . "<hr style='border-color: green'>" . $overonsContTable;
+		$overonsConTable = $this->HTMLBeheerderController->createConTable($overonsContent, 'Contact pagina', 'updateContactConForm');
+		return "<hr style='border-color: green'>" . $homeConTable . "<hr style='border-color: green'>" . $overonsConTable;
+	}
+
+	public function collectBioscon()
+	{
+		$bioscoopContent = $this->beheerdersLogic->readsBiosContent();
+		$content = $this->HTMLBeheerderController->createConTable($bioscoopContent, 'Bioscoop gegevens', 'updatBiosConForm');
+		require_once "view/beheerder/header.php";
+		require_once "view/beheerder/biosBeheerder.php";
 	}
 
 	public function collectAvailabilty()
 	{
-		$beschikbaarheid = $this->beheerdersLogic->readAvailabilty();
-		$homeContTable = $this->HTMLBeheerderController->createAvailabiltyTable($beschikbaarheid);
-		return $homeContTable;
+		$availabilty = $this->beheerdersLogic->readAvailabilty();
+		$homeAvailabiltyTable = $this->HTMLBeheerderController->createAvailabiltyTable($availabilty);
+		return $homeAvailabiltyTable;
 	}
 
 	public function collectBioscopen()
@@ -92,6 +100,36 @@ class BeheerdersController
 		require_once "view/beheerder/header.php";
 		include 'view/beheerder/feedback.php';
 	}
+
+	public function collectUpdateBiosconForm()
+	{
+		$biosContent = $this->beheerdersLogic->readsBiosCon();
+		require_once "view/beheerder/header.php";
+		include 'view/beheerder/upBiosCon.php';
+	}
+
+	public function collectUpdateBioscon()
+	{
+		$formData = $_REQUEST;
+		$feedback = $this->beheerdersLogic->updateBiosContent($formData);
+		require_once "view/beheerder/header.php";
+		include 'view/beheerder/feedback.php';
+	}
+
+	// public function collectUpdateAvailabiltyconForm($id)
+	// {
+	// 	$availabiltyContent = $this->beheerdersLogic->readAvailabiltyCon($id);
+	// 	require_once "view/beheerder/header.php";
+	// 	include 'view/beheerder/upAvailabiltyCon.php';
+	// }
+
+	// public function collectUpdateAvailabiltycon()
+	// {
+	// 	$formData = $_REQUEST;
+	// 	$feedback = $this->beheerdersLogic->updateAvailabiltyContent($formData);
+	// 	require_once "view/beheerder/header.php";
+	// 	include 'view/beheerder/feedback.php';
+	// }
 
 	public function logout()
 	{

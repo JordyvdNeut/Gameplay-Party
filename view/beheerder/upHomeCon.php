@@ -1,4 +1,4 @@
-<title>Update </title>
+<title>Bewerken</title>
 
 <link rel="stylesheet" href="jquery.cleditor.css" />
 <script src="jquery.min.js"></script>

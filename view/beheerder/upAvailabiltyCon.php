@@ -17,14 +17,14 @@
     <div class="col-10 content">
       <?php
       $html = "";
-      if ($contactContent) {
+      if ($availabiltyContent) {
         $html .= "<form action='?op=updateContactCon' method='POST'>";
         $html .= "<h2>Bewerk contact pagina</h2>";
         $html .= "<label>E-mail</label>";
-        $html .= "<input class='form-control' type='text' name='email' value='$contactContent[email]' />";
+        $html .= "<input class='form-control' type='text' name='email' value='$availabiltyContent[datum]' />";
         $html .= "<br />";
         $html .= "<label>Over ons text</label>";
-        $html .= "<textarea id='input' name='overons'>$contactContent[overons]</textarea>";
+        $html .= "<textarea id='input' name='overons'>$availabiltyContent[overons]</textarea>";
         $html .= "<br />";
         $html .= "<button type='submit' class='btn'> Bewerken</button>";
       }
