@@ -9,7 +9,12 @@
   <div class="row">
     <div class="col-4 content">
       <h2>Beheerders login</h2>
-      <form action="index.php?op=beHome" method="post">
+      <?php
+      if ($feedback) {
+        echo $feedback;
+      }
+      ?>
+      <form action="index.php?op=login" method="post">
         <label>Gebruikersnaam</label>
         <input class="form-control" value="" name="username" type="text" required="required" />
         <br />
