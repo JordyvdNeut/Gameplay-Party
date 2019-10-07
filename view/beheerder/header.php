@@ -1,21 +1,33 @@
+<?php
+require_once 'controller/c_beheerders.php';
+$this->beheerdersController = new BeheerdersController();
+$user =  $this->beheerdersController->collectUser($_SESSION['user_id']);
+?>
+
 <header>
-  <a href="index.php?op=home">
-    <img class="logo" src="view/images/gpp.svg" alt="Gameplay Party"></a>
+
+  <img class="logo" src="view/images/gpp.svg" alt="Gameplay Party">
   <h2 class="title">Beheerder</h2><br />
   <nav>
-    <div class="not-mobile">
-      <a href="index.php?op=loguit"><button class="btn">loguit</button></a>
-      <!-- <button href="index.php?op=overons"><button class="btn">Over ons</button></a>
+    <div style="display: inline">
+      <div class="username">
+        <strong>Welkom: <?= $user['user_name'] ?></strong>
+      </div>
+      <div class="not-mobile navRight">
+        <a href="index.php?op=loguit"><button class="btn">Log uit</button></a>
+        <!-- <button href="index.php?op=overons"><button class="btn">Over ons</button></dii>
       <a href="index.php?op=overzicht"><button class="btn">Bioscopen</button></a> -->
-      <a href="index.php?op=beHome"><button class="btn">Home</button></a>
-    </div>
-    <div class="dropdown, mobile">
-      <i class="fa fa-bars dropbtn" onclick="burgerMenu()"></i>
-      <div id="myDropdown" class="dropdown-content">
-        <a href="index.php?op=beHome">Home</a>
-        <!-- <a href="index.php?op=overzicht">Bioscopen</a>
+      <a href="index.php?op=addForm"><button class="btn">Toevoegen beschikbaarheid</button></a>
+        <a href="index.php?op=beHome"><button class="btn">Home</button></a>
+      </div>
+      <div class="dropdown, mobile">
+        <i class="fa fa-bars dropbtn" onclick="burgerMenu()"></i>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="index.php?op=beHome">Home</a>
+          <!-- <a href="index.php?op=overzicht">Bioscopen</a>
         <a href="index.php?op=overons">Over ons</a> -->
-        <a href="index.php?op=loguit">Loguit</a>
+          <a href="index.php?op=loguit">Loguit</a>
+        </div>
       </div>
     </div>
   </nav>

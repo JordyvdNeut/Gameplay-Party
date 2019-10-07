@@ -46,8 +46,32 @@ class RouteController
 				case 'beHome':
 					$this->beheerdersController->collectHome();
 					break;
+					case 'updateHomeConForm':
+					$this->beheerdersController->collectUpdateHomeconform($_REQUEST['id']);
+					break;
+				case 'updateHomeCon':
+					$this->beheerdersController->collectUpdateHomecon();
+					break;
+					case 'updateContactConForm':
+					$this->beheerdersController->collectUpdateContactconForm($_REQUEST['id']);
+					break;
+				case 'updateContactCon':
+					$this->beheerdersController->collectUpdateContactcon();
+					break;
+				case 'updateBios':
+					$this->biosController->updateBios();
+					break;
+				case 'updateHome':
+					$this->beheerdersController->updateHomeContent();
+					break;
 				case 'loguit':
 					$this->beheerdersController->logout();
+					break;
+				case 'addBeschik':
+					$this->beheerdersController->addBeschik();
+					break;
+				case 'addForm':
+					$this->beheerdersController->makeRadio();
 					break;
 				default:
 					$this->userController->collectHome();

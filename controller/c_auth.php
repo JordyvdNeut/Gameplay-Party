@@ -13,16 +13,3 @@ class AuthController
   }
 }
 ?>
-<?php
-class LoginSession
-{
-
-  // public function __construct()
-  // {
-  //   $this->model = new AuthModel();
-  // }
-  // public function getUser()
-  // {
-  //   return $this->model->getUser();
-  // }
-}

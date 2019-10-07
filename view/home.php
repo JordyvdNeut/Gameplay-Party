@@ -4,7 +4,7 @@
 </div>
 <section>
 
-    <?= $homePage ?>
+  <?= $homePage ?>
 
 </section>
 

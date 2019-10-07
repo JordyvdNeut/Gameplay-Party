@@ -1,24 +1,31 @@
 <?php
 require_once 'model/m_DataHandler.php';
 
-class BeheerdersLogic{
+class BeheerdersLogic
+{
 
-  public function __construct() {
+  public function __construct()
+  {
     $this->DataHandler = new DataHandler("localhost", "mysql", "gpp", "root", "");
   }
 
-  public function __destruct(){}
+  public function __destruct()
+  { }
 
-  public function create($formData){
-    try { 
-
+  public function readUser($id)
+  {
+    try {
+      $sql = "SELECT * FROM users WHERE user_id = $id";
+      $result = $this->DataHandler->readsData($sql);
+      return $result->fetch(PDO::FETCH_ASSOC);
     } catch (exception $e) {
       throw $e;
     }
   }
 
-  public function readHome(){
-    try { 
+  public function readHome()
+  {
+    try {
       $sql = "SELECT * FROM homecontent";
       $result = $this->DataHandler->readsData($sql);
       return $result;
@@ -26,76 +33,142 @@ class BeheerdersLogic{
       throw $e;
     }
   }
-  public function sendEmail($creating){
-    $name           = $creating["name"];
-    $email     = $creating["email"];
-    $subject         = $creating["subject"];
-    $infomessage          = $creating["infomessage"];
-  try{
-   $sql = "INSERT INTO `email` (name, email, subject, message) VALUES ('$name', '$email', '$subject', '$infomessage')";
-   $result = $this->DataHandler->createData($sql);
-   return $result;
-  } catch (exception $e) {
-    throw $e;
-  }
-  }
 
-  /*
-  public function readFooter(){
-    try { 
-      $sql = "SELECT * FROM footer";
+  public function readsHomeCon()
+  {
+    try {
+      $sql = "SELECT homeCon_id id, titel Titel, inhoud Inhoud FROM homecontent";
       $result = $this->DataHandler->readsData($sql);
       return $result;
     } catch (exception $e) {
       throw $e;
     }
   }
-*/
 
-  public function collectOverons(){
-      try {
-        $sql = "SELECT * FROM contact";
-        $results = $this->DataHandler->readsData($sql);
-        return $results;
-      } catch (exception $e) {
-        throw $e;
-      }
-  }
-
-  public function read($id){
+  public function readHomeCon($id)
+  {
     try {
-      /*$sql = 'SELECT * FROM  WHERE id = ' $id ';';
+      $sql = "SELECT * FROM homecontent WHERE homeCon_id = $id";
       $result = $this->DataHandler->readsData($sql);
-      return $result;*/
-     } catch (exception $e) {
-      throw $e;
-    }
-  }
-
-  public function readBois(){
-    try {
-      return array("Hier", "Tekst", null);
+      return $result->fetch(PDO::FETCH_ASSOC);
     } catch (exception $e) {
       throw $e;
     }
   }
 
-  public function update(){
+  public function readOverons()
+  {
     try {
-      /*$sql = 'UPDATE * SET WHERE id =  ';
-      $result = $this->DataHandler->readsData($sql);
-      return $result;*/
-     } catch (exception $e) {
+      $sql = "SELECT * FROM contact";
+      $results = $this->DataHandler->readsData($sql);
+      return $results;
+    } catch (exception $e) {
       throw $e;
     }
   }
 
-  public function delete($id){
+  public function readOveronsCon()
+  {
     try {
-      /*$sql = 'DELETE * FROM  WHERE id = ';
+      $sql = "SELECT contact_id id, overons 'Over ons', email Email, emailText 'Email text' FROM contact";
+      $results = $this->DataHandler->readsData($sql);
+      return $results;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
+  public function readContactCon($id)
+  {
+    try {
+      $sql = "SELECT * FROM contact WHERE contact_id = $id";
+      $results = $this->DataHandler->readsData($sql);
+      return $results->fetch(PDO::FETCH_ASSOC);
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
+  public function readAvailabilty()
+  {
+    try {
+      $sql = "SELECT zaal_id,	datum Datum,	beg_tijd 'Begin tijd',	eind_tijd 'Eind tijd' FROM mogelijkheden WHERE beschik = 'flase'";
+      $results = $this->DataHandler->readsData($sql);
+      return $results;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
+  public function sendEmail($creating)
+  {
+    $name         = $creating["name"];
+    $email        = $creating["email"];
+    $subject      = $creating["subject"];
+    $infomessage  = $creating["infomessage"];
+    try {
+      $sql = "INSERT INTO `email` (name, email, subject, message) VALUES ('$name', '$email', '$subject', '$infomessage')";
+      $result = $this->DataHandler->createData($sql);
+      return $result;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
+  public function updateHomeContent($formData)
+  {
+    $id = $formData['id'];
+    $titel = $formData['title'];
+    $inhoud = $formData['inhoud'];
+    try {
+      $sql = "UPDATE homecontent SET titel = '$titel' , inhoud = '$inhoud' WHERE homeCon_id = $id";
+      $result = $this->DataHandler->updateData($sql);
+      return $result ? "<h3><strong>Content is <span style='color: green'>succesvol</span> bewerkt!</strong></h3>" : "<h3 style='color:red;'><strong>Het bewerken van de content is niet gelukt</strong></h3>";
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
+  public function updateContactContent($formData)
+  {
+
+    $email = $formData['email'];
+    $overons = $formData['overons'];
+    try {
+      $sql = "UPDATE contact SET email = '$email' , overons = '$overons' WHERE contact_id = 1";
+      $result = $this->DataHandler->updateData($sql);
+      return $result ? "<h3><strong>Contact pagina is <span style='color: green'>succesvol</span> bewerkt!</strong></h3>" : "<h3 style='color:red;'><strong>Het bewerken van de contact pagina is niet gelukt</strong></h3>";
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
+  public function addBeschik($creating)
+  {
+    $zaal           = $creating["zaal_id"];
+    $beg_tijd     = $creating["beg_tijd"];
+    $eind_tijd        = $creating["eind_tijd"];
+    $datum          = $creating["datum"];
+    try {
+      $sql = "INSERT INTO mogelijkheden (zaal_id, datum, beg_tijd, eind_tijd) VALUES ('$zaal', '$datum',  '$beg_tijd', '$eind_tijd')";
+      $result = $this->DataHandler->createData($sql);
+      return $result;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
+  public function collectRadio(){
+
+    $bios_id = $_SESSION['bios_id'];
+    $sql = 'SELECT bios_id FROM bioscopen NATURAL JOIN users WHERE bios_id ="$bios_id"';
+    $id = $this->DataHandler->readsData($sql);
+    
+    try{ 
+      $sql = ' SELECT zaal_nr, zaal_id FROM zalen NATURAL JOIN bioscopen WHERE bios_id =  " $id" '  ;
       $result = $this->DataHandler->readsData($sql);
-      return $result;*/
-     } catch (exception $e) {
+      return $result;
+    } catch (exception  $e) {
       throw $e;
     }
   }

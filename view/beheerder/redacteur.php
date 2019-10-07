@@ -1,10 +1,10 @@
 <title>Redacteur</title>
 
 <section>
-  <a style="color: #2c3e50;" href="#">
-    <div>
-      <h2>Redacteur</h2>
-      Hier vind u een overzicht van alle content in de website. Deze content kunt u bewerken.
+  <div class="row">
+    <div class="col-10 content">
+      <h2>Content bewerken</h2>
+      <?= $content ?>
     </div>
-  </a>
+  </div>
 </section>

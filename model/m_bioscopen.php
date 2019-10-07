@@ -13,16 +13,6 @@ class Bioscopen
   public function __destruct()
   { }
 
-  // public function addBios(){
-  //     try {
-  //       /*$sql = 'INSERT INTO * FROM ';
-  //       $result = $this->DataHandler->createData($sql);
-  //       return $result;*/
-  //      } catch (exception $e) {
-  //       throw $e;
-  //     }
-  //   }
-
   public function readBioscopen()
   {
     try {
@@ -38,9 +28,9 @@ class Bioscopen
   {
     try {
       $sql = "SELECT * FROM bioscopen WHERE bios_id = $id";
-          $result = $this->DataHandler->readsData($sql);
-          return $result;
-        } catch (exception $e) {
+      $result = $this->DataHandler->readsData($sql);
+      return $result;
+    } catch (exception $e) {
       throw $e;
     }
   }
@@ -55,24 +45,15 @@ class Bioscopen
     }
   }
 
-  // public function update($id){
-  //   try {
-  //     /*$sql = 'UPDATE * SET WHERE id =  ';
-  //     $result = $this->DataHandler->updateData($sql);
-  //     return $result;*/
-  //    } catch (exception $e) {
-  //     throw $e;
-  //   }
-  // }
+  public function updateBios($id){
+    try {
+       /*$sql = "UPDATE * SET WHERE id =UPDATE bioscopen SET bios_info = '$' WHERE bios_id = $;  ";
+       $result = $this->DataHandler->updateData($sql);
+       return $result;*/
+    } catch (exception $e) {
+       throw $e;
+    }
+  }
 
-  // public function delete($id){
-  //   try {
-  //     /*$sql = 'DELETE * FROM bioscopen WHERE id = ';
-  //     $result = $this->DataHandler->deleteData($sql);
-  //     return $result;*/
-
-  //    } catch (exception $e) {
-  //     throw $e;
-  //   }
-  // }
+  
 }
