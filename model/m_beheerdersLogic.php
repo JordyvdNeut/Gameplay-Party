@@ -161,11 +161,8 @@ class BeheerdersLogic
   public function collectRadio(){
 
     $bios_id = $_SESSION['bios_id'];
-    $sql = 'SELECT bios_id FROM bioscopen NATURAL JOIN users WHERE bios_id ="$bios_id"';
-    $id = $this->DataHandler->readsData($sql);
-    
     try{ 
-      $sql = ' SELECT zaal_nr, zaal_id FROM zalen NATURAL JOIN bioscopen WHERE bios_id =  " $id" '  ;
+      $sql = "SELECT zaal_nr, zaal_id FROM zalen WHERE bios_id = $bios_id";
       $result = $this->DataHandler->readsData($sql);
       return $result;
     } catch (exception  $e) {
