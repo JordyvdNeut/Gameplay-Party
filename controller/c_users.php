@@ -66,11 +66,11 @@ class UserController
 
   public function createOverOns($result) {
 		$html = "";
-		$html .= "<div class='center'><div class='row'>";
+		$html .= "<div class='container'><div class='row'>";
 
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			$html .= "<div class='col-8'>";
-			$html .= "<div class='table content'>";
+			$html .= "<div class='col-lg-11'>";
+			$html .= "<div class='table content p-3'>";
 			$html .= "<h1 class='con_title'>Over ons</h1>";
 			$html .= "<p class='con_inh'>$row[overons]</p>";
 			$html .= "</div>";
@@ -92,17 +92,18 @@ class UserController
   public function createHome($result)
   {
     $html = "";
-    $html .= "<div class='center'><div class='row'>";
+    $html .= "<div class='container'><div class='row'>";
 
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
       if ($row['homeCon_id'] == 1) {
         $row['homeCon_id'] = "?op=overons";
-      } else { $row['homeCon_id'] = "?op=overzicht"; }
-      $html .= "<div class='col-5'>";
+        $button="btn";
+      } else { $button="btn h_overzicht";$row['homeCon_id'] = "?op=overzicht";}      
+      $html .= "<div class='col-lg-6'>";
       $html .= "<div class='content'>";
       $html .= "<h1 class='con_title'>$row[titel]</h1>";
       $html .= "<p class='con_inh'>$row[inhoud]</p>";
-      $html .= "<a href='$row[homeCon_id]'><button class='btn'>Lees meer</button></a>";
+      $html .= "<a href='$row[homeCon_id]'><button class='$button '>Lees meer</button></a>";
       $html .= "</div>";
       $html .= "</div>";
     }

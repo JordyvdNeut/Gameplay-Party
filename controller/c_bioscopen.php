@@ -27,7 +27,8 @@ class BiosController
 	public function readBios($id)
 	{
 		$result = $this->bioscopen->readBios($id);
-		$biosPage = $this->createDetail($result);
+		$beschikbaar =$this->bioscopen->readBiosBeschik($id);
+		$biosPage = $this->createDetail($result,$beschikbaar);
 		include 'view/detail.php';
 	}
 
@@ -44,7 +45,7 @@ class BiosController
 		$html .= "<div class='center'><div class='row'>";
 
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			$row['bios_info'] = substr($row['bios_info'], 0, 250);
+			//$row['bios_info'] = wordwrap($row['bios_info'], 500, "<br><br />\n");
 			$html .= "<div class='col-5'>";
 			$html .= "<div class='content'>";
 			$html .= "<h1 class='con_title'>$row[bios_naam]</h1>";
@@ -60,12 +61,13 @@ class BiosController
 		return $html;
 	}
 
-	public function createDetail($result)
+	public function createDetail($result,$beschikbaar)
 	{
 		$html = "";
 		$html .= "<section class='row'>";
 
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+			//$row['bios_info'] = wordwrap($row['bios_info'], 500, "<br><br />\n");
 			$html .= "<div class='col-9'>";
 			$html .= "<div class='content'>";
 			$html .= "<h2>$row[bios_naam]</h2>";
@@ -73,7 +75,7 @@ class BiosController
 			$html .= "<p>$row[bios_info]</p>";
 			if ($row['bios_diensten'] !== null) {
 				$html .= "<h2>Extra mogelijkheden: </h2>";
-				$html .= "$row[bios_diensen]";
+				$html .= "$row[bios_diensten]";
 			}
 			$html .= "</div>";
 			$html .= "</div>";
@@ -88,11 +90,40 @@ class BiosController
 			$html .= "<p>Telefoon nummer: $row[bios_tel]</p>";
 			$html .= "</div>";
 			$html .= "</div>";
-		}
 
+
+
+		}
+		$html .= "<div class='col-12'>";
+		$html .= "<div class='beschikcontent'>";
+		$html .="<h4><strong>Beschikbare zalen</strong></h4>";
+		$html .= "</div>";
+		$html .= "</div>";
+		while ($row = $beschikbaar->fetch(PDO::FETCH_ASSOC)) {
+
+			$html .= "<div class='col-lg-4'>";
+			$html .= "<div class='infocontent'>";
+			$html .= "<h4><strong>Datum: $row[datum]</h4>";
+			$html .= "<p>Tijd: $row[beg_tijd] - $row[eind_tijd]</p>";
+			$html .= "<p>Aantal stoelen: $row[plaatsen]</p>";
+			if("$row[invalide]"==1){
+				$html .= "<p>Invalide toegankelijk: Ja </p>";
+			}else{
+				$html .= "<p>Invalide toegankelijk: Nee</p>";
+			}
+			$html .="<button class='btn'>Reserveren binnekort beschikbaar</button>";
+			$html .= "</div>";
+			$html .= "</div>";
+		}
+		// $html .= "<div class='col-9'>";
+		// $html .= "<div class='content'>";
+		// 	$html .= "<h2>Extra mogelijkheden: </h2>";
+		// $html .= "</div>";
+		// $html .= "</div>";
 		$html .= "</section>";
 		return $html;
 	}
+
 
 	public function deleteBios()
 	{

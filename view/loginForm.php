@@ -1,7 +1,7 @@
 <title>Login</title>
-
+<div id="login">
 <?php require_once('view/header.php'); ?>
-
+</div>
 <section>
 <div>
   <p>Op deze pagina kunnen beheerders en beheerder van bioscopen inloggen</p>

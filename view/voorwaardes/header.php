@@ -1,24 +1,27 @@
+<link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../../grid.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <header>
   <nav>
     <div class="not-mobile">
-      <a href="index.php?op=loginForm"><button class="btn login">Login</button></a>
-      <a href="index.php?op=overons"><button class="btn overons">Over ons</button></a>
-      <a href="index.php?op=overzicht"><button class="btn bios">Bioscopen</button></a>
-      <a  href="index.php?op=home"><button class="btn home">Home</button></a>
+      <a href="../../index.php?op=loginForm"><button class="btn login">Login</button></a>
+      <a href="../../index.php?op=overons"><button class="btn overons">Over ons</button></a>
+      <a href="../../index.php?op=overzicht"><button class="btn bios">Bioscopen</button></a>
+      <a  href="../../index.php?op=home"><button class="btn home">Home</button></a>
     </div>
     <div class="dropdown, mobile">
       <i class="fa fa-bars dropbtn" onclick="burgerMenu()"></i>
       <div id="myDropdown" class="dropdown-content">
-        <a href="index.php?op=home">Home</a>
-        <a href="index.php?op=overzicht">Bioscopen</a>
-        <a href="index.php?op=overons">Over ons</a>
-        <a href="index.php?op=loginForm">Login</a>
+        <a href="../../index.php?op=home">Home</a>
+        <a href="../../index.php?op=overzicht">Bioscopen</a>
+        <a href="../../index.php?op=overons">Over ons</a>
+        <a href="../../index.php?op=loginForm">Login</a>
       </div>
     </div>
   </nav>
-  <a href="index.php?">
+  <a href="../../index.php?">
   <!-- <img src="view/images/slinger.png">-->
-    <img class="logo" src="view/images/gpp.svg" alt="Gameplay Party">
+    <img class="logo" src="../images/gpp.svg" alt="Gameplay Party">
     
     <h2 class="title">Gameplay Party</h2><br>
     

@@ -13,13 +13,14 @@
         </a>
       </div>
 
+
       <div class="voorw_foot col-5">
         <h3>Voorwaarden</h3>
         <ul class='footer'>
-          <li>Privacy Voorwaarden</li>
-          <li>Privacy Beleid</li>
-          <li>Cookie Beleid</li>
-          <li>Algemene Verkoopsvoorwaarden</li>
+        <li><a href="view/voorwaardes/termsfeed-terms-conditions-html-english.php">Privacy Voorwaarden</a></li>
+          <li><a href="view/voorwaardes/termsfeed-privacy-policy-html-english.php">Privacy Beleid</a></li>
+          <li><a href="view/voorwaardes/termsfeed-cookies-policy-html-english.php">Cookie Beleid</a></li>
+          <li><a href="view/voorwaardes/termsfeed-return-refund-policy-html-english.php">Algemene Verkoopsvoorwaarden</a></li>
           <li>Privacy Beleid B2B</li>
         </ul>
       </div>

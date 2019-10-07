@@ -38,6 +38,7 @@ class RouteController
 					break;
 				case 'detail':
 					$this->biosController->readBios($_REQUEST['id']);
+					
 					break;
 				case 'beOverzicht':
 					$this->beheerdersController->collectBioscopen();
