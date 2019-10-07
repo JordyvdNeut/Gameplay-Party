@@ -48,7 +48,7 @@ class HTMLController
 
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
       $row['bios_info'] = substr($row['bios_info'], 0, 250);
-      $html .= "<div class='col-5'>";
+      $html .= "<div class='col-6' style='padding-bottom: 15px;'>";
       $html .= "<div class='content'>";
       $html .= "<h1 class='con_title'>$row[bios_naam]</h1>";
       $html .= "<p class='con_inh'><img class='biosPhoto' src='$row[bios_foto]'><br />";

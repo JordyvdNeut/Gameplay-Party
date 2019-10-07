@@ -40,7 +40,7 @@ class UserController
     $html .= "<div class='center'><div class='row'>";
 
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-      $html .= "<div class='col-8'>";
+      $html .= "<div class='col-12'>";
       $html .= "<div class='table content'>";
       $html .= "<h1 class='con_title'>Over ons</h1>";
       $html .= "<p class='con_inh'>$row[overons]</p>";
@@ -59,7 +59,7 @@ class UserController
 
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
       
-      $html .= "<div class='col-5'>";
+      $html .= "<div class='col-6'>";
       $html .= "<div class='content'>";
       $html .= "<h1 class='con_title'>$row[titel]</h1>";
       $html .= "<p class='con_inh'>$row[inhoud]</p>";
