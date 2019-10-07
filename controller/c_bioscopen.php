@@ -123,12 +123,6 @@ class BiosController
 		return $html;
 	}
 
-
-	public function deleteBios()
-		$biosPage = $this->HTMLController->createBiosDetail($result);
-		include 'view/detail.php';
-	}
-
 	public function updateBios() 
 	{
 		$result = $this->bioscopen->updateBios();
