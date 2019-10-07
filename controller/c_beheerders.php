@@ -41,9 +41,9 @@ class BeheerdersController
 	public function collectContentTables()
 	{
 		$homeContent = $this->beheerdersLogic->readsHomeCon();
-		$homeContTable = $this->HTMLBeheerderController->createHomeConTable($homeContent);
+		$homeContTable = $this->HTMLBeheerderController->createConTable($homeContent, 'Home pagina', 'updateHomeConForm');
 		$overonsContent = $this->beheerdersLogic->readOveronsCon();
-		$overonsContTable = $this->HTMLBeheerderController->createOveronsConTable($overonsContent);
+		$overonsContTable = $this->HTMLBeheerderController->createConTable($overonsContent, 'Contact pagina', 'updateContactConForm');
 		return "<hr style='border-color: green'>" . $homeContTable . "<hr style='border-color: green'>" . $overonsContTable;
 	}
 
@@ -63,7 +63,7 @@ class BeheerdersController
 	{
 		$homeContent = $this->beheerdersLogic->readHomeCon($id);
 		require_once "view/beheerder/header.php";
-		include 'view/beheerder/updateBios.php';
+		include 'view/beheerder/upHomeCon.php';
 	}
 
 	public function collectUpdateHomecon()
@@ -71,14 +71,22 @@ class BeheerdersController
 		$formData = $_REQUEST;
 		$feedback = $this->beheerdersLogic->updateHomeContent($formData);
 		require_once "view/beheerder/header.php";
-		include 'view/feedback.php';
+		include 'view/beheerder/feedback.php';
 	}
 
-	public function updateHomeContent()
+	public function collectUpdateContactconForm($id)
 	{
-		$result = $this->beheerdersLogic->updateHomeContent();
+		$contactContent = $this->beheerdersLogic->readContactCon($id);
 		require_once "view/beheerder/header.php";
-		include 'view/beheerder/updatedBios.php';
+		include 'view/beheerder/upContactCon.php';
+	}
+
+	public function collectUpdateContactcon()
+	{
+		$formData = $_REQUEST;
+		$feedback = $this->beheerdersLogic->updateContactContent($formData);
+		require_once "view/beheerder/header.php";
+		include 'view/beheerder/feedback.php';
 
 	}
 
@@ -108,7 +116,8 @@ class BeheerdersController
 	}
 
 	public function makeRadioButtons($radio){
-		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+		$html = "";
+		while ($row = $radio->fetch(PDO::FETCH_ASSOC)) {
 		  $html .= "<input type='radio' name='$row[zaal_id]' placeholder='$row[zaal_nr]'>"; 
 		}
 		return $html;
