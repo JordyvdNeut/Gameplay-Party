@@ -97,13 +97,6 @@ class BeheerdersController
 		header('Location: index.php?op=loginForm');
 	}
 
-	public function viewRadio(){
-		$radio = $this->beheerdersLogic->collectRadio();
-		
-
-		include 'view/beheerder/addBeschik.php';
-	}
-
 	public function makeRadio(){
 		$radio = $this->beheerdersLogic->collectRadio();
 		$radioButtons = $this->HTMLBeheerderController->makeRadioButtons($radio); 
