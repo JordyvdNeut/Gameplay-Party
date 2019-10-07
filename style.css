@@ -71,9 +71,8 @@ header {
 }
 
 .logo {
-  width: 80%;
+  width: 60%;
   margin-left: -5px;
-  margin-top: -11px;
 }
 
 .quote{
@@ -105,6 +104,12 @@ header {
   margin: 0 auto;
   height: 100%;
   max-width: 100%;
+}
+.infocontent {
+  padding: 15px;
+  background-color: #c4e5385c;
+  margin: 0 auto;
+  overflow:hidden;
 }
 
 .content a {
