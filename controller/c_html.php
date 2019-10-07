@@ -7,7 +7,7 @@ class HTMLController
 
   public function __destruct()
   { }
-  public function createDetail($result)
+  public function createBiosDetail($result)
   {
     $html = "";
     $html .= "<section class='row'>";
@@ -41,7 +41,7 @@ class HTMLController
     return $html;
   }
 
-  public function createDiv($result)
+  public function createBiosDiv($result)
   {
     $html = "";
     $html .= "<div class='center'><div class='row'>";

@@ -17,14 +17,14 @@ class BiosController
 	public function collectOverzicht()
 	{
 		$bioscopen = $this->bioscopen->readBioscopen();
-		$biosTable = $this->HTMLController->createDiv($bioscopen);
+		$biosTable = $this->HTMLController->createBiosDiv($bioscopen);
 		include_once 'view/overzicht.php';
 	}
 
 	public function readBios($id)
 	{
 		$result = $this->bioscopen->readBios($id);
-		$biosPage = $this->HTMLController->createDetail($result);
+		$biosPage = $this->HTMLController->createBiosDetail($result);
 		include 'view/detail.php';
 	}
 
