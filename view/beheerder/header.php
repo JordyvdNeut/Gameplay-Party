@@ -24,7 +24,7 @@ $user =  $this->beheerdersController->collectUser($_SESSION['user_id']);
       }
 
       if($_SESSION['user_role'] === 3){
-        echo "<a href='index.php?op=formHomeCont'><button class='btn'><i class='far fa-plus-square'></i> Teksten toevoegen</button></a>";
+        echo "<a href='index.php?op=formHomeCont'><button class='btn'>Teksten toevoegen</button></a>";
       }
       ?>
       

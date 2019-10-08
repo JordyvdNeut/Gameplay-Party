@@ -93,6 +93,7 @@ class RouteController
 					break;
 				case 'addHomeCont':
 					$this->beheerdersController->addHomeCont();
+					break;
 				default:
 					$this->userController->collectHome();
 					break;
