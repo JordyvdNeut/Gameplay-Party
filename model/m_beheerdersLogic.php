@@ -147,8 +147,8 @@ class BeheerdersLogic
   {
     $zaal           = $creating["zaal_id"];
     $beg_tijd     = $creating["beg_tijd"];
-    $eind_tijd        = $creating["eind_tijd"];
-    $datum          = $creating["datum"];
+    $eind_tijd    = $creating["eind_tijd"];
+    $datum       = $creating["datum"];
     try {
       $sql = "INSERT INTO mogelijkheden (zaal_id, datum, beg_tijd, eind_tijd) VALUES ('$zaal', '$datum',  '$beg_tijd', '$eind_tijd')";
       $result = $this->DataHandler->createData($sql);
@@ -166,6 +166,18 @@ class BeheerdersLogic
       $result = $this->DataHandler->readsData($sql);
       return $result;
     } catch (exception  $e) {
+      throw $e;
+    }
+  }
+
+  public function addHomeCont($creating){
+    $titel = $creating["titel"];
+    $tekst = $creating["tekst"];
+    try{
+      $sql = "INSERT INTO homecontent(homeCon_id, titel, inhoud) VALUES ('' , '$titel', '$tekst')";
+      $result = $this->DataHandler->createData($sql);
+      return $result;
+    }catch (exception $e){
       throw $e;
     }
   }

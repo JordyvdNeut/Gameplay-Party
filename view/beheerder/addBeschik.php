@@ -1,10 +1,9 @@
     <?php require_once('view/beheerder/header.php')?>
-<div class="col-md-10">
+<div class="col-md-12">
 <div class="content">
     <form class='form-contact' action='index.php?op=addBeschik' method='POST'>
         <h1 class='heading'>Voeg uw beschikbaarheid toe</h1>
             <label>Zaal</label><br>
-
             <?= $radioButtons; ?>
             <label>Datum</label><br>
             <input type='date' name='datum' id='date' class='form-control' required>

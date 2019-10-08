@@ -76,6 +76,11 @@ class RouteController
 				case 'addForm':
 					$this->beheerdersController->makeRadio();
 					break;
+				case 'formHomeCont':
+					$this->beheerdersController->formHomeCont();
+					break;
+				case 'addHomeCont':
+					$this->beheerdersController->addHomeCont();
 				default:
 					$this->userController->collectHome();
 					break;

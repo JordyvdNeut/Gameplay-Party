@@ -110,6 +110,17 @@ class BeheerdersController
 	{
 		$creating = $_REQUEST;
 		$result = $this->beheerdersLogic->addBeschik($creating);
-		include 'view/beheerder/redacteur.php';
+		$feedback = "Uw beschikbaarheid is toegevoegd.<br>";
+		include 'view/beheerder/feedback.php';
+	}
+
+	public function formHomeCont(){
+		include 'view/beheerder/addHomeCon.php';
+	}
+
+	public function addHomeCont(){
+		$creating = $_REQUEST;
+		$result = $this->beheerdersLogic->addHomeCont($creating);
+		include 'view/beheerder/feedback.php';
 	}
 }
