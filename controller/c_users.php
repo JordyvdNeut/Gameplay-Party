@@ -62,6 +62,7 @@ class UserController
       $html .= "<div class='col-6'>";
       $html .= "<div class='content'>";
       $html .= "<h1 class='con_title'>$row[titel]</h1>";
+      $row['inhoud'] = substr($row['inhoud'], 0, 250) . "...";
       $html .= "<p class='con_inh'>$row[inhoud]</p>";
 
       if ($row['homeCon_id'] == 1) {
