@@ -44,7 +44,6 @@ class Bioscopen
       throw $e;
     }
   }
-
   public function updateBios($id){
     try {
        /*$sql = "UPDATE * SET WHERE id =UPDATE bioscopen SET bios_info = '$' WHERE bios_id = $;  ";

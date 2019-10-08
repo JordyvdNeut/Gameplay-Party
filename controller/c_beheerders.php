@@ -65,7 +65,12 @@ class BeheerdersController
 		$homeAvailabiltyTable = $this->HTMLBeheerderController->createAvailabiltyTable($availabilty);
 		return $homeAvailabiltyTable;
 	}
-
+/*
+	public function collectUpBiosBeschik($id){
+		$beschikCon = $this->beheerdersLogic->readBeschik($id);
+		include 'view/beheerder/upBiosBeschik.php';
+	}
+*/
 	public function collectBioscopen()
 	{
 		include_once 'view/beheerder/overzichtBios.php';
@@ -148,6 +153,18 @@ class BeheerdersController
 	{
 		$creating = $_REQUEST;
 		$result = $this->beheerdersLogic->addBeschik($creating);
-		include 'view/beheerder/redacteur.php';
+		$feedback = "<br/>Uw beschikbaarheid is toegevoegd.";
+		include 'view/beheerder/feedback.php';
+	}
+
+	public function formHomeCont(){
+		include 'view/beheerder/addHomeCon.php';
+	}
+
+	public function addHomeCont(){
+		$creating = $_REQUEST;
+		$result = $this->beheerdersLogic->addHomeCont($creating);
+		$feedback = "<br/>Uw teksten zijn toegevoegd en worden nu op de homepagina getoond.";
+		include 'view/beheerder/feedback.php';
 	}
 }

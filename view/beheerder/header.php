@@ -18,9 +18,13 @@ $user =  $this->beheerdersController->collectUser($_SESSION['user_id']);
         <!-- <button href="index.php?op=overons"><button class="btn">Over ons</button></dii>
       <a href="index.php?op=overzicht"><button class="btn">Bioscopen</button></a> -->
       <?php 
-      if($_SESSION['user_id'] === 2){
+      if($_SESSION['user_role'] === 2){
         echo "<a href='index.php?op=addForm'><button class='btn'>Toevoegen beschikbaarheid</button></a>";
         echo "<a href='index.php?op=readBiosCon'><button class='btn'>Bioscooop gegevens</button></a>";
+      }
+
+      if($_SESSION['user_role'] === 3){
+        echo "<a href='index.php?op=formHomeCont'><button class='btn'>Teksten toevoegen</button></a>";
       }
       ?>
       

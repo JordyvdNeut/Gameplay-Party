@@ -67,6 +67,9 @@ class RouteController
 				case 'updatBiosConForm':
 					$this->beheerdersController->collectUpdateBiosconForm();
 					break;
+				/*case 'upBiosBeschik':
+					$this->beheerdersController->collectUpBiosBeschik($_REQUEST['id']);
+					break;*/
 				case 'updateBiosCon':
 					$this->beheerdersController->collectUpdateBioscon();
 					break;
@@ -87,6 +90,12 @@ class RouteController
 					break;
 				case 'addForm':
 					$this->beheerdersController->makeRadio();
+					break;
+				case 'formHomeCont':
+					$this->beheerdersController->formHomeCont();
+					break;
+				case 'addHomeCont':
+					$this->beheerdersController->addHomeCont();
 					break;
 				default:
 					$this->userController->collectHome();
