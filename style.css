@@ -71,7 +71,7 @@ header {
 }
 
 .logo {
-  width: 60%;
+  width: 50%;
   margin-left: -5px;
 }
 
@@ -278,6 +278,9 @@ div.not-mobile a button.btn {
   margin: 0 auto;
   height: 100%;
   max-width: 90%;
+}
+.col-10.content.bewerken{
+  margin-bottom:20px;
 }
 /* buttons */
 button.btn {
