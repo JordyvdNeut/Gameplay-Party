@@ -222,4 +222,14 @@ class BeheerdersLogic
       throw $e;
     }
   }
+/*
+  public function readBeschik($id){
+    try{
+      $sql = "SELECT zaal_id, datum, beg_tijd, eind_tijd ,FROM mogelijkheden WHERE id = $id";
+      $result = $this->DataHandler->readData($sql);
+      return $result;
+    } catch (exception $e){
+      throw $e;
+    }
+  }*/
 }

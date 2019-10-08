@@ -65,7 +65,12 @@ class BeheerdersController
 		$homeAvailabiltyTable = $this->HTMLBeheerderController->createAvailabiltyTable($availabilty);
 		return $homeAvailabiltyTable;
 	}
-
+/*
+	public function collectUpBiosBeschik($id){
+		$beschikCon = $this->beheerdersLogic->readBeschik($id);
+		include 'view/beheerder/upBiosBeschik.php';
+	}
+*/
 	public function collectBioscopen()
 	{
 		include_once 'view/beheerder/overzichtBios.php';

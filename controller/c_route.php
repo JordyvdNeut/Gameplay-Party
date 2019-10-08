@@ -67,6 +67,9 @@ class RouteController
 				case 'updatBiosConForm':
 					$this->beheerdersController->collectUpdateBiosconForm();
 					break;
+				/*case 'upBiosBeschik':
+					$this->beheerdersController->collectUpBiosBeschik($_REQUEST['id']);
+					break;*/
 				case 'updateBiosCon':
 					$this->beheerdersController->collectUpdateBioscon();
 					break;

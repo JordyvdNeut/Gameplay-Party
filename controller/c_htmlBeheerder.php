@@ -61,14 +61,14 @@ class HTMLBeheerderController
         foreach ($row as $key => $value) {
           $html .= "<th>{$key}</th>";
         }
-        $html .= "<th>Wijzigen</th>";
+        //$html .= "<th>Wijzigen</th>";
         $html .= "</tr>";
         $tableheader = true;
       }
       foreach ($row as $value) {
         $html .= "<td>{$value}</td>";
       }
-      $html .= "<td><a href=''><button><span class='glyphicon glyphicon-pencil'></span> Bewerken</button></a></td>";
+      //$html .= "<td><a href='?op=upBiosBeschik'><button><span class='glyphicon glyphicon-pencil'></span> Bewerken</button></a></td>";
       $html .= "</tr>";
     }
 
