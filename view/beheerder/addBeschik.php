@@ -1,4 +1,4 @@
-    <?php require_once('view/beheerder/header.php')?>
+<?php require_once('view/beheerder/header.php')?>
 <div class="col-md-12">
 <div class="content">
     <form class='form-contact' action='index.php?op=addBeschik' method='POST'>
@@ -13,5 +13,7 @@
             <input type='time' name='eind_tijd' id='eind_tijd' class='form-control' required><br>
         <input class='btn' type='submit'>
     </form>
+</div>
+</div>
 </div>
 </div>

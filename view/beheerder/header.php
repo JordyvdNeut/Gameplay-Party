@@ -20,6 +20,7 @@ $user =  $this->beheerdersController->collectUser($_SESSION['user_id']);
       <?php 
       if($_SESSION['user_role'] === 2){
         echo "<a href='index.php?op=addForm'><button class='btn'>Toevoegen beschikbaarheid</button></a>";
+        echo "<a href='index.php?op=readBiosCon'><button class='btn'>Bioscooop gegevens</button></a>";
       }
 
       if($_SESSION['user_role'] === 3){

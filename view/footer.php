@@ -18,11 +18,11 @@
       <div class="voorw_foot col-6">
         <h3>Voorwaarden</h3>
         <ul class='footer'>
-          <li><a class='footer_a' href='view/voorwaardes/privacy-policy-english.php'>Privacy Voorwaarden</a></li>
-          <li><a class='footer_a' href='view/voorwaardes/privacy-policy-dutch.php'>Privacy Beleid</a></li>
-          <li><a class='footer_a' href='view/voorwaardes/cookies-policy-english.php'>Cookie Beleid</a></li>
-          <li><a class='footer_a' href='view/voorwaardes/return-refund-policy-english.php'>Algemene Verkoopsvoorwaarden</a></li>
-          <li><a class='footer_a' href='view/voorwaardes/terms-conditions-english.php'>Privacy Beleid B2B</a></li>
+          <li><a class='footer_a' href="view/voorwaardes/termsfeed-terms-conditions-html-english.php">Privacy Voorwaarden</a></li>
+          <li><a class='footer_a'href="view/voorwaardes/termsfeed-privacy-policy-html-english.php">Privacy Beleid</a></li>
+          <li><a class='footer_a' href="view/voorwaardes/termsfeed-cookies-policy-html-english.php">Cookie Beleid</a></li>
+          <li><a class='footer_a'href="view/voorwaardes/termsfeed-return-refund-policy-html-english.php">Algemene Verkoopsvoorwaarden</a></li>
+          <li><a class='footer_a' href="view/voorwaardes/terms-conditions-english.php">Privacy Beleid B2B</a></li>
         </ul>
       </div>
     </div>

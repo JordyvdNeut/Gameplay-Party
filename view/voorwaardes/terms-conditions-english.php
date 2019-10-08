@@ -14,6 +14,11 @@
   <link rel="stylesheet" href="../../style.css">
   <link rel="stylesheet" href="grid.css">
 </head>
+<?php require_once('header.php'); ?>
+<div class='container'>
+<div class='row'>
+<div class='col-lg-12'>
+<div class="content">
 <h1>Terms and Conditions ("Terms")</h1>
 
 
@@ -63,3 +68,8 @@
 <h2>Contact Us</h2>
 
 <p>If you have any questions about these Terms, please contact us.</p>
+</div>
+</div>
+</div>
+</div>
+<?php require_once('footer.php') ?>
