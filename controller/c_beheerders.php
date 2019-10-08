@@ -148,7 +148,7 @@ class BeheerdersController
 	{
 		$creating = $_REQUEST;
 		$result = $this->beheerdersLogic->addBeschik($creating);
-		$feedback = "Uw beschikbaarheid is toegevoegd.<br>";
+		$feedback = "<br/>Uw beschikbaarheid is toegevoegd.";
 		include 'view/beheerder/feedback.php';
 	}
 
@@ -159,7 +159,7 @@ class BeheerdersController
 	public function addHomeCont(){
 		$creating = $_REQUEST;
 		$result = $this->beheerdersLogic->addHomeCont($creating);
-		$feedback = "Uw teksten zijn toegevoegd en worden nu op de homepagina getoond.";
+		$feedback = "<br/>Uw teksten zijn toegevoegd en worden nu op de homepagina getoond.";
 		include 'view/beheerder/feedback.php';
 	}
 }
