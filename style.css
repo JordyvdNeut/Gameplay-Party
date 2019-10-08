@@ -297,7 +297,10 @@ button.extra{
   float: right;
   margin-bottom: 10px;
 }
-
+button.extra:hover{
+  background-color: #34495e !important;
+  color: #c4e538;
+}
 button.btn:hover {
   background-color: #c4e538;
 }
