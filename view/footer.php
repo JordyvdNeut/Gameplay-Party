@@ -22,7 +22,7 @@
           <li><a class='footer_a'href="view/voorwaardes/termsfeed-privacy-policy-html-english.php">Privacy Beleid</a></li>
           <li><a class='footer_a' href="view/voorwaardes/termsfeed-cookies-policy-html-english.php">Cookie Beleid</a></li>
           <li><a class='footer_a'href="view/voorwaardes/termsfeed-return-refund-policy-html-english.php">Algemene Verkoopsvoorwaarden</a></li>
-          <li><a class='footer_a' href='view/voorwaardes/terms-conditions-english.php'>Privacy Beleid B2B</a></li>
+          <li><a class='footer_a' href="view/voorwaardes/terms-conditions-english.php">Privacy Beleid B2B</a></li>
         </ul>
       </div>
     </div>
