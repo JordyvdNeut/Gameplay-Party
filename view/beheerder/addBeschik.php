@@ -1,7 +1,5 @@
-    <?php require_once('view/beheerder/header.php')?>
-<div class="container">
-<div class="row">    
-<div class="col-md-12">
+    <?php require_once('view/beheerder/header.php')?>  
+<div class="col-md-10">
 <div class="content">
     <form class='form-contact' action='index.php?op=addBeschik' method='POST'>
         <h1 class='heading'>Voeg uw beschikbaarheid toe</h1>
