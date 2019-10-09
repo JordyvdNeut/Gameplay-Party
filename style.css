@@ -279,9 +279,11 @@ div.not-mobile a button.btn {
   height: 100%;
   max-width: 90%;
 }
-.col-10.content.bewerken{
+.col-10.content.bewerken,
+.infocontent.bewerken{
   margin-bottom:20px;
 }
+
 /* buttons */
 button.btn {
   background-color: #34495e;
