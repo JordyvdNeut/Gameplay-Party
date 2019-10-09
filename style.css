@@ -270,7 +270,7 @@ div.not-mobile a button.btn {
 .heading {
   text-align: center;
 }
-
+/* 
 .content {
   content: "";
   padding: 15px;
@@ -279,7 +279,7 @@ div.not-mobile a button.btn {
   margin: 0 auto;
   height: 100%;
   max-width: 90%;
-}
+} */
 .col-10.content.bewerken,
 .infocontent.bewerken{
   margin-bottom:20px;
