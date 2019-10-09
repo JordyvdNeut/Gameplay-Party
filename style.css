@@ -65,9 +65,14 @@ header {
 }
 
 .title {
+  color: #34495e;
   margin-right: 20px;
   margin-top: -120px;
   margin-bottom: 40px;
+}
+
+blockquote{
+  color: #34495e;
 }
 
 .logo {
