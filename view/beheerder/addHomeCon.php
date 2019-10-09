@@ -10,9 +10,10 @@
     });
   });
 </script>
-
+<div class="container">
+  <div class="row">
 <div class="col-md-12">
-<div class="content">
+<div class="infocontent bewerken">
 
 <form class='form-contact' action='?op=addHomeCont' method='POST'>
 <h1>Teksten invoeren</h1>
