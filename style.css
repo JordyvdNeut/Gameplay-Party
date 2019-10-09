@@ -65,9 +65,14 @@ header {
 }
 
 .title {
+  color: #34495e;
   margin-right: 20px;
   margin-top: -120px;
   margin-bottom: 40px;
+}
+
+blockquote{
+  color: #34495e;
 }
 
 .logo {
@@ -128,6 +133,17 @@ h2 {
   margin: 0;
   margin-top: 20px;
 }
+/* voorwaarde
+.vwcontent {
+  content: "";
+  padding: 15px;
+  background-color: #c4e5385c;
+  display: table;
+  margin: 0 auto;
+  height: 100%;
+  min-width: 90%;
+  max-width: 90%;
+} */
 /*beschikbaar content*/
 .beschikcontent {
   content: "";
@@ -153,6 +169,7 @@ h2 {
   .biosInside{
     width: 150px;
   }
+
 }
 
 /*Footer*/
@@ -205,6 +222,7 @@ div.not-mobile a button.btn {
 
 .contact_foot {
   float: right;
+  margin: 0 auto;
 }
 
 .contact_foot a.footer:hover {
@@ -217,6 +235,9 @@ div.not-mobile a button.btn {
 
 .voorw_foot {
   width: 20%;
+}
+.voorw_foot.col-6{
+  margin: 0 auto;
 }
 
 .footer2 {
@@ -341,7 +362,17 @@ div.login button {
   color: #c4e538;
   margin-bottom: 0px;
 }
-
+.vwcontent{
+  font-size:1em;
+  content: "";
+  padding: 15px;
+  background-color: #c4e5385c;
+  display: table;
+  margin: 0 auto;
+  height: 100%;
+  min-width: 90%;
+  max-width: 90%;
+}
 /*MEDIA SCREENS*/
 @media (max-width: 768px) and (min-width:600px) {
   .logo {
@@ -352,6 +383,17 @@ div.login button {
   .logo {
     margin-top:0;
   }
+  .vwcontent {
+    font-size:1.8em;
+    content: "";
+    padding: 15px;
+    background-color: #c4e5385c;
+    display: table;
+    margin: 0 auto;
+    height: 100%;
+    min-width: 90%;
+    max-width: 90%;
+    }
 } 
 @media (max-width: 1024px) and (min-width:768px) {
   .title {
