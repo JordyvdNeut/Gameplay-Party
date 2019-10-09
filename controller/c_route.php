@@ -97,6 +97,21 @@ class RouteController
 				case 'addHomeCont':
 					$this->beheerdersController->addHomeCont();
 					break;
+				case 'cookievw':
+				    $this->userController->collectCookie();
+					break;
+					case 'refundvw': 
+				    $this->userController->collectRefund();
+					break;
+					case 'privacyvw':
+				    $this->userController->collectPrivacy();
+					break;
+					case 'privacytermvw':
+				    $this->userController->collectTerms();
+					break;
+					case 'voorwaardevw':
+				    $this->userController->collectVoorwaarde();
+					break;
 				default:
 					$this->userController->collectHome();
 					break;

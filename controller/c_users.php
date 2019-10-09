@@ -33,6 +33,26 @@ class UserController
     $contact = $this->createOverOns($result);
     include_once 'view/over_ons.php';
   }
+  public function collectCookie()
+  {
+    include_once 'view/voorwaardes/termsfeed-cookies-policy-html-english.php';
+  }
+  public function collectrefund()
+  {
+    include_once 'view/voorwaardes/termsfeed-return-refund-policy-html-english.php';
+  }
+  public function collectPrivacy()
+  {
+    include_once 'view//voorwaardes/termsfeed-privacy-policy-html-english.php';
+  }
+  public function collectTerms()
+  {
+    include_once 'view/voorwaardes/terms-conditions-english.php';
+  }
+  public function collectvoorwaarde()
+  {
+    include_once 'view/voorwaardes/termsfeed-terms-conditions-html-english.php';
+  }
 
   public function createOverOns($result)
   {
