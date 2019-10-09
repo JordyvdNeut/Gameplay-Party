@@ -19,12 +19,12 @@
       </div>
     </div>
   </nav>
-  <a href="../../index.php?">
-  <!-- <img src="view/images/slinger.png">-->
-    <img class="logo" src="../images/gpp.svg" alt="Gameplay Party">
-    
-    <h2 class="title">Gameplay Party</h2><br>
-    
+  <a href="../../index.php?op=home">
+    <img class="logo" src="../../view/images/gpp.svg" alt="Gameplay Party">
+
+    <h2 class="title">Gameplay Party</h2>
+    <blockquote class="quote">Power to the players</blockquote>
+
   </a>
 </header>
 

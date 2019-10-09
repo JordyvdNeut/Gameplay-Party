@@ -73,6 +73,7 @@ header {
 .logo {
   width: 50%;
   margin-left: -5px;
+
 }
 
 .quote{
@@ -203,7 +204,6 @@ div.not-mobile a button.btn {
 }
 
 .contact_foot {
-  width: 20%;
   float: right;
 }
 
@@ -343,9 +343,25 @@ div.login button {
 }
 
 /*MEDIA SCREENS*/
+@media (max-width: 768px) and (min-width:600px) {
+  .logo {
+    margin-top:-11px;
+  }
+} 
+@media (max-width:600px) {
+  .logo {
+    margin-top:0;
+  }
+} 
+@media (max-width: 1024px) and (min-width:768px) {
+  .title {
+    margin-top: 0px;
+    text-align: right;
+  }
+} 
 @media (max-width: 768px) {
   .logo {
-    width: 100%;
+    width: 90%;
   }
   .center {
     padding-left: 0px;
@@ -405,6 +421,7 @@ div.login button {
     font-size: 60px;
   }
 }
+
 
 /*Laptop*/
 @media (min-width: 1405px) {
@@ -475,6 +492,12 @@ div.login button {
   .mobile {
     display: none;
   }
+
+}
+@media (max-width:425){
+.logo{
+  margin-top:0px;
+}
 }
 
 
