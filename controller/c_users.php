@@ -59,7 +59,7 @@ class UserController
 
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
       
-      $html .= "<div class='col-6'>";
+      $html .= "<div class='col-6' style='padding-bottom: 10px; min-width:100%;'>";
       $html .= "<div class='content'>";
       $html .= "<h1 class='con_title'>$row[titel]</h1>";
       $row['inhoud'] = substr($row['inhoud'], 0, 250) . "...";
