@@ -90,5 +90,5 @@ class HTMLBeheerderController
     $html .= "</select>";
     $html .= "</div>";
 		return $html;
-	  }
+    }
 }

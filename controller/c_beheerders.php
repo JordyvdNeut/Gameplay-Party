@@ -67,7 +67,7 @@ class BeheerdersController
 	}
 /*
 	public function collectUpBiosBeschik($id){
-		$beschikCon = $this->beheerdersLogic->readBeschik($id);
+		$result = $this->beheerdersLogic->readBeschik($id);
 		include 'view/beheerder/upBiosBeschik.php';
 	}
 */
