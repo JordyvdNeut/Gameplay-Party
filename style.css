@@ -103,7 +103,8 @@ header {
   display: table;
   margin: 0 auto;
   height: 100%;
-  max-width: 100%;
+  min-width: 90%;
+  max-width: 90%;
 }
 .infocontent {
   padding: 15px;
@@ -365,6 +366,10 @@ div.login button {
 
   .row {
     margin: 0px;
+  }
+
+  [class*="col-"]{
+    margin-bottom: 15px;
   }
 }
 
