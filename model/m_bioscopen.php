@@ -38,7 +38,7 @@ class Bioscopen
   {
     //AND beschik = 1 
     try {
-      $sql = "SELECT zaal_nr, datum, beg_tijd,eind_tijd,plaatsen,invalide FROM mogelijkheden NATURAL JOIN zalen WHERE bios_id = $id ORDER BY datum ASC, zaal_nr ASC, beg_tijd ASC";   
+      $sql = "SELECT zaal_nr, datum, beg_tijd,eind_tijd,plaatsen,invalide FROM mogelijkheden NATURAL JOIN zalen WHERE bios_id = $id ORDER BY datum ASC, beg_tijd ASC, zaal_nr ASC";   
       $result = $this->DataHandler->readsData($sql);
           return $result;
         } catch (exception $e) {
