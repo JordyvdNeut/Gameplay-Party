@@ -100,9 +100,11 @@ class BiosController
 			$gooddate= date("d-m-Y", strtotime($row['datum']));
 			$begintime= date("H:i ", strtotime($row['beg_tijd']));
 			$endtime= date("H:i ", strtotime($row['eind_tijd']));
-			$html .= "<div class='col-lg-4'>";
+			$html .= "<div class='col-lg-4' style='margin-bottom:15px;'>";
 			$html .= "<div class='infocontent'>";
-			$html .= "<h4><strong>Datum: $gooddate </h4>";
+
+			$html .= "<h4><strong>Zaal $row[zaal_nr]</strong></h4>";
+			$html .= "<p>Datum: $gooddate </p>";
 			$html .= "<p>Tijd: $begintime - $endtime</p>";
 			$html .= "<p>Aantal stoelen: $row[plaatsen]</p>";
 			if("$row[invalide]"==1){
