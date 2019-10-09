@@ -54,6 +54,7 @@ class HTMLBeheerderController
 
     $html .= "<h3>Beschikbaren zalen</h3>";
     $html .= "<table class='table'>";
+    
 
     foreach ($rows as $row) {
       $html .= "<tr>";
@@ -80,10 +81,13 @@ class HTMLBeheerderController
     $html = "";
     $html .= "<div>";
 
+    $html .= "<select name='zaal_id'>";
     while ($row = $radio->fetch(PDO::FETCH_ASSOC)) {
-      $html .= "<input type='radio' name='zaal_id'  value='$row[zaal_id]' placeholder='$row[zaal_nr]'>$row[zaal_nr]<br>";
+      //$html .= "<input type='radio' name='zaal_id'  value='$row[zaal_id]' placeholder='$row[zaal_nr]'>Zaal $row[zaal_nr]<br>";
+      $html .= "<option value='$row[zaal_id]'>Zaal $row[zaal_nr]</option> ";
     }
 
+    $html .= "</select>";
     $html .= "</div>";
 		return $html;
 	  }
