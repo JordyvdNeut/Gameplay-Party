@@ -87,9 +87,6 @@ class BiosController
 			$html .= "<p>Telefoon nummer: $row[bios_tel]</p>";
 			$html .= "</div>";
 			$html .= "</div>";
-
-
-
 		}
 		$html .= "<div class='col-12'>";
 		$html .= "<div class='beschikcontent'>";
