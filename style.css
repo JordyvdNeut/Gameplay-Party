@@ -371,6 +371,10 @@ div.login button {
   [class*="col-"]{
     margin-bottom: 15px;
   }
+
+  .container{
+    width: 100%;
+  }
 }
 
 /* [class*="col-"] {
