@@ -110,7 +110,7 @@ class BiosController
 			}else{
 				$html .= "<p>Invalide toegankelijk: Nee</p>";
 			}
-			$html .="<button class='btn'>Reserveren binnekort beschikbaar</button>";
+			$html .="<button class='btn'>Reserveren binnenkort beschikbaar</button>";
 			$html .= "</div>";
 			$html .= "</div>";
 		}
