@@ -34,6 +34,24 @@ class UserController
     include_once 'view/over_ons.php';
   }
 
+  
+  public function collectHomePost($id){
+    $result = $this->beheerdersLogic->readHomePost($id);
+    $homePost = $this->makeHomePost($result);
+    include_once 'view/homePost.php';
+  }
+
+  public function makeHomePost($result){
+    $html = "";
+
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+      $html .= "<h1 class='con_title'>$row[titel]</h1>";
+      $html .= "<p class='con_inh'>$row[inhoud]</p>";
+    }
+    
+    return $html;
+  }
+
   public function createOverOns($result)
   {
     $html = "";
@@ -59,7 +77,7 @@ class UserController
 
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
       
-      $html .= "<div class='col-6' style='padding-bottom: 10px; min-width:100%;'>";
+      $html .= "<div class='col-6' style='padding-bottom: 10px; '>";
       $html .= "<div class='content'>";
       $html .= "<h1 class='con_title'>$row[titel]</h1>";
       $row['inhoud'] = substr($row['inhoud'], 0, 250) . "...";
@@ -68,9 +86,11 @@ class UserController
       if ($row['homeCon_id'] == 1) {
         $row['homeCon_id'] = "?op=overons";
         $html .= "<a href='$row[homeCon_id]'><button class='btn'>Lees meer</button></a>";
-      } else {
+      } elseif($row['homeCon_id']  == 2) {
         $row['homeCon_id'] = "?op=overzicht";
         $html .= "<a href='$row[homeCon_id]'><button class='btn extra'>Lees meer</button></a>";
+      } else{
+        $html .= "<a href='?op=homePost&id=$row[homeCon_id]'><button class='btn'>Lees meer</button></a>";
       }
       
       $html .= "</div>";

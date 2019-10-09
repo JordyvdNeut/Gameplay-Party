@@ -38,7 +38,6 @@ class RouteController
 					break;
 				case 'detail':
 					$this->biosController->readBios($_REQUEST['id']);
-
 					break;
 				case 'beOverzicht':
 					$this->beheerdersController->collectBioscopen();
@@ -66,6 +65,9 @@ class RouteController
 					break;
 				case 'updatBiosConForm':
 					$this->beheerdersController->collectUpdateBiosconForm();
+					break;
+				case 'homePost':		
+					$this->userController->collectHomePost($_REQUEST['id']);
 					break;
 				/*case 'upBiosBeschik':
 					$this->beheerdersController->collectUpBiosBeschik($_REQUEST['id']);
