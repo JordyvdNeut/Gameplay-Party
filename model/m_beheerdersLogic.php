@@ -92,7 +92,7 @@ class BeheerdersLogic
   public function readAvailabilty()
   {
     try {
-      $sql = "SELECT zaal_id,	datum Datum,	beg_tijd 'Begin tijd',	eind_tijd 'Eind tijd' FROM mogelijkheden WHERE beschik = 'flase'";
+      $sql = "SELECT zaal_id Zaal ,	datum Datum,	beg_tijd 'Begin tijd',	eind_tijd 'Eind tijd' FROM mogelijkheden WHERE beschik = 'false' ORDER BY zaal_id ASC";
       $results = $this->DataHandler->readsData($sql);
       return $results;
     } catch (exception $e) {
