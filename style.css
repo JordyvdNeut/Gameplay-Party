@@ -217,6 +217,7 @@ div.not-mobile a button.btn {
 
 .contact_foot {
   float: right;
+  margin: 0 auto;
 }
 
 .contact_foot a.footer:hover {
@@ -229,6 +230,9 @@ div.not-mobile a button.btn {
 
 .voorw_foot {
   width: 20%;
+}
+.voorw_foot.col-6{
+  margin: 0 auto;
 }
 
 .footer2 {
