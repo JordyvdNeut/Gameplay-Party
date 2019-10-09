@@ -36,8 +36,9 @@ class Bioscopen
   }
   public function readBiosBeschik($id)
   {
+    //AND beschik = 1 
     try {
-      $sql = "SELECT datum, beg_tijd,eind_tijd,plaatsen,invalide FROM mogelijkheden NATURAL JOIN zalen WHERE bios_id = $id AND beschik = 1 ";   
+      $sql = "SELECT zaal_nr, datum, beg_tijd,eind_tijd,plaatsen,invalide FROM mogelijkheden NATURAL JOIN zalen WHERE bios_id = $id ";   
       $result = $this->DataHandler->readsData($sql);
           return $result;
         } catch (exception $e) {
