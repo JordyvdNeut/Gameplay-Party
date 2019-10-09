@@ -101,6 +101,17 @@ class BeheerdersLogic
     }
   }
 
+  public function readHomePost($id){
+    $postId = $id;
+    try{
+      $sql ="SELECT titel, inhoud FROM homecontent WHERE homeCon_id = $postId";
+      $result = $this->DataHandler->readsData($sql);
+      return $result;
+    }catch(exception $e){
+      throw $e;
+    }
+  }
+
   public function sendEmail($creating)
   {
     $name         = $creating["name"];
