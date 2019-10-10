@@ -14,7 +14,6 @@ class RedacteurController
   public function __destruct()
   { }
 
-
   public function collectUpdateHomeconForm($id)
   {
     $homeContent = $this->beheerdersLogic->readHomeCon($id);
