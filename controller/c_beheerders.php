@@ -29,13 +29,12 @@ class BeheerdersController
 		if ($_SESSION['user_role'] == 3) {
 			$content = $this->collectContentTables();
 			require_once "view/beheerder/header.php";
-			include "view/beheerder/redacteur.php";
+			include "view/beheerder/redacteur/home.php";
 		}
 		if ($_SESSION['user_role'] == 2) {
 			$content = $this->collectAvailabilty();
-			// beschikbaarheid tabel, gereserveerde beschikbaarheden
 			require_once "view/beheerder/header.php";
-			include "view/beheerder/biosBeheerder.php";
+			include "view/beheerder/bioscoop/home.php";
 		}
 		if (!$_SESSION | $_SESSION['user_role'] == null) {
 			header('Location: index.php?op=loginForm');
@@ -56,7 +55,7 @@ class BeheerdersController
 		$bioscoopContent = $this->beheerdersLogic->readsBiosContent();
 		$content = $this->HTMLBeheerderController->createConTable($bioscoopContent, 'Bioscoop gegevens', 'updatBiosConForm');
 		require_once "view/beheerder/header.php";
-		require_once "view/beheerder/biosBeheerder.php";
+		require_once "view/beheerder/bioscoop/home.php";
 	}
 
 	public function collectAvailabilty()
@@ -65,52 +64,19 @@ class BeheerdersController
 		$homeAvailabiltyTable = $this->HTMLBeheerderController->createAvailabiltyTable($availabilty);
 		return $homeAvailabiltyTable;
 	}
-/*
-	public function collectUpBiosBeschik($id){
+
+	public function collectUpBiosBeschik($id)
+	{
 		$result = $this->beheerdersLogic->readBeschik($id);
-		include 'view/beheerder/upBiosBeschik.php';
-	}
-*/
-	public function collectBioscopen()
-	{
-		include_once 'view/beheerder/overzichtBios.php';
+		include 'view/beheerder/bioscoop/upBeschik.php';
 	}
 
-	public function collectUpdateHomeconForm($id)
-	{
-		$homeContent = $this->beheerdersLogic->readHomeCon($id);
-		require_once "view/beheerder/header.php";
-		include 'view/beheerder/upHomeCon.php';
-	}
-
-	public function collectUpdateHomecon()
-	{
-		$formData = $_REQUEST;
-		$feedback = $this->beheerdersLogic->updateHomeContent($formData);
-		require_once "view/beheerder/header.php";
-		include 'view/beheerder/feedback.php';
-	}
-
-	public function collectUpdateContactconForm($id)
-	{
-		$contactContent = $this->beheerdersLogic->readContactCon($id);
-		require_once "view/beheerder/header.php";
-		include 'view/beheerder/upContactCon.php';
-	}
-
-	public function collectUpdateContactcon()
-	{
-		$formData = $_REQUEST;
-		$feedback = $this->beheerdersLogic->updateContactContent($formData);
-		require_once "view/beheerder/header.php";
-		include 'view/beheerder/feedback.php';
-	}
 
 	public function collectUpdateBiosconForm()
 	{
 		$biosContent = $this->beheerdersLogic->readsBiosCon();
 		require_once "view/beheerder/header.php";
-		include 'view/beheerder/upBiosCon.php';
+		include 'view/beheerder/redacteur/upBiosCon.php';
 	}
 
 	public function collectUpdateBioscon()
@@ -121,21 +87,6 @@ class BeheerdersController
 		include 'view/beheerder/feedback.php';
 	}
 
-	// public function collectUpdateAvailabiltyconForm($id)
-	// {
-	// 	$availabiltyContent = $this->beheerdersLogic->readAvailabiltyCon($id);
-	// 	require_once "view/beheerder/header.php";
-	// 	include 'view/beheerder/upAvailabiltyCon.php';
-	// }
-
-	// public function collectUpdateAvailabiltycon()
-	// {
-	// 	$formData = $_REQUEST;
-	// 	$feedback = $this->beheerdersLogic->updateAvailabiltyContent($formData);
-	// 	require_once "view/beheerder/header.php";
-	// 	include 'view/beheerder/feedback.php';
-	// }
-
 	public function logout()
 	{
 		$_SESSION['user_id'] = null;
@@ -143,10 +94,11 @@ class BeheerdersController
 		header('Location: index.php?op=loginForm');
 	}
 
-	public function makeRadio(){
+	public function collectAddBeschik()
+	{
 		$radio = $this->beheerdersLogic->collectRadio();
 		$radioButtons = $this->HTMLBeheerderController->makeRadioButtons($radio);
-		include 'view/beheerder/addBeschik.php';
+		include 'view/beheerder/bioscoop/addBeschik.php';
 	}
 
 	public function addBeschik()
@@ -157,14 +109,11 @@ class BeheerdersController
 		include 'view/beheerder/feedback.php';
 	}
 
-	public function formHomeCont(){
-		include 'view/beheerder/addHomeCon.php';
-	}
-
-	public function addHomeCont(){
-		$creating = $_REQUEST;
-		$result = $this->beheerdersLogic->addHomeCont($creating);
-		$feedback = "<br/>Uw teksten zijn toegevoegd en worden nu op de homepagina getoond.";
+	public function collectUpdateBeschik()
+	{
+		$formData = $_REQUEST;
+		$feedback = $this->beheerdersLogic->updateAvailabiltyContent($formData);
+		require_once "view/beheerder/header.php";
 		include 'view/beheerder/feedback.php';
 	}
 }

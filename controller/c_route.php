@@ -2,6 +2,7 @@
 require_once 'controller/c_users.php';
 require_once 'controller/c_bioscopen.php';
 require_once 'controller/c_beheerders.php';
+require_once 'controller/c_redacteur.php';
 
 class RouteController
 {
@@ -11,6 +12,7 @@ class RouteController
 		$this->beheerdersController = new BeheerdersController();
 		$this->userController = new UserController();
 		$this->biosController = new BiosController();
+		$this->redacteurController = new RedacteurController();
 	}
 
 	public function __destruct()
@@ -39,80 +41,75 @@ class RouteController
 				case 'detail':
 					$this->biosController->readBios($_REQUEST['id']);
 					break;
-				case 'beOverzicht':
-					$this->beheerdersController->collectBioscopen();
-					break;
-				case 'login':
-					$this->beheerdersController->login();
-					break;
+					// Beheerders
 				case 'beHome':
 					$this->beheerdersController->collectHome();
 					break;
-				case 'updateHomeConForm':
-					$this->beheerdersController->collectUpdateHomeconform($_REQUEST['id']);
-					break;
-				case 'updateHomeCon':
-					$this->beheerdersController->collectUpdateHomecon();
-					break;
-				case 'updateContactConForm':
-					$this->beheerdersController->collectUpdateContactconForm($_REQUEST['id']);
-					break;
-				case 'updateContactCon':
-					$this->beheerdersController->collectUpdateContactcon();
-					break;
+					// Bioscoop beheerder
 				case 'readBiosCon':
 					$this->beheerdersController->collectBioscon();
 					break;
 				case 'updatBiosConForm':
 					$this->beheerdersController->collectUpdateBiosconForm();
 					break;
-				case 'homePost':		
-					$this->userController->collectHomePost($_REQUEST['id']);
+				case 'upBeschik':
+					$this->beheerdersController->collectUpBeschik($_REQUEST['id']);
 					break;
-				/*case 'upBiosBeschik':
-					$this->beheerdersController->collectUpBiosBeschik($_REQUEST['id']);
-					break;*/
 				case 'updateBiosCon':
 					$this->beheerdersController->collectUpdateBioscon();
-					break;
-					// case 'updatBiosAvailabiltyForm':
-					// 	$this->beheerdersController->collectUpdateBiosAvailabiltyForm($_REQUEST['id']);
-					// 	break;
-					// case 'updateBiosAvailabilty':
-					// 	$this->beheerdersController->collectUpdateBiosAvailabilty();
-					// 	break;
-				case 'updateHome':
-					$this->beheerdersController->updateHomeContent();
-					break;
-				case 'loguit':
-					$this->beheerdersController->logout();
 					break;
 				case 'addBeschik':
 					$this->beheerdersController->addBeschik();
 					break;
 				case 'addForm':
-					$this->beheerdersController->makeRadio();
+					$this->beheerdersController->collectAddBeschik();
+					break;
+					// Redacteur
+				case 'homePost':
+					$this->userController->collectHomePost($_REQUEST['id']);
 					break;
 				case 'formHomeCont':
-					$this->beheerdersController->formHomeCont();
+					$this->redacteurController->formHomeCont();
 					break;
 				case 'addHomeCont':
-					$this->beheerdersController->addHomeCont();
+					$this->redacteurController->addHomeCont();
 					break;
+				case 'updateHomeConForm':
+					$this->redacteurController->collectUpdateHomeconform($_REQUEST['id']);
+					break;
+				case 'updateHomeCon':
+					$this->redacteurController->collectUpdateHomecon();
+					break;
+				case 'updateHome':
+					$this->redacteurController->updateHomeContent();
+					break;
+				case 'updateContactConForm':
+					$this->redacteurController->collectUpdateContactconForm($_REQUEST['id']);
+					break;
+				case 'updateContactCon':
+					$this->redacteurController->collectUpdateContactcon();
+					break;
+					// Voorwaardes
 				case 'cookievw':
-				    $this->userController->collectCookie();
+					$this->userController->collectCookie();
 					break;
-					case 'refundvw': 
-				    $this->userController->collectRefund();
+				case 'refundvw':
+					$this->userController->collectRefund();
 					break;
-					case 'privacyvw':
-				    $this->userController->collectPrivacy();
+				case 'privacyvw':
+					$this->userController->collectPrivacy();
 					break;
-					case 'privacytermvw':
-				    $this->userController->collectTerms();
+				case 'privacytermvw':
+					$this->userController->collectTerms();
 					break;
-					case 'voorwaardevw':
-				    $this->userController->collectVoorwaarde();
+				case 'voorwaardevw':
+					$this->userController->collectVoorwaarde();
+					break;
+				case 'login':
+					$this->beheerdersController->login();
+					break;
+				case 'loguit':
+					$this->beheerdersController->logout();
 					break;
 				default:
 					$this->userController->collectHome();
