@@ -93,7 +93,7 @@ class BeheerdersLogic
   {
     $bios_id = $_SESSION['bios_id'];
     try {
-      $sql = "SELECT zaal_nr Zaal ,	datum Datum,	beg_tijd 'Begin tijd',	eind_tijd 'Eind tijd' FROM mogelijkheden NATURAL JOIN bioscopen NATURAL JOIN zalen WHERE beschik = 'false' AND bios_id = $bios_id ORDER BY datum ASC, zaal_nr ASC, beg_tijd ASC";
+      $sql = "SELECT zaal_nr Zaal ,	datum Datum,	beg_tijd 'Begin tijd',	eind_tijd 'Eind tijd' FROM beschikbaarheid NATURAL JOIN bioscopen NATURAL JOIN zalen WHERE beschik = 'false' AND bios_id = $bios_id ORDER BY datum ASC, zaal_nr ASC, beg_tijd ASC";
       $results = $this->DataHandler->readsData($sql);
       return $results;
     } catch (exception $e) {
@@ -203,7 +203,7 @@ class BeheerdersLogic
     $eind_tijd    = $creating["eind_tijd"];
     $datum       = $creating["datum"];
     try {
-      $sql = "INSERT INTO mogelijkheden (zaal_id, datum, beg_tijd, eind_tijd) VALUES ('$zaal', '$datum',  '$beg_tijd', '$eind_tijd')";
+      $sql = "INSERT INTO beschikbaarheid (zaal_id, datum, beg_tijd, eind_tijd) VALUES ('$zaal', '$datum',  '$beg_tijd', '$eind_tijd')";
       $result = $this->DataHandler->createData($sql);
       return $result;
     } catch (exception $e) {
@@ -237,7 +237,7 @@ class BeheerdersLogic
 /*
   public function readBeschik($id){
     try{
-      $sql = "SELECT zaal_id, datum, beg_tijd, eind_tijd ,FROM mogelijkheden WHERE id = $id";
+      $sql = "SELECT zaal_id, datum, beg_tijd, eind_tijd ,FROM beschikbaarheid WHERE id = $id";
       $result = $this->DataHandler->readData($sql);
       return $result;
     } catch (exception $e){
