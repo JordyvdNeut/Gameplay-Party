@@ -91,6 +91,17 @@ class BeheerdersLogic
 
   public function readHomePost($id)
   {
+    $bios_id = $_SESSION['bios_id'];
+    try {
+      $sql = "SELECT zaal_nr Zaal ,	datum Datum,	beg_tijd 'Begin tijd',	eind_tijd 'Eind tijd' FROM beschikbaarheid NATURAL JOIN bioscopen NATURAL JOIN zalen WHERE beschik = 'false' AND bios_id = $bios_id ORDER BY datum ASC, zaal_nr ASC, beg_tijd ASC";
+      $results = $this->DataHandler->readsData($sql);
+      return $results;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
+  public function readHomePost($id){
     $postId = $id;
     try {
       $sql = "SELECT titel, inhoud FROM homecontent WHERE homeCon_id = $postId";
@@ -185,8 +196,22 @@ class BeheerdersLogic
     }
   }
 
-  public function collectRadio()
-  {
+  // public function collectRadio()
+  // {
+  //   $zaal           = $creating["zaal_id"];
+  //   $beg_tijd     = $creating["beg_tijd"];
+  //   $eind_tijd    = $creating["eind_tijd"];
+  //   $datum       = $creating["datum"];
+  //   try {
+  //     $sql = "INSERT INTO beschikbaarheid (zaal_id, datum, beg_tijd, eind_tijd) VALUES ('$zaal', '$datum',  '$beg_tijd', '$eind_tijd')";
+  //     $result = $this->DataHandler->createData($sql);
+  //     return $result;
+  //   } catch (exception $e) {
+  //     throw $e;
+  //   }
+  // }
+
+  public function collectRadio(){
 
     $bios_id = $_SESSION['bios_id'];
     try {
