@@ -89,25 +89,14 @@ class BeheerdersLogic
     }
   }
 
-  public function readAvailabilty()
+  public function readHomePost($id)
   {
-    $bios_id = $_SESSION['bios_id'];
-    try {
-      $sql = "SELECT zaal_nr Zaal ,	datum Datum,	beg_tijd 'Begin tijd',	eind_tijd 'Eind tijd' FROM mogelijkheden NATURAL JOIN bioscopen NATURAL JOIN zalen WHERE beschik = 'false' AND bios_id = $bios_id ORDER BY datum ASC, zaal_nr ASC, beg_tijd ASC";
-      $results = $this->DataHandler->readsData($sql);
-      return $results;
-    } catch (exception $e) {
-      throw $e;
-    }
-  }
-
-  public function readHomePost($id){
     $postId = $id;
-    try{
-      $sql ="SELECT titel, inhoud FROM homecontent WHERE homeCon_id = $postId";
+    try {
+      $sql = "SELECT titel, inhoud FROM homecontent WHERE homeCon_id = $postId";
       $result = $this->DataHandler->readsData($sql);
       return $result;
-    }catch(exception $e){
+    } catch (exception $e) {
       throw $e;
     }
   }
@@ -166,7 +155,7 @@ class BeheerdersLogic
       throw $e;
     }
   }
-  
+
   public function readsBiosCon()
   {
     $bios_id = $_SESSION['bios_id'];
@@ -196,25 +185,11 @@ class BeheerdersLogic
     }
   }
 
-  public function addBeschik($creating)
+  public function collectRadio()
   {
-    $zaal           = $creating["zaal_id"];
-    $beg_tijd     = $creating["beg_tijd"];
-    $eind_tijd    = $creating["eind_tijd"];
-    $datum       = $creating["datum"];
-    try {
-      $sql = "INSERT INTO mogelijkheden (zaal_id, datum, beg_tijd, eind_tijd) VALUES ('$zaal', '$datum',  '$beg_tijd', '$eind_tijd')";
-      $result = $this->DataHandler->createData($sql);
-      return $result;
-    } catch (exception $e) {
-      throw $e;
-    }
-  }
-
-  public function collectRadio(){
 
     $bios_id = $_SESSION['bios_id'];
-    try{ 
+    try {
       $sql = "SELECT zaal_nr, zaal_id FROM zalen WHERE bios_id = $bios_id";
       $result = $this->DataHandler->readsData($sql);
       return $result;
@@ -223,25 +198,85 @@ class BeheerdersLogic
     }
   }
 
-  public function addHomeCont($creating){
+  public function addHomeCont($creating)
+  {
     $titel = $creating["titel"];
     $tekst = $creating["tekst"];
-    try{
+    try {
       $sql = "INSERT INTO homecontent(homeCon_id, titel, inhoud) VALUES ('' , '$titel', '$tekst')";
       $result = $this->DataHandler->createData($sql);
       return $result;
-    }catch (exception $e){
+    } catch (exception $e) {
       throw $e;
     }
   }
-/*
-  public function readBeschik($id){
-    try{
-      $sql = "SELECT zaal_id, datum, beg_tijd, eind_tijd ,FROM mogelijkheden WHERE id = $id";
-      $result = $this->DataHandler->readData($sql);
+
+  public function readBeschik($id)
+  {
+    try {
+      $sql = "SELECT bes_id id, zaal_id, zaal_nr,	datum,	beg_tijd,	eind_tijd, beschik FROM beschikbaarheid 
+      NATURAL JOIN bioscopen NATURAL JOIN zalen WHERE bes_id = $id 
+      ORDER BY datum ASC, zaal_nr ASC, beg_tijd ASC";
+      $result = $this->DataHandler->readsData($sql);
       return $result;
-    } catch (exception $e){
+    } catch (exception $e) {
       throw $e;
     }
-  }*/
+  }
+
+  public function readAvailabilty()
+  {
+    $bios_id = $_SESSION['bios_id'];
+    try {
+      $sql = "SELECT bes_id id, zaal_nr Zaal,	datum Datum,	beg_tijd 'Begin tijd',	eind_tijd 'Eind tijd' FROM beschikbaarheid NATURAL JOIN bioscopen NATURAL JOIN zalen WHERE beschik = 'false' AND bios_id = $bios_id ORDER BY datum ASC, zaal_nr ASC, beg_tijd ASC";
+      $results = $this->DataHandler->readsData($sql);
+      return $results;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
+  public function readunavailable()
+  {
+    $bios_id = $_SESSION['bios_id'];
+    try {
+      $sql = "SELECT bes_id id, zaal_nr Zaal,	datum Datum,	beg_tijd 'Begin tijd',	eind_tijd 'Eind tijd' FROM beschikbaarheid NATURAL JOIN bioscopen NATURAL JOIN zalen WHERE beschik = 'true' AND bios_id = $bios_id ORDER BY datum ASC, zaal_nr ASC, beg_tijd ASC";
+      $results = $this->DataHandler->readsData($sql);
+      return $results;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
+  public function addBeschik($creating)
+  {
+    $zaal           = $creating["zaal_id"];
+    $beg_tijd     = $creating["beg_tijd"];
+    $eind_tijd    = $creating["eind_tijd"];
+    $datum       = $creating["datum"];
+    try {
+      $sql = "INSERT INTO beschikbaarheid (zaal_id, datum, beg_tijd, eind_tijd) VALUES ('$zaal', '$datum',  '$beg_tijd', '$eind_tijd')";
+      $result = $this->DataHandler->createData($sql);
+      return $result;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
+  public function updateBeschik($formData)
+  {
+    $bes_id = $formData['id'];
+    $datum = $formData['datum'];
+    $beg_tijd = $formData['beg_tijd'];
+    $eind_tijd = $formData['eind_tijd'];
+    $beschik = $formData['beschik'];
+
+    try {
+      $sql = "UPDATE beschikbaarheid SET datum = '$datum' , beg_tijd = '$beg_tijd' , eind_tijd = '$eind_tijd' , beschik = '$beschik' WHERE bes_id = $bes_id";
+      $result = $this->DataHandler->updateData($sql);
+      return $result ? "<h3><strong>De beschikbaarheid is <span style='color: green'>succesvol</span> bewerkt!</strong></h3>" : "<h3 style='color:red;'><strong>Het bewerken van de beschikbaarheid is niet gelukt</strong></h3>";
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
 }
