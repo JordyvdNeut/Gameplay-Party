@@ -3,9 +3,6 @@
 <?php require_once('view/header.php'); ?>
 </div>
 <section>
-  <!-- <div>
-    <p>Op deze pagina kunnen beheerders en beheerder van bioscopen inloggen</p>
-  </div> -->
   <div class="row">
     <div class="col-4 content">
       <h2>Beheerders login</h2>

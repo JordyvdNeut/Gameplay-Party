@@ -41,14 +41,14 @@ class BeheerdersController
 		}
 	}
 
-	public function collectContentTables()
-	{
-		$homeContent = $this->beheerdersLogic->readsHomeCon();
-		$homeConTable = $this->HTMLBeheerderController->createConTable($homeContent, 'Home pagina', 'updateHomeConForm');
-		$overonsContent = $this->beheerdersLogic->readOveronsCon();
-		$overonsConTable = $this->HTMLBeheerderController->createConTable($overonsContent, 'Contact pagina', 'updateContactConForm');
-		return "<hr style='border-color: green'>" . $homeConTable . "<hr style='border-color: green'>" . $overonsConTable;
-	}
+  public function collectContentTables()
+  {
+    $homeContent = $this->beheerdersLogic->readsHomeCon();
+    $homeConTable = $this->HTMLBeheerderController->createConTable($homeContent, 'Home pagina', 'updateHomeConForm');
+    $overonsContent = $this->beheerdersLogic->readOveronsCon();
+    $overonsConTable = $this->HTMLBeheerderController->createConTable($overonsContent, 'Contact pagina', 'updateContactConForm');
+    return "<hr style='border-color: green'>" . $homeConTable . "<hr style='border-color: green'>" . $overonsConTable;
+  }
 
 	public function collectBioscon()
 	{
@@ -61,21 +61,14 @@ class BeheerdersController
 	public function collectAvailabilty()
 	{
 		$availabilty = $this->beheerdersLogic->readAvailabilty();
-		$homeAvailabiltyTable = $this->HTMLBeheerderController->createAvailabiltyTable($availabilty);
-		return $homeAvailabiltyTable;
-	}
-
-	public function collectUpBiosBeschik($id)
-	{
-		$result = $this->beheerdersLogic->readBeschik($id);
-		include 'view/beheerder/bioscoop/upBeschik.php';
+		$availabiltyTable = $this->HTMLBeheerderController->createAvailabiltyTable($availabilty);
+		return $availabiltyTable;
 	}
 
 
 	public function collectUpdateBiosconForm()
 	{
 		$biosContent = $this->beheerdersLogic->readsBiosCon();
-		require_once "view/beheerder/header.php";
 		include 'view/beheerder/redacteur/upBiosCon.php';
 	}
 
@@ -83,7 +76,6 @@ class BeheerdersController
 	{
 		$formData = $_REQUEST;
 		$feedback = $this->beheerdersLogic->updateBiosContent($formData);
-		require_once "view/beheerder/header.php";
 		include 'view/beheerder/feedback.php';
 	}
 
@@ -109,11 +101,15 @@ class BeheerdersController
 		include 'view/beheerder/feedback.php';
 	}
 
-	public function collectUpdateBeschik()
+	public function collectUpFormBeschik($id)
+	{
+		$result = $this->beheerdersLogic->readBeschik($id);
+		include 'view/beheerder/bioscoop/upBeschik.php';
+	}
+	public function updateBeschik()
 	{
 		$formData = $_REQUEST;
-		$feedback = $this->beheerdersLogic->updateAvailabiltyContent($formData);
-		require_once "view/beheerder/header.php";
+		$feedback = $this->beheerdersLogic->updateBeschik($formData);
 		include 'view/beheerder/feedback.php';
 	}
 }
