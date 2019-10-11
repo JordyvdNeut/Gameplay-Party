@@ -59,7 +59,7 @@ class HTMLBeheerderController
       foreach ($row as $value) {
         $html .= "<td>{$value}</td>";
       }
-      $html .= "<td><a href='?op=upBiosBeschik'><button><span class='glyphicon glyphicon-pencil'></span> Bewerken</button></a></td>";
+      $html .= "<td><a href='?op=upFormBeschik&id=$row[id]'><button class='btn'><span class='glyphicon glyphicon-pencil'></span> Bewerken</button></a></td>";
       $html .= "</tr>";
     }
 
