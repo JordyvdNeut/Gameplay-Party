@@ -18,8 +18,8 @@
       $html .= "<label>Eind tijd</label>";
       $html .= "<input class='form-control' type='time' name='eind_tijd' value='$row[eind_tijd]' />";
       $html .= "<br />";
-      $html .= "<label>Nog beschikbaar</label>";
-      $html .= "<input class='form-control' type='checkbox' name='beschik' value='$row[beschik]' />";
+      $html .= "<label class='custom-control-label'>Geboekt</label><br />";
+      $html .= "<input type='checkbox' name='beschik' value='$row[beschik]'/>";
       $html .= "<br />";
       $html .= "<button type='submit' class='btn'> Bewerken</button>";
       $html .= "</form>";
