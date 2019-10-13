@@ -41,14 +41,14 @@ class BeheerdersController
 		}
 	}
 
-  public function collectContentTables()
-  {
-    $homeContent = $this->beheerdersLogic->readsHomeCon();
-    $homeConTable = $this->HTMLBeheerderController->createConTable($homeContent, 'Home pagina', 'updateHomeConForm');
-    $overonsContent = $this->beheerdersLogic->readOveronsCon();
-    $overonsConTable = $this->HTMLBeheerderController->createConTable($overonsContent, 'Contact pagina', 'updateContactConForm');
-    return "<hr style='border-color: green'>" . $homeConTable . "<hr style='border-color: green'>" . $overonsConTable;
-  }
+	public function collectContentTables()
+	{
+		$homeContent = $this->beheerdersLogic->readsHomeCon();
+		$homeConTable = $this->HTMLBeheerderController->createConTable($homeContent, 'Home pagina', 'updateHomeConForm');
+		$overonsContent = $this->beheerdersLogic->readOveronsCon();
+		$overonsConTable = $this->HTMLBeheerderController->createConTable($overonsContent, 'Contact pagina', 'updateContactConForm');
+		return "<hr style='border-color: green'>" . $homeConTable . "<hr style='border-color: green'>" . $overonsConTable;
+	}
 
 	public function collectBioscon()
 	{
@@ -60,9 +60,23 @@ class BeheerdersController
 
 	public function collectAvailabilty()
 	{
-		$availabilty = $this->beheerdersLogic->readAvailabilty();
-		$availabiltyTable = $this->HTMLBeheerderController->createAvailabiltyTable($availabilty);
-		return $availabiltyTable;
+		$availabe = $this->beheerdersLogic->readAvailabilty();
+		$availabiltyTable = $this->HTMLBeheerderController->createAvailabiltyTable($availabe, 'Beschikbaren zalen');
+		$booked = $this->beheerdersLogic->readBooked();
+		$bookedTable = $this->HTMLBeheerderController->createAvailabiltyTable($booked, 'Geboekten zalen');
+		return "<hr style='border-color: green'>" . $availabiltyTable . "<hr style='border-color: green'>" . $bookedTable;
+	}
+
+	public function searchbiosBeschik()
+	{
+		$NLdatum = date("d-m-Y", strtotime($_REQUEST['datum']));
+		$datum = date("Y-m-d", strtotime($_REQUEST['datum']));
+		$datumBeschikbaarheden = $this->beheerdersLogic->readAvailability($datum);
+		$searchedBeschikTable = $this->HTMLBeheerderController->createAvailabiltyTable($datumBeschikbaarheden, "Deze zalen zijn gevonden op: $NLdatum");
+		$content = $searchedBeschikTable;
+		require_once "view/beheerder/header.php";
+		include "view/beheerder/bioscoop/home.php";
+		return $content;
 	}
 
 

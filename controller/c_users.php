@@ -1,11 +1,15 @@
 <?php
 require_once 'model/m_beheerdersLogic.php';
+require_once 'controller/c_bioscopen.php';
+require_once 'controller/c_html.php';
 
 class UserController
 {
   public function __construct()
   {
     $this->beheerdersLogic = new BeheerdersLogic();
+		$this->biosModel = new Bioscopen();
+		$this->HTMLController = new HTMLController();
   }
 
   public function __destruct()
@@ -120,6 +124,18 @@ class UserController
     $html .= "</div></div>";
     return $html;
   }
+
+	public function searchuserBeschik($id)
+	{
+    $biosDetail = $this->biosModel->readBios($id);
+		$datum = date("Y-m-d", strtotime($_REQUEST['datum']));
+    $datumBeschikbaarheden = $this->biosModel->readAvailability($datum, $id);
+		$searchedBeschikTable = $this->HTMLController->createBiosDetail($biosDetail, $datumBeschikbaarheden);
+		$biosPage = $searchedBeschikTable;
+		require_once "view/header.php";
+		include "view/detail.php";
+		return $biosPage;
+	}
 
   public function collectLogin()
   {

@@ -2,12 +2,12 @@
 
 class HTMLController
 {
-  public function __construct()
-  { }
+	public function __construct()
+	{ }
 
-  public function __destruct()
-  { }
-  
+	public function __destruct()
+	{ }
+
 	public function createBiosDetail($result, $beschikbaar)
 	{
 		$html = "";
@@ -41,16 +41,27 @@ class HTMLController
 		$html .= "<h4><strong>Beschikbare zalen</strong></h4>";
 		$html .= "</div>";
 		$html .= "</div>";
+		
+		$html .= "<div class='col-12'>";
+		$html .= "<div class='beschikSearch'>";
+		$html .= "<form action='?op=searchBeschik&id=$_REQUEST[id]' method='POST'>";
+		$html .= "<h3>Zoek op datum</h3>";
+		$html .= "<input class='form-control' type='date' name='datum' required/>";
+		$html .= "<input class='btn' type='submit' value='Zoeken' />";
+		$html .= "</form>";
+		$html .= "</div>";
+		$html .= "</div>";
 		while ($row = $beschikbaar->fetch(PDO::FETCH_ASSOC)) {
-			$gooddate = date("d-m-Y", strtotime($row['datum']));
-			$begintime = date("H:i ", strtotime($row['beg_tijd']));
-			$endtime = date("H:i ", strtotime($row['eind_tijd']));
+
+			$NLdate = date("d-m-Y", strtotime($row['datum']));
+			$begintijd = date("H:i ", strtotime($row['beg_tijd']));
+			$eindtijd = date("H:i ", strtotime($row['eind_tijd']));
 			$html .= "<div class='col-lg-4' style='margin-bottom:15px;'>";
 			$html .= "<div class='infocontent'>";
 
 			$html .= "<h4><strong>Zaal $row[zaal_nr]</strong></h4>";
-			$html .= "<p>Datum: $gooddate </p>";
-			$html .= "<p>Tijd: $begintime - $endtime</p>";
+			$html .= "<p>Datum: $NLdate </p>";
+			$html .= "<p>Tijd: $begintijd - $eindtijd</p>";
 			$html .= "<p>Aantal stoelen: $row[plaatsen]</p>";
 			if ("$row[invalide]" == 1) {
 				$html .= "<p>Invalide toegankelijk: Ja </p>";
@@ -63,27 +74,27 @@ class HTMLController
 		}
 		$html .= "</section>";
 		return $html;
-  }
-  
-  public function createBiosDiv($result)
-  {
-    $html = "";
-    $html .= "<div class='center'><div class='row'>";
+	}
 
-    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-      $row['bios_info'] = substr($row['bios_info'], 0, 250);
-      $html .= "<div class='col-6' style='padding-bottom: 15px;'>";
-      $html .= "<div class='content'>";
-      $html .= "<h1 class='con_title'>$row[bios_naam]</h1>";
-      $html .= "<p class='con_inh'><img class='biosPhoto' src='$row[bios_foto]'><br />";
-      $html .= "$row[bios_info]...</p><br />";
+	public function createBiosDiv($result)
+	{
+		$html = "";
+		$html .= "<div class='center'><div class='row'>";
 
-      $html .= "<a href='index.php?op=detail&id=$row[bios_id]'><button class='btn'>Lees meer</button></a>";
-      $html .= "</div>";
-      $html .= "</div>";
-    }
+		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+			$row['bios_info'] = substr($row['bios_info'], 0, 250);
+			$html .= "<div class='col-6' style='padding-bottom: 15px;'>";
+			$html .= "<div class='content'>";
+			$html .= "<h1 class='con_title'>$row[bios_naam]</h1>";
+			$html .= "<p class='con_inh'><img class='biosPhoto' src='$row[bios_foto]'><br />";
+			$html .= "$row[bios_info]...</p><br />";
 
-    $html .= "</div></div>";
-    return $html;
-  }
+			$html .= "<a href='index.php?op=detail&id=$row[bios_id]'><button class='btn'>Lees meer</button></a>";
+			$html .= "</div>";
+			$html .= "</div>";
+		}
+
+		$html .= "</div></div>";
+		return $html;
+	}
 }

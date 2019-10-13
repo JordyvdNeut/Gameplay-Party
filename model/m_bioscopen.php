@@ -36,24 +36,23 @@ class Bioscopen
   }
   public function readBiosBeschik($id)
   {
-    //AND beschik = 1 
     try {
-      $sql = "SELECT zaal_nr, datum, beg_tijd,eind_tijd,plaatsen,invalide FROM beschikbaarheid NATURAL JOIN zalen WHERE bios_id = $id ORDER BY datum ASC, beg_tijd ASC, zaal_nr ASC";   
+      $sql = "SELECT zaal_nr, datum, beg_tijd,eind_tijd,plaatsen,invalide FROM beschikbaarheid NATURAL JOIN zalen WHERE bios_id = $id AND beschik = true ORDER BY datum ASC, beg_tijd ASC, zaal_nr ASC";
       $result = $this->DataHandler->readsData($sql);
-          return $result;
-        } catch (exception $e) {
+      return $result;
+    } catch (exception $e) {
       throw $e;
     }
   }
-  public function updateBios($id){
+
+  public function readAvailability($date, $id)
+  {
     try {
-       /*$sql = "UPDATE * SET WHERE id =UPDATE bioscopen SET bios_info = '$' WHERE bios_id = $;  ";
-       $result = $this->DataHandler->updateData($sql);
-       return $result;*/
+      $sql = "SELECT zaal_nr, datum, beg_tijd,eind_tijd,plaatsen,invalide FROM beschikbaarheid NATURAL JOIN bioscopen NATURAL JOIN zalen WHERE datum = '$date' AND bios_id = $id AND beschik = true ORDER BY datum ASC, beg_tijd ASC, zaal_nr ASC";
+      $results = $this->DataHandler->readsData($sql);
+      return $results;
     } catch (exception $e) {
-       throw $e;
+      throw $e;
     }
   }
-
-  
 }

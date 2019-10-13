@@ -37,12 +37,12 @@ class HTMLBeheerderController
     return $html;
   }
 
-  public function createAvailabiltyTable($rows)
+  public function createAvailabiltyTable($rows, $title)
   {
     $tableheader = false;
     $html = "";
 
-    $html .= "<h3>Beschikbaren zalen</h3>";
+    $html .= "<h3>$title</h3>";
     $html .= "<table class='table'>";
 
 

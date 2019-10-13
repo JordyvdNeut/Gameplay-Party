@@ -241,7 +241,7 @@ class BeheerdersLogic
   {
     $bios_id = $_SESSION['bios_id'];
     try {
-      $sql = "SELECT bes_id id, zaal_nr Zaal,	datum Datum,	beg_tijd 'Begin tijd',	eind_tijd 'Eind tijd' FROM beschikbaarheid NATURAL JOIN bioscopen NATURAL JOIN zalen WHERE beschik = 'false' AND bios_id = $bios_id ORDER BY datum ASC, zaal_nr ASC, beg_tijd ASC";
+      $sql = "SELECT bes_id id, zaal_nr Zaal,	datum Datum,	beg_tijd 'Begin tijd',	eind_tijd 'Eind tijd' FROM beschikbaarheid NATURAL JOIN bioscopen NATURAL JOIN zalen WHERE beschik = false AND bios_id = $bios_id ORDER BY datum ASC, zaal_nr ASC, beg_tijd ASC";
       $results = $this->DataHandler->readsData($sql);
       return $results;
     } catch (exception $e) {
@@ -249,11 +249,23 @@ class BeheerdersLogic
     }
   }
 
-  public function readunavailable()
+  public function readBooked()
   {
     $bios_id = $_SESSION['bios_id'];
     try {
-      $sql = "SELECT bes_id id, zaal_nr Zaal,	datum Datum,	beg_tijd 'Begin tijd',	eind_tijd 'Eind tijd' FROM beschikbaarheid NATURAL JOIN bioscopen NATURAL JOIN zalen WHERE beschik = 'true' AND bios_id = $bios_id ORDER BY datum ASC, zaal_nr ASC, beg_tijd ASC";
+      $sql = "SELECT bes_id id, zaal_nr Zaal,	datum Datum,	beg_tijd 'Begin tijd',	eind_tijd 'Eind tijd' FROM beschikbaarheid NATURAL JOIN bioscopen NATURAL JOIN zalen WHERE beschik = true AND bios_id = $bios_id ORDER BY datum ASC, zaal_nr ASC, beg_tijd ASC";
+      $results = $this->DataHandler->readsData($sql);
+      return $results;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
+  public function readAvailability($date)
+  {
+    $bios_id = $_SESSION['bios_id'];
+    try {
+      $sql = "SELECT bes_id id, zaal_nr Zaal, datum Datum, beg_tijd 'Begin tijd', eind_tijd 'Eind tijd', beschik 'Beschikbaar' FROM beschikbaarheid NATURAL JOIN bioscopen NATURAL JOIN zalen WHERE datum = '$date' AND bios_id = $bios_id ORDER BY datum ASC";
       $results = $this->DataHandler->readsData($sql);
       return $results;
     } catch (exception $e) {
