@@ -44,6 +44,9 @@ class RouteController
 				case 'searchBeschik':
 					$this->userController->searchuserBeschik($_REQUEST['id']);
 					break;
+				case 'resForm':
+					$this->userController->getResForm($_REQUEST['id']);
+					break;
 					// Beheerders
 				case 'beHome':
 					$this->beheerdersController->collectHome();

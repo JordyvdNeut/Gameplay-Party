@@ -68,7 +68,7 @@ class HTMLController
 			} else {
 				$html .= "<p>Invalide toegankelijk: Nee</p>";
 			}
-			$html .= "<button class='btn'>Reserveren binnenkort beschikbaar</button>";
+			$html .= "<a href='?op=resForm&id=$row[bes_id]'><button class='btn'>Reserveren</button></a>";
 			$html .= "</div>";
 			$html .= "</div>";
 		}

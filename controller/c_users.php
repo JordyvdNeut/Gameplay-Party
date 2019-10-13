@@ -135,7 +135,12 @@ class UserController
 		require_once "view/header.php";
 		include "view/detail.php";
 		return $biosPage;
-	}
+  }
+  
+  public function getResForm($id)
+  {
+		include "view/resForm.php";
+  }
 
   public function collectLogin()
   {
