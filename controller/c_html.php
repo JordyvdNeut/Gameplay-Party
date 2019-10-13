@@ -41,7 +41,7 @@ class HTMLController
 		$html .= "<h4><strong>Beschikbare zalen</strong></h4>";
 		$html .= "</div>";
 		$html .= "</div>";
-		
+
 		$html .= "<div class='col-12'>";
 		$html .= "<div class='beschikSearch'>";
 		$html .= "<form action='?op=searchBeschik&id=$_REQUEST[id]' method='POST'>";
@@ -68,7 +68,7 @@ class HTMLController
 			} else {
 				$html .= "<p>Invalide toegankelijk: Nee</p>";
 			}
-			$html .= "<a href='?op=resForm&id=$row[bes_id]'><button class='btn'>Reserveren</button></a>";
+			$html .= "<a href='?op=resForm&id=$row[bes_id]&bios=$_REQUEST[id]'><button class='btn'>Reserveren</button></a>";
 			$html .= "</div>";
 			$html .= "</div>";
 		}
