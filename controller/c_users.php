@@ -139,6 +139,7 @@ class UserController
   
   public function getResForm($id)
   {
+    $biosDetail = $this->biosModel->readBios($id);
 		include "view/resForm.php";
   }
 

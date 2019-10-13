@@ -7,13 +7,19 @@ require_once('view/header.php');
   <div class="row">
     <div class="col-4 content">
       <h2>Reserveren:</h2>
-      <p>
-        Bioscoop: $row[bios_naam] <br />
-        <br />
-        Bioscoop: $row[bios_adres] <br />
-        Bioscoop: $row[bios_plaats] <br />
-      </p>
-      <form action="index.php?op=login" method="post">
+      <?php
+      $html = "";
+      while ($row = $biosDetail->fetch(PDO::FETCH_ASSOC)) {
+        $html .= "<p>";
+        $html .= "$row[bios_naam] <br />";
+        $html .= "<br />";
+        $html .= "$row[bios_adres] <br />";
+        $html .= "$row[bios_plaats] <br />";
+        $html .= "</p>";
+      }
+      echo $html;
+      ?>
+      <form action="index.php?op=reserveren&id=$id" method="post">
         <label>Uw voornaam</label>
         <input class="form-control" name="voornaam" type="text" required="required" />
         <br />
@@ -38,6 +44,7 @@ require_once('view/header.php');
         <label>Telefoon nummer</label>
         <input class="form-control" name="adres" type="tel" required="required" />
         <br />
+        <hr />
         <br />
         <label>Normaal</label>
         <select name="normaal" class="form-control">

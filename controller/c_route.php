@@ -45,7 +45,7 @@ class RouteController
 					$this->userController->searchuserBeschik($_REQUEST['id']);
 					break;
 				case 'resForm':
-					$this->userController->getResForm($_REQUEST['id']);
+					$this->userController->getResForm($_REQUEST['bios']);
 					break;
 					// Beheerders
 				case 'beHome':
