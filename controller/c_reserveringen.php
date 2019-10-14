@@ -29,6 +29,7 @@ class resController
 		$factuur = $_REQUEST;
 		$zaalGegevens = $this->reserveringenModel->getZaalDetail($_REQUEST['id']);
 		$bestelDetails = $this->reserveringenModel->getBestDetail($_REQUEST['id']);
+		$biosDetails = $this->reserveringenModel->getbiosDetail($_REQUEST['bios']);
 		$tarieven = $this->reserveringenModel->getTarieven();
 		include 'view/factuur.php';
 	}

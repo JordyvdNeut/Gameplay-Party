@@ -40,6 +40,17 @@ class reserveringenModel
     }
   }
 
+  public function getBiosDetail($bios_id)
+  {
+    try {
+      $sql = "SELECT * FROM bioscopen WHERE bios_id = $bios_id";
+      $results = $this->DataHandler->readsData($sql);
+      return $results;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
   public function getTarieven()
   {
     try {
