@@ -3,6 +3,7 @@ require_once 'controller/c_users.php';
 require_once 'controller/c_bioscopen.php';
 require_once 'controller/c_beheerders.php';
 require_once 'controller/c_redacteur.php';
+require_once 'controller/c_reserveringen.php';
 
 class RouteController
 {
@@ -13,6 +14,7 @@ class RouteController
 		$this->userController = new UserController();
 		$this->biosController = new BiosController();
 		$this->redacteurController = new RedacteurController();
+		$this->resController = new ResController();
 	}
 
 	public function __destruct()
@@ -45,7 +47,10 @@ class RouteController
 					$this->userController->searchuserBeschik($_REQUEST['id']);
 					break;
 				case 'resForm':
-					$this->userController->getResForm($_REQUEST['bios']);
+					$this->resController->getResForm($_REQUEST['bios']);
+					break;
+				case 'reserveren':
+					$this->resController->getFactuur();
 					break;
 					// Beheerders
 				case 'beHome':
