@@ -26,7 +26,7 @@ class reserveringenModel
     }
   }
 
-  public function getBestDetail($bes_id)
+  public function getBeschikDetail($bes_id)
   {
     try {
       $sql = "SELECT zaal_nr, datum, beg_tijd, eind_tijd

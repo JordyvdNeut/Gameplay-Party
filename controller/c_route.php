@@ -47,7 +47,7 @@ class RouteController
 					$this->userController->searchuserBeschik($_REQUEST['id']);
 					break;
 				case 'resForm':
-					$this->resController->getResForm($_REQUEST['bios']);
+					$this->resController->getResForm();
 					break;
 				case 'reserveren':
 					$this->resController->getFactuur();

@@ -28,15 +28,18 @@ class resController
 		$_REQUEST['res_date'] = date("d/m/Y");
 		$factuur = $_REQUEST;
 		$zaalGegevens = $this->reserveringenModel->getZaalDetail($_REQUEST['id']);
-		$bestelDetails = $this->reserveringenModel->getBestDetail($_REQUEST['id']);
+		$bestelDetails = $this->reserveringenModel->getBeschikDetail($_REQUEST['id']);
 		$biosDetails = $this->biosModel->readBios($_REQUEST['bios']);
 		$tarieven = $this->reserveringenModel->getTarieven();
 		include 'view/factuur.php';
 	}
   
-  public function getResForm($id)
+  public function getResForm()
   {
-    $biosDetail = $this->biosModel->readBios($id);
+		$biosDetails = $this->biosModel->readBios($_REQUEST['bios']);
+		$zaalGegevens = $this->reserveringenModel->getZaalDetail($_REQUEST['id']);
+		$bestelDetails = $this->reserveringenModel->getBeschikDetail($_REQUEST['id']);
+		$tarieven = $this->reserveringenModel->getTarieven();
 		include "view/resForm.php";
   }
 }
