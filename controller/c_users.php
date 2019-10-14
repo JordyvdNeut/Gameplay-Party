@@ -136,12 +136,6 @@ class UserController
 		include "view/detail.php";
 		return $biosPage;
   }
-  
-  public function getResForm($id)
-  {
-    $biosDetail = $this->biosModel->readBios($id);
-		include "view/resForm.php";
-  }
 
   public function collectLogin()
   {
