@@ -19,7 +19,7 @@ require_once('view/header.php');
       }
       echo $html;
       ?>
-      <form action="index.php?op=reserveren&id=$id" method="post">
+      <form action="index.php?op=reserveren&id=<?=$_REQUEST['id']?>&bios=<?=$_REQUEST['bios']?>" method="post">
         <label>Uw voornaam</label>
         <input class="form-control" name="voornaam" type="text" required="required" />
         <br />
@@ -46,9 +46,9 @@ require_once('view/header.php');
         <br />
         <hr />
         <br />
-        <label>Normaal</label>
+        <label>18 t/m 64 zonder bijzonderheden</label>
         <select name="normaal" class="form-control">
-          <option value="">--Geen normale mensen--</option>
+          <option value="">--Geen 18 tot 65 jaar--</option>
           <?php
           foreach (range(1, 50) as $number) {
             echo "<option value='" . $number . "'>" . $number . "</option>";
