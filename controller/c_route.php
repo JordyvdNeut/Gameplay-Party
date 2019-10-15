@@ -106,6 +106,9 @@ class RouteController
 				case 'updateContactCon':
 					$this->redacteurController->collectUpdateContactcon();
 					break;
+				case 'searchReservering':
+					$this->beheerdersController->searchReserveringen();
+					break;
 					// Voorwaardes
 				case 'cookievw':
 					$this->userController->collectCookie();
