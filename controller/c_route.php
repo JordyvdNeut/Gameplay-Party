@@ -58,56 +58,124 @@ class RouteController
 					break;
 					// Bioscoop beheerder
 				case 'readBiosCon':
-					$this->beheerdersController->collectBioscon();
+					if ($_SESSION['user_role'] == 2) {
+						$this->beheerdersController->collectBioscon();
+					} else {
+						header('Location: index.php?op=loginForm');
+					}
 					break;
 				case 'searchBeschikBios':
-					$this->beheerdersController->searchbiosBeschik();
+					if ($_SESSION['user_role'] == 2) {
+						$this->beheerdersController->searchbiosBeschik();
+					} else {
+						header('Location: index.php?op=loginForm');
+					}
 					break;
 				case 'updatBiosConForm':
-					$this->beheerdersController->collectUpdateBiosconForm();
+					if ($_SESSION['user_role'] == 2) {
+						$this->beheerdersController->collectUpdateBiosconForm();
+					} else {
+						header('Location: index.php?op=loginForm');
+					}
 					break;
 				case 'upFormBeschik':
-					$this->beheerdersController->collectUpFormBeschik($_REQUEST['id']);
+					if ($_SESSION['user_role'] == 2) {
+						$this->beheerdersController->collectUpFormBeschik($_REQUEST['id']);
+					} else {
+						header('Location: index.php?op=loginForm');
+					}
 					break;
 				case 'updateBeschik':
-					$this->beheerdersController->updateBeschik($_REQUEST['id']);
+					if ($_SESSION['user_role'] == 2) {
+						$this->beheerdersController->updateBeschik($_REQUEST['id']);
+					} else {
+						header('Location: index.php?op=loginForm');
+					}
 					break;
 				case 'updateBiosCon':
-					$this->beheerdersController->collectUpdateBioscon();
+					if ($_SESSION['user_role'] == 2) {
+						$this->beheerdersController->collectUpdateBioscon();
+					} else {
+						header('Location: index.php?op=loginForm');
+					}
 					break;
 				case 'addBeschik':
-					$this->beheerdersController->addBeschik();
+					if ($_SESSION['user_role'] == 2) {
+						$this->beheerdersController->addBeschik();
+					} else {
+						header('Location: index.php?op=loginForm');
+					}
 					break;
 				case 'addForm':
-					$this->beheerdersController->collectAddBeschik();
+					if ($_SESSION['user_role'] == 2) {
+						$this->beheerdersController->collectAddBeschik();
+					} else {
+						header('Location: index.php?op=loginForm');
+					}
 					break;
 					// Redacteur
 				case 'homePost':
-					$this->userController->collectHomePost($_REQUEST['id']);
+					if ($_SESSION['user_role'] == 3) {
+						$this->userController->collectHomePost($_REQUEST['id']);
+					} else {
+						header('Location: index.php?op=loginForm');
+					}
 					break;
 				case 'formHomeCont':
-					$this->redacteurController->formHomeCont();
+					if ($_SESSION['user_role'] == 3) {
+						$this->redacteurController->formHomeCont();
+					} else {
+						header('Location: index.php?op=loginForm');
+					}
 					break;
 				case 'addHomeCont':
-					$this->redacteurController->addHomeCont();
+					if ($_SESSION['user_role'] == 3) {
+						$this->redacteurController->addHomeCont();
+					} else {
+						header('Location: index.php?op=loginForm');
+					}
 					break;
 				case 'updateHomeConForm':
-					$this->redacteurController->collectUpdateHomeconform($_REQUEST['id']);
+					if ($_SESSION['user_role'] == 3) {
+						$this->redacteurController->collectUpdateHomeconform($_REQUEST['id']);
+					} else {
+						header('Location: index.php?op=loginForm');
+					}
 					break;
 				case 'updateHomeCon':
-					$this->redacteurController->collectUpdateHomecon();
+					if ($_SESSION['user_role'] == 3) {
+						$this->redacteurController->collectUpdateHomecon();
+					} else {
+						header('Location: index.php?op=loginForm');
+					}
 					break;
 				case 'updateHome':
-					$this->redacteurController->updateHomeContent();
+					if ($_SESSION['user_role'] == 3) {
+						$this->redacteurController->updateHomeContent();
+					} else {
+						header('Location: index.php?op=loginForm');
+					}
 					break;
 				case 'updateContactConForm':
-					$this->redacteurController->collectUpdateContactconForm($_REQUEST['id']);
+					if ($_SESSION['user_role'] == 3) {
+						$this->redacteurController->collectUpdateContactconForm($_REQUEST['id']);
+					} else {
+						header('Location: index.php?op=loginForm');
+					}
 					break;
 				case 'updateContactCon':
-					$this->redacteurController->collectUpdateContactcon();
+					if ($_SESSION['user_role'] == 3) {
+						$this->redacteurController->collectUpdateContactcon();
+					} else {
+						header('Location: index.php?op=loginForm');
+					}
 					break;
 				case 'searchReservering':
-					$this->beheerdersController->searchReserveringen();
+					if ($_SESSION['user_role'] == 4) {
+						$this->beheerdersController->searchReserveringen();
+					} else {
+						header('Location: index.php?op=loginForm');
+					}
 					break;
 					// Voorwaardes
 				case 'cookievw':
