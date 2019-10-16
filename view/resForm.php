@@ -9,23 +9,30 @@ require_once('view/header.php');
       <h2>Reserveren:</h2>
       <?php
       $html = "";
-      // while ($row = $biosDetails->fetch(PDO::FETCH_ASSOC)) {
-      //   $html .= "<p>";
-      //   $html .= "$row[bios_naam] <br />";
-      //   $html .= "<br />";
-      //   $html .= "$row[bios_adres] <br />";
-      //   $html .= "$row[bios_plaats] <br />";
-      //   $html .= "</p>";
-      // }
+      while ($row = $biosDetails->fetch(PDO::FETCH_ASSOC)) {
+        $html .= "<p>";
+        $html .= "$row[bios_naam] <br />";
+        $html .= "<br />";
+        $html .= "$row[bios_adres] <br />";
+        $html .= "$row[bios_plaats] <br />";
+        $html .= "</p>";
+      }
+      while ($row = $bestelDetails->fetch(PDO::FETCH_ASSOC)) {
+        $html .= "<h3>Bestel gegevens</h3><br />";
+        $html .= "<p>";
+        $html .= "Zaal nummer: $row[zaal_nr] <br />";
+        $html .= "<br />";
+        $html .= "Datum: $row[datum] <br />";
+        $html .= "Tijden: $row[beg_tijd] - $row[eind_tijd]<br />";
+        $html .= "</p>";
+      }
       echo $html;
-      echo "<h3>Datum van bestelling en andere bestelling gegevens</h3><br />";
-      var_dump($bestelDetails->fetch(PDO::FETCH_ASSOC));
       echo "<br />";
       echo "<h3>Details van de bioscoop</h3><br />";
-      var_dump($biosDetails->fetch(PDO::FETCH_ASSOC));
-      while ($row = $biosDetails->fetch(PDO::FETCH_ASSOC)) {
-        var_dump($row);
-      }
+      // var_dump($biosDetails->fetch(PDO::FETCH_ASSOC));
+      // while ($row = $biosDetails->fetch(PDO::FETCH_ASSOC)) {
+      //   var_dump($row);
+      // }
       echo "<br />";
       echo "<h3>Diensten van de zaal</h3><br />";
       while ($row = $zaalGegevens->fetch(PDO::FETCH_ASSOC)) {
@@ -39,7 +46,7 @@ require_once('view/header.php');
       echo "<br />";
       ?>
 
-      <form action="index.php?op=reserveren&id=<?=$_REQUEST['id']?>&bios=<?=$_REQUEST['bios']?>" method="post">
+      <form action="index.php?op=reserveren&id=<?= $_REQUEST['id'] ?>&bios=<?= $_REQUEST['bios'] ?>" method="post">
         <label>Uw voornaam</label>
         <input class="form-control" name="voornaam" type="text" required="required" />
         <br />
