@@ -43,7 +43,7 @@ class reserveringenModel
   public function getTarieven()
   {
     try {
-      $sql = "SELECT normaal 'Normaal', `t/m11` '0 tot 12 Jaar',  `12t/m17` '12 tot 18 Jaar', '65+', overig 'Overig' FROM tarieven";
+      $sql = "SELECT normaal 'Normaal', `t/m11` '0 tot 12 Jaar',  `12t/m17` '12 tot 18 Jaar', `65+`, overig 'Overig' FROM tarieven";
       $results = $this->DataHandler->readsData($sql);
       return $results;
     } catch (exception $e) {
