@@ -94,8 +94,14 @@ class RouteController
 				case 'updateHomeConForm':
 					$this->redacteurController->collectUpdateHomeconform($_REQUEST['id']);
 					break;
+				case 'deleteHomeConForm':
+					$this->redacteurController->collectDeleteHomeconform($_REQUEST['id']);
+					break;
 				case 'updateHomeCon':
 					$this->redacteurController->collectUpdateHomecon();
+					break;
+				case 'deleteHomeCon':
+					$this->redacteurController->collectDeleteHomecon();
 					break;
 				case 'updateHome':
 					$this->redacteurController->updateHomeContent();

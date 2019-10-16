@@ -49,9 +49,9 @@ class BeheerdersController
 	public function collectContentTables()
 	{
 		$homeContent = $this->beheerdersLogic->readsHomeCon();
-		$homeConTable = $this->HTMLBeheerderController->createConTable($homeContent, 'Home pagina', 'updateHomeConForm');
+		$homeConTable = $this->HTMLBeheerderController->createConTable($homeContent, 'Home pagina', 'updateHomeConForm', 'deleteHomeConForm');
 		$overonsContent = $this->beheerdersLogic->readOveronsCon();
-		$overonsConTable = $this->HTMLBeheerderController->createConTable($overonsContent, 'Contact pagina', 'updateContactConForm');
+		$overonsConTable = $this->HTMLBeheerderController->createConTable($overonsContent, 'Contact pagina', 'updateContactConForm','deleteHomeConForm');
 		return "<hr style='border-color: green'>" . $homeConTable . "<hr style='border-color: green'>" . $overonsConTable;
 	}
 
