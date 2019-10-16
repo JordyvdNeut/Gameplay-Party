@@ -38,14 +38,14 @@ class HTMLController
 		}
 		$html .= "<div class='col-12'>";
 		$html .= "<div class='beschikcontent'>";
-		$html .= "<h4><strong>Beschikbare zalen</strong></h4>";
+		$html .= "<h4 id='beschikbarenzalen'><strong>Beschikbare zalen</strong></h4>";
 		$html .= "</div>";
 		$html .= "</div>";
 
 		$html .= "<div class='col-12 beschikSearch' style='margin-bottom:15px;'>";
 		$html .= "<div class='content beschikbaarcontent'>";
 		$html .= "<div class='beschikbaar'>";
-		$html .= "<form action='?op=searchBeschik&id=$_REQUEST[id]' method='POST'>";
+		$html .= "<form action='?op=searchBeschik&id=$_REQUEST[id]#beschikbarenzalen' method='POST'>";
 		$html .= "<h3>Zoek op datum</h3>";
 		$html .= "<input class='form-control search' type='date' name='datum' required/>";
 		$html .= "<input class='btn submit' type='submit' value='Zoeken' />";

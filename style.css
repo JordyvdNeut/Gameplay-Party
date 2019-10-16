@@ -368,7 +368,16 @@ div.not-mobile a button.btn {
 .infocontent.bewerken{
   margin-bottom:20px;
 }
-
+.delete .btn {
+  margin: 10px;
+}
+.delete {
+  margin: 0 auto;
+  display: table;
+}
+.deleteh3{
+  text-align:center;
+}
 /* buttons */
 button.btn {
   background-color: #34495e;
@@ -443,6 +452,9 @@ div.login button {
   }
 } 
 @media (max-width:600px) {
+  .delete .btn {
+    margin: 2px;
+}
   .logo {
     margin-top:0;
   }

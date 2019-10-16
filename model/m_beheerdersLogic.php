@@ -128,6 +128,29 @@ class BeheerdersLogic
       throw $e;
     }
   }
+  public function deleteHomeContent($formData)
+  {
+    $id = $formData['id'];
+    try {
+      $sql = "DELETE FROM `homecontent` WHERE `homeCon_id`='$id'";
+      $result = $this->DataHandler->deleteData($sql);
+      return $result ? "<h3><strong>Content is <span style='color: green'>succesvol</span> verwijderd!</strong></h3>" : "<h3 style='color:red;'><strong>Het verwijderen van de content is niet gelukt</strong></h3>";
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
+  public function deleteHomeCon($id)
+  {
+    try {
+      $sql = "DELETE FROM `homecontent` WHERE `homeCon_id`='$id'";
+      $result = $this->DataHandler->deleteData($sql);
+      return $result->fetch(PDO::FETCH_ASSOC);
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
 
   public function updateContactContent($formData)
   {
