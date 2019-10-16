@@ -5,7 +5,8 @@ require_once('view/header.php');
 
 <section>
   <div class="row">
-    <div class="col-4 content">
+    <div class="col-10 content">
+
       <h2>Reserveren:</h2>
       <?php
       $html = "";
@@ -55,10 +56,9 @@ require_once('view/header.php');
       $html .= "<br />";
       echo $html;
       ?>
-
-      <hr />
-
-      <form action="index.php?op=reserveren&id=<?= $_REQUEST['id'] ?>&bios=<?= $_REQUEST['bios'] ?>" method="post">
+      <div class="row">
+      <div class="col-5 rescontent">
+      <form action="index.php?op=reserveren&id=<?=$_REQUEST['id']?>&bios=<?=$_REQUEST['bios']?>" method="post">
         <label>Uw voornaam</label>
         <input class="form-control" name="voornaam" type="text" required="required" />
         <br />
@@ -85,6 +85,8 @@ require_once('view/header.php');
         <br />
         <hr />
         <br />
+</div>
+        <div class="col-5 rescontent">
         <label>18 t/m 64 zonder bijzonderheden</label>
         <select name="normaal" class="form-control">
           <option value="">--Geen 18 tot 65 jaar--</option>
@@ -135,8 +137,12 @@ require_once('view/header.php');
           ?>
         </select>
         <br />
-        <div class="row">
+        <div class="row flexnone">
+          <div class='resbtn'>
           <button type="submit" class="btn">Reserveren</button><button type="reset" class="btn">Annuleren</button>
+        </div>
+        </div>
+        </div>
         </div>
       </form>
     </div>
