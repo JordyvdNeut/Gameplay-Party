@@ -71,6 +71,7 @@ class HTMLBeheerderController
   {
     $tableheader = false;
     $html = "";
+    $totaal = 0;
 
     $html .= "<h3>$header</h3>";
     $html .= "<table class='table'>";
@@ -84,15 +85,25 @@ class HTMLBeheerderController
         $html .= "</tr>";
         $tableheader = true;
       }
-      foreach ($row as $value) {
-        $html .= "<td>{$value}</td>";
-      }
+      $html .= "<td>$row[Datum]</td>";
+      $html .= "<td>$row[Bioscoop]</td>";
+      $html .= "<td>$row[Kosten]</td>";
+      $totaal += $row['Kosten'];
       $html .= "</tr>";
     }
+      $html .= "<tr>";
+      $html .= "<td>";
+      $html .= "</td>";
+      $html .= "<td>";
+      $html .= "</td>";
+      $html .= "<td>";
+      $totaal = str_replace('.', ',', $totaal);
+      $html .= "€" . $totaal;
+      $html .= "</td>";
+      $html .= "</tr>";
 
     $html .= "</table>";
     return $html;
-    
   }
 
   public function makeRadioButtons($radio)
