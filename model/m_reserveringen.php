@@ -50,4 +50,21 @@ class reserveringenModel
       throw $e;
     }
   }
+/*
+  public function addReser($creating){
+    $  = $creating[""];
+    $  = $creating[""];
+    $  = $creating[""];
+    $  = $creating[""];
+    $bes_id = $_REQUEST["bes_id"];
+
+    try{
+      $sql = "INSERT INTO reserveringen(res_code, klant_naam, klant_adres, klant_plaats, res_datum, aant_pers, bes_id)  
+                  VALUES ('', '', '', '', '', '', '', '')";
+      $factuur = $this->DataHandler->createData($sql);
+      return $factuur;
+    }catch(exception $e){
+      throw $e;
+    }
+  }*/
 }
