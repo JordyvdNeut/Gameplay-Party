@@ -16,6 +16,7 @@ require_once('view/header.php');
         $html .= "$row[bios_adres] <br />";
         $html .= "$row[bios_plaats] <br />";
         $html .= "</p>";
+        $biosOmschr = $row['bios_info'];
       }
       while ($row = $bestelDetails->fetch(PDO::FETCH_ASSOC)) {
         $html .= "<h3>Bestel gegevens</h3><br />";
@@ -26,25 +27,36 @@ require_once('view/header.php');
         $html .= "Tijden: $row[beg_tijd] - $row[eind_tijd]<br />";
         $html .= "</p>";
       }
-      echo $html;
-      echo "<br />";
-      echo "<h3>Details van de bioscoop</h3><br />";
-      // var_dump($biosDetails->fetch(PDO::FETCH_ASSOC));
-      // while ($row = $biosDetails->fetch(PDO::FETCH_ASSOC)) {
-      //   var_dump($row);
-      // }
-      echo "<br />";
-      echo "<h3>Diensten van de zaal</h3><br />";
+      $html .= "Bios naam: $biosOmschr <br />";
+      $html .= "<br />";
+      $html .= "<h3>Diensten van de zaal</h3><br />";
       while ($row = $zaalGegevens->fetch(PDO::FETCH_ASSOC)) {
-        var_dump($row);
+        $row['kosten'] = '€ ' . str_replace('.', ',', $row['kosten']);
+        $html .= "<p>";
+        $html .= "$row[omschr]: $row[kosten]";
+        $html .= "</p>";
       }
       echo "<br />";
-      echo "<h3>De tarieven</h3><br />";
+      $html .= "<h3>De tarieven</h3><br />";
       while ($row = $tarieven->fetch(PDO::FETCH_ASSOC)) {
-        var_dump($row);
+        $html .= "<table>";
+        $html .= "<tr>";
+        foreach ($row as $key => $value) {
+          $html .= "<th>{$key}</th>";
+        }
+        $html .= "</tr>";
+        $html .= "<tr>";
+        foreach ($row as $value) {
+          $html .= "<td>{$value}</td>";
+        }
+        $html .= "</tr>";
+        $html .= "</table>";
       }
-      echo "<br />";
+      $html .= "<br />";
+      echo $html;
       ?>
+
+      <hr />
 
       <form action="index.php?op=reserveren&id=<?= $_REQUEST['id'] ?>&bios=<?= $_REQUEST['bios'] ?>" method="post">
         <label>Uw voornaam</label>
