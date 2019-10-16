@@ -60,17 +60,8 @@ require_once('view/header.php');
         <!-- Klant gegevens toevoegen -->
         <div class="col-5 rescontent">
           <form action="index.php?op=reserveren&id=<?= $_REQUEST['id'] ?>&bios=<?= $_REQUEST['bios'] ?>" method="post">
-            <label>Uw voornaam</label>
-            <input class="form-control" name="voornaam" type="text" required="required" />
-            <br />
-            <label>Tussenvoegsel</label>
-            <input class="form-control" name="tussenvoegsel" type="text" required="required" />
-            <br />
-            <label>Achternaam</label>
-            <input class="form-control" name="achternaam" type="text" required="required" />
-            <br />
-            <label>Woonplaats</label>
-            <input class="form-control" name="woonplaats" type="text" required="required" />
+            <label>Uw Naam</label>
+            <input class="form-control" name="naam" type="text" required="required" />
             <br />
             <label>Adres</label>
             <input class="form-control" name="adres" type="text" required="required" />
@@ -78,8 +69,8 @@ require_once('view/header.php');
             <label>Postcode</label>
             <input class="form-control" name="postcode" type="text" required="required" />
             <br />
-            <label>Huisnummer</label>
-            <input class="form-control" name="adres" type="number" required="required" />
+            <label>Woonplaats</label>
+            <input class="form-control" name="woonplaats" type="text" required="required" />
             <br />
             <label>Telefoon nummer</label>
             <input class="form-control" name="adres" type="tel" required="required" />
@@ -88,9 +79,9 @@ require_once('view/header.php');
         </div>
         <!-- Personen toevoegen -->
         <div class="col-5 rescontent">
-          <label>18 t/m 64 zonder bijzonderheden</label>
+          <label>Normaal</label>
           <select name="normaal" class="form-control">
-            <option value="">--Geen 18 tot 65 jaar--</option>
+            <option value="">--Geen 18 jaar of ouder--</option>
             <?php
             foreach (range(1, 50) as $number) {
               echo "<option value='" . $number . "'>" . $number . "</option>";
