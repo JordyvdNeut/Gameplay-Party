@@ -50,6 +50,7 @@ class RouteController
 					$this->resController->getResForm();
 					break;
 				case 'reserveren':
+					$this->resController->insertRes();
 					$this->resController->getFactuur();
 					break;
 					// Beheerders
