@@ -58,7 +58,7 @@ class BeheerdersController
 	public function collectReserveringen()
 	{
 		$reserveringen = $this->beheerdersLogic->readReserveringen();
-		$content = $this->HTMLBeheerderController->createConTable($reserveringen, 'Reserveringen', 'updateReservering');
+		$content = $this->HTMLBeheerderController->createResTable($reserveringen, 'Reserveringen');
 		return $content;
 	}
 

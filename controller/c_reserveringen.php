@@ -42,4 +42,11 @@ class resController
 		$tarieven = $this->reserveringenModel->getTarieven();
 		include "view/resForm.php";
   }
+
+  public function insertRes()
+  {
+	$creating = $_REQUEST;
+	$reservering = $this->reserveringenModel->addReser($creating);
+	include 'view/factuur.php';
+  }
 }

@@ -69,6 +69,34 @@ class HTMLBeheerderController
     return $html;
   }
 
+  public function createResTable($rows, $header)
+  {
+    $tableheader = false;
+    $html = "";
+
+    $html .= "<h3>$header</h3>";
+    $html .= "<table class='table'>";
+
+    foreach ($rows as $row) {
+      $html .= "<tr>";
+      if ($tableheader !== true) {
+        foreach ($row as $key => $value) {
+          $html .= "<th>{$key}</th>";
+        }
+        $html .= "</tr>";
+        $tableheader = true;
+      }
+      foreach ($row as $value) {
+        $html .= "<td>{$value}</td>";
+      }
+      $html .= "</tr>";
+    }
+
+    $html .= "</table>";
+    return $html;
+    
+  }
+
   public function makeRadioButtons($radio)
   {
     $html = "";
