@@ -304,4 +304,26 @@ class BeheerdersLogic
       throw $e;
     }
   }
+
+  public function readReserveringen()
+  {
+    try {
+      $sql = "SELECT * FROM reserveringen NATURAL JOIN beschikbaarheid ORDER BY datum ASC";
+      $results = $this->DataHandler->readsData($sql);
+      return $results;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
+  public function readSearchedReserveringen($datum)
+  {
+    try {
+      $sql = "SELECT * FROM reserveringen NATURAL JOIN beschikbaarheid WHERE datum = $datum ORDER BY datum ASC";
+      $results = $this->DataHandler->readsData($sql);
+      return $results;
+    } catch (exception $e) {
+      throw $e;
+    }    
+  }
 }

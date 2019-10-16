@@ -136,11 +136,6 @@ class UserController
 		include "view/detail.php";
 		return $biosPage;
   }
-  
-  public function getResForm($id)
-  {
-		include "view/resForm.php";
-  }
 
   public function collectLogin()
   {

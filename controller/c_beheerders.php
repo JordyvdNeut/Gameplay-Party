@@ -26,6 +26,11 @@ class BeheerdersController
 	// collect home for every admin
 	public function collectHome()
 	{
+		if ($_SESSION['user_role'] == 4) {
+			$content = $this->collectReserveringen();
+			require_once "view/beheerder/header.php";
+			include "view/beheerder/beheerder/home.php";
+		}
 		if ($_SESSION['user_role'] == 3) {
 			$content = $this->collectContentTables();
 			require_once "view/beheerder/header.php";
@@ -48,6 +53,22 @@ class BeheerdersController
 		$overonsContent = $this->beheerdersLogic->readOveronsCon();
 		$overonsConTable = $this->HTMLBeheerderController->createConTable($overonsContent, 'Contact pagina', 'updateContactConForm');
 		return "<hr style='border-color: green'>" . $homeConTable . "<hr style='border-color: green'>" . $overonsConTable;
+	}
+
+	public function collectReserveringen()
+	{
+		$reserveringen = $this->beheerdersLogic->readReserveringen();
+		$content = $this->HTMLBeheerderController->createConTable($reserveringen, 'Reserveringen', 'updateReservering');
+		return $content;
+	}
+
+	public function searchReserveringen()
+	{
+		$datum = date("Y-m-d", strtotime($_REQUEST['datum']));
+		$datumReservering = $this->beheerdersLogic->readSearchedReserveringen($datum);
+		$content = $this->HTMLBeheerderController->createConTable($datumReservering, 'Gevonden reserveringen', 'updateReservering');
+		require_once "view/beheerder/header.php";
+		include "view/beheerder/beheerder/home.php";
 	}
 
 	public function collectBioscon()
