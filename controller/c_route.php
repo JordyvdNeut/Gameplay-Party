@@ -143,12 +143,18 @@ class RouteController
 						header('Location: index.php?op=loginForm');
 					}
 					break;
+				case 'deleteHomeConForm':
+					$this->redacteurController->collectDeleteHomeconform($_REQUEST['id']);
+					break;
 				case 'updateHomeCon':
 					if ($_SESSION['user_role'] == 3) {
 						$this->redacteurController->collectUpdateHomecon();
 					} else {
 						header('Location: index.php?op=loginForm');
 					}
+					break;
+				case 'deleteHomeCon':
+					$this->redacteurController->collectDeleteHomecon();
 					break;
 				case 'updateHome':
 					if ($_SESSION['user_role'] == 3) {

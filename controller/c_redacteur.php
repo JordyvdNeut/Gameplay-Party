@@ -20,7 +20,12 @@ class RedacteurController
     require_once "view/beheerder/header.php";
     include 'view/beheerder/redacteur/upHomeCon.php';
   }
-
+  public function collectDeleteHomeconForm($id)
+  {
+    $homeContent = $this->beheerdersLogic->readHomeCon($id);
+    require_once "view/beheerder/header.php";
+    include 'view/beheerder/redacteur/deleteHomeCon.php';
+  }
   public function collectUpdateHomecon()
   {
     $formData = $_REQUEST;
@@ -28,7 +33,13 @@ class RedacteurController
     require_once "view/beheerder/header.php";
     include 'view/beheerder/feedback.php';
   }
-
+  public function collectDeleteHomecon()
+  {
+    $formData = $_REQUEST;
+    $feedback = $this->beheerdersLogic->deleteHomeContent($formData);
+    require_once "view/beheerder/header.php";
+    include 'view/beheerder/feedback.php';
+  }
   public function collectUpdateContactconForm($id)
   {
     $contactContent = $this->beheerdersLogic->readContactCon($id);
@@ -56,4 +67,5 @@ class RedacteurController
     $feedback = "<br/>Uw teksten zijn toegevoegd en worden nu op de homepagina getoond.";
     include 'view/beheerder/feedback.php';
   }
+
 }

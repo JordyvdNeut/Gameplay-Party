@@ -8,7 +8,7 @@ class HTMLBeheerderController
   public function __destruct()
   { }
 
-  public function createConTable($rows, $header, $link)
+  public function createConTable($rows, $header, $link, $delete)
   {
     $tableheader = false;
     $html = "";
@@ -23,13 +23,15 @@ class HTMLBeheerderController
           $html .= "<th>{$key}</th>";
         }
         $html .= "<th>Wijzigen</th>";
+        $html .= "<th>verwijderen</th>";
         $html .= "</tr>";
         $tableheader = true;
       }
       foreach ($row as $value) {
         $html .= "<td>{$value}</td>";
       }
-      $html .= "<td><a href='?op=$link&id=" . $row['id'] . "'><button class='btn'><span class='glyphicon glyphicon-pencil'></span> Bewerken</button></a></td>";
+      $html .= "<td><a href='?op=$link&id=" . $row['id'] . "'><button class='btn'><span class='glyphicon glyphicon-pencil'></span> Bewerken</button></td> ";
+      $html .="<td><a href='?op=$delete&id=" . $row['id'] . "'><button class='btn'><span class='glyphicon glyphicon-pencil'></span> verwijderen</button></a></td>";
       $html .= "</tr>";
     }
 
