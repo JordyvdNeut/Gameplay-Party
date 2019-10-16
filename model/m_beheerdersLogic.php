@@ -308,7 +308,7 @@ class BeheerdersLogic
   public function readReserveringen()
   {
     try {
-      $sql = "SELECT * FROM reserveringen NATURAL JOIN beschikbaarheid ORDER BY datum ASC";
+      $sql = "SELECT datum Datum, bios_naam Bioscoop, kosten Kosten FROM reserveringen NATURAL JOIN beschikbaarheid NATURAL JOIN zalen NATURAL JOIN bioscopen ORDER BY datum ASC";
       $results = $this->DataHandler->readsData($sql);
       return $results;
     } catch (exception $e) {
@@ -319,7 +319,7 @@ class BeheerdersLogic
   public function readSearchedReserveringen($datum)
   {
     try {
-      $sql = "SELECT * FROM reserveringen NATURAL JOIN beschikbaarheid WHERE datum = $datum ORDER BY datum ASC";
+      $sql = "SELECT datum Datum, bios_naam Bioscoop, kosten Kosten FROM reserveringen NATURAL JOIN beschikbaarheid NATURAL JOIN zalen NATURAL JOIN bioscopen WHERE datum = $datum ORDER BY datum ASC";
       $results = $this->DataHandler->readsData($sql);
       return $results;
     } catch (exception $e) {
