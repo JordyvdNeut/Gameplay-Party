@@ -5,7 +5,8 @@ require_once('view/header.php');
 
 <section>
   <div class="row">
-    <div class="col-4 content">
+    <div class="col-10 content">
+
       <h2>Reserveren:</h2>
       <p>
         Bioscoop: $row[bios_naam] <br />
@@ -13,6 +14,8 @@ require_once('view/header.php');
         Bioscoop: $row[bios_adres] <br />
         Bioscoop: $row[bios_plaats] <br />
       </p>
+      <div class="row">
+      <div class="col-5 rescontent">
       <form action="index.php?op=login" method="post">
         <label>Uw voornaam</label>
         <input class="form-control" name="voornaam" type="text" required="required" />
@@ -39,9 +42,11 @@ require_once('view/header.php');
         <input class="form-control" name="adres" type="tel" required="required" />
         <br />
         <br />
-        <label>Normaal</label>
+</div>
+        <div class="col-5 rescontent">
+        <label>volwassenen</label>
         <select name="normaal" class="form-control">
-          <option value="">--Geen normale mensen--</option>
+          <option value="">--Geen volwassenen--</option>
           <?php
           foreach (range(1, 50) as $number) {
             echo "<option value='" . $number . "'>" . $number . "</option>";
@@ -89,8 +94,12 @@ require_once('view/header.php');
           ?>
         </select>
         <br />
-        <div class="row">
+        <div class="row flexnone">
+          <div class='resbtn'>
           <button type="submit" class="btn">Reserveren</button><button type="reset" class="btn">Annuleren</button>
+        </div>
+        </div>
+        </div>
         </div>
       </form>
     </div>

@@ -11,7 +11,7 @@ class HTMLController
 	public function createBiosDetail($result, $beschikbaar)
 	{
 		$html = "";
-		$html .= "<section class='row'>";
+		$html .= "<section class='row noflex'>";
 
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			// $row['bios_info'] = wordwrap($row['bios_info'], 500, "<br><br />\n");
@@ -25,8 +25,8 @@ class HTMLController
 			$html .= "</div>";
 			$html .= "</div>";
 
-			$html .= "<div class='col-2'>";
-			$html .= "<div class='content'>";
+			$html .= "<div class='col-3'>";
+			$html .= "<div class='content contentinfo'>";
 			$html .= "<h3><strong>Contact gegevens</strong></h3>";
 			$html .= "<h4><strong>Adres: </strong></h4>";
 			$html .= "<p>$row[bios_adres]<br />";
@@ -42,13 +42,15 @@ class HTMLController
 		$html .= "</div>";
 		$html .= "</div>";
 
-		$html .= "<div class='col-12'>";
-		$html .= "<div class='beschikSearch'>";
+		$html .= "<div class='col-12 beschikSearch' style='margin-bottom:15px;'>";
+		$html .= "<div class='content beschikbaarcontent'>";
+		$html .= "<div class='beschikbaar'>";
 		$html .= "<form action='?op=searchBeschik&id=$_REQUEST[id]' method='POST'>";
 		$html .= "<h3>Zoek op datum</h3>";
-		$html .= "<input class='form-control' type='date' name='datum' required/>";
-		$html .= "<input class='btn' type='submit' value='Zoeken' />";
+		$html .= "<input class='form-control search' type='date' name='datum' required/>";
+		$html .= "<input class='btn submit' type='submit' value='Zoeken' />";
 		$html .= "</form>";
+		$html .= "</div>";
 		$html .= "</div>";
 		$html .= "</div>";
 		while ($row = $beschikbaar->fetch(PDO::FETCH_ASSOC)) {
@@ -56,8 +58,8 @@ class HTMLController
 			$NLdate = date("d-m-Y", strtotime($row['datum']));
 			$begintijd = date("H:i ", strtotime($row['beg_tijd']));
 			$eindtijd = date("H:i ", strtotime($row['eind_tijd']));
-			$html .= "<div class='col-lg-4' style='margin-bottom:15px;'>";
-			$html .= "<div class='infocontent'>";
+			$html .= "<div class='col-4' style='margin-bottom:15px;'>";
+			$html .= "<div class='content'>";
 
 			$html .= "<h4><strong>Zaal $row[zaal_nr]</strong></h4>";
 			$html .= "<p>Datum: $NLdate </p>";

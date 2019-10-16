@@ -97,7 +97,7 @@ class UserController
   public function createHome($result)
   {
     $html = "";
-    $html .= "<div class='container'><div class='row'>";
+    $html .= "<div class='container'><div class='row noflex'>";
 
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
       

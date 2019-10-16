@@ -154,10 +154,53 @@ h2 {
   height: 100%;
   max-width: 100%;
 }
+.col-9.beschikSearch {
+  margin: 0 auto;
+}
 .table>tbody>tr>th,.table>tbody>tr>td{
   border:none !important;
 }
+  input.form-control.search {
+    width: 70%;
+    float: left;
+  }
+  input.btn.submit {
+    width: 30%;
+    float: left;
+  }
+  .beschikbaar h3{
+    text-align:center;
+  }
+  .content.beschikbaarcontent {
+    min-width: 50%;
+}
+  .content.beschikcontent{
+    min-width:50%;
+  }
+  .contentinfo{
+    height:auto;
+  }
+/*resform*/
+  .rescontent {
+    margin:0 auto;
+    }
+    .col-5.rescontent{
+      display:grid;
+    }
+  .resbtn{
+    float:right;
+  }
+  .resbtn .btn{
+    float:none !important;
+  }
+  .flexnone{
+    display:inline;
+    }
 
+/*formdivide*/
+.apartfrom{
+margin-bottom:15px;
+}
 /*Detail Bioscopen*/
 .biosInside{
   width: 300px;
@@ -170,6 +213,25 @@ h2 {
   .biosInside{
     width: 150px;
   }
+  .col-5.rescontent{
+    display:inline;
+    min-width:100%;
+  }
+  .content.beschikbaarcontent {
+    min-width: 90%;
+}
+  .row.noflex {
+    display: inline;
+}
+
+input.form-control.search {
+  width:100%;
+  float: none;
+}
+input.btn.submit {
+  width: 100%;
+  float: none;
+}
 
 }
 
@@ -416,7 +478,7 @@ div.login button {
   }
 
   .content {
-    margin: 15px;
+    margin-top: 15px;
   }
 
   .con_title {
