@@ -31,7 +31,7 @@ class HTMLBeheerderController
         $html .= "<td>{$value}</td>";
       }
       $html .= "<td><a href='?op=$link&id=" . $row['id'] . "'><button class='btn'><span class='glyphicon glyphicon-pencil'></span> Bewerken</button></td> ";
-      $html .="<td><a href='?op=$delete&id=" . $row['id'] . "'><button class='btn'><span class='glyphicon glyphicon-pencil'></span> verwijderen</button></a></td>";
+      $html .= "<td><a href='?op=$delete&id=" . $row['id'] . "'><button class='btn'><span class='glyphicon glyphicon-pencil'></span> verwijderen</button></a></td>";
       $html .= "</tr>";
     }
 
@@ -87,22 +87,23 @@ class HTMLBeheerderController
         $html .= "</tr>";
         $tableheader = true;
       }
+      $totaal += $row['Kosten'];
       $html .= "<td>$row[Datum]</td>";
       $html .= "<td>$row[Bioscoop]</td>";
+      $row['Kosten'] = '€' . str_replace('.', ',', $row['Kosten']);
       $html .= "<td>$row[Kosten]</td>";
-      $totaal += $row['Kosten'];
       $html .= "</tr>";
     }
-      $html .= "<tr>";
-      $html .= "<td>";
-      $html .= "</td>";
-      $html .= "<td>";
-      $html .= "</td>";
-      $html .= "<td>";
-      $totaal = str_replace('.', ',', $totaal);
-      $html .= "€" . $totaal;
-      $html .= "</td>";
-      $html .= "</tr>";
+    $html .= "<tr>";
+    $html .= "<td>";
+    $html .= "</td>";
+    $html .= "<td>";
+    $html .= "</td>";
+    $html .= "<td>";
+    $totaal = str_replace('.', ',', $totaal);
+    $html .= "Totaal: €" . $totaal;
+    $html .= "</td>";
+    $html .= "</tr>";
 
     $html .= "</table>";
     return $html;
