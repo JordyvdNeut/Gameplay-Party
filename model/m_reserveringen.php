@@ -50,8 +50,9 @@ class reserveringenModel
       throw $e;
     }
   }
-/*
+
   public function addReser($creating){
+    $bes_id = $creating['bes_id'];
     try{
       $sql = "INSERT INTO reserveringen(res_code, klant_naam, klant_adres, klant_pc, klant_plaats, res_datum, aant_pers, bes_id, kosten) 
                   VALUES ('', '', '', '','', '', '', '', '' )";
@@ -60,5 +61,5 @@ class reserveringenModel
     }catch(exception $e){
       throw $e;
     }
-  }*/
+  }
 }

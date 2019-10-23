@@ -46,6 +46,7 @@ class RouteController
 				case 'searchBeschik':
 					$this->userController->searchuserBeschik($_REQUEST['id']);
 					break;
+				//Reserveren 
 				case 'resForm':
 					$this->resController->getResForm();
 					break;
@@ -53,11 +54,14 @@ class RouteController
 					$this->resController->insertRes();
 					$this->resController->getFactuur();
 					break;
-					// Beheerders
+				case 'getOverzichtReservering':
+					$this->resController->getOverzichtReservering();
+					break;
+				// Beheerders
 				case 'beHome':
 					$this->beheerdersController->collectHome();
 					break;
-					// Bioscoop beheerder
+				// Bioscoop beheerder
 				case 'readBiosCon':
 					if ($_SESSION['user_role'] == 2) {
 						$this->beheerdersController->collectBioscon();
@@ -114,7 +118,7 @@ class RouteController
 						header('Location: index.php?op=loginForm');
 					}
 					break;
-					// Redacteur
+				// Redacteur
 				case 'homePost':
 					if ($_SESSION['user_role'] == 3) {
 						$this->userController->collectHomePost($_REQUEST['id']);
@@ -184,7 +188,7 @@ class RouteController
 						header('Location: index.php?op=loginForm');
 					}
 					break;
-					// Voorwaardes
+				// Voorwaardes
 				case 'cookievw':
 					$this->userController->collectCookie();
 					break;

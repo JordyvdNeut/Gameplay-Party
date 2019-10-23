@@ -57,9 +57,10 @@ require_once('view/header.php');
       echo $html;
       ?>
       <div class="row">
-        <!-- Klant gegevens toevoegen -->
+        <!-- Klant gegevens toevoegen
+      index.php?op=reserveren&id= $_REQUEST['id'] ?>&bios=$_REQUEST['bios'] -->
         <div class="col-5 rescontent">
-          <form action="index.php?op=reserveren&id=<?= $_REQUEST['id'] ?>&bios=<?= $_REQUEST['bios'] ?>" method="post">
+          <form action="index.php?op=getOverzichtReservering" method="post">
             <label>Uw Naam</label>
             <input class="form-control" name="naam" type="text" required="required" />
             <br />
@@ -73,7 +74,7 @@ require_once('view/header.php');
             <input class="form-control" name="woonplaats" type="text" required="required" />
             <br />
             <label>Telefoon nummer</label>
-            <input class="form-control" name="adres" type="tel" required="required" />
+            <input class="form-control" name="telefoon" type="tel" required="required" />
             <br />
             <br />
         </div>

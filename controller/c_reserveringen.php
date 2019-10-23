@@ -43,8 +43,12 @@ class resController
 		include "view/resForm.php";
   }
 
-  public function insertRes()
-  {
+  public function getOverzichtReservering(){
+	  $choice = $_REQUEST;
+	  include 'view/reservering_overzicht.php';
+  }
+
+  public function insertRes(){
 	$creating = $_REQUEST;
 	$reservering = $this->reserveringenModel->addReser($creating);
 	include 'view/factuur.php';
