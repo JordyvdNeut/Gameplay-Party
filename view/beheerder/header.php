@@ -26,6 +26,10 @@ $user =  $this->beheerdersController->collectUser($_SESSION['user_id']);
       if($_SESSION['user_role'] === 3){
         echo "<a href='index.php?op=formHomeCont'><button class='btn'>Teksten toevoegen</button></a>";
       }
+
+      if ($_SESSION['user_role'] === 4) {
+        echo "<a href='index.php?op=searchMonth'><button class='btn'>Per maand</button></a>";
+      }
       ?>
       
         <a href="index.php?op=beHome"><button class="btn">Home</button></a>

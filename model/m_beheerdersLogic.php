@@ -327,11 +327,50 @@ class BeheerdersLogic
   public function readSearchedReserveringen($datum)
   {
     try {
-      $sql = "SELECT datum Datum, bios_naam Bioscoop, kosten Kosten FROM reserveringen NATURAL JOIN beschikbaarheid NATURAL JOIN zalen NATURAL JOIN bioscopen WHERE datum = $datum ORDER BY datum ASC";
+      $sql = "SELECT datum Datum, bios_naam Bioscoop, kosten Kosten 
+      FROM reserveringen 
+      NATURAL JOIN beschikbaarheid 
+      NATURAL JOIN zalen 
+      NATURAL JOIN bioscopen 
+      WHERE datum = $datum ORDER BY datum ASC";
       $results = $this->DataHandler->readsData($sql);
       return $results;
     } catch (exception $e) {
       throw $e;
     }    
   }
+
+  public function readReserveringenMonth()
+  { 
+    try {
+      $sql = "SELECT datum Datum, bios_naam Bioscoop, kosten Kosten 
+      FROM reserveringen 
+      NATURAL JOIN beschikbaarheid 
+      NATURAL JOIN zalen 
+      NATURAL JOIN bioscopen 
+      WHERE MONTH(res_datum) = MONTH(CURRENT_TIMESTAMP) 
+      ORDER BY datum ASC";
+      $results = $this->DataHandler->readsData($sql);
+      return $results;
+    } catch (exception $e) {
+      throw $e;
+    }    
+  }
+
+  public function searchReserveringenMonth($month)
+  {
+    try {
+      $sql = "SELECT datum Datum, bios_naam Bioscoop, kosten Kosten 
+      FROM reserveringen 
+      NATURAL JOIN beschikbaarheid 
+      NATURAL JOIN zalen 
+      NATURAL JOIN bioscopen 
+      WHERE MONTH(res_datum) = $month 
+      ORDER BY datum ASC";
+      $results = $this->DataHandler->readsData($sql);
+      return $results;
+    } catch (exception $e) {
+      throw $e;
+    } 
+   }
 }

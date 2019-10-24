@@ -46,7 +46,7 @@ class RouteController
 				case 'searchBeschik':
 					$this->userController->searchuserBeschik($_REQUEST['id']);
 					break;
-				//Reserveren 
+					//Reserveren 
 				case 'resForm':
 					$this->resController->getResForm();
 					break;
@@ -57,11 +57,11 @@ class RouteController
 				case 'getOverzichtReservering':
 					$this->resController->getOverzichtReservering();
 					break;
-				// Beheerders
+					// Beheerders
 				case 'beHome':
 					$this->beheerdersController->collectHome();
 					break;
-				// Bioscoop beheerder
+					// Bioscoop beheerder
 				case 'readBiosCon':
 					if ($_SESSION['user_role'] == 2) {
 						$this->beheerdersController->collectBioscon();
@@ -118,7 +118,7 @@ class RouteController
 						header('Location: index.php?op=loginForm');
 					}
 					break;
-				// Redacteur
+					// Redacteur
 				case 'homePost':
 					if ($_SESSION['user_role'] == 3) {
 						$this->userController->collectHomePost($_REQUEST['id']);
@@ -181,6 +181,7 @@ class RouteController
 						header('Location: index.php?op=loginForm');
 					}
 					break;
+					// beheerder
 				case 'searchReservering':
 					if ($_SESSION['user_role'] == 4) {
 						$this->beheerdersController->searchReserveringen();
@@ -188,7 +189,21 @@ class RouteController
 						header('Location: index.php?op=loginForm');
 					}
 					break;
-				// Voorwaardes
+				case 'searchMonth':
+					if ($_SESSION['user_role'] == 4) {
+						$this->beheerdersController->reserveringenMonth();
+					} else {
+						header('Location: index.php?op=loginForm');
+					}
+					break;
+				case 'searchReserveringMonth':
+					if ($_SESSION['user_role'] == 4) {
+						$this->beheerdersController->searchReserveringenMonth($_REQUEST['month']);
+					} else {
+						header('Location: index.php?op=loginForm');
+					}
+					break;
+					// Voorwaardes
 				case 'cookievw':
 					$this->userController->collectCookie();
 					break;
