@@ -43,7 +43,7 @@ class reserveringenModel
   public function getTarieven()
   {
     try {
-      $sql = "SELECT normaal 'Normaal', `t/m11` '0 tot 12 Jaar',  `12t/m17` '12 tot 18 Jaar', `65+`, overig 'Overig' FROM tarieven";
+      $sql = "SELECT normaal 'Normaal', tm11 '0 tot 12 Jaar',  12tm17 '12 tot 18 Jaar', 65plus '65+' , overig 'Overig' FROM tarieven";
       $results = $this->DataHandler->readsData($sql);
       return $results;
     } catch (exception $e) {
@@ -53,12 +53,40 @@ class reserveringenModel
 
   public function addReser($creating){
     $bes_id = $creating['bes_id'];
+    $klant_naam = $creating['knaam'];
+    $klant_adres = $creating['adres'];
+    $klant_pc = $creating['post_code'];
+    $klant_plaats = $creating['plaats'];
+    $klant_nr = $creating['telefoon'];
+    $aant_pers = $creating['normaal'] + $creating['12tm17'] + $creating['tm11'] + $creating['65+'] + $creating['overig'];
+
+    $bedrag = $this->berekBedrag($creating);
+
     try{
-      $sql = "INSERT INTO reserveringen(res_code, klant_naam, klant_adres, klant_pc, klant_plaats, res_datum, aant_pers, bes_id, kosten) 
-                  VALUES ('', '', '', '','', '', '', '', '' )";
+      $sql = "INSERT INTO reserveringen(res_code, klant_naam, klant_adres, klant_pc, klant_plaats, klant_tel res_datum, aant_pers, bes_id, kosten) 
+                  VALUES ('', '', '', '', '','', '', '', '', '' )";
       $factuur = $this->DataHandler->createData($sql);
       return $factuur;
     }catch(exception $e){
+      throw $e;
+    }
+  }
+
+  public function berekBedrag($creating){
+    
+    
+// + ($tm11 * tm11) + ($12tm17 * 12tm17) + ($ouderen * 65plus) + ($overig * overig) 
+    try{
+      $normaal = $creating['normaal'];
+      $tm11 = $creating['tm11'];
+      $jongeren = $creating['12tm17'];
+      $ouderen = $creating['65+'];
+      $overig = $creating['overig'];
+      
+      $sql = "SELECT ('$normaal' * normaal) FROM tarieven";
+      $bedrag = $this->DataHandler ->readsData($sql);
+      return $bedrag;
+    }catch (exception $e){
       throw $e;
     }
   }

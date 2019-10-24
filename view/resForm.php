@@ -122,7 +122,7 @@ require_once('view/header.php');
           <br />
           <label>Studenten, CJP & BankGiro Loterij VIP-KAART</label>
           <select name="overig" class="form-control">
-            <option value="">--Geen Studenten, CJP of BankGiro Loterij VIP-KAART--</option>
+            <option value="0">--Geen Studenten, CJP of BankGiro Loterij VIP-KAART--</option>
             <?php
             foreach (range(1, 50) as $number) {
               echo "<option value='" . $number . "'>" . $number . "</option>";

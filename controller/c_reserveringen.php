@@ -44,7 +44,8 @@ class resController
   }
 
   public function getOverzichtReservering(){
-	  $choice = $_REQUEST;
+	  $creating = $_REQUEST;
+	  $bedrag = $this->reserveringenModel->berekBedrag($creating);
 	  include 'view/reservering_overzicht.php';
   }
 
