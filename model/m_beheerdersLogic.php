@@ -207,21 +207,6 @@ class BeheerdersLogic
     }
   }
 
-  // public function collectRadio()
-  // {
-  //   $zaal           = $creating["zaal_id"];
-  //   $beg_tijd     = $creating["beg_tijd"];
-  //   $eind_tijd    = $creating["eind_tijd"];
-  //   $datum       = $creating["datum"];
-  //   try {
-  //     $sql = "INSERT INTO beschikbaarheid (zaal_id, datum, beg_tijd, eind_tijd) VALUES ('$zaal', '$datum',  '$beg_tijd', '$eind_tijd')";
-  //     $result = $this->DataHandler->createData($sql);
-  //     return $result;
-  //   } catch (exception $e) {
-  //     throw $e;
-  //   }
-  // }
-
   public function collectRadio(){
 
     $bios_id = $_SESSION['bios_id'];
