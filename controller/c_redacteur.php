@@ -46,7 +46,7 @@ class RedacteurController
     require_once "view/beheerder/header.php";
     include 'view/beheerder/redacteur/upContactCon.php';
   }
-
+  
   public function collectUpdateContactcon()
   {
     $formData = $_REQUEST;

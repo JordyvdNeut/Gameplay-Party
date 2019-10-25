@@ -181,6 +181,11 @@ h2 {
     height:auto;
   }
 /*resform*/
+
+.tarieven tr {
+  margin-right: 30px;
+  display: inline-grid;
+}
   .rescontent {
     margin:0 auto;
     }
