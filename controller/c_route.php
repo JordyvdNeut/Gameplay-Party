@@ -46,12 +46,16 @@ class RouteController
 				case 'searchBeschik':
 					$this->userController->searchuserBeschik($_REQUEST['id']);
 					break;
+					//Reserveren 
 				case 'resForm':
 					$this->resController->getResForm();
 					break;
 				case 'reserveren':
 					$this->resController->insertRes();
 					$this->resController->getFactuur();
+					break;
+				case 'getOverzichtReservering':
+					$this->resController->getOverzichtReservering();
 					break;
 					// Beheerders
 				case 'beHome':
@@ -177,9 +181,24 @@ class RouteController
 						header('Location: index.php?op=loginForm');
 					}
 					break;
+					// beheerder
 				case 'searchReservering':
 					if ($_SESSION['user_role'] == 4) {
 						$this->beheerdersController->searchReserveringen();
+					} else {
+						header('Location: index.php?op=loginForm');
+					}
+					break;
+				case 'searchMonth':
+					if ($_SESSION['user_role'] == 4) {
+						$this->beheerdersController->reserveringenMonth();
+					} else {
+						header('Location: index.php?op=loginForm');
+					}
+					break;
+				case 'searchReserveringMonth':
+					if ($_SESSION['user_role'] == 4) {
+						$this->beheerdersController->searchReserveringenMonth($_REQUEST['month']);
 					} else {
 						header('Location: index.php?op=loginForm');
 					}

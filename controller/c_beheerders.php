@@ -71,6 +71,24 @@ class BeheerdersController
 		include "view/beheerder/beheerder/home.php";
 	}
 
+	public function reserveringenMonth()
+	{
+		$resThisMonth = $this->beheerdersLogic->readReserveringenMonth();
+		// var_dump($resThisMonth);
+		$content = $this->HTMLBeheerderController->createResTable($resThisMonth, 'Reserveringen deze maand', 'updateReservering');
+		require_once "view/beheerder/header.php";
+		include "view/beheerder/beheerder/resMonth.php";
+	}
+
+	public function searchReserveringenMonth($month)
+	{
+		$resMonth = $this->beheerdersLogic->searchReserveringenMonth($month);
+		// var_dump($resMonth);
+		$content = $this->HTMLBeheerderController->createResTable($resMonth, 'Gevonden reserveringen', 'updateReservering');
+		require_once "view/beheerder/header.php";
+		include "view/beheerder/beheerder/resMonth.php";
+	}
+
 	public function collectBioscon()
 	{
 		$bioscoopContent = $this->beheerdersLogic->readsBiosContent();

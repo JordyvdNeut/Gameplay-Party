@@ -65,9 +65,10 @@ require_once('view/header.php');
       echo $html;
       ?>
       <div class="row">
-        <!-- Klant gegevens toevoegen -->
+        <!-- Klant gegevens toevoegen
+      index.php?op=reserveren&id= $_REQUEST['id'] ?>&bios=$_REQUEST['bios'] -->
         <div class="col-5 rescontent">
-          <form action="index.php?op=reserveren&id=<?= $_REQUEST['id'] ?>&bios=<?= $_REQUEST['bios'] ?>" method="post">
+          <form action="index.php?op=getOverzichtReservering" method="post">
             <label>Uw Naam</label>
             <input class="form-control" name="naam" type="text" required="required" />
             <br />
@@ -129,7 +130,7 @@ require_once('view/header.php');
           <br />
           <label>Studenten, CJP & BankGiro Loterij VIP-KAART</label>
           <select name="overig" class="form-control">
-            <option value="">--Geen Studenten, CJP of BankGiro Loterij VIP-KAART--</option>
+            <option value="0">--Geen Studenten, CJP of BankGiro Loterij VIP-KAART--</option>
             <?php
             foreach (range(1, 50) as $number) {
               echo "<option value='" . $number . "'>" . $number . "</option>";

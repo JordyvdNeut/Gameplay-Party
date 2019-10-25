@@ -31,7 +31,7 @@ class HTMLBeheerderController
         $html .= "<td>{$value}</td>";
       }
       $html .= "<td><a href='?op=$link&id=" . $row['id'] . "'><button class='btn'><span class='glyphicon glyphicon-pencil'></span> Bewerken</button></td> ";
-      $html .="<td><a href='?op=$delete&id=" . $row['id'] . "'><button class='btn'><span class='glyphicon glyphicon-pencil'></span> verwijderen</button></a></td>";
+      $html .= "<td><a href='?op=$delete&id=" . $row['id'] . "'><button class='btn'><span class='glyphicon glyphicon-pencil'></span> verwijderen</button></a></td>";
       $html .= "</tr>";
     }
 
@@ -73,6 +73,7 @@ class HTMLBeheerderController
   {
     $tableheader = false;
     $html = "";
+    $totaal = 0;
 
     $html .= "<h3>$header</h3>";
     $html .= "<table class='table'>";
@@ -86,15 +87,26 @@ class HTMLBeheerderController
         $html .= "</tr>";
         $tableheader = true;
       }
-      foreach ($row as $value) {
-        $html .= "<td>{$value}</td>";
-      }
+      $totaal += $row['Kosten'];
+      $html .= "<td>$row[Datum]</td>";
+      $html .= "<td>$row[Bioscoop]</td>";
+      $row['Kosten'] = '€' . str_replace('.', ',', $row['Kosten']);
+      $html .= "<td>$row[Kosten]</td>";
       $html .= "</tr>";
     }
+    $html .= "<tr>";
+    $html .= "<td>";
+    $html .= "</td>";
+    $html .= "<td>";
+    $html .= "</td>";
+    $html .= "<td>";
+    $totaal = str_replace('.', ',', $totaal);
+    $html .= "Totaal: €" . $totaal;
+    $html .= "</td>";
+    $html .= "</tr>";
 
     $html .= "</table>";
     return $html;
-    
   }
 
   public function makeRadioButtons($radio)

@@ -207,21 +207,6 @@ class BeheerdersLogic
     }
   }
 
-  // public function collectRadio()
-  // {
-  //   $zaal           = $creating["zaal_id"];
-  //   $beg_tijd     = $creating["beg_tijd"];
-  //   $eind_tijd    = $creating["eind_tijd"];
-  //   $datum       = $creating["datum"];
-  //   try {
-  //     $sql = "INSERT INTO beschikbaarheid (zaal_id, datum, beg_tijd, eind_tijd) VALUES ('$zaal', '$datum',  '$beg_tijd', '$eind_tijd')";
-  //     $result = $this->DataHandler->createData($sql);
-  //     return $result;
-  //   } catch (exception $e) {
-  //     throw $e;
-  //   }
-  // }
-
   public function collectRadio(){
 
     $bios_id = $_SESSION['bios_id'];
@@ -342,11 +327,50 @@ class BeheerdersLogic
   public function readSearchedReserveringen($datum)
   {
     try {
-      $sql = "SELECT datum Datum, bios_naam Bioscoop, kosten Kosten FROM reserveringen NATURAL JOIN beschikbaarheid NATURAL JOIN zalen NATURAL JOIN bioscopen WHERE datum = $datum ORDER BY datum ASC";
+      $sql = "SELECT datum Datum, bios_naam Bioscoop, kosten Kosten 
+      FROM reserveringen 
+      NATURAL JOIN beschikbaarheid 
+      NATURAL JOIN zalen 
+      NATURAL JOIN bioscopen 
+      WHERE datum = $datum ORDER BY datum ASC";
       $results = $this->DataHandler->readsData($sql);
       return $results;
     } catch (exception $e) {
       throw $e;
     }    
   }
+
+  public function readReserveringenMonth()
+  { 
+    try {
+      $sql = "SELECT datum Datum, bios_naam Bioscoop, kosten Kosten 
+      FROM reserveringen 
+      NATURAL JOIN beschikbaarheid 
+      NATURAL JOIN zalen 
+      NATURAL JOIN bioscopen 
+      WHERE MONTH(res_datum) = MONTH(CURRENT_TIMESTAMP) 
+      ORDER BY datum ASC";
+      $results = $this->DataHandler->readsData($sql);
+      return $results;
+    } catch (exception $e) {
+      throw $e;
+    }    
+  }
+
+  public function searchReserveringenMonth($month)
+  {
+    try {
+      $sql = "SELECT datum Datum, bios_naam Bioscoop, kosten Kosten 
+      FROM reserveringen 
+      NATURAL JOIN beschikbaarheid 
+      NATURAL JOIN zalen 
+      NATURAL JOIN bioscopen 
+      WHERE MONTH(res_datum) = $month 
+      ORDER BY datum ASC";
+      $results = $this->DataHandler->readsData($sql);
+      return $results;
+    } catch (exception $e) {
+      throw $e;
+    } 
+   }
 }
