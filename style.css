@@ -182,6 +182,10 @@ h2 {
   }
 /*resform*/
 
+.bestel,.diensten,.tarieven{
+  margin: 0 auto;
+}
+
 .tarieven tr {
   margin-right: 30px;
   display: inline-grid;
