@@ -20,7 +20,11 @@
           <option value="11">November</option>
           <option value="12">December</option>
         </select>
-        <input class="form-control" type='number' name="year" value="2019">
+        <?php 
+        $thisYear = date("Y");
+        $html = "<input class='form-control' type='number' name='year' value='$thisYear'>";
+        echo $html;
+        ?>
         <input class="btn" type="submit" value="Zoeken" />
       </form>
       <?= $content ?>
