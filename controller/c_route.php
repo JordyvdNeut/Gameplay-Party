@@ -198,7 +198,7 @@ class RouteController
 					break;
 				case 'searchReserveringMonth':
 					if ($_SESSION['user_role'] == 4) {
-						$this->beheerdersController->searchReserveringenMonth($_REQUEST['month']);
+						$this->beheerdersController->searchReserveringenMonth($_REQUEST['month'], $_REQUEST['year']);
 					} else {
 						header('Location: index.php?op=loginForm');
 					}

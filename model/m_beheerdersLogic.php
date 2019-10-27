@@ -249,7 +249,7 @@ class BeheerdersLogic
   {
     $bios_id = $_SESSION['bios_id'];
     try {
-      $sql = "SELECT bes_id id, zaal_nr Zaal,	datum Datum,	beg_tijd 'Begin tijd',	eind_tijd 'Eind tijd' FROM beschikbaarheid NATURAL JOIN bioscopen NATURAL JOIN zalen WHERE beschik = false AND bios_id = $bios_id ORDER BY datum ASC, zaal_nr ASC, beg_tijd ASC";
+      $sql = "SELECT bes_id id, zaal_nr Zaal,	datum Datum,	beg_tijd 'Begin tijd',	eind_tijd 'Eind tijd' FROM beschikbaarheid NATURAL JOIN bioscopen NATURAL JOIN zalen WHERE beschik = true AND bios_id = $bios_id ORDER BY datum ASC, zaal_nr ASC, beg_tijd ASC";
       $results = $this->DataHandler->readsData($sql);
       return $results;
     } catch (exception $e) {
@@ -261,7 +261,7 @@ class BeheerdersLogic
   {
     $bios_id = $_SESSION['bios_id'];
     try {
-      $sql = "SELECT bes_id id, zaal_nr Zaal,	datum Datum,	beg_tijd 'Begin tijd',	eind_tijd 'Eind tijd' FROM beschikbaarheid NATURAL JOIN bioscopen NATURAL JOIN zalen WHERE beschik = true AND bios_id = $bios_id ORDER BY datum ASC, zaal_nr ASC, beg_tijd ASC";
+      $sql = "SELECT bes_id id, zaal_nr Zaal,	datum Datum,	beg_tijd 'Begin tijd',	eind_tijd 'Eind tijd' FROM beschikbaarheid NATURAL JOIN bioscopen NATURAL JOIN zalen WHERE beschik = false AND bios_id = $bios_id ORDER BY datum ASC, zaal_nr ASC, beg_tijd ASC";
       $results = $this->DataHandler->readsData($sql);
       return $results;
     } catch (exception $e) {
@@ -357,7 +357,7 @@ class BeheerdersLogic
     }    
   }
 
-  public function searchReserveringenMonth($month)
+  public function searchReserveringenMonth($month, $year)
   {
     try {
       $sql = "SELECT datum Datum, bios_naam Bioscoop, kosten Kosten 
@@ -365,7 +365,7 @@ class BeheerdersLogic
       NATURAL JOIN beschikbaarheid 
       NATURAL JOIN zalen 
       NATURAL JOIN bioscopen 
-      WHERE MONTH(res_datum) = $month 
+      WHERE MONTH(res_datum) = $month AND YEAR(res_datum) = $year
       ORDER BY datum ASC";
       $results = $this->DataHandler->readsData($sql);
       return $results;
