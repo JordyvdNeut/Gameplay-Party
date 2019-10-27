@@ -17,7 +17,7 @@ require_once('view/header.php');
 
       <div class="col-4">
         <h2>Aanbetaling</h2>
-        <p>    </p>
+        <p>Na dat er een reservering is gemaakt word er verwacht dat er bij Kinepolisa een aanbetaling word gedaan binnen 48 uur na de reservering. Dit is nodig om de bestelling te voltooien. Deze aanbetaling moet worden gedaan bij kassa.</p>
       </div>
   
       <a href="?op=reserveren"><button  class="btn">Bevestigen</button></a>
