@@ -66,7 +66,7 @@ class BeheerdersController
 	{
 		$datum = date("Y-m-d", strtotime($_REQUEST['datum']));
 		$datumReservering = $this->beheerdersLogic->readSearchedReserveringen($datum);
-		$content = $this->HTMLBeheerderController->createConTable($datumReservering, 'Gevonden reserveringen', 'updateReservering');
+		$content = $this->HTMLBeheerderController->createResTable($datumReservering, 'Gevonden reserveringen', 'updateReservering');
 		require_once "view/beheerder/header.php";
 		include "view/beheerder/beheerder/home.php";
 	}
@@ -74,16 +74,14 @@ class BeheerdersController
 	public function reserveringenMonth()
 	{
 		$resThisMonth = $this->beheerdersLogic->readReserveringenMonth();
-		// var_dump($resThisMonth);
 		$content = $this->HTMLBeheerderController->createResTable($resThisMonth, 'Reserveringen deze maand', 'updateReservering');
 		require_once "view/beheerder/header.php";
 		include "view/beheerder/beheerder/resMonth.php";
 	}
 
-	public function searchReserveringenMonth($month)
+	public function searchReserveringenMonth($month, $year)
 	{
-		$resMonth = $this->beheerdersLogic->searchReserveringenMonth($month);
-		// var_dump($resMonth);
+		$resMonth = $this->beheerdersLogic->searchReserveringenMonth($month, $year);
 		$content = $this->HTMLBeheerderController->createResTable($resMonth, 'Gevonden reserveringen', 'updateReservering');
 		require_once "view/beheerder/header.php";
 		include "view/beheerder/beheerder/resMonth.php";
