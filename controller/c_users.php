@@ -57,6 +57,10 @@ class UserController
   {
     include_once 'view/voorwaardes/termsfeed-terms-conditions-html-english.php';
   }
+  public function collectfactuur()
+  {
+    include_once 'view/factuur.php';
+  }
 
   
   public function collectHomePost($id){
