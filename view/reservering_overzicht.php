@@ -12,12 +12,12 @@ require_once('view/header.php');
           <p><?= $creating["adres"]?></p>
           <p><?= $creating["postcode"]?> <?= $creating["woonplaats"]?></p>
           <p>Tel: <?= $creating["telefoon"]?></p>        
-          <p>Bedrag: €<?= $bedrag ?></p>
+          <p>Bedrag: €<?= $bedrag->fetchColumn() ?></p>
       </div>
 
       <div class="col-4">
         <h2>Aanbetaling</h2>
-        <p>    </p>
+        <p> </p>
       </div>
   
       <a href="?op=reserveren"><button  class="btn">Bevestigen</button></a>

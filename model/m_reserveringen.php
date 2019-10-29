@@ -61,7 +61,7 @@ class reserveringenModel
     $aant_pers = $creating['normaal'] + $creating['12tm17'] + $creating['tm11'] + $creating['65plus'] + $creating['overig'];
 
     $bedrag = $this->berekBedrag($creating);
-
+    
     try{
       $sql = "INSERT INTO reserveringen(res_code, klant_naam, klant_adres, klant_pc, klant_plaats, klant_tel res_datum, aant_pers, bes_id, kosten) 
                   VALUES ('', '$klant_naam', '$klant_adres', '$klant_pc', '$klant_plaats','$klant_nr', '', '$aant_pers', '$bes_id', '$bedrag' )";
@@ -73,7 +73,6 @@ class reserveringenModel
   }
 
   public function berekBedrag($creating){
-// + ($tm11 * tm11) + ($12tm17 * 12tm17) + ($ouderen * 65plus) + ($overig * overig) 
     try{
       $normaal = $creating['normaal'];
       $tm11 = $creating['tm11'];
