@@ -18,8 +18,20 @@
       $html .= "<label>Eind tijd</label>";
       $html .= "<input class='form-control' type='time' name='eind_tijd' value='$row[eind_tijd]' />";
       $html .= "<br />";
-      $html .= "<label class='custom-control-label'>Geboekt</label><br />";
-      $html .= "<input type='checkbox' name='beschik' value='$row[beschik]'/>";
+      
+      $html .= "<label class='custom-control-label'>Boeking</label><br />";
+      $beschikbaarheid = "";
+      if ($row['beschik'] == true) {
+        $beschikbaarheid = "Beschikbaar";
+      } else {
+        $beschikbaarheid = "Bezet";
+      }
+      $html .= "<select class='form-control' name='beschik'>";
+      $html .= "<option value='$row[beschik]'>$beschikbaarheid</option>";
+      $html .= "<option value='0'>Bezet</option>";
+      $html .= "<option value='1'>Beschikbaar</option>";
+      $html .= "</select>";
+
       $html .= "<br />";
       $html .= "<button type='submit' class='btn'> Bewerken</button>";
       $html .= "</form>";
