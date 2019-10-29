@@ -49,9 +49,9 @@ class resController
 	  include 'view/reservering_overzicht.php';
   }
 
-  public function insertRes(){
+  public function insertRes($id){
 	$creating = $_REQUEST;
-	$reservering = $this->reserveringenModel->addReser($creating);
+	$reservering = $this->reserveringenModel->addReser($creating, $id);
 	include 'view/factuur.php';
   }
 }

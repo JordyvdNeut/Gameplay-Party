@@ -76,7 +76,7 @@ require_once('view/header.php');
         <!-- Klant gegevens toevoegen
       index.php?op=reserveren&id= $_REQUEST['id'] ?>&bios=$_REQUEST['bios'] -->
         <div class="col-5 rescontent">
-          <form action="index.php?op=getOverzichtReservering" method="post">
+          <form action="index.php?op=reserveren&id= $_REQUEST['id'] ?>&bios=$_REQUEST['bios']" method="post">
             <label>Uw Naam</label>
             <input class="form-control" name="naam" type="text" required="required" />
             <br />
@@ -127,7 +127,7 @@ require_once('view/header.php');
           </select>
           <br />
           <label>65+</label>
-          <select name="65+" class="form-control">
+          <select name="65plus" class="form-control">
             <option value="">--Geen 65 plussers--</option>
             <?php
             foreach (range(1, 50) as $number) {
