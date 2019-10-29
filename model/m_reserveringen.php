@@ -51,19 +51,23 @@ class reserveringenModel
     }
   }
 
-  public function addReser($creating, $id){
+  public function addReser($creating){
+    $bes_id = $creating['id'];
     $klant_naam = $creating['naam'];
     $klant_adres = $creating['adres'];
     $klant_pc = $creating['postcode'];
     $klant_plaats = $creating['woonplaats'];
     $klant_nr = $creating['telefoon'];
+    $datum = date('Y-m-d');
     $aant_pers = $creating['normaal'] + $creating['12tm17'] + $creating['tm11'] + $creating['65plus'] + $creating['overig'];
 
-    $bedrag = $this->berekBedrag($creating);
+    //$bedrag = $this->berekBedrag($creating);
+
+    //var_dump($bedrag);
     
     try{
       $sql = "INSERT INTO reserveringen(res_code, klant_naam, klant_adres, klant_pc, klant_plaats, klant_tel res_datum, aant_pers, bes_id, kosten) 
-                  VALUES ('', '$klant_naam', '$klant_adres', '$klant_pc', '$klant_plaats','$klant_nr', '', '$aant_pers', '$id', '$bedrag' )";
+                  VALUES ('', '$klant_naam', '$klant_adres', '$klant_pc', '$klant_plaats','$klant_nr', '$datum', '$aant_pers', '$bes_id', '' )";
       $factuur = $this->DataHandler->createData($sql);
       return $factuur;
     }catch(exception $e){
@@ -76,11 +80,12 @@ class reserveringenModel
       $normaal = $creating['normaal'];
       $tm11 = $creating['tm11'];
       $jongeren = $creating['12tm17'];
-      $ouderen = $creating['65+'];
+      $ouderen = $creating['65plus'];
       $overig = $creating['overig'];
 
-      $sql = "SELECT ('$normaal' * normaal) + ('$tm11' * tm11) + ('$jongeren' * 12tm17) + ('$ouderen' *65plus) + ('$overig' * overig) FROM tarieven";
+      $sql = "SELECT SUM(('$normaal' * normaal) + ('$tm11' * tm11) + ('$jongeren' * 12tm17) + ('$ouderen' *65plus) + ('$overig' * overig)) FROM tarieven";
       $bedrag = $this->DataHandler ->readsData($sql);
+      $bedrag->fetchColumn(PDO::FETCH_ASSOC);
       return $bedrag;
     }catch (exception $e){
       throw $e;

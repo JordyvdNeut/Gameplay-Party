@@ -76,7 +76,7 @@ require_once('view/header.php');
         <!-- Klant gegevens toevoegen
       index.php?op=reserveren&id= $_REQUEST['id'] ?>&bios=$_REQUEST['bios'] -->
         <div class="col-5 rescontent">
-          <form action="index.php?op=reserveren&id= $_REQUEST['id'] ?>&bios=$_REQUEST['bios']" method="post">
+          <form action="index.php?op=reserveren&id=$row[bes_id]&bios=$_REQUEST[id]?>&bios=$_REQUEST['bios']" method="post">
             <label>Uw Naam</label>
             <input class="form-control" name="naam" type="text" required="required" />
             <br />
@@ -98,7 +98,7 @@ require_once('view/header.php');
         <div class="col-5 rescontent">
           <label>Normaal</label>
           <select name="normaal" class="form-control">
-            <option value="">--Geen 18 jaar of ouder--</option>
+            <option value="0">--Geen 18 jaar of ouder--</option>
             <?php
             foreach (range(1, 50) as $number) {
               echo "<option value='" . $number . "'>" . $number . "</option>";
@@ -108,7 +108,7 @@ require_once('view/header.php');
           <br />
           <label>Aantal kinderen t/m 11 jaar</label>
           <select name="tm11" class="form-control">
-            <option value="">--Geen kinderen--</option>
+            <option value="0">--Geen kinderen--</option>
             <?php
             foreach (range(1, 50) as $number) {
               echo "<option value='" . $number . "'>" . $number . "</option>";
@@ -118,7 +118,7 @@ require_once('view/header.php');
           <br />
           <label>Jeugd 12 t/m 17 jaar</label>
           <select name="12tm17" class="form-control">
-            <option value="">--Geen jeugd--</option>
+            <option value="0">--Geen jeugd--</option>
             <?php
             foreach (range(1, 50) as $number) {
               echo "<option value='" . $number . "'>" . $number . "</option>";
@@ -128,7 +128,7 @@ require_once('view/header.php');
           <br />
           <label>65+</label>
           <select name="65plus" class="form-control">
-            <option value="">--Geen 65 plussers--</option>
+            <option value="0">--Geen 65 plussers--</option>
             <?php
             foreach (range(1, 50) as $number) {
               echo "<option value='" . $number . "'>" . $number . "</option>";
