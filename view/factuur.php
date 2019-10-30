@@ -10,7 +10,7 @@ $html .= "<article class='row'>";
 $html.="<div class='col-12 print'><button class='btn'onClick='window.print()'>print factuur</button></div>";
 $html .= "<div class='col-7 ral rot reshead'><h1>Reservering</h1></div>"; 
 while ($row = $biosDetails->fetch(PDO::FETCH_ASSOC)) {
-$html .= "<div class='col-5 ral'>";
+$html .= "<div class='col-5 ral resbiosinfo'>";
 $html .= "$row[bios_naam] <br />";
 $html .= "<br />";
 $html .= "$row[bios_adres] <br />";
@@ -18,7 +18,7 @@ $html .= "$row[bios_plaats] <br />";
 $html .= "</div>";
 }
 while ($row = $reservatie->fetch(PDO::FETCH_ASSOC)) {
-$html .="<div class='col-7'>";
+$html .="<div class='col-7 resinfo'>";
 $html .="<h4>$row[klant_naam]</h4>";
 $html .= "<br />";
 $html .= "$row[klant_adres] <br />";
@@ -27,9 +27,9 @@ $html .= "$row[klant_tel] <br />";
 $html .= "</div>";
 // }
 
-$html .= "<div class='col-5'>";
+$html .= "<div class='col-5 resinfo'>";
 $html .= "<div class='row'>";
-$html .= "<div class='col-6 odd'>";
+$html .= "<div class='col-6 odd  '>";
 $html .= "<strong>Reserverings ID:</strong><br>"; 
 $html .= "<strong>Datum:</strong><br>"; 
 $html .= "<strong>Reserveringsdatum:</strong><br>"; 
@@ -37,7 +37,7 @@ $html .= "<strong>Reserveringstijd:</strong><br>";
 $html .= "<strong>Totaal EURO:</strong><br><br>"; 
 $html .= "</div>";
 // while ($row = $reservatie->fetch(PDO::FETCH_ASSOC)) {
-$html .= "<div class='col-6 bob'>";
+$html .= "<div class='col-6 bob resmain'>";
 $html .= "$row[res_code]<br>";
 $html .= "$row[res_datum]<br>";
 $html .= "$row[res_datum]<br>";
@@ -48,7 +48,7 @@ $html .= "</div>";
 $html .= "</div>";
 $html .= "</div>";
 
-$html .= "<div class='col-12 '>";
+$html .= "<div class='col-12 restablekost '>";
 $html .= "<table>";
 $html .= "<thead>";
 $html .= "<tr class='bob'>";

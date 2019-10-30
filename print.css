@@ -5,10 +5,26 @@
     text-align:center;
 }
 .reshead{
-   width:100%;
+   width:70%;
+   /* padding-left:90px; */
+   margin-top:40px;
+}
+.resbiosinfo{
+    width:30%;
+}
+.resinfo{
+    width:50%;
+}
+.resmain.bob {
+    margin-left:30px;
+    border:none;
+}
+
+.restablekost{
+    width:100%;
 }
 .rot {
-    transform: rotate(0deg);
+    transform: rotate(-15deg);
     }
 .print{
     display:none;
@@ -30,5 +46,13 @@ p{
 }
 .tkeuzes{
     width:90%;
-    margin-bottom:120px;
+    margin-bottom:130px;
 }
+/* .logofactuur{
+    width:40%;
+} */
+h4{
+    padding:0;
+    margin:0px;    
+}
+
