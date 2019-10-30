@@ -57,7 +57,6 @@ class UserController
   {
     include_once 'view/voorwaardes/termsfeed-terms-conditions-html-english.php';
   }
-
   
   public function collectHomePost($id){
     $result = $this->beheerdersLogic->readHomePost($id);

@@ -50,6 +50,16 @@ class reserveringenModel
       throw $e;
     }
   }
+  public function getReservatie()
+  {
+    try {
+      $sql = "SELECT klant_naam,klant_adres, klant_plaats, klant_tel ,res_code,res_datum,res_tijd,kosten FROM reserveringen WHERE res_code=2";
+      $results = $this->DataHandler->readsData($sql);
+      return $results;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
 
   public function addReser($creating){
     $bes_id = $creating['bes_id'];

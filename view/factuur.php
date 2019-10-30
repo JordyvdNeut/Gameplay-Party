@@ -1,27 +1,31 @@
 <title>Factuur</title>
 <body>
+<img class="logofactuur" src="view/images/gpp.svg" alt="Gameplay Party">
   <?php
+
 $html = "";
 $html .= "<div class='container'>";
 $html .= "<div class='header'></div>";
 $html .= "<article class='row'>";
-$html .= "<div class='col-7 ral rot'>Reservering</div>"; 
-// while ($row = $biosDetails->fetch(PDO::FETCH_ASSOC)) {
+$html.="<div class='col-12 print'><button class='btn'onClick='window.print()'>print factuur</button></div>";
+$html .= "<div class='col-7 ral rot reshead'><h1>Reservering</h1></div>"; 
+while ($row = $biosDetails->fetch(PDO::FETCH_ASSOC)) {
 $html .= "<div class='col-5 ral'>";
-// $html .= "$row[bios_naam] <br />";
-// $html .= "<br />";
-// $html .= "$row[bios_adres] <br />";
-// $html .= "$row[bios_plaats] <br />";
+$html .= "$row[bios_naam] <br />";
+$html .= "<br />";
+$html .= "$row[bios_adres] <br />";
+$html .= "$row[bios_plaats] <br />";
 $html .= "</div>";
-// // }
+}
+while ($row = $reservatie->fetch(PDO::FETCH_ASSOC)) {
 $html .="<div class='col-7'>";
-// $html .="<h4>$row[klant_naam]</h4>";
-// $html .= "<br />";
-// $html .= "$row[klant_adres] <br />";
-// $html .= "$row[klant_plaats] <br />";
-// $html .= "$row[klant_tel] <br />";    
+$html .="<h4>$row[klant_naam]</h4>";
+$html .= "<br />";
+$html .= "$row[klant_adres] <br />";
+$html .= "$row[klant_plaats] <br />";
+$html .= "$row[klant_tel] <br />";    
 $html .= "</div>";
-
+// }
 
 $html .= "<div class='col-5'>";
 $html .= "<div class='row'>";
@@ -32,15 +36,15 @@ $html .= "<strong>Reserveringsdatum:</strong><br>";
 $html .= "<strong>Reserveringstijd:</strong><br>"; 
 $html .= "<strong>Totaal EURO:</strong><br><br>"; 
 $html .= "</div>";
-// while ($row = $bestelDetails->fetch(PDO::FETCH_ASSOC)) {
+// while ($row = $reservatie->fetch(PDO::FETCH_ASSOC)) {
 $html .= "<div class='col-6 bob'>";
-// $html .= "$row[res_code]";
-// $html .= "$row[datum]";
-// $html .= "$row[res_datum]";
-// $html .= "$row[res_tijd]";
-// $html .= "$row[kosten]";
+$html .= "$row[res_code]<br>";
+$html .= "$row[res_datum]<br>";
+$html .= "$row[res_datum]<br>";
+$html .= "$row[res_tijd]";
+$html .= "$row[kosten]<br>";
 $html .= "</div>";
-// }
+}
 $html .= "</div>";
 $html .= "</div>";
 
@@ -70,7 +74,7 @@ $html .= "<div class='col-6 bob'>";
 $html .= "<p>Met Kinepolis Jaarbeurs (14 zalen, 3200 stoelen) heeft Utrecht eindelijk een moderne megabioscoop in de binnenstad: de grootste bioscoop van Utrecht, en een van de grootste bioscopen van Nederland. Kinepolis Jaarbeurs biedt elke filmbezoeker ‘the ultimate cinema experience’: ruime en comfortabele stoelen, royale beenruimte, en beeld en geluid van het allerhoogste niveau.</p>";
 $html .= "</div>";
 
-$html .= "<div class='col-6 bob'>";
+$html .= "<div class='col-6 bob opening'>";
 $html .= "<p><strong>Openingstijden:</strong><br>";
 $html .= "Donderdag: 9:15 uur - 12:00 uur<br>";
 $html .= "Vrijdag: 13:15 uur - 15:15 uur<br></p>";
@@ -80,21 +84,30 @@ $html .= "<br>";
 $html .= "<br>";
 
 $html .= "</div>";
-$html .= "<div class='col-4 ral'>";
+$html .= "<div class='col-4 ral titelkeuze'>";
 $html .= "<p><strong>Reguliere tarieven:</strong></p>";
 $html .= "</div>";
-$html .= "<div class='col-8'>";
-// while ($row = $zaalGegevens->fetch(PDO::FETCH_ASSOC)) {
-  // $row['kosten'] = '€ ' . str_replace('.', ',', $row['kosten']);
-  $html .= "<p>";
-  // $html .= "$row[omschr]: $row[kosten]";
-  $html .= "</p>";
-// }
+$html .= "<div class='col-8 tkeuzes'>";
+while ($row = $tarieven->fetch(PDO::FETCH_ASSOC)) {
+  $html .= "<table>";
+  $html .= "<tr>";
+  foreach ($row as $key => $value) {
+    $html .= "<th>{$key}</th>";
+  }
+  $html .= "</tr>";
+  $html .= "<tr>";
+  foreach ($row as $value) {
+    $html .= "<td>{$value}</td>";
+  }
+  $html .= "</tr>";
+  $html .= "</table>";
+}
+
 $html .= "</div>";
-$html .= "<div class='col-4 ral'>";
+$html .= "<div class='col-4 ral toeslag titelkeuze'>";
 $html .= "<p><strong>Toeslagen:</strong></p>";
 $html .= "</div>";
-$html .= "<div class='col-8'>";
+$html .= "<div class='col-8 keuzes'>";
 $html .= "€ 0,50 | toeslag bij film van 135 minuten en langer<br>";
 $html .= "€ 1,50 | 3D-toeslag excl. bril<br>";
 $html .= "€ 2,60 | 3D-toeslag incl. bril<br>";
