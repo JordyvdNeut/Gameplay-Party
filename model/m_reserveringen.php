@@ -61,13 +61,14 @@ class reserveringenModel
     $datum = date('Y-m-d');
     $aant_pers = $creating['normaal'] + $creating['12tm17'] + $creating['tm11'] + $creating['65plus'] + $creating['overig'];
 
-    //$bedrag = $this->berekBedrag($creating);
+    $bedrag = $this->berekBedrag($creating)->fetch(PDO::FETCH_ASSOC);
+    $totaalBed = $bedrag['Bedrag'];
+    var_dump($totaalBed);
 
-    //var_dump($bedrag);
-    
     try{
-      $sql = "INSERT INTO reserveringen(res_code, klant_naam, klant_adres, klant_pc, klant_plaats, klant_tel res_datum, aant_pers, bes_id, kosten) 
-                  VALUES ('', '$klant_naam', '$klant_adres', '$klant_pc', '$klant_plaats','$klant_nr', '$datum', '$aant_pers', '$bes_id', '' )";
+      $sql = "INSERT INTO reserveringen( klant_naam, klant_adres, klant_pc, klant_plaats, klant_tel, res_datum, aant_pers, bes_id, kosten) 
+                  VALUES ('$klant_naam', '$klant_adres', '$klant_pc', '$klant_plaats','$klant_nr', '$datum', '$aant_pers', '$bes_id',
+                  , '$totaalBed')";
       $factuur = $this->DataHandler->createData($sql);
       return $factuur;
     }catch(exception $e){
@@ -77,15 +78,14 @@ class reserveringenModel
 
   public function berekBedrag($creating){
     try{
-      $normaal = $creating['normaal'];
-      $tm11 = $creating['tm11'];
-      $jongeren = $creating['12tm17'];
-      $ouderen = $creating['65plus'];
-      $overig = $creating['overig'];
+      $normaal = intval($creating['normaal']);
+      $tm11 = intval($creating['tm11']);
+      $jongeren = intval($creating['12tm17']);
+      $ouderen = intval($creating['65plus']);
+      $overig = intval($creating['overig']);
 
-      $sql = "SELECT SUM(('$normaal' * normaal) + ('$tm11' * tm11) + ('$jongeren' * 12tm17) + ('$ouderen' *65plus) + ('$overig' * overig)) FROM tarieven";
+      $sql = "SELECT SUM(($normaal * normaal) + ($tm11 * tm11) + ($jongeren * 12tm17) + ($ouderen *65plus) + ($overig * overig)) AS Bedrag FROM tarieven";
       $bedrag = $this->DataHandler ->readsData($sql);
-      $bedrag->fetchColumn(PDO::FETCH_ASSOC);
       return $bedrag;
     }catch (exception $e){
       throw $e;
