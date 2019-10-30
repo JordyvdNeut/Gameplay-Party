@@ -12,7 +12,7 @@ require_once('view/header.php');
           <p><?= $creating["adres"]?></p>
           <p><?= $creating["postcode"]?> <?= $creating["woonplaats"]?></p>
           <p>Tel: <?= $creating["telefoon"]?></p>        
-          <p>Bedrag: €<?= $bedrag ?></p>
+          <p>Bedrag: €<?= $bedrag->fetchColumn() ?></p>
       </div>
 
       <div class="col-4">
