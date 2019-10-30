@@ -25,14 +25,18 @@ class resController
 
 	public function	getFactuur()
 	{
-		$_REQUEST['res_date'] = date("d/m/Y");
-		$factuur = $_REQUEST;
+		//$_REQUEST['res_date'] = date("d/m/Y");
+		//$factuur = $_REQUEST;
+		var_dump($_REQUEST);
+		$creating = $_REQUEST;
 		$zaalGegevens = $this->reserveringenModel->getZaalDetail($_REQUEST['id']);
 		$bestelDetails = $this->reserveringenModel->getBeschikDetail($_REQUEST['id']);
 		$biosDetails = $this->biosModel->readBios($_REQUEST['bios']);
 		$tarieven = $this->reserveringenModel->getTarieven();
-		$reservatie= $this->reserveringenModel->getReservatie();
+		// $reservatie= $this->reserveringenModel->getReservatie();
+		
 		include 'view/factuur.php';
+		return $creating;
 	}
   
   public function getResForm()

@@ -54,7 +54,6 @@ class HTMLController
 		$html .= "</div>";
 		$html .= "</div>";
 		while ($row = $beschikbaar->fetch(PDO::FETCH_ASSOC)) {
-
 			$NLdate = date("d-m-Y", strtotime($row['datum']));
 			$begintijd = date("H:i ", strtotime($row['beg_tijd']));
 			$eindtijd = date("H:i ", strtotime($row['eind_tijd']));
