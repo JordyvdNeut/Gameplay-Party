@@ -76,24 +76,28 @@ require_once('view/header.php');
         <!-- Klant gegevens toevoegen
       index.php?op=reserveren&id= $_REQUEST['id'] ?>&bios=$_REQUEST['bios'] -->
         <div class="col-5 rescontent">
-          <form action="index.php?op=reserveren&id=$row[bes_id]&bios=$_REQUEST[id]?>&bios=$_REQUEST['bios']" method="post">
-            <label>Uw Naam</label>
-            <input class="form-control" name="naam" type="text" required="required" />
-            <br />
-            <label>Adres</label>
-            <input class="form-control" name="adres" type="text" required="required" />
-            <br />
-            <label>Postcode</label>
-            <input class="form-control" name="postcode" type="text" required="required" />
-            <br />
-            <label>Woonplaats</label>
-            <input class="form-control" name="woonplaats" type="text" required="required" />
-            <br />
-            <label>Telefoon nummer</label>
-            <input class="form-control" name="telefoon" type="tel" required="required" />
-            <br />
-            <br />
-        </div>
+        <?php
+          $html = "";
+          $html .= " <form action='index.php?op=reserveren&id=$_REQUEST[id]' method='post'>";
+          $html .= " <label>Uw Naam</label>";
+          $html .= " <input class='form-control' name='naam' type='text' />";
+          $html .= " <br />";
+          $html .= " <label>Adres</label>";
+          $html .= " <input class='form-control' name='adres' type='text' />";
+          $html .= " <br />";
+          $html .= " <label>Postcode</label>";
+          $html .= " <input class='form-control' name='postcode' type='text' />";
+          $html .= " <br />";
+          $html .= " <label>Woonplaats</label>";
+          $html .= " <input class='form-control' name='woonplaats' type='text' />";
+          $html .= " <br />";
+          $html .= " <label>Telefoon nummer</label>";
+          $html .= " <input class='form-control' name='telefoon' type='tel' />";
+          $html .= " <br />";
+          $html .= " <br />";
+          $html .= " </div>";
+          echo $html;
+          ?>
         <!-- Personen toevoegen -->
         <div class="col-5 rescontent">
           <label>Normaal</label>

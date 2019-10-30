@@ -29,6 +29,7 @@ class resController
 		//$factuur = $_REQUEST;
 		var_dump($_REQUEST);
 		$creating = $_REQUEST;
+		$factuur = $_REQUEST;
 		$zaalGegevens = $this->reserveringenModel->getZaalDetail($_REQUEST['id']);
 		$bestelDetails = $this->reserveringenModel->getBeschikDetail($_REQUEST['id']);
 		$biosDetails = $this->biosModel->readBios($_REQUEST['bios']);
