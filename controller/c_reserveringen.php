@@ -25,7 +25,6 @@ class resController
 
 	public function	getFactuur()
 	{
-		$_REQUEST['res_date'] = date("d/m/Y");
 		$factuur = $_REQUEST;
 		$zaalGegevens = $this->reserveringenModel->getZaalDetail($_REQUEST['id']);
 		$bestelDetails = $this->reserveringenModel->getBeschikDetail($_REQUEST['id']);
