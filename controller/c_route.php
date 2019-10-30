@@ -219,6 +219,9 @@ class RouteController
 				case 'voorwaardevw':
 					$this->userController->collectVoorwaarde();
 					break;
+				case 'factuur':
+					$this->resController->getFactuur();
+					break;
 				case 'login':
 					$this->beheerdersController->login();
 					break;

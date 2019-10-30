@@ -320,6 +320,11 @@ margin-bottom:15px;
   float: right;
   margin: 3px;
 }
+.logofactuur{
+  width: 50%;
+  margin-left: -5px;
+  position: absolute;
+}
 
 @media (max-width: 786px){
   .biosInside{

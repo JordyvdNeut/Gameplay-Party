@@ -30,6 +30,7 @@ class resController
 		$bestelDetails = $this->reserveringenModel->getBeschikDetail($_REQUEST['id']);
 		$biosDetails = $this->biosModel->readBios($_REQUEST['bios']);
 		$tarieven = $this->reserveringenModel->getTarieven();
+		$reservatie= $this->reserveringenModel->getReservatie();
 		include 'view/factuur.php';
 	}
   

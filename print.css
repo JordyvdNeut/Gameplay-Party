@@ -4,3 +4,55 @@
 .col-7.ral.rot{
     text-align:center;
 }
+.reshead{
+   width:70%;
+   /* padding-left:90px; */
+   margin-top:40px;
+}
+.resbiosinfo{
+    width:30%;
+}
+.resinfo{
+    width:50%;
+}
+.resmain.bob {
+    margin-left:30px;
+    border:none;
+}
+
+.restablekost{
+    width:100%;
+}
+.rot {
+    transform: rotate(-15deg);
+    }
+.print{
+    display:none;
+}
+[class*="col-"]{
+    padding:0px;
+}
+.opening{
+    width:100%;
+}
+p{
+    margin:0px;
+}
+.rtitelkeuze{
+    width:20%;
+}
+.keuzes{
+    width:90%;
+}
+.tkeuzes{
+    width:90%;
+    margin-bottom:130px;
+}
+/* .logofactuur{
+    width:40%;
+} */
+h4{
+    padding:0;
+    margin:0px;    
+}
+
