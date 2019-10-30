@@ -49,9 +49,9 @@ class BeheerdersController
 	public function collectContentTables()
 	{
 		$homeContent = $this->beheerdersLogic->readsHomeCon();
-		$homeConTable = $this->HTMLBeheerderController->createConTable($homeContent, 'Home pagina', 'updateHomeConForm', 'deleteHomeConForm');
+		$homeConTable = $this->HTMLBeheerderController->createConTableDel($homeContent, 'Home pagina', 'updateHomeConForm', 'deleteHomeConForm');
 		$overonsContent = $this->beheerdersLogic->readOveronsCon();
-		$overonsConTable = $this->HTMLBeheerderController->createConTable($overonsContent, 'Contact pagina', 'updateContactConForm','deleteHomeConForm');
+		$overonsConTable = $this->HTMLBeheerderController->createConTable($overonsContent, 'Contact pagina', 'updateContactConForm', 'deleteHomeConForm');
 		return "<hr style='border-color: green'>" . $homeConTable . "<hr style='border-color: green'>" . $overonsConTable;
 	}
 
@@ -92,9 +92,10 @@ class BeheerdersController
 		$bioscoopContent = $this->beheerdersLogic->readsBiosContent();
 		$content = $this->HTMLBeheerderController->createConTable($bioscoopContent, 'Bioscoop gegevens', 'updatBiosConForm');
 		require_once "view/beheerder/header.php";
-		require_once "view/beheerder/bioscoop/home.php";
+		require_once "view/beheerder/bioscoop/content.php";
 	}
 
+	// get beschikbaren en geboekte plaatsen
 	public function collectAvailabilty()
 	{
 		$availabe = $this->beheerdersLogic->readAvailabilty();
@@ -104,13 +105,16 @@ class BeheerdersController
 		return "<hr style='border-color: green'>" . $availabiltyTable . "<hr style='border-color: green'>" . $bookedTable;
 	}
 
+	// search function voor beschikbaarheid voor bioscoop beheerder
 	public function searchbiosBeschik()
 	{
 		$NLdatum = date("d-m-Y", strtotime($_REQUEST['datum']));
 		$datum = date("Y-m-d", strtotime($_REQUEST['datum']));
-		$datumBeschikbaarheden = $this->beheerdersLogic->readAvailability($datum);
-		$searchedBeschikTable = $this->HTMLBeheerderController->createAvailabiltyTable($datumBeschikbaarheden, "Deze zalen zijn gevonden op: $NLdatum");
-		$content = $searchedBeschikTable;
+		$searchBeschikDatum = $this->beheerdersLogic->readAvailabilityDate($datum);
+		$availabiltyTable = $this->HTMLBeheerderController->createAvailabiltyTable($searchBeschikDatum, "Beschikbaren zalen gevonden op: $NLdatum");
+		$searchBookedDatum = $this->beheerdersLogic->readBookedDate($datum);
+		$bookedTable = $this->HTMLBeheerderController->createAvailabiltyTable($searchBookedDatum, "Geboekten zalen gevonden op: $NLdatum");
+		$content = "<hr style='border-color: green'>" . $availabiltyTable . "<hr style='border-color: green'>" . $bookedTable;
 		require_once "view/beheerder/header.php";
 		include "view/beheerder/bioscoop/home.php";
 		return $content;

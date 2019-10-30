@@ -89,7 +89,8 @@ class BeheerdersLogic
     }
   }
 
-  public function readHomePost($id){
+  public function readHomePost($id)
+  {
     $postId = $id;
     try {
       $sql = "SELECT titel, inhoud FROM homecontent WHERE homeCon_id = $postId";
@@ -207,7 +208,8 @@ class BeheerdersLogic
     }
   }
 
-  public function collectRadio(){
+  public function collectRadio()
+  {
 
     $bios_id = $_SESSION['bios_id'];
     try {
@@ -273,7 +275,11 @@ class BeheerdersLogic
   {
     $bios_id = $_SESSION['bios_id'];
     try {
-      $sql = "SELECT bes_id id, zaal_nr Zaal, datum Datum, beg_tijd 'Begin tijd', eind_tijd 'Eind tijd', beschik 'Beschikbaar' FROM beschikbaarheid NATURAL JOIN bioscopen NATURAL JOIN zalen WHERE datum = '$date' AND bios_id = $bios_id ORDER BY datum ASC";
+      $sql = "SELECT bes_id id, zaal_nr Zaal, datum Datum, beg_tijd 'Begin tijd', eind_tijd 'Eind tijd', beschik 'Beschikbaar' 
+      FROM beschikbaarheid NATURAL JOIN bioscopen NATURAL JOIN zalen 
+      WHERE datum = '$date' 
+      AND bios_id = $bios_id 
+      ORDER BY datum ASC";
       $results = $this->DataHandler->readsData($sql);
       return $results;
     } catch (exception $e) {
@@ -316,7 +322,12 @@ class BeheerdersLogic
   public function readReserveringen()
   {
     try {
-      $sql = "SELECT datum Datum, bios_naam Bioscoop, kosten Kosten FROM reserveringen NATURAL JOIN beschikbaarheid NATURAL JOIN zalen NATURAL JOIN bioscopen ORDER BY datum ASC";
+      $sql = "SELECT datum Datum, bios_naam Bioscoop, kosten Kosten 
+      FROM reserveringen 
+      NATURAL JOIN beschikbaarheid 
+      NATURAL JOIN zalen 
+      NATURAL JOIN bioscopen 
+      ORDER BY datum ASC";
       $results = $this->DataHandler->readsData($sql);
       return $results;
     } catch (exception $e) {
@@ -337,26 +348,65 @@ class BeheerdersLogic
       return $results;
     } catch (exception $e) {
       throw $e;
-    }    
+    }
   }
 
-  public function readReserveringenMonth()
-  { 
+  // read beschikbaarheden op datum voor bioscoop
+  public function readAvailabilityDate($datum)
+  {
     try {
       $sql = "SELECT datum Datum, bios_naam Bioscoop, kosten Kosten 
       FROM reserveringen 
       NATURAL JOIN beschikbaarheid 
       NATURAL JOIN zalen 
       NATURAL JOIN bioscopen 
-      WHERE MONTH(res_datum) = MONTH(CURRENT_TIMESTAMP) 
+      WHERE datum = $datum 
+      AND beschik = false 
+      AND bios_id = $_SESSION[bios_id] 
+      AND datum > CURRENT_DATE()
       ORDER BY datum ASC";
       $results = $this->DataHandler->readsData($sql);
       return $results;
     } catch (exception $e) {
       throw $e;
-    }    
+    }
   }
 
+  // read geboekte reserveringen op datum voor bioscoop
+  public function readBookedDate($datum)
+  {
+    try {
+      $sql = "SELECT datum Datum, bios_naam Bioscoop, kosten Kosten 
+      FROM reserveringen 
+      NATURAL JOIN beschikbaarheid 
+      NATURAL JOIN zalen 
+      NATURAL JOIN bioscopen 
+      WHERE datum = $datum AND beschik = true AND bios_id = $_SESSION[bios_id] ORDER BY datum ASC";
+      $results = $this->DataHandler->readsData($sql);
+      return $results;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+  // Read alle reserveringen van deze maand voor bioscoop beheerder
+  public function readReserveringenMonth()
+  {
+    try {
+      $sql = "SELECT datum Datum, bios_naam Bioscoop, kosten Kosten 
+      FROM reserveringen 
+      NATURAL JOIN beschikbaarheid 
+      NATURAL JOIN zalen 
+      NATURAL JOIN bioscopen 
+      WHERE MONTH(res_datum) = MONTH(CURRENT_TIMESTAMP)
+      ORDER BY datum ASC";
+      $results = $this->DataHandler->readsData($sql);
+      return $results;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
+
+  // Search reserveringen per maand en jaar voor bioscoop beheerder
   public function searchReserveringenMonth($month, $year)
   {
     try {
@@ -365,12 +415,13 @@ class BeheerdersLogic
       NATURAL JOIN beschikbaarheid 
       NATURAL JOIN zalen 
       NATURAL JOIN bioscopen 
-      WHERE MONTH(res_datum) = $month AND YEAR(res_datum) = $year
+      WHERE MONTH(res_datum) = $month 
+      AND YEAR(res_datum) = $year 
       ORDER BY datum ASC";
       $results = $this->DataHandler->readsData($sql);
       return $results;
     } catch (exception $e) {
       throw $e;
-    } 
-   }
+    }
+  }
 }
