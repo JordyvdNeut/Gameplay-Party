@@ -50,16 +50,16 @@ class reserveringenModel
       throw $e;
     }
   }
-  // public function getReservatie($id)
-  // {
-  //   try {
-  //     $sql = "SELECT klant_naam,klant_adres, klant_plaats, klant_tel ,res_code,res_datum,kosten FROM reserveringe<--n NATURAL JOIN bioscopen--> WHERE res_code=2";
-  //     $results = $this->DataHandler->readsData($sql);
-  //     return $results;
-  //   } catch (exception $e) {
-  //     throw $e;
-  //   }
-  // }
+  public function getReservatie($res)
+  {
+    try {
+      $sql = "SELECT * FROM reserveringen WHERE res_code=$res ";
+      $results = $this->DataHandler->readsData($sql);
+      return $results;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
 
   public function addReser($creating){
     $bes_id = $creating['id'];
@@ -78,7 +78,7 @@ class reserveringenModel
     try{
       $sql = "INSERT INTO reserveringen( klant_naam, klant_adres, klant_pc, klant_plaats, klant_tel, res_datum, aant_pers, bes_id, kosten) 
                   VALUES ('$klant_naam', '$klant_adres', '$klant_pc', '$klant_plaats','$klant_nr', '$datum', '$aant_pers', '$bes_id',
-                  , '$totaalBed')";
+                  '$totaalBed')";
       $factuur = $this->DataHandler->createData($sql);
       return $factuur;
     }catch(exception $e){

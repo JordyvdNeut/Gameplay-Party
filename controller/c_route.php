@@ -52,7 +52,7 @@ class RouteController
 					break;
 				case 'reserveren':
 					$this->resController->insertRes();
-					$this->resController->getFactuur();
+					$this->resController->getFactuur($_REQUEST['id']);
 					break;
 				case 'getOverzichtReservering':
 					$this->resController->getOverzichtReservering();

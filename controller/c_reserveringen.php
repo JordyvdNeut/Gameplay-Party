@@ -25,19 +25,16 @@ class resController
 
 	public function	getFactuur()
 	{
-		//$_REQUEST['res_date'] = date("d/m/Y");
-		//$factuur = $_REQUEST;
-		var_dump($_REQUEST);
-		$creating = $_REQUEST;
+		$_REQUEST['res_date'] = date("d/m/Y");
+		// $creating = $_REQUEST;
 		$factuur = $_REQUEST;
+		$biosDetails = $this->biosModel->readBios($_REQUEST['bios']);
 		$zaalGegevens = $this->reserveringenModel->getZaalDetail($_REQUEST['id']);
 		$bestelDetails = $this->reserveringenModel->getBeschikDetail($_REQUEST['id']);
-		$biosDetails = $this->biosModel->readBios($_REQUEST['bios']);
 		$tarieven = $this->reserveringenModel->getTarieven();
-		// $reservatie= $this->reserveringenModel->getReservatie();
-		
-		include 'view/factuur.php';
-		return $creating;
+		$reservatie= $this->reserveringenModel->getReservatie();
+		// return $creating;
+		// include 'view/factuur.php';
 	}
   
   public function getResForm()
@@ -57,6 +54,11 @@ class resController
 
   public function insertRes(){
 	$creating = $_REQUEST;
+	$biosDetails = $this->biosModel->readBios($_REQUEST['bios']);
+	$zaalGegevens = $this->reserveringenModel->getZaalDetail($_REQUEST['id']);
+	$bestelDetails = $this->reserveringenModel->getBeschikDetail($_REQUEST['id']);
+	$tarieven = $this->reserveringenModel->getTarieven();
+	$reservatie= $this->reserveringenModel->getReservatie(72);
 	$reservering = $this->reserveringenModel->addReser($creating);
 	include 'view/factuur.php';
   }
