@@ -16,8 +16,9 @@ $html .= "<div class='col-5 ral resbiosinfo'>";
 $html .= "$row[bios_naam]<br />";
 $html .= "$row[bios_adres] <br />";
 $html .= "$row[bios_plaats] <br />";
-$bios_info= $row['bios_info'];
-$bios_naam = $row['bios_naam'];
+$bios_info="$row[bios_info]";
+$biosid="$row[bios_id]";
+$biosnaam="$row[bios_naam]";
 $html .= "</div>";
 }
 
@@ -132,9 +133,8 @@ $html .= "</div>";
 }
 
 $html .= "<div class='col-4 ral'>";
-if($id=1){
+if($biosid==1){
 $html .= "<p><strong>Voorwaarden:</strong></p>";
-}
 $html .= "</div>";
 $html .= "<div class='col-8'>";
 $html .= "Bovenstaande prijzen zijn per persoon, zijn niet geldig bij evenementen, speciale voorstellingen of besloten voorstellingen en altijd exclusief toeslagen.";
@@ -169,6 +169,79 @@ $html .= "<p><strong>Voorwaarden:</strong></p>";
 $html .= "</div>";
 $html .= "<div class='col-8'>";
 $html .= "<p>U kunt uw fiets vlak naast de bioscoop kwijt in de gratis fietsenstalling, gelegen tussen restaurant Miyagi and Jones en parkeerplaats P3.</p>";
+}else if ($biosid==2){
+  $html .= "<p><strong>Voorwaarden:</strong></p>";
+  $html .= "</div>";
+  $html .= "<div class='col-8'>";
+  $html .= "Bovenstaande prijzen zijn per persoon, zijn niet geldig bij evenementen, speciale voorstellingen of besloten voorstellingen en altijd exclusief toeslagen.";
+  $html .= "</div>";
+  $html .= "<div class='col-4 ral'>";
+  $html .= "<p><strong>Bereikbaarheid auto:</strong></p>";
+  $html .= "</div>";
+  $html .= "<div class='col-8'>";
+  $html .= "<p>In Den Helder volgt u de ANWB borden richting Willemsoord, de bioscoop bevindt zich op dit terrein. De ingang van Willemsoord zit aan de route voor de veerboot naar Texel. Parkeren kan gratis op het Willemsoord terrein.</p>";
+  $html .= "</div>";
+  $html .= "<div class='col-4 ral'>";
+  $html .= "<p><strong>Bereikbaarheid OV:</strong></p>";
+  $html .= "</div>";
+  $html .= "<div class='col-8'>";
+  $html .= "<p>Kinepolis Den Helder is vanaf het trein- en busstation van CS Den Helder op 10-15 minuten loopafstand. Volg hiervoor de borden 'Willemsoord'. </p>";
+  $html .= "</div>";
+  $html .= "<div class='col-4 ral'>";
+  $html .= "<p><strong>Bereikbaarheid Fiets:</strong></p>";
+  $html .= "</div>";
+  $html .= "<div class='col-8'>";
+  $html .= "<p>Willemsoord is goed bereikbaar per fiets. Volg hiervoor de borden 'Willemsoord'. Voor de bioscoop zijn fietsenrekken aanwezig.</p>";
+  $html .= "</div>";
+  $html .= "<div class='col-4 ral'>";
+  $html .= "<p><strong>Rolstoeltoegankelijkheid:</strong></p>";
+  $html .= "</div>";
+  $html .= "<div class='col-8'>";
+  $html .= "<p>Kinepolis Den Helder is grotendeels rolstoeltoegankelijk, neem contact op met de bioscoop voor meer informatie. Er is een lift en mindervalidentoilet aanwezig.</p>";
+  $html .= "</div>";        
+  
+  $html .= "<div class='col-4 ral'>";
+  $html .= "<p><strong>Voorwaarden:</strong></p>";
+  $html .= "</div>";
+  $html .= "<div class='col-8'>";
+  $html .= "<p>U kunt uw fiets vlak naast de bioscoop kwijt in de gratis fietsenstalling.</p>"; 
+}else if ($biosid==3){
+      $html .= "<p><strong>Voorwaarden:</strong></p>";
+      $html .= "</div>";
+      $html .= "<div class='col-8'>";
+      $html .= "Bovenstaande prijzen zijn per persoon, zijn niet geldig bij evenementen, speciale voorstellingen of besloten voorstellingen en altijd exclusief toeslagen.";
+      $html .= "</div>";
+      $html .= "<div class='col-4 ral'>";
+      $html .= "<p><strong>Bereikbaarheid auto:</strong></p>";
+      $html .= "</div>";
+      $html .= "<div class='col-8'>";
+      $html .= "<p>Met de auto bereikt u Kinepolis Almere door richting 'Centrum' te volgen. Rondom Kinepolis Almere is volop parkeergelegenheid. De P6 Hospitaalgarage of P7 Schippersgarage zijn het gunstigst gelegen t.o.v. de bioscoop. Parkeert u na 18:00 uur, dan geldt het maximale avondtarief van €5,25 voor de hele avond. </p>";
+      $html .= "</div>";
+      $html .= "<div class='col-4 ral'>";
+      $html .= "<p><strong>Bereikbaarheid OV:</strong></p>";
+      $html .= "</div>";
+      $html .= "<div class='col-8'>";
+      $html .= "<p>U kunt ons met de trein en bus zeer makkelijk bereiken. Vanaf station Almere Centrum loopt u in circa 5 minuten in zuidelijke richting richting naar Almere Citymall. Kinepolis Almere is tevens goed bereikbaar per bus via haltes Passage (buslijn M1 & M4) en Flevoziekenhuis (buslijn M5 en M7). </p>";
+      $html .= "</div>";
+      $html .= "<div class='col-4 ral'>";
+      $html .= "<p><strong>Bereikbaarheid Fiets:</strong></p>";
+      $html .= "</div>";
+      $html .= "<div class='col-8'>";
+      $html .= "<p>Citymall Almere heeft diverse (bewaakte) fietsenstallingen, bijvoorbeeld aan de Hospitaaldreef.</p>";
+      $html .= "</div>";
+      $html .= "<div class='col-4 ral'>";
+      $html .= "<p><strong>Rolstoeltoegankelijkheid:</strong></p>";
+      $html .= "</div>";
+      $html .= "<div class='col-8'>";
+      $html .= "<p>Kinepolis Almere heeft in elke zaal mindervalide plaatsen. Tevens zijn er mindervalide toiletten en een lift aanwezig.</p>";
+      $html .= "</div>";        
+      
+      $html .= "<div class='col-4 ral'>";
+      $html .= "<p><strong>Voorwaarden:</strong></p>";
+      $html .= "</div>";
+      $html .= "<div class='col-8'>";
+      $html .= "<p>U kunt uw fiets vlak naast de bioscoop kwijt in de gratis fietsenstalling.</p>";
+      }
 // $html .= "</div>";
 // $html .= "<div class='col-12'>";
 // $html .= "<table>";
