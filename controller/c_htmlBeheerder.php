@@ -8,7 +8,35 @@ class HTMLBeheerderController
   public function __destruct()
   { }
 
-  public function createConTable($rows, $header, $link, $delete)
+  public function createConTable($rows, $header, $link)
+  {
+    $tableheader = false;
+    $html = "";
+
+    $html .= "<h3>$header</h3>";
+    $html .= "<table class='table'>";
+
+    foreach ($rows as $row) {
+      $html .= "<tr>";
+      if ($tableheader !== true) {
+        foreach ($row as $key => $value) {
+          $html .= "<th>{$key}</th>";
+        }
+        $html .= "<th>Wijzigen</th>";
+        $html .= "</tr>";
+        $tableheader = true;
+      }
+      foreach ($row as $value) {
+        $html .= "<td>{$value}</td>";
+      }
+      $html .= "<td><a href='?op=$link&id=" . $row['id'] . "'><button class='btn'><span class='glyphicon glyphicon-pencil'></span> Bewerken</button></td> ";
+      $html .= "</tr>";
+    }
+
+    $html .= "</table>";
+    return $html;
+  }
+  public function createConTableDel($rows, $header, $link, $delete)
   {
     $tableheader = false;
     $html = "";
@@ -122,5 +150,18 @@ class HTMLBeheerderController
     $html .= "</select>";
     $html .= "</div>";
     return $html;
+  }
+
+  public function searchBeschikBiosDate()
+  {
+    $html = "";
+    $html .= "<div class='beschiksearch'>";
+    $html .= "<form action='?op=searchBeschikBios' method='POST'>";
+    $html .= "<h3>Zoek op datum</h3>";
+    $html .= "<input class='form-control datebeschik' type='date' name='datum' />";
+    $html .= "<input class='btn submitbeschik' type='submit' value='Zoeken' />";
+    $html .= "</form>";
+    $html .= "</div>";
+    echo $html;
   }
 }
