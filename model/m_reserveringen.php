@@ -89,7 +89,7 @@ class reserveringenModel
 
   public function updateBeschik($bes_id){
     try{
-      $sql = "UPDATE beschikbaarheid SET beschik = 1 WHERE bes_id = $bes_id";
+      $sql = "UPDATE beschikbaarheid SET beschik = 0 WHERE bes_id = $bes_id";
       $update = $this->DataHandler->updateData($sql);
     }catch(exception $e){
       throw $e;
