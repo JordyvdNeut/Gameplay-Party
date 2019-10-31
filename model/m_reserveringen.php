@@ -60,10 +60,10 @@ class reserveringenModel
       throw $e;
     }
   }
-  public function getReservatie($res)
+  public function getReservatie($id)
   {
     try {
-      $sql = "SELECT * FROM reserveringen WHERE res_code=$res ";
+      $sql = "SELECT * FROM reserveringen NATURAL JOIN beschikbaarheid WHERE bes_id=$id";
       $results = $this->DataHandler->readsData($sql);
       return $results;
     } catch (exception $e) {

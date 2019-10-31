@@ -46,9 +46,7 @@ $html .= "</div>";
 $html .= "</div>";
 
 $html .= "<div class='col-12 restablekost '>";
-if($creating['normaal']>=0){
-$html .= "<strong>Telefoonnummer: </strong>". $creating['normaal']. " <br />";   
-}
+
 $html .= "<table>";
 $html .= "<thead>";
 $html .= "<tr class='bob'>";
