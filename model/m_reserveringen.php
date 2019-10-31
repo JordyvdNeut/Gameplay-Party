@@ -73,11 +73,10 @@ class reserveringenModel
 
     $bedrag = $this->berekBedrag($creating)->fetch(PDO::FETCH_ASSOC);
     $totaalBed = $bedrag['Bedrag'];
-    var_dump($totaalBed);
 
     try{
       $sql = "INSERT INTO reserveringen( klant_naam, klant_adres, klant_pc, klant_plaats, klant_tel, res_datum, aant_pers, bes_id, kosten) 
-                  VALUES ('$klant_naam', '$klant_adres', '$klant_pc', '$klant_plaats','$klant_nr', '$datum', '$aant_pers', '$bes_id',
+                  VALUES ('$klant_naam', '$klant_adres', '$klant_pc', '$klant_plaats','$klant_nr', '$datum', '$aant_pers', '$bes_id'
                   , '$totaalBed')";
       $factuur = $this->DataHandler->createData($sql);
       return $factuur;
