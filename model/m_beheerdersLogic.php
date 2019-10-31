@@ -171,7 +171,7 @@ class BeheerdersLogic
   {
     $bios_id = $_SESSION['bios_id'];
     try {
-      $sql = "SELECT bios_id id, bios_tel 'Telefoon nummer', bios_info 'Bioscoop informatie', bios_foto 'Afbeelding gebouw', bios_ins 'Afbeelding zaal' FROM bioscopen WHERE bios_id = $bios_id";
+      $sql = "SELECT bios_id id, bios_tel 'Telefoon nummer', bios_info 'Bioscoop informatie' FROM bioscopen WHERE bios_id = $bios_id";
       $result = $this->DataHandler->readsData($sql);
       return $result;
     } catch (exception $e) {
@@ -196,11 +196,9 @@ class BeheerdersLogic
     $bios_id = $_SESSION['bios_id'];
     $bios_tel = $formData['bios_tel'];
     $bios_info = $formData['bios_info'];
-    $bios_foto = $formData['bios_foto'];
-    $bios_ins = $formData['bios_ins'];
 
     try {
-      $sql = "UPDATE bioscopen SET bios_tel = '$bios_tel' , bios_info = '$bios_info' , bios_foto = '$bios_foto' , bios_ins = '$bios_ins' WHERE bios_id = $bios_id";
+      $sql = "UPDATE bioscopen SET bios_tel = '$bios_tel' , bios_info = '$bios_info' WHERE bios_id = $bios_id";
       $result = $this->DataHandler->updateData($sql);
       return $result ? "<h3><strong>Gegevens van de bioscoop zijn <span style='color: green'>succesvol</span> bewerkt!</strong></h3>" : "<h3 style='color:red;'><strong>Het bewerken van de gegevens is niet gelukt</strong></h3>";
     } catch (exception $e) {

@@ -142,7 +142,7 @@ class HTMLBeheerderController
     $html = "";
     $html .= "<div>";
 
-    $html .= "<select name='zaal_id'>";
+    $html .= "<select name='zaal_id' class='form-control' style='width: 35%'>";
     while ($row = $radio->fetch(PDO::FETCH_ASSOC)) {
       $html .= "<option value='$row[zaal_id]'>Zaal $row[zaal_nr]</option> ";
     }
