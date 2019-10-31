@@ -28,16 +28,27 @@ $html .= "<strong>Telefoonnummer: </strong>". $creating['telefoon']. " <br />";
 $html .= "</div>";
 
 while ($row = $reservatie->fetch(PDO::FETCH_ASSOC)) {
+$kosten = str_replace('.', ',', $row[kosten]);
 $html .= "<div class='col-5 resinfo'>";
 $html .= "<div class='row'>";
 $html .= "<div class='col-6 odd  '>";
 $html .= "<strong>Reserverings ID: GP-$row[res_code]</strong><br>"; 
 $html .= "<strong>Datum: $row[res_datum]</strong><br>"; 
 $html .= "<strong>Reserveringsdatum: $row[res_datum]</strong><br>";  
-$html .= "<strong>Totaal EURO:  €$row[kosten]</strong><br><br>"; 
+$html .= "<strong>Totaal EURO:  €$kosten</strong><br><br>"; 
 $html .= "</div>";
 $html .= "</div>";
 $html .= "</div>";
+
+//$row['kosten'] = str_replace('.', ',', $row['kosten']);
+
+//$kost = $row['kosten'];
+ 
+//$kosten = intval( $kost, 2);
+
+$kosten = $row['kosten'];
+
+//$kosten = floatval($kost, 2);
 }
 $html .= "<div class='col-12 restablekost'>";
 $html .= "<table>";
@@ -52,36 +63,42 @@ $html .= "<tbody>";
 $html .= "<tr class='bob'><td><strong>Kids GamePlayParty</strong><br></td>";
 
 $create = array('normaal'=>$creating['normaal'],'12tm17'=>$creating['tm17'], 'tm11'=>$creating['tm11'],'plus'=>$creating['plus'],'overig'=>$creating['overig']);
+$kosten = str_replace('.', ',', $kosten);
 if($creating = $create['normaal']){
   $html  .= "<td><strong>Normaal: </strong>$create[normaal]</td>
-<td> €$row[kosten]</td>";
+<td> €$kosten</td>";
 } else if($creating = $create['12tm17']){
   $html  .= "<td><strong>Jeugd12 t/m 17 jaar: </strong>$create[tm17]</td>
-<td>€$row[kosten]</td>";
+<td>€$kosten</td>";
 } else if($creating = $create['tm11']){
   $html  .= "<td><strong>T/m 11 jaar: </strong>$create[tm11]</td>
-<td>€$row[kosten]</td>";
+<td>€$kosten</td>";
 } else if($creating = $create['65plus']){
   $html  .= "<td><strong>65+: </strong>$create[plus]</td>
-<td>€$row[kosten]</td>";
+<td>€$kosten</td>";
 } else if($creating = $create['overig']){
   $html  .= "<td><strong>65+: </strong>$create[overig]</td>
-<td>€$row[kosten]</td>";
+<td>€$kosten</td>";
 }
 $html .= "</tr>";
 
 //Berekeningen
-$btw = $row['kosten'] / 100 * 21;
-$totaal = $btw + $row['kosten'];
+$btw = $kosten / 100 * 21;
+//$btw21 = intval($btw, 2);
+$totaal = $btw + $kosten;
 
-$html .= "<tr ><td></td><td class='ral'><strong>Subtotaal:</strong></td><td> €$row[kosten]</td></tr>";
+$btw = str_replace('.', ',', $btw);
+
+$totaal = str_replace('.', ',', $totaal);
+
+$html .= "<tr ><td></td><td class='ral'><strong>Subtotaal:</strong></td><td> €$kosten</td></tr>";
 $html .= "<tr ><td></td><td class='ral'><strong>BTW 21%:</strong></td><td> €$btw</td></tr>";
 $html .= "<tr ><td></td><td class='ral'><strong>Totaal:</strong></td><td> €$totaal</td></tr>";
 
 $html .= "</tbody>";
 $html .= "</table>";
 $html .= "</div>";
-}
+
 
 
 $html .= "<div class='col-12 bob'><h2>Informatie over $bios_naam</h2></div>";
