@@ -14,10 +14,10 @@ $html .= "<div class='col-7 ral rot reshead'><h1>Reservering</h1></div>";
 while ($row = $biosDetails->fetch(PDO::FETCH_ASSOC)) {
 $html .= "<div class='col-5 ral resbiosinfo'>";
 $html .= "$row[bios_naam]<br />";
-$html .= "<br />";
 $html .= "$row[bios_adres] <br />";
 $html .= "$row[bios_plaats] <br />";
-$bios_info="$row[bios_info]";
+$bios_info= $row['bios_info'];
+$bios_naam = $row['bios_naam'];
 $html .= "</div>";
 }
 
@@ -53,19 +53,19 @@ $html .= "<tbody>";
 $html .= "<tr class='bob'><td><strong>Kids GamePlayParty</strong><br></td>";
 
 if($creating = $creating['normaal']){
-  $html  .= "<td><strong>Normaal: </strong>$creating[normaal]</td>
+  $html  .= "<td><strong>Normaal: </strong>$creating[normaal] personen</td>
 <td> €$row[kosten]</td>";
 } else if($creating = $creating['12tm17']){
-  $html  .= "<td><strong>Jeugd12 t/m 17 jaar: </strong>$creating[tm17]</td>
+  $html  .= "<td><strong>Jeugd12 t/m 17 jaar: </strong>$creating[tm17] personen</td>
 <td>€$row[kosten]</td>";
 } else if($creating = $creating['tm11']){
-  $html  .= "<td><strong>T/m 11 jaar: </strong>$creating[tm11]</td>
+  $html  .= "<td><strong>T/m 11 jaar: </strong>$creating[tm11] personen</td>
 <td>€$row[kosten]</td>";
 } else if($creating = $creating['65plus']){
-  $html  .= "<td><strong>65+: </strong>$creating[plus]</td>
+  $html  .= "<td><strong>65+: </strong>$creating[plus] personen</td>
 <td>€$row[kosten]</td>";
 } else if($creating = $creating['overig']){
-  $html  .= "<td><strong>65+: </strong>$creating[overig]</td>
+  $html  .= "<td><strong>65+: </strong>$creating[overig] personen</td>
 <td>€$row[kosten]</td>";
 }
 $html .= "</tr>";
@@ -83,7 +83,8 @@ $html .= "</table>";
 $html .= "</div>";
 }
 
-$html .= "<div class='col-12 bob'><h2>Informatie over </h2></div>";
+
+$html .= "<div class='col-12 bob'><h2>Informatie over $bios_naam</h2></div>";
 $html .= "<div class='col-12 bob'>";
 // $html .= "<div class='row'>";
 $html .= $bios_info;
@@ -92,6 +93,7 @@ $html .= "</div>";
 $html .= "<div class='col-4 ral titelkeuze'>";
 $html .= "<p><strong>Reguliere tarieven:</strong></p>";
 $html .= "</div>";
+
 $html .= "<div class='col-8 tkeuzes'>";
 while ($row = $tarieven->fetch(PDO::FETCH_ASSOC)) {
   $html .= "<table>";
@@ -102,12 +104,11 @@ while ($row = $tarieven->fetch(PDO::FETCH_ASSOC)) {
   $html .= "</tr>";
   $html .= "<tr>";
   foreach ($row as $value) {
-    $html .= "<td>{$value}</td>";
+    $html .= "<td>€{$value}</td>";
   }
   $html .= "</tr>";
   $html .= "</table>";
 }
-
 $html .= "</div>";
 
 while ($row = $Toeslagen->fetch(PDO::FETCH_ASSOC)) {
