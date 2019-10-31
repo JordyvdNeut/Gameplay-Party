@@ -1,7 +1,9 @@
 <title>Factuur</title>
 <body>
-<img class="logofactuur" src="view/images/gpp.svg" alt="Gameplay Party">
+<!-- <img class="logofactuur" src="view/images/gpp.svg" alt="Gameplay Party"> -->
   <?php
+  var_dump($creating);
+  var_dump($_REQUEST);
 $html = "";
 $html .= "<div class='container'>";
 $html .= "<div class='header'></div>";
@@ -14,6 +16,7 @@ $html .= "$row[bios_naam]<br />";
 $html .= "<br />";
 $html .= "$row[bios_adres] <br />";
 $html .= "$row[bios_plaats] <br />";
+$bios_info="$row[bios_info]";
 $html .= "</div>";
 }
 $html .="<div class='col-7 resinfo'>";
@@ -43,6 +46,9 @@ $html .= "</div>";
 $html .= "</div>";
 
 $html .= "<div class='col-12 restablekost '>";
+if($creating['normaal']>=0){
+$html .= "<strong>Telefoonnummer: </strong>". $creating['normaal']. " <br />";   
+}
 $html .= "<table>";
 $html .= "<thead>";
 $html .= "<tr class='bob'>";
@@ -65,7 +71,8 @@ $html .= "<div class='col-12'><strong>Betalingen: </strong>14-10-2018 <strong>�
 $html .= "<div class='col-12 bob'><h2>Informatie over Kinepolis Jaarbeurs Utrecht</h2></div>";
 $html .= "<div class='col-12 bob'>";
 // $html .= "<div class='row'>";
-$html .= "<p>Met Kinepolis Jaarbeurs (14 zalen, 3200 stoelen) heeft Utrecht eindelijk een moderne megabioscoop in de binnenstad: de grootste bioscoop van Utrecht, en een van de grootste bioscopen van Nederland. Kinepolis Jaarbeurs biedt elke filmbezoeker ‘the ultimate cinema experience’: ruime en comfortabele stoelen, royale beenruimte, en beeld en geluid van het allerhoogste niveau.</p>";
+$html .= $bios_info;
+
 $html .= "</div>";
 
 $html .= "<div class='col-4 ral titelkeuze'>";
@@ -84,21 +91,27 @@ while ($row = $tarieven->fetch(PDO::FETCH_ASSOC)) {
     $html .= "<td>{$value}</td>";
   }
   $html .= "</tr>";
-  $html .= "</table>";
 }
 
 $html .= "</div>";
 $html .= "<div class='col-4 ral toeslag titelkeuze'>";
+while ($row = $Toeslagen->fetch(PDO::FETCH_ASSOC)) {
 $html .= "<p><strong>Toeslagen:</strong></p>";
 $html .= "</div>";
 $html .= "<div class='col-8 keuzes'>";
-$html .= "€ 0,50 | toeslag bij film van 135 minuten en langer<br>";
-$html .= "€ 1,50 | 3D-toeslag excl. bril<br>";
-$html .= "€ 2,60 | 3D-toeslag incl. bril<br>";
-$html .= "€ 1,50 | Dolby Atmos<br>";
-$html .= "€ 2,50 | Laser ULTRA<br>";
-$html .= "€ 2,50 | COSY";
-
+$html .= "<table>";
+$html .= "<tr>";
+foreach ($row as $key => $value) {
+  $html .= "<th></th>";
+}
+$html .= "</tr>";
+$html .= "<tr>";
+foreach ($row as $value) {
+  $html .= "<td>{$value}</td>";
+}
+$html .= "</tr>";
+$html .= "</table>";
+}
 $html .= "</div>";
 $html .= "<div class='col-4 ral'>";
 if($id=1){

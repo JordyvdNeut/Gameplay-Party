@@ -58,6 +58,7 @@ class resController
 	$zaalGegevens = $this->reserveringenModel->getZaalDetail($_REQUEST['id']);
 	$bestelDetails = $this->reserveringenModel->getBeschikDetail($_REQUEST['id']);
 	$tarieven = $this->reserveringenModel->getTarieven();
+	$Toeslagen = $this->reserveringenModel->getToeslagen($_REQUEST['id']);
 	$reservatie= $this->reserveringenModel->getReservatie(72);
 	$reservering = $this->reserveringenModel->addReser($creating);
 	include 'view/factuur.php';

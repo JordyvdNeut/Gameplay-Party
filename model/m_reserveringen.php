@@ -50,6 +50,16 @@ class reserveringenModel
       throw $e;
     }
   }
+  public function getToeslagen($id)
+  {
+    try {
+      $sql = "SELECT omschr,kosten FROM diensten NATURAL JOIN zaal_diensten WHERE zaal_id=$id";
+      $results = $this->DataHandler->readsData($sql);
+      return $results;
+    } catch (exception $e) {
+      throw $e;
+    }
+  }
   public function getReservatie($res)
   {
     try {
