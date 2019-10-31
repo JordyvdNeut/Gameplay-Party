@@ -2,8 +2,6 @@
 <body>
 <!-- <img class="logofactuur" src="view/images/gpp.svg" alt="Gameplay Party"> -->
   <?php
-  // var_dump($creating);
-  // var_dump($_REQUEST);
 $html = "";
 $html .= "<div class='container'>";
 $html .= "<div class='header'></div>";
@@ -18,7 +16,7 @@ $html .= "$row[bios_adres] <br />";
 $html .= "$row[bios_plaats] <br />";
 $bios_info="$row[bios_info]";
 $biosid="$row[bios_id]";
-$biosnaam="$row[bios_naam]";
+$bios_naam="$row[bios_naam]";
 $html .= "</div>";
 }
 
@@ -56,17 +54,17 @@ $html .= "<tr class='bob'><td><strong>Kids GamePlayParty</strong><br></td>";
 if($creating = $creating['normaal']){
   $html  .= "<td><strong>Normaal: </strong>$creating[normaal] personen</td>
 <td> €$row[kosten]</td>";
-} else if($creating = $creating['12tm17']){
+} else if($creating = $creating['tm17']){
   $html  .= "<td><strong>Jeugd12 t/m 17 jaar: </strong>$creating[tm17] personen</td>
 <td>€$row[kosten]</td>";
 } else if($creating = $creating['tm11']){
   $html  .= "<td><strong>T/m 11 jaar: </strong>$creating[tm11] personen</td>
 <td>€$row[kosten]</td>";
-} else if($creating = $creating['65plus']){
+} else if($creating = $creating['plus']){
   $html  .= "<td><strong>65+: </strong>$creating[plus] personen</td>
 <td>€$row[kosten]</td>";
 } else if($creating = $creating['overig']){
-  $html  .= "<td><strong>65+: </strong>$creating[overig] personen</td>
+  $html  .= "<td><strong>Studenten, CJP & BankGiro Loterij VIP-KAART: </strong>$creating[overig] personen</td>
 <td>€$row[kosten]</td>";
 }
 $html .= "</tr>";
