@@ -32,7 +32,7 @@ class resController
 		$zaalGegevens = $this->reserveringenModel->getZaalDetail($_REQUEST['id']);
 		$bestelDetails = $this->reserveringenModel->getBeschikDetail($_REQUEST['id']);
 		$tarieven = $this->reserveringenModel->getTarieven();
-		$reservatie= $this->reserveringenModel->getReservatie($_REQUEST['id']);
+		$reservatie= $this->reserveringenModel->getReservatie();
 		// return $creating;
 		// include 'view/factuur.php';
 	}

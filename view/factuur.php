@@ -2,8 +2,8 @@
 <body>
 <!-- <img class="logofactuur" src="view/images/gpp.svg" alt="Gameplay Party"> -->
   <?php
-  var_dump($creating);
-  var_dump($_REQUEST);
+  // var_dump($creating);
+  // var_dump($_REQUEST);
 $html = "";
 $html .= "<div class='container'>";
 $html .= "<div class='header'></div>";
@@ -46,7 +46,6 @@ $html .= "</div>";
 $html .= "</div>";
 
 $html .= "<div class='col-12 restablekost '>";
-
 $html .= "<table>";
 $html .= "<thead>";
 $html .= "<tr class='bob'>";
@@ -89,11 +88,13 @@ while ($row = $tarieven->fetch(PDO::FETCH_ASSOC)) {
     $html .= "<td>{$value}</td>";
   }
   $html .= "</tr>";
+  $html .= "</table>";
 }
 
 $html .= "</div>";
-$html .= "<div class='col-4 ral toeslag titelkeuze'>";
+
 while ($row = $Toeslagen->fetch(PDO::FETCH_ASSOC)) {
+  $html .= "<div class='col-4 ral toeslag titelkeuze'>";
 $html .= "<p><strong>Toeslagen:</strong></p>";
 $html .= "</div>";
 $html .= "<div class='col-8 keuzes'>";
@@ -109,14 +110,12 @@ foreach ($row as $value) {
 }
 $html .= "</tr>";
 $html .= "</table>";
-}
 $html .= "</div>";
+}
+
 $html .= "<div class='col-4 ral'>";
 if($id=1){
-$html .= "<p><strong>Voorwaarden1:</strong></p>";
-}else if ($id=2){
-  $html .= "<p><strong>Voorwaarden2:</strong></p>";
-
+$html .= "<p><strong>Voorwaarden:</strong></p>";
 }
 $html .= "</div>";
 $html .= "<div class='col-8'>";
