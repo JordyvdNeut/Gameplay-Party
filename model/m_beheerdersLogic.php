@@ -294,7 +294,7 @@ class BeheerdersLogic
     $eind_tijd    = $creating["eind_tijd"];
     $datum       = $creating["datum"];
     try {
-      $sql = "INSERT INTO beschikbaarheid (zaal_id, datum, beg_tijd, eind_tijd) VALUES ('$zaal', '$datum',  '$beg_tijd', '$eind_tijd')";
+      $sql = "INSERT INTO beschikbaarheid (zaal_id, datum, beg_tijd, eind_tijd, beschik) VALUES ('$zaal', '$datum',  '$beg_tijd', '$eind_tijd', 1)";
       $result = $this->DataHandler->createData($sql);
       return $result;
     } catch (exception $e) {
