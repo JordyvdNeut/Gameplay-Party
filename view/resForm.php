@@ -121,7 +121,7 @@ require_once('view/header.php');
           </select>
           <br />
           <label>Jeugd 12 t/m 17 jaar</label>
-          <select name="12tm17" class="form-control">
+          <select name="tm17" class="form-control">
             <option value="0">--Geen jeugd--</option>
             <?php
             foreach (range(1, 50) as $number) {
@@ -131,7 +131,7 @@ require_once('view/header.php');
           </select>
           <br />
           <label>65+</label>
-          <select name="65plus" class="form-control">
+          <select name="plus" class="form-control">
             <option value="0">--Geen 65 plussers--</option>
             <?php
             foreach (range(1, 50) as $number) {

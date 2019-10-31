@@ -10,6 +10,7 @@ $html .= "<div class='header'></div>";
 $html .= "<article class='row'>";
 $html.="<div class='col-12 print'><button class='btn'onClick='window.print()'>Print factuur</button></div>";
 $html .= "<div class='col-7 ral rot reshead'><h1>Reservering</h1></div>"; 
+
 while ($row = $biosDetails->fetch(PDO::FETCH_ASSOC)) {
 $html .= "<div class='col-5 ral resbiosinfo'>";
 $html .= "$row[bios_naam]<br />";
@@ -21,6 +22,7 @@ $biosid="$row[bios_id]";
 $biosnaam="$row[bios_naam]";
 $html .= "</div>";
 }
+
 $html .="<div class='col-7 resinfo'>";
 $html .="<strong>Klant: </strong>". $creating['naam']. "<br/>";
 $html .= "<strong>Adres: </strong>". $creating['adres']. "<br />";
@@ -28,50 +30,63 @@ $html .= "<strong>Plaats: </strong>". $creating['woonplaats']. "<br />";
 $html .= "<strong>Telefoonnummer: </strong>". $creating['telefoon']. " <br />";    
 $html .= "</div>";
 
+while ($row = $reservatie->fetch(PDO::FETCH_ASSOC)) {
 $html .= "<div class='col-5 resinfo'>";
 $html .= "<div class='row'>";
 $html .= "<div class='col-6 odd  '>";
-$html .= "<strong>Reserverings ID:</strong><br>"; 
-$html .= "<strong>Datum:</strong><br>"; 
-$html .= "<strong>Reserveringsdatum:</strong><br>";  
-$html .= "<strong>Totaal EURO:</strong><br><br>"; 
+$html .= "<strong>Reserverings ID: GP-$row[res_code]</strong><br>"; 
+$html .= "<strong>Datum: $row[res_datum]</strong><br>"; 
+$html .= "<strong>Reserveringsdatum: $row[res_datum]</strong><br>";  
+$html .= "<strong>Totaal EURO:  €$row[kosten]</strong><br><br>"; 
 $html .= "</div>";
-while ($row = $reservatie->fetch(PDO::FETCH_ASSOC)) {
-$html .= "<div class='col-6 bob resmain'>";
-$html .= "$row[res_code]<br>";
-$html .= "$row[res_datum]<br>";
-$html .= "$row[res_datum]<br>";
-$html .= "$row[kosten]<br>";
-$html .= "</div>";
-}
 $html .= "</div>";
 $html .= "</div>";
 
-$html .= "<div class='col-12 restablekost '>";
+$html .= "<div class='col-12 restablekost'>";
 $html .= "<table>";
 $html .= "<thead>";
 $html .= "<tr class='bob'>";
-$html .= "<th class='odd'>dienst</th>";
-$html .= "<th class='odd'>tarief</th>";
-$html .= "<th class='odd'>bedrag</th>";
+$html .= "<th class='odd'>Dienst</th>";
+$html .= "<th class='odd'>Tarief</th>";
+$html .= "<th class='odd'>Bedrag</th>";
 $html .= "</tr>";
 $html .= "</thead>";
 $html .= "<tbody>";
-$html .= "<tr class='bob'><td><strong>Kids GamePlayParty</strong><br>Vrijdag 14 oktober, 2018</td><td><strong>Kinderen t/m 11 jaar:</strong> 8 @ €20,00</td><td>€160,00<br><br></td></tr>";
-$html .= "<tr class='bob'><td><strong>Laser ULTRA</strong><br>Vrijdag 14 oktober, 2018</div></td><td><strong>Toeslag:</strong> 8 @ €2,50<br><br></td><td>€ 20,00<br><br></td></tr>";
-$html .= "<tr ><td></td><td class='ral'><strong>Subtotaal:</strong></td><td>€180,00</td></tr>";
-$html .= "<tr ><td></td><td class='ral'><strong>BTW 21%:</strong></td><td>€ 37,80</td></tr>";
-$html .= "<tr ><td></td><td class='ral'><strong>Totaal:</strong></td><td>€217,80</td></tr>";
-$html .= "<tr ><td class='bob'></td><td class='ral bob'><strong>Reeds voldaan:</td><td class='bob'>€ 54,45</td></tr>";
-$html .= "<tr ><td></td><td class='ral'>Nog te voldoen (75%):<td class='hil'><strong>€163,35</strong></td></tr>";
+$html .= "<tr class='bob'><td><strong>Kids GamePlayParty</strong><br></td>";
+
+if($creating = $creating['normaal']){
+  $html  .= "<td><strong>Normaal: </strong>$creating[normaal]</td>
+<td> €$row[kosten]</td>";
+} else if($creating = $creating['12tm17']){
+  $html  .= "<td><strong>Jeugd12 t/m 17 jaar: </strong>$creating[tm17]</td>
+<td>€$row[kosten]</td>";
+} else if($creating = $creating['tm11']){
+  $html  .= "<td><strong>T/m 11 jaar: </strong>$creating[tm11]</td>
+<td>€$row[kosten]</td>";
+} else if($creating = $creating['65plus']){
+  $html  .= "<td><strong>65+: </strong>$creating[plus]</td>
+<td>€$row[kosten]</td>";
+} else if($creating = $creating['overig']){
+  $html  .= "<td><strong>65+: </strong>$creating[overig]</td>
+<td>€$row[kosten]</td>";
+}
+$html .= "</tr>";
+
+//Berekeningen
+$btw = $row['kosten'] / 100 * 21;
+$totaal = $btw + $row['kosten'];
+
+$html .= "<tr ><td></td><td class='ral'><strong>Subtotaal:</strong></td><td> €$row[kosten]</td></tr>";
+$html .= "<tr ><td></td><td class='ral'><strong>BTW 21%:</strong></td><td> €$btw</td></tr>";
+$html .= "<tr ><td></td><td class='ral'><strong>Totaal:</strong></td><td> €$totaal</td></tr>";
+
+$html .= "</tbody>";
 $html .= "</table>";
 $html .= "</div>";
-$html .= "<div class='col-12'><strong>Betalingen: </strong>14-10-2018 <strong>€ 54,45 </strong>(MasterCard 1243)</div>";
 $html .= "<div class='col-12 bob'><h2>Informatie over $biosnaam</h2></div>";
 $html .= "<div class='col-12 bob'>";
 // $html .= "<div class='row'>";
 $html .= $bios_info;
-
 $html .= "</div>";
 
 $html .= "<div class='col-4 ral titelkeuze'>";
