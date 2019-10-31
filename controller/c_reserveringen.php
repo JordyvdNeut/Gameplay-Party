@@ -52,13 +52,14 @@ class resController
 
   public function insertRes(){
 	$creating = $_REQUEST;
+	$reservering = $this->reserveringenModel->addReser($creating);
 	$biosDetails = $this->biosModel->readBios($_REQUEST['bios']);
 	$zaalGegevens = $this->reserveringenModel->getZaalDetail($_REQUEST['id']);
 	$bestelDetails = $this->reserveringenModel->getBeschikDetail($_REQUEST['id']);
 	$tarieven = $this->reserveringenModel->getTarieven();
 	$Toeslagen = $this->reserveringenModel->getToeslagen($_REQUEST['id']);
 	$reservatie= $this->reserveringenModel->getReservatie($_REQUEST['id']);
-	$reservering = $this->reserveringenModel->addReser($creating);
+	
 	include 'view/factuur.php';
   }
 }

@@ -14,7 +14,6 @@ $html .= "<div class='col-7 ral rot reshead'><h1>Reservering</h1></div>";
 while ($row = $biosDetails->fetch(PDO::FETCH_ASSOC)) {
 $html .= "<div class='col-5 ral resbiosinfo'>";
 $html .= "$row[bios_naam]<br />";
-$html .= "<br />";
 $html .= "$row[bios_adres] <br />";
 $html .= "$row[bios_plaats] <br />";
 $bios_info="$row[bios_info]";
@@ -84,7 +83,10 @@ $html .= "<tr ><td></td><td class='ral'><strong>Totaal:</strong></td><td> €$to
 $html .= "</tbody>";
 $html .= "</table>";
 $html .= "</div>";
-$html .= "<div class='col-12 bob'><h2>Informatie over $biosnaam</h2></div>";
+}
+
+
+$html .= "<div class='col-12 bob'><h2>Informatie over $bios_naam</h2></div>";
 $html .= "<div class='col-12 bob'>";
 // $html .= "<div class='row'>";
 $html .= $bios_info;
@@ -93,6 +95,7 @@ $html .= "</div>";
 $html .= "<div class='col-4 ral titelkeuze'>";
 $html .= "<p><strong>Reguliere tarieven:</strong></p>";
 $html .= "</div>";
+
 $html .= "<div class='col-8 tkeuzes'>";
 while ($row = $tarieven->fetch(PDO::FETCH_ASSOC)) {
   $html .= "<table>";
@@ -103,12 +106,11 @@ while ($row = $tarieven->fetch(PDO::FETCH_ASSOC)) {
   $html .= "</tr>";
   $html .= "<tr>";
   foreach ($row as $value) {
-    $html .= "<td>{$value}</td>";
+    $html .= "<td>€{$value}</td>";
   }
   $html .= "</tr>";
   $html .= "</table>";
 }
-
 $html .= "</div>";
 
 while ($row = $Toeslagen->fetch(PDO::FETCH_ASSOC)) {
