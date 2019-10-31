@@ -78,7 +78,7 @@ require_once('view/header.php');
         <div class="col-5 rescontent">
         <?php
           $html = "";
-          $html .= " <form action='index.php?op=reserveren&id=$_REQUEST[id]' method='post'>";
+          $html .= " <form action='index.php?op=reserveren&id=$_REQUEST[id]&bios=$_REQUEST[bios]&res=$_REQUEST[res]' method='post'>";
           $html .= " <label>Uw Naam</label>";
           $html .= " <input class='form-control' name='naam' type='text' />";
           $html .= " <br />";

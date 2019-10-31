@@ -50,10 +50,10 @@ class reserveringenModel
       throw $e;
     }
   }
-  public function getReservatie()
+  public function getReservatie($res)
   {
     try {
-      $sql = "SELECT klant_naam,klant_adres, klant_plaats, klant_tel ,res_code,res_datum,res_tijd,kosten FROM reserveringen WHERE res_code=2";
+      $sql = "SELECT * FROM reserveringen WHERE res_code=$res ";
       $results = $this->DataHandler->readsData($sql);
       return $results;
     } catch (exception $e) {

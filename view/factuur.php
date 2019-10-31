@@ -2,46 +2,40 @@
 <body>
 <img class="logofactuur" src="view/images/gpp.svg" alt="Gameplay Party">
   <?php
-
 $html = "";
 $html .= "<div class='container'>";
 $html .= "<div class='header'></div>";
 $html .= "<article class='row'>";
-$html.="<div class='col-12 print'><button class='btn'onClick='window.print()'>print factuur</button></div>";
+$html.="<div class='col-12 print'><button class='btn'onClick='window.print()'>Print factuur</button></div>";
 $html .= "<div class='col-7 ral rot reshead'><h1>Reservering</h1></div>"; 
 while ($row = $biosDetails->fetch(PDO::FETCH_ASSOC)) {
 $html .= "<div class='col-5 ral resbiosinfo'>";
-$html .= "$row[bios_naam] <br />";
+$html .= "$row[bios_naam]<br />";
 $html .= "<br />";
 $html .= "$row[bios_adres] <br />";
 $html .= "$row[bios_plaats] <br />";
 $html .= "</div>";
 }
-while ($row = $reservatie->fetch(PDO::FETCH_ASSOC)) {
 $html .="<div class='col-7 resinfo'>";
-$html .="<h4>$row[klant_naam]</h4>";
-$html .= "<br />";
-$html .= "$row[klant_adres] <br />";
-$html .= "$row[klant_plaats] <br />";
-$html .= "$row[klant_tel] <br />";    
+$html .="<strong>Klant: </strong>". $creating['naam']. "<br/>";
+$html .= "<strong>Adres: </strong>". $creating['adres']. "<br />";
+$html .= "<strong>Plaats: </strong>". $creating['woonplaats']. "<br />";
+$html .= "<strong>Telefoonnummer: </strong>". $creating['telefoon']. " <br />";    
 $html .= "</div>";
-// }
 
 $html .= "<div class='col-5 resinfo'>";
 $html .= "<div class='row'>";
 $html .= "<div class='col-6 odd  '>";
 $html .= "<strong>Reserverings ID:</strong><br>"; 
 $html .= "<strong>Datum:</strong><br>"; 
-$html .= "<strong>Reserveringsdatum:</strong><br>"; 
-$html .= "<strong>Reserveringstijd:</strong><br>"; 
+$html .= "<strong>Reserveringsdatum:</strong><br>";  
 $html .= "<strong>Totaal EURO:</strong><br><br>"; 
 $html .= "</div>";
-// while ($row = $reservatie->fetch(PDO::FETCH_ASSOC)) {
+while ($row = $reservatie->fetch(PDO::FETCH_ASSOC)) {
 $html .= "<div class='col-6 bob resmain'>";
 $html .= "$row[res_code]<br>";
 $html .= "$row[res_datum]<br>";
 $html .= "$row[res_datum]<br>";
-$html .= "$row[res_tijd]";
 $html .= "$row[kosten]<br>";
 $html .= "</div>";
 }
@@ -69,21 +63,11 @@ $html .= "</table>";
 $html .= "</div>";
 $html .= "<div class='col-12'><strong>Betalingen: </strong>14-10-2018 <strong>€ 54,45 </strong>(MasterCard 1243)</div>";
 $html .= "<div class='col-12 bob'><h2>Informatie over Kinepolis Jaarbeurs Utrecht</h2></div>";
-$html .= "<div class='col-6 bob'>";
+$html .= "<div class='col-12 bob'>";
 // $html .= "<div class='row'>";
 $html .= "<p>Met Kinepolis Jaarbeurs (14 zalen, 3200 stoelen) heeft Utrecht eindelijk een moderne megabioscoop in de binnenstad: de grootste bioscoop van Utrecht, en een van de grootste bioscopen van Nederland. Kinepolis Jaarbeurs biedt elke filmbezoeker ‘the ultimate cinema experience’: ruime en comfortabele stoelen, royale beenruimte, en beeld en geluid van het allerhoogste niveau.</p>";
 $html .= "</div>";
 
-$html .= "<div class='col-6 bob opening'>";
-$html .= "<p><strong>Openingstijden:</strong><br>";
-$html .= "Donderdag: 9:15 uur - 12:00 uur<br>";
-$html .= "Vrijdag: 13:15 uur - 15:15 uur<br></p>";
-$html .= "<br>";
-$html .= "<br>";
-$html .= "<br>";
-$html .= "<br>";
-
-$html .= "</div>";
 $html .= "<div class='col-4 ral titelkeuze'>";
 $html .= "<p><strong>Reguliere tarieven:</strong></p>";
 $html .= "</div>";
@@ -117,12 +101,15 @@ $html .= "€ 2,50 | COSY";
 
 $html .= "</div>";
 $html .= "<div class='col-4 ral'>";
-$html .= "<p><strong>Voorwaarden:</strong></p>";
+if($id=1){
+$html .= "<p><strong>Voorwaarden1:</strong></p>";
+}else if ($id=2){
+  $html .= "<p><strong>Voorwaarden2:</strong></p>";
+
+}
 $html .= "</div>";
 $html .= "<div class='col-8'>";
-$html .= "<ul>";
-$html .= "<li>Bovenstaande prijzen zijn per persoon, zijn niet geldig bij evenementen, speciale voorstellingen of besloten voorstellingen en altijd exclusief toeslagen.</li>";
-$html .= "</ul>";
+$html .= "Bovenstaande prijzen zijn per persoon, zijn niet geldig bij evenementen, speciale voorstellingen of besloten voorstellingen en altijd exclusief toeslagen.";
 $html .= "</div>";
 $html .= "<div class='col-4 ral'>";
 $html .= "<p><strong>Bereikbaarheid auto:</strong></p>";
@@ -154,26 +141,26 @@ $html .= "<p><strong>Voorwaarden:</strong></p>";
 $html .= "</div>";
 $html .= "<div class='col-8'>";
 $html .= "<p>U kunt uw fiets vlak naast de bioscoop kwijt in de gratis fietsenstalling, gelegen tussen restaurant Miyagi and Jones en parkeerplaats P3.</p>";
-$html .= "</div>";
-$html .= "<div class='col-12'>";
-$html .= "<table>";
-$html .= "<thead>";
-$html .= "<tr class='bob'>";
-$html .= "<th>Zaal</th>";
-$html .= "<th>Aantal stoelen</th>";
-$html .= "<th>Rolstoelplaatsen</th>";
-$html .= "<th>Schermgrootte</th>";
-$html .= "<th>Faciliteiten</th>";
-$html .= "<th>Versies</th>";
-$html .= "</tr>";
-$html .= "</thead>";
-$html .= "<tbody>";
-$html .= "<tr class='odd'><td>1</td><td>102</td><td>2</td><td>11.20m x 4.68m</td><td><span class='screen-facilities icon icon-screen-facilities-toegankelijk-voor-andersvaliden' title='Toegankelijk voor andersvaliden'>Toegankelijk voor andersvaliden</span></td><td><div class='screen-technology icon icon-screen-technology-laser' title='Laser'><span>Laser</span></div><div class='screen-technology icon icon-screen-technology-dolby-71' title='Dolby 7.1'><span>Dolby 7.1</span></div></td></tr>";
-$html .= "<tr class='even'><td>2</td><td>102</td><td>2</td><td>11.20m x 4.68m</td><td><span class='screen-facilities icon icon-screen-facilities-toegankelijk-voor-andersvaliden' title='Toegankelijk voor andersvaliden'>Toegankelijk voor andersvaliden</span></td><td><div class='screen-technology icon icon-screen-technology-laser' title='Laser'><span>Laser</span></div><div class='screen-technology icon icon-screen-technology-dolby-71' title='Dolby 7.1'><span>Dolby 7.1</span></div></td></tr>";
-$html .= "</table>";
-$html .= "</div>";
-$html .= "</article>";
-$html .= "</div>";
+// $html .= "</div>";
+// $html .= "<div class='col-12'>";
+// $html .= "<table>";
+// $html .= "<thead>";
+// $html .= "<tr class='bob'>";
+// $html .= "<th>Zaal</th>";
+// $html .= "<th>Aantal stoelen</th>";
+// $html .= "<th>Rolstoelplaatsen</th>";
+// $html .= "<th>Schermgrootte</th>";
+// $html .= "<th>Faciliteiten</th>";
+// $html .= "<th>Versies</th>";
+// $html .= "</tr>";
+// $html .= "</thead>";
+// $html .= "<tbody>";
+// $html .= "<tr class='odd'><td>1</td><td>102</td><td>2</td><td>11.20m x 4.68m</td><td><span class='screen-facilities icon icon-screen-facilities-toegankelijk-voor-andersvaliden' title='Toegankelijk voor andersvaliden'>Toegankelijk voor andersvaliden</span></td><td><div class='screen-technology icon icon-screen-technology-laser' title='Laser'><span>Laser</span></div><div class='screen-technology icon icon-screen-technology-dolby-71' title='Dolby 7.1'><span>Dolby 7.1</span></div></td></tr>";
+// $html .= "<tr class='even'><td>2</td><td>102</td><td>2</td><td>11.20m x 4.68m</td><td><span class='screen-facilities icon icon-screen-facilities-toegankelijk-voor-andersvaliden' title='Toegankelijk voor andersvaliden'>Toegankelijk voor andersvaliden</span></td><td><div class='screen-technology icon icon-screen-technology-laser' title='Laser'><span>Laser</span></div><div class='screen-technology icon icon-screen-technology-dolby-71' title='Dolby 7.1'><span>Dolby 7.1</span></div></td></tr>";
+// $html .= "</table>";
+// $html .= "</div>";
+// $html .= "</article>";
+// $html .= "</div>";
 echo $html;
     ?>
   </body>
