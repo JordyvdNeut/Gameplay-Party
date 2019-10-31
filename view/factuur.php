@@ -41,7 +41,7 @@ $html .= "<strong>Totaal EURO:  €$row[kosten]</strong><br><br>";
 $html .= "</div>";
 $html .= "</div>";
 $html .= "</div>";
-
+}
 $html .= "<div class='col-12 restablekost'>";
 $html .= "<table>";
 $html .= "<thead>";
@@ -54,20 +54,21 @@ $html .= "</thead>";
 $html .= "<tbody>";
 $html .= "<tr class='bob'><td><strong>Kids GamePlayParty</strong><br></td>";
 
-if($creating = $creating['normaal']){
-  $html  .= "<td><strong>Normaal: </strong>$creating[normaal]</td>
+$create = array('normaal'=>$creating['normaal'],'12tm17'=>$creating['tm17'], 'tm11'=>$creating['tm11'],'plus'=>$creating['plus'],'overig'=>$creating['overig']);
+if($creating = $create['normaal']){
+  $html  .= "<td><strong>Normaal: </strong>$create[normaal]</td>
 <td> €$row[kosten]</td>";
-} else if($creating = $creating['12tm17']){
-  $html  .= "<td><strong>Jeugd12 t/m 17 jaar: </strong>$creating[tm17]</td>
+} else if($creating = $create['12tm17']){
+  $html  .= "<td><strong>Jeugd12 t/m 17 jaar: </strong>$create[tm17]</td>
 <td>€$row[kosten]</td>";
-} else if($creating = $creating['tm11']){
-  $html  .= "<td><strong>T/m 11 jaar: </strong>$creating[tm11]</td>
+} else if($creating = $create['tm11']){
+  $html  .= "<td><strong>T/m 11 jaar: </strong>$create[tm11]</td>
 <td>€$row[kosten]</td>";
-} else if($creating = $creating['65plus']){
-  $html  .= "<td><strong>65+: </strong>$creating[plus]</td>
+} else if($creating = $create['65plus']){
+  $html  .= "<td><strong>65+: </strong>$create[plus]</td>
 <td>€$row[kosten]</td>";
-} else if($creating = $creating['overig']){
-  $html  .= "<td><strong>65+: </strong>$creating[overig]</td>
+} else if($creating = $create['overig']){
+  $html  .= "<td><strong>65+: </strong>$create[overig]</td>
 <td>€$row[kosten]</td>";
 }
 $html .= "</tr>";

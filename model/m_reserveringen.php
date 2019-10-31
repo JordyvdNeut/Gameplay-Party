@@ -80,7 +80,7 @@ class reserveringenModel
     $klant_plaats = $creating['woonplaats'];
     $klant_nr = $creating['telefoon'];
     $datum = date('Y-m-d');
-    $aant_pers = $creating['normaal'] + $creating['12tm17'] + $creating['tm11'] + $creating['65plus'] + $creating['overig'];
+    $aant_pers = $creating['normaal'] + $creating['tm17'] + $creating['tm11'] + $creating['plus'] + $creating['overig'];
 
     $bedrag = $this->berekBedrag($creating)->fetch(PDO::FETCH_ASSOC);
     $totaalBed = $bedrag['Bedrag'];
