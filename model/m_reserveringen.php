@@ -60,6 +60,7 @@ class reserveringenModel
       throw $e;
     }
   }
+
   public function getReservatie($id)
   {
     try {
@@ -110,8 +111,8 @@ class reserveringenModel
     try{
       $normaal = intval($creating['normaal']);
       $tm11 = intval($creating['tm11']);
-      $jongeren = intval($creating['12tm17']);
-      $ouderen = intval($creating['65plus']);
+      $jongeren = intval($creating['tm17']);
+      $ouderen = intval($creating['plus']);
       $overig = intval($creating['overig']);
 
       $sql = "SELECT SUM(($normaal * normaal) + ($tm11 * tm11) + ($jongeren * 12tm17) + ($ouderen *65plus) + ($overig * overig)) AS Bedrag FROM tarieven";
