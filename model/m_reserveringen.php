@@ -74,12 +74,23 @@ class reserveringenModel
     $bedrag = $this->berekBedrag($creating)->fetch(PDO::FETCH_ASSOC);
     $totaalBed = $bedrag['Bedrag'];
 
+    $updateBeschik = $this->updateBeschik($bes_id);
+
     try{
       $sql = "INSERT INTO reserveringen( klant_naam, klant_adres, klant_pc, klant_plaats, klant_tel, res_datum, aant_pers, bes_id, kosten) 
                   VALUES ('$klant_naam', '$klant_adres', '$klant_pc', '$klant_plaats','$klant_nr', '$datum', '$aant_pers', '$bes_id'
                   , '$totaalBed')";
       $factuur = $this->DataHandler->createData($sql);
       return $factuur;
+    }catch(exception $e){
+      throw $e;
+    }
+  }
+
+  public function updateBeschik($bes_id){
+    try{
+      $sql = "UPDATE beschikbaarheid SET beschik = 1 WHERE bes_id = $bes_id";
+      $update = $this->DataHandler->updateData($sql);
     }catch(exception $e){
       throw $e;
     }
