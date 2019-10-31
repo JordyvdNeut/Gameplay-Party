@@ -26,12 +26,12 @@
         $html .= "<label>Bioscoop informatie</label>";
         $html .= "<textarea id='input' name='bios_info'>$biosContent[bios_info]</textarea>";
         $html .= "<br />";
-        $html .= "<label>Foto buitenkant bioscoop</label>";
-        $html .= "<input class='form-control' type='url' name='bios_foto' value='$biosContent[bios_foto]' />";
-        $html .= "<br />";
-        $html .= "<label>Foto van de zalen</label>";
-        $html .= "<input class='form-control' type='url' name='bios_ins' value='$biosContent[bios_ins]' />";
-        $html .= "<br />";
+        // $html .= "<label>Foto buitenkant bioscoop</label>";
+        // $html .= "<input class='form-control' type='url' name='bios_foto' value='$biosContent[bios_foto]' />";
+        // $html .= "<br />";
+        // $html .= "<label>Foto van de zalen</label>";
+        // $html .= "<input class='form-control' type='url' name='bios_ins' value='$biosContent[bios_ins]' />";
+        // $html .= "<br />";
         $html .= "<button type='submit' class='btn'> Bewerken</button>";
       }
       echo $html;
