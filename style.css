@@ -232,9 +232,9 @@ width:auto;
 .break-after {
   page-break-after: always;
 }  
-body {
+/* body {
   font-family: 'Open Sans', sans-serif;
-}
+} */
 * {
   box-sizing: border-box;
 }
