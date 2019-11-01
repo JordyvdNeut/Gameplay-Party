@@ -1,6 +1,6 @@
 <title>Factuur</title>
 <body>
-<!-- <img class="logofactuur" src="view/images/gpp.svg" alt="Gameplay Party"> -->
+<img class="logofactuur" src="view/images/gpp.svg" alt="Gameplay Party">
   <?php
 $html = "";
 $html .= "<div class='container'>";
@@ -28,7 +28,7 @@ $html .= "<strong>Telefoonnummer: </strong>". $creating['telefoon']. " <br />";
 $html .= "</div>";
 
 while ($row = $reservatie->fetch(PDO::FETCH_ASSOC)) {
-$kosten = str_replace('.', ',', $row[kosten]);
+$kosten = str_replace('.', ',', "$row[kosten]");
 $html .= "<div class='col-5 resinfo'>";
 $html .= "<div class='row'>";
 $html .= "<div class='col-6 odd  '>";
@@ -60,32 +60,36 @@ $html .= "<th class='odd'>Bedrag</th>";
 $html .= "</tr>";
 $html .= "</thead>";
 $html .= "<tbody>";
-$html .= "<tr class='bob'><td><strong>Kids GamePlayParty</strong><br></td>";
 
-$create = array('normaal'=>$creating['normaal'],'12tm17'=>$creating['tm17'], 'tm11'=>$creating['tm11'],'plus'=>$creating['plus'],'overig'=>$creating['overig']);
+$create = array('normaal'=>$creating['normaal'],'tm17'=>$creating['tm17'], 'tm11'=>$creating['tm11'],'plus'=>$creating['plus'],'overig'=>$creating['overig']);
 $kosten = str_replace('.', ',', $kosten);
 if($creating = $create['normaal']){
-  $html  .= "<td><strong>Normaal: </strong>$create[normaal]</td>
-<td> €$kosten</td>";
-} else if($creating = $create['12tm17']){
-  $html  .= "<td><strong>Jeugd12 t/m 17 jaar: </strong>$create[tm17]</td>
+  $html  .= "<tr class='bob'><td><strong>Volwassenen GamePlayParty</strong><br></td><td><strong>Normaal: </strong>$create[normaal]</td>
+<td> €$kosten</td></tr><tr>";
+} if($creating = $create['tm11']){
+  $html  .= "<tr class='bob'><td><strong>Kids GamePlayParty</strong><br></td><td><strong>T/m 11 jaar: </strong>$create[tm11]</td>
 <td>€$kosten</td>";
-} else if($creating = $create['tm11']){
-  $html  .= "<td><strong>T/m 11 jaar: </strong>$create[tm11]</td>
+} if($creating = $create['tm17']){
+  $html  .= "<tr class='bob'><td><strong>Jeugd GamePlayParty</strong><br></td><td><strong>12 t/m 17 jaar: </strong>$create[tm17]</td>
+<td>€$kosten</td></tr>";
+}   if($creating = $create['plus']){
+  $html  .= "<tr class='bob'><td><strong>Ouderen GamePlayParty</strong><br></td><td><strong>65+: </strong>$create[plus]</td>
 <td>€$kosten</td>";
-} else if($creating = $create['65plus']){
-  $html  .= "<td><strong>65+: </strong>$create[plus]</td>
-<td>€$kosten</td>";
-} else if($creating = $create['overig']){
-  $html  .= "<td><strong>65+: </strong>$create[overig]</td>
+} if($creating = $create['overig']){
+  $html  .= "<tr class='bob'><td><strong>Overig GamePlayParty</strong><br></td><td><strong>overig: </strong>$create[overig]</td>
 <td>€$kosten</td>";
 }
-$html .= "</tr>";
+// $normaal = "$row[normaal]";
+// $tm11 = "$row[tm11]";
+// $tm17 = "$row[tm17]";
+// $plus = "$row[plus]";
+// $overig =" $row[overig]";
+// $html .= "</tr>";
 
 //Berekeningen
-$btw = $kosten / 100 * 21;
+$btw = (int)$kosten / 100 * 21;
 //$btw21 = intval($btw, 2);
-$totaal = $btw + $kosten;
+$totaal = (int)$btw + (int)$kosten;
 
 $btw = str_replace('.', ',', $btw);
 
@@ -111,8 +115,9 @@ $html .= "<div class='col-4 ral titelkeuze'>";
 $html .= "<p><strong>Reguliere tarieven:</strong></p>";
 $html .= "</div>";
 
-$html .= "<div class='col-8 tkeuzes'>";
+
 while ($row = $tarieven->fetch(PDO::FETCH_ASSOC)) {
+  $html .= "<div class='col-8 tkeuzes'>";
   $html .= "<table>";
   $html .= "<tr>";
   foreach ($row as $key => $value) {
@@ -125,8 +130,9 @@ while ($row = $tarieven->fetch(PDO::FETCH_ASSOC)) {
   }
   $html .= "</tr>";
   $html .= "</table>";
+  $html .= "</div>";
 }
-$html .= "</div>";
+
 
 while ($row = $Toeslagen->fetch(PDO::FETCH_ASSOC)) {
   $html .= "<div class='col-4 ral toeslag titelkeuze'>";
