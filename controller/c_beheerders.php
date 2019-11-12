@@ -101,7 +101,7 @@ class BeheerdersController
 		$availabe = $this->beheerdersLogic->readAvailabilty();
 		$availabiltyTable = $this->HTMLBeheerderController->createAvailabiltyTable($availabe, 'Beschikbaren zalen');
 		$booked = $this->beheerdersLogic->readBooked();
-		$bookedTable = $this->HTMLBeheerderController->createAvailabiltyTable($booked, 'Geboekten zalen');
+		$bookedTable = $this->HTMLBeheerderController->createAvailabiltyTable($booked, 'Geboekte zalen');
 		return "<hr style='border-color: green'>" . $availabiltyTable . "<hr style='border-color: green'>" . $bookedTable;
 	}
 
