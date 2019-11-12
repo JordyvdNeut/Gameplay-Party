@@ -38,6 +38,20 @@ $user =  $this->beheerdersController->collectUser($_SESSION['user_id']);
         <i class="fa fa-bars dropbtn" onclick="burgerMenu()"></i>
         <div id="myDropdown" class="dropdown-content">
           <a href="index.php?op=beHome">Home</a>
+        <?php
+              if($_SESSION['user_role'] === 2){
+                echo "<a href='index.php?op=addForm'>Toevoegen beschikbaarheid</a>";
+                echo "<a href='index.php?op=readBiosCon'>Bioscooop gegevens</a>";
+              }
+        
+              if($_SESSION['user_role'] === 3){
+                echo "<a href='index.php?op=formHomeCont'>Teksten toevoegen</a>";
+              }
+        
+              if ($_SESSION['user_role'] === 4) {
+                echo "<a href='index.php?op=searchMonth'>Per maand</a>";
+              }
+        ?>
           <!-- <a href="index.php?op=overzicht">Bioscopen</a>
         <a href="index.php?op=overons">Over ons</a> -->
           <a href="index.php?op=loguit">Loguit</a>

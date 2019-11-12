@@ -10,6 +10,7 @@ $html.="<div class='col-12 print'><button class='btn'onClick='window.print()'>Pr
 $html .= "<div class='col-7 ral rot reshead'><h1>Reservering</h1></div>"; 
 
 while ($row = $biosDetails->fetch(PDO::FETCH_ASSOC)) {
+
 $html .= "<div class='col-5 ral resbiosinfo'>";
 $html .= "$row[bios_naam]<br />";
 $html .= "$row[bios_adres] <br />";
@@ -28,13 +29,14 @@ $html .= "<strong>Telefoonnummer: </strong>". $creating['telefoon']. " <br />";
 $html .= "</div>";
 
 while ($row = $reservatie->fetch(PDO::FETCH_ASSOC)) {
+  $NLdate = date("d-m-Y", strtotime($row['res_datum']));
 $kosten = str_replace('.', ',', "$row[kosten]");
 $html .= "<div class='col-5 resinfo'>";
 $html .= "<div class='row'>";
 $html .= "<div class='col-6 odd  '>";
 $html .= "<strong>Reserverings ID: GP-$row[res_code]</strong><br>"; 
-$html .= "<strong>Datum: $row[res_datum]</strong><br>"; 
-$html .= "<strong>Reserveringsdatum: $row[res_datum]</strong><br>";  
+$html .= "<strong>Datum: $NLdate</strong><br>"; 
+$html .= "<strong>Reserveringsdatum: $NLdate</strong><br>";  
 $html .= "<strong>Totaal EURO:  €$kosten</strong><br><br>"; 
 $html .= "</div>";
 $html .= "</div>";
