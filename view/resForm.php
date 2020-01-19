@@ -24,13 +24,16 @@ require_once('view/header.php');
         $html .= "</div>";
       }
       while ($row = $bestelDetails->fetch(PDO::FETCH_ASSOC)) {
+        $NLdate = date("d-m-Y", strtotime($row['datum']));
+        $begintijd = date("H:i ", strtotime($row['beg_tijd']));
+        $eindtijd = date("H:i ", strtotime($row['eind_tijd']));
         $html .= "<div class='bestel col-5'>";
         $html .= "<h3>Bestel gegevens</h3><br />";
         $html .= "<p>";
         $html .= "Zaal nummer: $row[zaal_nr] <br />";
         $html .= "<br />";
-        $html .= "Datum: $row[datum] <br />";
-        $html .= "Tijden: $row[beg_tijd] - $row[eind_tijd]<br />";
+        $html .= "Datum:  $NLdate <br />";
+        $html .= "Tijden: $begintijd - $eindtijd<br />";
         $html .= "</p>";
         $html .= "</div>";
       }

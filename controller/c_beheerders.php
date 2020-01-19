@@ -101,7 +101,7 @@ class BeheerdersController
 		$availabe = $this->beheerdersLogic->readAvailabilty();
 		$availabiltyTable = $this->HTMLBeheerderController->createAvailabiltyTable($availabe, 'Beschikbaren zalen');
 		$booked = $this->beheerdersLogic->readBooked();
-		$bookedTable = $this->HTMLBeheerderController->createAvailabiltyTable($booked, 'Geboekten zalen');
+		$bookedTable = $this->HTMLBeheerderController->createAvailabiltyTable($booked, 'Geboekte zalen');
 		return "<hr style='border-color: green'>" . $availabiltyTable . "<hr style='border-color: green'>" . $bookedTable;
 	}
 
@@ -113,7 +113,7 @@ class BeheerdersController
 		$searchBeschikDatum = $this->beheerdersLogic->readAvailabilityDate($datum);
 		$availabiltyTable = $this->HTMLBeheerderController->createAvailabiltyTable($searchBeschikDatum, "Beschikbaren zalen gevonden op: $NLdatum");
 		$searchBookedDatum = $this->beheerdersLogic->readBookedDate($datum);
-		$bookedTable = $this->HTMLBeheerderController->createAvailabiltyTable($searchBookedDatum, "Geboekten zalen gevonden op: $NLdatum");
+		$bookedTable = $this->HTMLBeheerderController->createAvailabiltyTable($searchBookedDatum, "Geboekte zalen gevonden op: $NLdatum");
 		$content = "<hr style='border-color: green'>" . $availabiltyTable . "<hr style='border-color: green'>" . $bookedTable;
 		require_once "view/beheerder/header.php";
 		include "view/beheerder/bioscoop/home.php";

@@ -487,6 +487,9 @@ div.not-mobile a button.btn {
 .infocontent.bewerken{
   margin-bottom:20px;
 }
+.infocontent.bewerken{
+  width:60%;
+}
 .delete .btn {
   margin: 10px;
 }
@@ -587,6 +590,9 @@ div.login button {
     height: 100%;
     min-width: 90%;
     max-width: 90%;
+    }
+    .infocontent.bewerken{
+      width:100%;
     }
 } 
 @media (max-width: 1024px) and (min-width:768px) {
