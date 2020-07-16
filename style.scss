@@ -1,0 +1,743 @@
+/*DO NOT CHANGE*/
+* {
+  box-sizing: border-box;
+}
+$primary-btn : rgb(42, 163, 255);
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: $primary-btn;
+  background-color: #ecf0f1 !important;
+  padding: 0px;
+  margin: 0px;
+}
+
+/*DO NOT CHANGE END*/
+
+/*Rows*/
+section.row {
+  margin: 15px;
+}
+
+/*Navigation*/
+nav {
+  background-color: #34495e;
+  height: 50px;
+}
+#home button.btn.home,
+#bios button.btn.bios,
+#overons button.btn.overons,
+#login button.btn.login {
+  background-color: #2c3e50;
+  color: #c4e538;
+  border-bottom: 5px solid #c4e538;
+}
+
+/*Links*/
+a {
+  color: #2c3e50;
+  text-decoration: none;
+  padding: 3px;
+}
+
+a:hover {
+  color: #2c3e50;
+  text-decoration: none !important;
+  padding: 3px;
+}
+.btn.h_overzicht {
+  background-color: #c4e538;
+  color: #2c3e50;
+}
+
+/*Header*/
+header {
+  background: rgb(117, 136, 214);
+  background: linear-gradient(
+    90deg,
+    rgba(117, 136, 214, 1) 0%,
+    rgba(94, 226, 109, 1) 44%,
+    rgba(219, 198, 83, 1) 94%
+  );
+}
+
+.title {
+  color: #34495e;
+  margin-right: 20px;
+  margin-top: -120px;
+  margin-bottom: 40px;
+}
+
+blockquote {
+  color: #34495e;
+}
+
+.logo {
+  width: 50%;
+  margin-left: -5px;
+}
+
+.quote {
+  text-align: right;
+  padding: 0px;
+  border-left: 0px solid #eee;
+  margin: 0px;
+  margin-right: 20px;
+}
+
+/* Beheerders header */
+.username {
+  color: #c4e538;
+  line-height: 50px;
+  margin-left: 15px;
+  float: left;
+}
+
+.navRight {
+  float: right;
+}
+
+/*Content*/
+.content {
+  content: "";
+  padding: 15px;
+  background-color: #c4e5385c;
+  display: table;
+  margin: 0 auto;
+  height: 100%;
+  min-width: 90%;
+  max-width: 90%;
+}
+.infocontent {
+  padding: 15px;
+  background-color: #c4e5385c;
+  margin: 0 auto;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.content a {
+  display: table-row-group;
+}
+
+h2 {
+  font-weight: bold;
+}
+
+.row {
+  flex-wrap: wrap;
+  display: flex;
+  margin: 0;
+  margin-top: 20px;
+}
+/* voorwaarde
+.vwcontent {
+  content: "";
+  padding: 15px;
+  background-color: #c4e5385c;
+  display: table;
+  margin: 0 auto;
+  height: 100%;
+  min-width: 90%;
+  max-width: 90%;
+} */
+/*beschikbaar content*/
+.beschikcontent {
+  content: "";
+  padding: 15px;
+  display: table;
+  margin: 0 auto;
+  height: 100%;
+  max-width: 100%;
+}
+.col-9.beschikSearch {
+  margin: 0 auto;
+}
+.table > tbody > tr > th,
+.table > tbody > tr > td {
+  border: none !important;
+}
+input.form-control.search {
+  width: 70%;
+  float: left;
+}
+input.btn.submit {
+  width: 30%;
+  float: left;
+}
+.beschikbaar h3 {
+  text-align: center;
+}
+.content.beschikbaarcontent {
+  min-width: 50%;
+}
+.content.beschikcontent {
+  min-width: 50%;
+}
+.contentinfo {
+  height: auto;
+}
+/*beschiksearch*/
+.beschiksearch {
+  overflow: hidden;
+}
+.datebeschik {
+  float: left;
+  width: auto;
+}
+.submitbeschik {
+  float: left !important;
+  width: auto;
+}
+
+/*resform*/
+
+.bestel,
+.diensten,
+.tarieven {
+  margin: 0 auto;
+}
+
+.tarieven tr {
+  margin-right: 30px;
+  display: inline-grid;
+}
+.rescontent {
+  margin: 0 auto;
+}
+.col-5.rescontent {
+  display: grid;
+}
+.resbtn {
+  float: right;
+}
+.resbtn .btn {
+  float: none !important;
+  margin-left: 10px;
+  margin-left: 10px;
+}
+.flexnone {
+  display: inline;
+}
+/*factuur*/
+.resinfo {
+  margin-top: 30px;
+}
+
+.break-before {
+  page-break-before: always;
+}
+
+.break-after {
+  page-break-after: always;
+}
+/* body {
+  font-family: 'Open Sans', sans-serif;
+} */
+* {
+  box-sizing: border-box;
+}
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+[class*="col-"] {
+  float: left;
+  padding: 1em;
+}
+html {
+  font-family: "Open Sans", sans-serif;
+  color: #2c3e50;
+}
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.menu li {
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color: #33b5e5;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.menu li:hover {
+  background-color: #0099cc;
+}
+.aside {
+  background-color: #33b5e5;
+  padding: 15px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.container {
+  width: auto;
+  margin: 0 auto;
+  padding: 0px;
+}
+table {
+  width: inherit;
+}
+.ral {
+  text-align: right;
+  padding-right: 15px;
+}
+.hil {
+  background-color: #c4e538;
+}
+.odd {
+  background-color: #a3cb38;
+}
+.menu > li {
+  padding: 1em;
+  margin-bottom: 1em;
+  background-color: #fff;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  display: inline;
+  font: condensed 0.8em/46px "Open Sans";
+}
+.bob {
+  border-bottom: 2px solid #ffc312;
+}
+.rot {
+  transform: rotate(-15deg);
+  font: bold 3em/5em "Open Sans";
+  margin-bottom: -3em;
+}
+/*formdivide*/
+.apartfrom {
+  margin-bottom: 15px;
+}
+/*Detail Bioscopen*/
+.biosInside {
+  width: 300px;
+  position: static;
+  float: right;
+  margin: 3px;
+}
+.logofactuur {
+  width: 50%;
+  margin-left: -5px;
+  position: absolute;
+}
+
+@media (max-width: 786px) {
+  .biosInside {
+    width: 150px;
+  }
+  .col-5.rescontent {
+    display: inline;
+    min-width: 100%;
+  }
+  .content.beschikbaarcontent {
+    min-width: 90%;
+  }
+  .row.noflex {
+    display: inline;
+  }
+
+  input.form-control.search {
+    width: 100%;
+    float: none;
+  }
+  input.btn.submit {
+    width: 100%;
+    float: none;
+  }
+}
+
+/*Footer*/
+footer {
+  background-color: #2c3e50;
+  color: #c4e538;
+  padding: 10px;
+  margin-top: 10px;
+}
+.footer a {
+  color: #c4e538;
+  text-decoration: none;
+}
+footer .contact_foot a.footer:hover {
+  /* text-decoration:underline; */
+  padding: 0px !important;
+}
+
+.footer_a {
+  color: #c4e538;
+}
+
+.footer_a:hover {
+  color: #c4e538;
+  cursor: pointer;
+  border-bottom: 1px solid #c4e538;
+}
+
+/* CLASSES */
+div.not-mobile a button.btn {
+  height: 50px;
+}
+
+.btnLogin {
+  margin-right: 10px;
+}
+
+.footer {
+  display: block;
+  color: #c4e538;
+  list-style-type: none;
+  margin: 5px;
+  padding: 0px;
+}
+
+.center_footer {
+  padding: 0 50px;
+  text-align: center;
+}
+
+.contact_foot {
+  float: right;
+  margin: 0 auto;
+}
+
+.contact_foot a.footer:hover {
+  cursor: pointer;
+}
+
+.contact_foot a.footer:hover h3 {
+  text-decoration: underline;
+}
+*/ .voorw_foot {
+  width: 20%;
+}
+.voorw_foot.col-6 {
+  margin: 0 auto;
+}
+
+.footer2 {
+  color: #c4e538;
+  list-style-type: none;
+  margin: 5px;
+  padding: 0px;
+  text-align: right;
+}
+
+.footer:hover {
+  color: #c4e538;
+}
+
+.footer_copy {
+  text-align: center;
+}
+
+/*Bioscopen*/
+.biosPhoto {
+  width: 150px;
+  position: static;
+  float: right;
+  margin: 3px;
+}
+
+.con_title {
+  text-align: center;
+  margin: 10px;
+}
+
+.con_inh {
+  padding: 5px;
+}
+
+.con_title,
+.con_in {
+  width: 100%;
+}
+
+/* Email formulier */
+.table.content {
+  display: block;
+  padding: 30px;
+}
+
+.table.content .btn {
+  margin-top: 10px;
+}
+
+.heading {
+  text-align: center;
+}
+/* 
+.content {
+  content: "";
+  padding: 15px;
+  background-color: #c4e5385c;
+  display: table;
+  margin: 0 auto;
+  height: 100%;
+  max-width: 90%;
+} */
+.col-10.content.bewerken,
+.infocontent.bewerken {
+  margin-bottom: 20px;
+}
+.delete .btn {
+  margin: 10px;
+}
+.delete {
+  margin: 0 auto;
+  display: table;
+}
+.deleteh3 {
+  text-align: center;
+}
+/* buttons */
+button.btn {
+  background-color: #34495e;
+  color: #c4e538;
+  float: right;
+  margin-bottom: 10px;
+}
+
+.btn {
+  background-color: #34495e;
+  color: #c4e538;
+  float: right;
+  margin-bottom: 10px;
+}
+
+button.extra {
+  background-color: #c4e538;
+  color: #34495e;
+  float: right;
+  margin-bottom: 10px;
+}
+button.extra:hover {
+  background-color: #34495e !important;
+  color: #c4e538;
+}
+button.btn:hover {
+  background-color: #c4e538;
+}
+
+div.not-mobile a button.btn {
+  height: 50px;
+}
+
+nav div a:hover button.btn {
+  background-color: #2c3e50;
+  color: #c4e538;
+  border-bottom: 5px solid #c4e538;
+}
+
+/*Login*/
+div.login {
+  background-color: #c4e538;
+  border: none;
+  margin: 15px;
+  padding: 5px;
+}
+
+div.login h2 {
+  margin-top: 5px;
+}
+
+div.login button {
+  background-color: #2c3e50;
+  color: #c4e538;
+  margin-bottom: 0px;
+}
+.vwcontent {
+  font-size: 1em;
+  content: "";
+  padding: 15px;
+  background-color: #c4e5385c;
+  display: table;
+  margin: 0 auto;
+  height: 100%;
+  min-width: 90%;
+  max-width: 90%;
+}
+/*MEDIA SCREENS*/
+@media (max-width: 768px) and (min-width: 600px) {
+  .logo {
+    margin-top: -11px;
+  }
+}
+@media (max-width: 600px) {
+  .delete .btn {
+    margin: 2px;
+  }
+  .logo {
+    margin-top: 0;
+  }
+  .vwcontent {
+    font-size: 1.8em;
+    content: "";
+    padding: 15px;
+    background-color: #c4e5385c;
+    display: table;
+    margin: 0 auto;
+    height: 100%;
+    min-width: 90%;
+    max-width: 90%;
+  }
+}
+@media (max-width: 1024px) and (min-width: 768px) {
+  .title {
+    margin-top: 0px;
+    text-align: right;
+  }
+}
+@media (max-width: 768px) {
+  .logo {
+    width: 90%;
+  }
+  .center {
+    padding-left: 0px;
+  }
+
+  .title {
+    margin-top: 0px;
+    text-align: right;
+  }
+
+  .content {
+    margin-top: 15px;
+  }
+
+  .con_title {
+    font-size: 1.5em;
+  }
+
+  .row {
+    margin: 0px;
+  }
+
+  [class*="col-"] {
+    margin-bottom: 15px;
+  }
+
+  .container {
+    width: 100%;
+  }
+}
+
+/* [class*="col-"] {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 600px) {
+  [class*="col-"] {
+    margin: 0 auto;
+    margin-bottom: 15px;
+  }
+
+  .logo {
+    margin-top: -11px;
+  }
+}
+
+@media (min-width: 769px) {
+  .title {
+    text-align: right;
+    font-size: 40px;
+  }
+
+  [class*="col-"] {
+    float: left;
+    margin: 0 auto;
+    margin-bottom: 15px;
+  }
+}
+
+/* Mobile*/
+@media (min-width: 1024px) {
+  .title {
+    text-align: right;
+    font-size: 60px;
+  }
+}
+
+/*Laptop*/
+@media (min-width: 1405px) {
+  /* .logo{
+    margin-top: -1px;
+  } */
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #34495e;
+  color: #c4e538;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+}
+
+.dropdown-content a:active {
+  /* background-color: #34495e; */
+  color: #c4e538;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0px;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: #34495e;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.show {
+  display: block;
+}
+
+/* Show burger when mobile only */
+.not-mobile {
+  display: none;
+}
+
+.mobile {
+  display: block;
+  position: absolute;
+  right: 0px;
+}
+
+@media only screen and (min-width: 600px) {
+  .not-mobile {
+    display: block;
+  }
+  .mobile {
+    display: none;
+  }
+}
+@media (max-width: 425) {
+  .logo {
+    margin-top: 0px;
+  }
+}

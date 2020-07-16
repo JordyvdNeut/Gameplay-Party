@@ -1,21 +1,61 @@
+<?php
+require_once 'controller/c_beheerders.php';
+$this->beheerdersController = new BeheerdersController();
+$user =  $this->beheerdersController->collectUser($_SESSION['user_id']);
+?>
+
 <header>
-  <a href="index.php?op=home">
-    <img class="logo" src="view/images/gpp.svg" alt="Gameplay Party"></a>
+
+  <img class="logo" src="view/images/gpp.svg" alt="Gameplay Party">
   <h2 class="title">Beheerder</h2><br />
   <nav>
-    <div class="not-mobile">
-      <a href="index.php?op=loginForm"><button class="btn">Login</button></a>
-      <a href="index.php?op=overons"><button class="btn">Over ons</button></a>
-      <a href="index.php?op=overzicht"><button class="btn">Bioscopen</button></a>
-      <a href="index.php?op=home"><button class="btn">Home</button></a>
-    </div>
-    <div class="dropdown, mobile">
-      <i class="fa fa-bars dropbtn" onclick="burgerMenu()"></i>
-      <div id="myDropdown" class="dropdown-content">
-        <a href="index.php?op=home">Home</a>
-        <a href="index.php?op=overzicht">Bioscopen</a>
-        <a href="index.php?op=overons">Over ons</a>
-        <a href="index.php?op=loginForm">Login</a>
+    <div style="display: inline">
+      <div class="username">
+        <strong>Welkom: <?= $user['user_name'] ?></strong>
+      </div>
+      <div class="not-mobile navRight">
+        <a href="index.php?op=loguit"><button class="btn">Log uit</button></a>
+        <!-- <button href="index.php?op=overons"><button class="btn">Over ons</button></dii>
+      <a href="index.php?op=overzicht"><button class="btn">Bioscopen</button></a> -->
+      <?php 
+      if($_SESSION['user_role'] === 2){
+        echo "<a href='index.php?op=addForm'><button class='btn'>Toevoegen beschikbaarheid</button></a>";
+        echo "<a href='index.php?op=readBiosCon'><button class='btn'>Bioscooop gegevens</button></a>";
+      }
+
+      if($_SESSION['user_role'] === 3){
+        echo "<a href='index.php?op=formHomeCont'><button class='btn'>Teksten toevoegen</button></a>";
+      }
+
+      if ($_SESSION['user_role'] === 4) {
+        echo "<a href='index.php?op=searchMonth'><button class='btn'>Per maand</button></a>";
+      }
+      ?>
+      
+        <a href="index.php?op=beHome"><button class="btn">Home</button></a>
+      </div>
+      <div class="dropdown, mobile">
+        <i class="fa fa-bars dropbtn" onclick="burgerMenu()"></i>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="index.php?op=beHome">Home</a>
+        <?php
+              if($_SESSION['user_role'] === 2){
+                echo "<a href='index.php?op=addForm'>Toevoegen beschikbaarheid</a>";
+                echo "<a href='index.php?op=readBiosCon'>Bioscooop gegevens</a>";
+              }
+        
+              if($_SESSION['user_role'] === 3){
+                echo "<a href='index.php?op=formHomeCont'>Teksten toevoegen</a>";
+              }
+        
+              if ($_SESSION['user_role'] === 4) {
+                echo "<a href='index.php?op=searchMonth'>Per maand</a>";
+              }
+        ?>
+          <!-- <a href="index.php?op=overzicht">Bioscopen</a>
+        <a href="index.php?op=overons">Over ons</a> -->
+          <a href="index.php?op=loguit">Loguit</a>
+        </div>
       </div>
     </div>
   </nav>

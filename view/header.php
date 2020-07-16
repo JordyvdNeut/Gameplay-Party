@@ -1,10 +1,10 @@
 <header>
   <nav>
     <div class="not-mobile">
-      <a href="index.php?op=loginForm"><button class="btn">Login</button></a>
-      <a href="index.php?op=overons"><button class="btn">Over ons</button></a>
-      <a href="index.php?op=overzicht"><button class="btn">Bioscopen</button></a>
-      <a href="index.php?op=home"><button class="btn">Home</button></a>
+      <a href="index.php?op=loginForm"><button class="btn login">Login</button></a>
+      <a href="index.php?op=overons"><button class="btn overons">Over ons</button></a>
+      <a href="index.php?op=overzicht"><button class="btn bios">Bioscopen</button></a>
+      <a  href="index.php?op=home"><button class="btn home">Home</button></a>
     </div>
     <div class="dropdown, mobile">
       <i class="fa fa-bars dropbtn" onclick="burgerMenu()"></i>
@@ -18,7 +18,10 @@
   </nav>
   <a href="index.php?op=home">
     <img class="logo" src="view/images/gpp.svg" alt="Gameplay Party">
-    <h2 class="title">Gameplay Party</h2><br>
+
+    <h2 class="title">Gameplay Party</h2>
+    <blockquote class="quote">Power to the players</blockquote>
+
   </a>
 </header>
 
